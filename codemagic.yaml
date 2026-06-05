@@ -100,6 +100,21 @@ workflows:
             exit 1
           fi
 
+      - name: Fetch App Store signing files from Apple
+        script: |
+          set -euo pipefail
+          # 主 App + 扩展（默认会匹配 jdarray.JiaClock.*）
+          app-store-connect fetch-signing-files jdarray.JiaClock \
+            --type IOS_APP_STORE \
+            --create \
+            --platform IOS
+          # Widget 单独 Bundle ID，需 strict 匹配
+          app-store-connect fetch-signing-files jdarray.JiaClock.JiaClockWidget \
+            --type IOS_APP_STORE \
+            --create \
+            --platform IOS \
+            --strict-match-identifier
+
       - name: Apply provisioning profiles to Xcode project
         script: xcode-project use-profiles
 
