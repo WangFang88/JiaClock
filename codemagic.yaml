@@ -6,6 +6,7 @@
 # 2. 勾选 "Use codemagic.yaml"（不要用 UI 向导覆盖 yaml）
 # 3. 先跑 jiaclock-ios-simulator（无需签名，验证工程能否编译）
 # 4. TestFlight 见 README「Codemagic 配置」章节
+# 5. 真机直装（绕过 TestFlight）→ workflow jiaclock-adhoc（需先注册 iPhone UDID）
 #
 # TestFlight workflow 使用下方 vars 里写死的 APP_STORE_APPLE_ID（6776895229）。
 # 若用 Codemagic 环境变量组，须在应用设置里勾选启用 jiaclock_secrets，否则 $VAR 不会展开。
@@ -159,3 +160,82 @@ workflows:
       - /tmp/xcodebuild_logs/*.log
       - /tmp/app-store-publish.log
       - /tmp/asc-apps.log
+
+  # ---------------------------------------------------------------------------
+  # Workflow C: Ad Hoc 签名 .ipa → 直接装真机（绕过 TestFlight）
+  # ---------------------------------------------------------------------------
+  jiaclock-adhoc:
+    name: JiaClock Ad Hoc (Direct Install)
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+
+    integrations:
+      app_store_connect: reminderapp
+
+    triggering:
+      events: []
+
+    environment:
+      ios_signing:
+        distribution_type: ad_hoc
+        # 主 App；Codemagic 会自动匹配 jdarray.JiaClock.*（含 Widget）
+        bundle_identifier: jdarray.JiaClock
+      vars:
+        XCODE_SCHEME: JiaClock
+        XCODE_PROJECT: JiaClock.xcodeproj
+      xcode: latest
+
+    scripts:
+      - name: Verify Ad Hoc prerequisites
+        script: |
+          set -euo pipefail
+          echo "=== Ad Hoc: direct install to registered iPhone ==="
+          echo ""
+          echo "One-time setup (before first Ad Hoc build):"
+          echo "  1. Get iPhone UDID (Finder → iPhone → 点序列号切换为 UDID, or 爱思助手)"
+          echo "  2. developer.apple.com → Devices → + → register UDID"
+          echo "  3. Codemagic → Code signing identities → Fetch profiles (Ad Hoc)"
+          echo "     Profiles must cover jdarray.JiaClock + jdarray.JiaClock.JiaClockWidget"
+          echo ""
+          echo "--- Registered devices (Developer Portal via API) ---"
+          app-store-connect devices list 2>&1 | tee /tmp/adhoc-devices.log || true
+          if ! grep -qi "udid" /tmp/adhoc-devices.log 2>/dev/null; then
+            echo "WARN: No devices listed. Register UDID in Developer Portal, then Fetch profiles."
+          fi
+
+      - name: Apply provisioning profiles to Xcode project
+        script: xcode-project use-profiles
+
+      - name: Increment build number
+        script: |
+          set -euo pipefail
+          cd "$CM_BUILD_DIR"
+          agvtool new-version -all "$BUILD_NUMBER"
+
+      - name: Build Ad Hoc ipa (app + JiaClockWidgetExtension)
+        script: |
+          set -euo pipefail
+          xcode-project build-ipa \
+            --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME" \
+            2>&1 | tee /tmp/xcodebuild-adhoc.log
+          ls -la "$CM_BUILD_DIR/build/ios/ipa/"
+
+    publishing:
+      scripts:
+        - name: Install instructions
+          script: |
+            echo "✅ Ad Hoc ipa ready — download from build Artifacts."
+            echo ""
+            echo "Install on a registered iPhone (UDID must be in Ad Hoc profile):"
+            echo "  • 爱思助手 — 工具箱 / 安装 ipa"
+            echo "  • Apple Configurator (Mac) — 拖 ipa 到设备"
+            echo "  • Sideloadly — 选 ipa + Apple ID  sideload"
+            echo ""
+            echo "Ad Hoc builds expire when the provisioning profile expires (~1 year)."
+            echo "Re-register new devices → Fetch profiles → rebuild."
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild-adhoc.log
+      - /tmp/adhoc-devices.log
