@@ -21,6 +21,7 @@ final class StoreKitService: ObservableObject {
 
     private var entitlementManager: EntitlementManager?
     private var updatesTask: Task<Void, Never>?
+    private var handledTransactionIDs = Set<UInt64>()
 
     var monthlyProduct: Product? { product(for: ProProductID.monthly) }
     var yearlyProduct: Product? { product(for: ProProductID.yearly) }
@@ -36,7 +37,7 @@ final class StoreKitService: ObservableObject {
             await self?.listenForTransactionUpdates()
         }
         Task { await loadProducts() }
-        Task { await entitlementManager?.refreshEntitlements() }
+        Task { await entitlementManager?.refreshEntitlements(syncWithAppStore: true) }
     }
 
     deinit {
@@ -46,8 +47,6 @@ final class StoreKitService: ObservableObject {
     func loadProducts() async {
         isLoadingProducts = true
         defer { isLoadingProducts = false }
-
-        try? await AppStore.sync()
 
         for attempt in 0..<3 {
             do {
@@ -82,6 +81,7 @@ final class StoreKitService: ObservableObject {
     }
 
     func purchase(_ product: Product) async {
+        if case .purchasing = purchaseState { return }
         purchaseState = .purchasing
         defer {
             if case .purchasing = purchaseState { purchaseState = .idle }
@@ -167,10 +167,13 @@ final class StoreKitService: ObservableObject {
     private func handleVerifiedTransaction(_ verification: VerificationResult<Transaction>, finish: Bool) async {
         switch verification {
         case .verified(let transaction):
-            try? await AppStore.sync()
-            await entitlementManager?.refreshEntitlements()
-            if finish { await transaction.finish() }
-            await entitlementManager?.refreshEntitlements()
+            let isNew = handledTransactionIDs.insert(transaction.id).inserted
+            if isNew {
+                await entitlementManager?.refreshEntitlements()
+            }
+            if finish {
+                await transaction.finish()
+            }
         case .unverified(_, let error):
             alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
         }

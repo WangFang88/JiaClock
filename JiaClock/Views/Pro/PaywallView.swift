@@ -34,11 +34,6 @@ struct PaywallView: View {
                 }
             }
             .task { await storeKit.loadProducts() }
-            .onAppear {
-                if storeKit.products.isEmpty {
-                    Task { await storeKit.loadProducts() }
-                }
-            }
             .alert(L10n.Pro.alertTitle, isPresented: alertBinding) {
                 Button(L10n.Common.done, role: .cancel) {}
             } message: {
@@ -206,6 +201,7 @@ struct PaywallView: View {
     @ViewBuilder
     private func productCard(product: Product, style: ProductCardStyle) -> some View {
         Button {
+            guard !isPurchasing else { return }
             Task { await storeKit.purchase(product) }
         } label: {
             VStack(alignment: .leading, spacing: 8) {

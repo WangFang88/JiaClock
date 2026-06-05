@@ -24,11 +24,13 @@ final class EntitlementManager: ObservableObject {
         isPro || !feature.isGatedThisRound
     }
 
-    func refreshEntitlements() async {
+    func refreshEntitlements(syncWithAppStore: Bool = false) async {
         isRefreshing = true
         defer { isRefreshing = false }
 
-        try? await AppStore.sync()
+        if syncWithAppStore {
+            try? await AppStore.sync()
+        }
 
         var entitledIDs: Set<String> = []
         var latestSubscriptionExpiration: Date?
