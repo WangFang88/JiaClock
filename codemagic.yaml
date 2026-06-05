@@ -61,7 +61,7 @@ workflows:
   # ---------------------------------------------------------------------------
   jiaclock-testflight:
     name: JiaClock TestFlight
-    max_build_duration: 60
+    max_build_duration: 90
     instance_type: mac_mini_m2
 
     integrations:
@@ -119,12 +119,33 @@ workflows:
             --scheme "$XCODE_SCHEME" \
             2>&1 | tee /tmp/xcodebuild-ipa.log
 
+      - name: Verify App Store Connect API access
+        script: |
+          set -euo pipefail
+          echo "=== API key: reminderapp ==="
+          echo "Expected bundle ID: jdarray.JiaClock"
+          echo "APP_STORE_APPLE_ID: ${APP_STORE_APPLE_ID:-<not set>}"
+          echo "--- Registered bundle IDs (grep JiaClock) ---"
+          app-store-connect bundle-ids list 2>&1 | grep -i "JiaClock" || echo "NOT FOUND: create App ID jdarray.JiaClock in Developer Portal"
+          echo "--- App Store Connect apps ---"
+          app-store-connect apps list 2>&1 | tee /tmp/asc-apps.log || true
+          ls -la "$CM_BUILD_DIR/build/ios/ipa/"
+
+      - name: Upload ipa to App Store Connect (verbose)
+        script: |
+          set -euo pipefail
+          IPA=$(ls "$CM_BUILD_DIR"/build/ios/ipa/*.ipa | head -1)
+          echo "Uploading: $IPA"
+          app-store-connect publish \
+            --path "$IPA" \
+            --enable-package-validation \
+            --altool-verbose-logging \
+            --altool-retries 10 \
+            --altool-retry-wait 30 \
+            2>&1 | tee /tmp/app-store-publish.log
+
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
-
-    publishing:
-      app_store_connect:
-        auth: integration
-        # 先只上传 ipa；TestFlight 分发在 App Store Connect 里手动开启更稳
-        submit_to_testflight: false
+      - /tmp/app-store-publish.log
+      - /tmp/asc-apps.log
