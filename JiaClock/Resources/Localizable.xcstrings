@@ -1,4 +1,4 @@
-{
+﻿{
   "sourceLanguage": "zh-Hans",
   "strings": {
     "common.close": {
@@ -2379,6 +2379,60 @@
             "value": "海洋"
           }
         }
+      }
+    },
+    "theme.aurora": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Aurora" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "オーロラ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "오로라" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "极光" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "極光" } }
+      }
+    },
+    "theme.sakura": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sakura" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "桜吹雪" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "벚꽃" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "樱吹雪" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "櫻吹雪" } }
+      }
+    },
+    "theme.ember": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Ember" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "燃烬" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "잿불" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "烬燃" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "燼燃" } }
+      }
+    },
+    "theme.jade_realm": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Jade Realm" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "翡翠秘境" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "비취의 숲" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "翡翠秘境" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "翡翠秘境" } }
+      }
+    },
+    "theme.purple_dusk": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Purple Dusk" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "紫の夕暮れ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "보랏빛 황혼" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "紫暮" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "紫暮" } }
+      }
+    },
+    "theme.candy_fantasy": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Candy Fantasy" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "キャンディ幻想" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "캔디 판타지" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "绮幻糖" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "綺幻糖" } }
       }
     },
     "theme.picker_title": {

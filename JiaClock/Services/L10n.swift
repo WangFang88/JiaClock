@@ -93,6 +93,12 @@ enum L10n {
         static var midnight: String { tr("theme.midnight") }
         static var forest: String { tr("theme.forest") }
         static var ocean: String { tr("theme.ocean") }
+        static var aurora: String { tr("theme.aurora") }
+        static var sakura: String { tr("theme.sakura") }
+        static var ember: String { tr("theme.ember") }
+        static var jadeRealm: String { tr("theme.jade_realm") }
+        static var purpleDusk: String { tr("theme.purple_dusk") }
+        static var candyFantasy: String { tr("theme.candy_fantasy") }
         static var pickerTitle: String { tr("theme.picker_title") }
     }
 
