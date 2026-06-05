@@ -7,8 +7,8 @@
 # 3. 先跑 jiaclock-ios-simulator（无需签名，验证工程能否编译）
 # 4. TestFlight 见 README「Codemagic 配置」章节
 #
-# 环境变量组（Settings → Environment variables → Add group: jiaclock_secrets）:
-#   APP_STORE_APPLE_ID = App Store Connect 里应用的数字 Apple ID（非 Bundle ID）
+# TestFlight workflow 使用下方 vars 里写死的 APP_STORE_APPLE_ID（6776895229）。
+# 若用 Codemagic 环境变量组，须在应用设置里勾选启用 jiaclock_secrets，否则 $VAR 不会展开。
 
 workflows:
   # ---------------------------------------------------------------------------
@@ -80,24 +80,23 @@ workflows:
         distribution_type: app_store
         # 主 App Bundle ID；Codemagic 会自动匹配 jdarray.JiaClock.*（含 Widget）
         bundle_identifier: jdarray.JiaClock
-      groups:
-        - jiaclock_secrets
       vars:
         XCODE_SCHEME: JiaClock
         XCODE_PROJECT: JiaClock.xcodeproj
-        # 在 jiaclock_secrets 组里设置 APP_STORE_APPLE_ID（纯数字）
-        APP_STORE_APPLE_ID: $APP_STORE_APPLE_ID
+        # ASC → 小嘉时钟 → App 信息 → Apple ID（非 Bundle ID）
+        APP_STORE_APPLE_ID: "6776895229"
       xcode: latest
 
     scripts:
       - name: Verify signing prerequisites
         script: |
           set -euo pipefail
-          if [ -z "${APP_STORE_APPLE_ID:-}" ] || [ "$APP_STORE_APPLE_ID" = "0000000000" ]; then
-            echo "ERROR: Set APP_STORE_APPLE_ID in Codemagic group 'jiaclock_secrets'."
-            echo "Find it in App Store Connect → App → App Information → Apple ID."
+          if [[ "${APP_STORE_APPLE_ID:-}" == *'$'* ]] || ! [[ "${APP_STORE_APPLE_ID:-}" =~ ^[0-9]+$ ]]; then
+            echo "ERROR: APP_STORE_APPLE_ID must be a numeric Apple ID (got: ${APP_STORE_APPLE_ID:-<empty>})."
+            echo "Set it in codemagic.yaml vars or Codemagic UI environment group."
             exit 1
           fi
+          echo "APP_STORE_APPLE_ID OK: $APP_STORE_APPLE_ID"
 
       # 签名文件请在 Codemagic → Code signing identities 里配置（Generate certificate + Fetch profiles）
       # 不要在构建脚本里 --create 证书，否则会报 "Cannot save Signing Certificates without certificate private key"
