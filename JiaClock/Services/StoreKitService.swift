@@ -21,7 +21,7 @@ final class StoreKitService: ObservableObject {
 
     private var entitlementManager: EntitlementManager?
     private var updatesTask: Task<Void, Never>?
-    private var handledTransactionIDs = Set<UInt64>()
+    private var finishedTransactionIDs = Set<UInt64>()
 
     var monthlyProduct: Product? { product(for: ProProductID.monthly) }
     var yearlyProduct: Product? { product(for: ProProductID.yearly) }
@@ -91,7 +91,7 @@ final class StoreKitService: ObservableObject {
             let result = try await product.purchase()
             switch result {
             case .success(let verification):
-                await handleVerifiedTransaction(verification, finish: true)
+                await handleVerifiedTransaction(verification, finish: true, syncEntitlements: true)
                 purchaseState = .succeeded
             case .userCancelled:
                 purchaseState = .cancelled
@@ -164,16 +164,19 @@ final class StoreKitService: ObservableObject {
         }
     }
 
-    private func handleVerifiedTransaction(_ verification: VerificationResult<Transaction>, finish: Bool) async {
+    private func handleVerifiedTransaction(
+        _ verification: VerificationResult<Transaction>,
+        finish: Bool,
+        syncEntitlements: Bool = false
+    ) async {
         switch verification {
         case .verified(let transaction):
-            let isNew = handledTransactionIDs.insert(transaction.id).inserted
-            if isNew {
-                await entitlementManager?.refreshEntitlements()
-            }
-            if finish {
+            entitlementManager?.applyVerifiedTransaction(transaction)
+            if finish, !finishedTransactionIDs.contains(transaction.id) {
+                finishedTransactionIDs.insert(transaction.id)
                 await transaction.finish()
             }
+            await entitlementManager?.refreshEntitlements(syncWithAppStore: syncEntitlements)
         case .unverified(_, let error):
             alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
         }

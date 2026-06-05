@@ -113,11 +113,11 @@ const entries = {
     "문의"
   ),
   "legal.privacy.section.contact.body": loc(
-    "If you have questions about this Privacy Policy, please contact us at: support@example.com\n(Placeholder — replace with your official support email before App Store release.)",
-    "如对本隐私政策有疑问，请联系：support@example.com\n（占位邮箱，上架 App Store 前请替换为正式客服邮箱。）",
-    "如對本隱私政策有疑問，請聯絡：support@example.com\n（占位郵箱，上架 App Store 前請替換為正式客服郵箱。）",
-    "本ポリシーに関するお問い合わせ：support@example.com\n（プレースホルダー。公開前に正式なサポートメールに差し替えてください。）",
-    "본 방침 관련 문의: support@example.com\n(플레이스홀더. App Store 출시 전 공식 지원 이메일로 교체하세요.)"
+    "If you have questions about this Privacy Policy, please contact us at: douzq@jdarray.com",
+    "如对本隐私政策有疑问，请联系：douzq@jdarray.com",
+    "如對本隱私政策有疑問，請聯絡：douzq@jdarray.com",
+    "本ポリシーに関するお問い合わせ：douzq@jdarray.com",
+    "본 방침 관련 문의: douzq@jdarray.com"
   ),
 
   "legal.terms.effective_date": loc(
@@ -268,11 +268,11 @@ const entries = {
     "문의"
   ),
   "legal.terms.section.contact.body": loc(
-    "For questions about these Terms, contact: support@example.com\n(Placeholder — replace with your official support email before App Store release.)",
-    "如对本协议有疑问，请联系：support@example.com\n（占位邮箱，上架 App Store 前请替换为正式客服邮箱。）",
-    "如對本協議有疑問，請聯絡：support@example.com\n（占位郵箱，上架 App Store 前請替換為正式客服郵箱。）",
-    "本規約に関するお問い合わせ：support@example.com\n（プレースホルダー。公開前に正式なサポートメールに差し替えてください。）",
-    "약관 관련 문의: support@example.com\n(플레이스홀더. App Store 출시 전 공식 지원 이메일로 교체하세요.)"
+    "For questions about these Terms, contact: douzq@jdarray.com",
+    "如对本协议有疑问，请联系：douzq@jdarray.com",
+    "如對本協議有疑問，請聯絡：douzq@jdarray.com",
+    "本規約に関するお問い合わせ：douzq@jdarray.com",
+    "약관 관련 문의: douzq@jdarray.com"
   ),
 
   "transparent.privacy_title": loc(

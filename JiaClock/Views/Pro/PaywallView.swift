@@ -43,7 +43,9 @@ struct PaywallView: View {
             .onChange(of: storeKit.purchaseState) { _, newValue in
                 if case .succeeded = newValue {
                     Task {
-                        await entitlements.refreshEntitlements()
+                        if !entitlements.isPro {
+                            await entitlements.refreshEntitlements(syncWithAppStore: true)
+                        }
                         dismiss()
                         storeKit.resetPurchaseState()
                     }

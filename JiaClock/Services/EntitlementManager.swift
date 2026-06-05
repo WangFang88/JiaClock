@@ -16,12 +16,39 @@ final class EntitlementManager: ObservableObject {
         static let isPro = "pro.entitlement.cached.isPro"
     }
 
+    /// 购买刚完成时 `currentEntitlements` 可能尚未包含新订阅；暂存直至 StoreKit 同步确认。
+    private var purchaseConfirmedProductIDs: Set<String> = []
+
     init() {
         isPro = UserDefaults.standard.bool(forKey: CacheKey.isPro)
     }
 
     func hasAccess(to feature: ProFeature) -> Bool {
         isPro || !feature.isGatedThisRound
+    }
+
+    /// 将购买回调中的已验证交易立即并入 Pro 状态，避免刷新前 `isPro` 仍为 false。
+    func applyVerifiedTransaction(_ transaction: Transaction) {
+        guard isActiveProTransaction(transaction) else { return }
+        purchaseConfirmedProductIDs.insert(transaction.productID)
+
+        var latestSubscriptionExpiration = subscriptionExpirationDate
+        var latestSubscriptionProductID: String?
+
+        if ProProductID.subscriptionIDs.contains(transaction.productID),
+           let expiration = transaction.expirationDate {
+            latestSubscriptionExpiration = expiration
+            latestSubscriptionProductID = transaction.productID
+        } else if let existingSubscription = activeProductIDs.first(where: { ProProductID.subscriptionIDs.contains($0) }) {
+            latestSubscriptionProductID = existingSubscription
+        }
+
+        publishEntitlements(
+            entitledIDs: activeProductIDs.union(purchaseConfirmedProductIDs),
+            latestSubscriptionExpiration: latestSubscriptionExpiration,
+            latestSubscriptionProductID: latestSubscriptionProductID
+        )
+        UserDefaults.standard.set(isPro, forKey: CacheKey.isPro)
     }
 
     func refreshEntitlements(syncWithAppStore: Bool = false) async {
@@ -38,9 +65,7 @@ final class EntitlementManager: ObservableObject {
 
         for await result in Transaction.currentEntitlements {
             guard case .verified(let transaction) = result else { continue }
-            guard ProProductID.all.contains(transaction.productID) else { continue }
-            guard transaction.revocationDate == nil else { continue }
-            if let expiration = transaction.expirationDate, expiration <= Date() { continue }
+            guard isActiveProTransaction(transaction) else { continue }
 
             entitledIDs.insert(transaction.productID)
 
@@ -53,6 +78,30 @@ final class EntitlementManager: ObservableObject {
             }
         }
 
+        purchaseConfirmedProductIDs.subtract(entitledIDs)
+        entitledIDs.formUnion(purchaseConfirmedProductIDs)
+
+        publishEntitlements(
+            entitledIDs: entitledIDs,
+            latestSubscriptionExpiration: latestSubscriptionExpiration,
+            latestSubscriptionProductID: latestSubscriptionProductID
+        )
+
+        UserDefaults.standard.set(isPro, forKey: CacheKey.isPro)
+    }
+
+    private func isActiveProTransaction(_ transaction: Transaction) -> Bool {
+        guard ProProductID.all.contains(transaction.productID) else { return false }
+        guard transaction.revocationDate == nil else { return false }
+        if let expiration = transaction.expirationDate, expiration <= Date() { return false }
+        return true
+    }
+
+    private func publishEntitlements(
+        entitledIDs: Set<String>,
+        latestSubscriptionExpiration: Date?,
+        latestSubscriptionProductID: String?
+    ) {
         activeProductIDs = entitledIDs
         hasLifetimeEntitlement = !entitledIDs.intersection(ProProductID.lifetimeIDs).isEmpty
         hasActiveSubscription = !entitledIDs.intersection(ProProductID.subscriptionIDs).isEmpty
@@ -66,8 +115,6 @@ final class EntitlementManager: ObservableObject {
         } else {
             activePlanTitle = nil
         }
-
-        UserDefaults.standard.set(isPro, forKey: CacheKey.isPro)
     }
 
     private func planTitle(for productID: String) -> String {
