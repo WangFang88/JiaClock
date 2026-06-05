@@ -34,6 +34,11 @@ struct PaywallView: View {
                 }
             }
             .task { await storeKit.loadProducts() }
+            .onAppear {
+                if storeKit.products.isEmpty {
+                    Task { await storeKit.loadProducts() }
+                }
+            }
             .alert(L10n.Pro.alertTitle, isPresented: alertBinding) {
                 Button(L10n.Common.done, role: .cancel) {}
             } message: {

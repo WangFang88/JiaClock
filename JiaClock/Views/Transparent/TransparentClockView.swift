@@ -36,23 +36,34 @@ struct TransparentClockView: View {
 
     var body: some View {
         ZStack {
+            interactiveBackground
+            clockOverlay
+        }
+        .ignoresSafeArea()
+        .safeAreaInset(edge: .top, spacing: 0) {
+            if showControls {
+                controlsBar
+            }
+        }
+        .onAppear { isViewVisible = true; resumeCameraIfNeeded() }
+        .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
+        .onChange(of: scenePhase) { _, phase in handleScenePhaseChange(phase) }
+        .onReceive(timer) { now = $0 }
+        .statusBarHidden(true)
+    }
+
+    /// 仅背景层响应点击，用于显示/隐藏控制栏；不与顶部按钮争抢触摸。
+    private var interactiveBackground: some View {
+        ZStack {
             if cameraController.isCameraAvailable {
                 CameraPreviewView(session: cameraController.session).ignoresSafeArea()
             } else {
                 unavailableBackground
             }
             if darkOverlayEnabled { Color.black.opacity(0.22).ignoresSafeArea().allowsHitTesting(false) }
-            clockOverlay
-            if showControls { controlsOverlay.transition(.opacity).zIndex(1) }
         }
-        .ignoresSafeArea()
         .contentShape(Rectangle())
         .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
-        .onAppear { isViewVisible = true; resumeCameraIfNeeded() }
-        .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
-        .onChange(of: scenePhase) { _, phase in handleScenePhaseChange(phase) }
-        .onReceive(timer) { now = $0 }
-        .statusBarHidden(true)
     }
 
     private var unavailableBackground: some View {
@@ -115,28 +126,25 @@ struct TransparentClockView: View {
         }.allowsHitTesting(false)
     }
 
-    private var controlsOverlay: some View {
-        VStack {
-            HStack(spacing: 10) {
-                JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
-                Spacer()
-                JiaControlChip(icon: darkOverlayEnabled ? "moon.fill" : "moon", title: L10n.Transparent.darkOverlay) { darkOverlayEnabled.toggle() }
-                Menu {
-                    Picker(L10n.Transparent.displayMode, selection: $displayMode) {
-                        ForEach(TransparentDisplayMode.allCases) { Label($0.title, systemImage: $0.systemImage).tag($0) }
-                    }
-                    Button { useLightText.toggle() } label: {
-                        Label(useLightText ? L10n.Transparent.useDarkText : L10n.Transparent.useLightText, systemImage: "textformat")
-                    }
-                } label: {
-                    JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
+    private var controlsBar: some View {
+        HStack(spacing: 10) {
+            JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
+            Spacer(minLength: 8)
+            JiaControlChip(icon: darkOverlayEnabled ? "moon.fill" : "moon", title: L10n.Transparent.darkOverlay) { darkOverlayEnabled.toggle() }
+            Menu {
+                Picker(L10n.Transparent.displayMode, selection: $displayMode) {
+                    ForEach(TransparentDisplayMode.allCases) { Label($0.title, systemImage: $0.systemImage).tag($0) }
                 }
+                Button { useLightText.toggle() } label: {
+                    Label(useLightText ? L10n.Transparent.useDarkText : L10n.Transparent.useLightText, systemImage: "textformat")
+                }
+            } label: {
+                JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 12)
-            Spacer()
         }
-        .safeAreaPadding(.top, 8)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .background(.ultraThinMaterial.opacity(0.35))
     }
 
     private func handleScenePhaseChange(_ phase: ScenePhase) {

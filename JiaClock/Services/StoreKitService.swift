@@ -46,14 +46,39 @@ final class StoreKitService: ObservableObject {
     func loadProducts() async {
         isLoadingProducts = true
         defer { isLoadingProducts = false }
-        do {
-            let loaded = try await Product.products(for: ProProductID.all)
-            products = loaded.sorted { lhs, rhs in
-                sortRank(for: lhs.id) < sortRank(for: rhs.id)
+
+        try? await AppStore.sync()
+
+        for attempt in 0..<3 {
+            do {
+                var loaded = try await Product.products(for: ProProductID.all)
+                if loaded.isEmpty {
+                    loaded = await loadProductsIndividually()
+                }
+                if !loaded.isEmpty {
+                    products = loaded.sorted { sortRank(for: $0.id) < sortRank(for: $1.id) }
+                    return
+                }
+            } catch {
+                if attempt == 2 {
+                    alertMessage = L10n.Pro.productsLoadFailed(error.localizedDescription)
+                }
             }
-        } catch {
-            alertMessage = L10n.Pro.productsLoadFailed(error.localizedDescription)
+            if attempt < 2 {
+                try? await Task.sleep(nanoseconds: 1_500_000_000)
+            }
         }
+    }
+
+    private func loadProductsIndividually() async -> [Product] {
+        var merged: [Product] = []
+        for id in ProProductID.all {
+            guard let product = try? await Product.products(for: [id]).first else { continue }
+            if !merged.contains(where: { $0.id == product.id }) {
+                merged.append(product)
+            }
+        }
+        return merged
     }
 
     func purchase(_ product: Product) async {
