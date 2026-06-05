@@ -112,8 +112,12 @@ struct PaywallView: View {
                         .foregroundStyle(brandTheme.accentColor)
                         .frame(width: 24)
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(feature.title).font(.subheadline.weight(.semibold))
-                        Text(feature.subtitle).font(.caption).foregroundStyle(.secondary)
+                        Text(feature.title)
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.white.opacity(0.94))
+                        Text(feature.subtitle)
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.78))
                     }
                     Spacer(minLength: 0)
                 }

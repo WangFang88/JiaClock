@@ -11,6 +11,7 @@ struct FlipClockView: View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             clockContent(now: context.date)
         }
+        .id(settingsStore.settings.use24HourFormat)
     }
 
     @ViewBuilder
@@ -44,9 +45,18 @@ struct FlipClockView: View {
                         FlipDigitCard(value: components.hour, label: L10n.Flip.hourLabel, digitSize: digitSize, cardWidth: cardWidth, cardHeight: cardHeight)
                         Text(":")
                             .font(.system(size: digitSize * 0.72, weight: .light, design: .rounded))
-                            .foregroundStyle(.primary.opacity(0.65))
+                            .foregroundStyle(.white.opacity(0.72))
                             .offset(y: -cardHeight * 0.08)
                         FlipDigitCard(value: components.minute, label: L10n.Flip.minuteLabel, digitSize: digitSize, cardWidth: cardWidth, cardHeight: cardHeight)
+                        if let period = components.period {
+                            Text(period)
+                                .font(.system(size: digitSize * 0.22, weight: .semibold, design: .rounded))
+                                .foregroundStyle(.white.opacity(0.84))
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.7)
+                                .frame(maxWidth: cardWidth * 0.72)
+                                .offset(y: cardHeight * 0.08)
+                        }
                     }
                     .padding(.horizontal, 20)
 
@@ -54,12 +64,12 @@ struct FlipClockView: View {
                         if settingsStore.settings.showWeekday {
                             Text(ClockTimeFormatter.weekdayString(from: now))
                                 .font(isPad ? .title2.weight(.medium) : .title3.weight(.medium))
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.white.opacity(0.84))
                         }
                         if settingsStore.settings.showDate {
                             Text(ClockTimeFormatter.dateString(from: now))
                                 .font(isPad ? .title2 : .title3)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.white.opacity(0.84))
                         }
                         Text(settingsStore.effectiveTagline)
                             .font(isPad ? .title3.weight(.medium) : .headline.weight(.medium))
@@ -119,6 +129,8 @@ private struct FlipDigitCard: View {
                 Text(value)
                     .font(.system(size: digitSize, weight: .semibold, design: .rounded))
                     .monospacedDigit()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.55)
                     .foregroundStyle(.white)
                     .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
             }
@@ -126,7 +138,7 @@ private struct FlipDigitCard: View {
 
             Text(label)
                 .font(.caption2.weight(.bold))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.white.opacity(0.72))
                 .tracking(1.2)
         }
         .frame(maxWidth: .infinity)

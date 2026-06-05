@@ -11,6 +11,7 @@ struct FullScreenClockView: View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             clockContent(now: context.date)
         }
+        .id("\(settingsStore.settings.use24HourFormat)-\(settingsStore.settings.showSeconds)")
     }
 
     @ViewBuilder
@@ -35,12 +36,12 @@ struct FullScreenClockView: View {
                             if settingsStore.settings.showWeekday {
                                 Text(ClockTimeFormatter.weekdayString(from: now))
                                     .font(isPad ? .title2.weight(.medium) : .title3.weight(.medium))
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.white.opacity(0.84))
                             }
                             if settingsStore.settings.showDate {
                                 Text(ClockTimeFormatter.dateString(from: now))
                                     .font(isPad ? .title2 : .title3)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.white.opacity(0.84))
                             }
                         }
                     }
