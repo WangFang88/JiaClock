@@ -35,12 +35,12 @@ enum ClockTheme: String, CaseIterable, Identifiable, Codable {
         case .midnight: Color(red: 0.55, green: 0.62, blue: 0.98)
         case .forest: Color(red: 0.45, green: 0.78, blue: 0.58)
         case .ocean: Color(red: 0.38, green: 0.72, blue: 0.92)
-        case .aurora: Color(red: 0.38, green: 0.94, blue: 0.82)
-        case .sakura: Color(red: 0.98, green: 0.72, blue: 0.82)
-        case .ember: Color(red: 0.98, green: 0.55, blue: 0.22)
-        case .jadeRealm: Color(red: 0.28, green: 0.82, blue: 0.55)
-        case .purpleDusk: Color(red: 0.72, green: 0.58, blue: 0.95)
-        case .candyFantasy: Color(red: 0.98, green: 0.52, blue: 0.78)
+        case .aurora: Color(red: 0.52, green: 0.88, blue: 0.82)
+        case .sakura: Color(red: 0.94, green: 0.78, blue: 0.82)
+        case .ember: Color(red: 0.98, green: 0.72, blue: 0.58)
+        case .jadeRealm: Color(red: 0.48, green: 0.86, blue: 0.68)
+        case .purpleDusk: Color(red: 0.82, green: 0.72, blue: 0.94)
+        case .candyFantasy: Color(red: 0.96, green: 0.74, blue: 0.86)
         }
     }
 
@@ -55,17 +55,17 @@ enum ClockTheme: String, CaseIterable, Identifiable, Codable {
         case .ocean:
             [Color(red: 0.05, green: 0.10, blue: 0.18), Color(red: 0.08, green: 0.18, blue: 0.28), Color(red: 0.06, green: 0.14, blue: 0.22)]
         case .aurora:
-            [Color(red: 0.03, green: 0.06, blue: 0.14), Color(red: 0.05, green: 0.16, blue: 0.20), Color(red: 0.04, green: 0.10, blue: 0.18)]
+            [Color(red: 0.14, green: 0.28, blue: 0.32), Color(red: 0.22, green: 0.42, blue: 0.40), Color(red: 0.18, green: 0.36, blue: 0.38)]
         case .sakura:
-            [Color(red: 0.16, green: 0.08, blue: 0.12), Color(red: 0.26, green: 0.12, blue: 0.18), Color(red: 0.20, green: 0.10, blue: 0.15)]
+            [Color(red: 0.32, green: 0.22, blue: 0.26), Color(red: 0.42, green: 0.30, blue: 0.32), Color(red: 0.38, green: 0.26, blue: 0.29)]
         case .ember:
-            [Color(red: 0.12, green: 0.05, blue: 0.04), Color(red: 0.26, green: 0.09, blue: 0.06), Color(red: 0.18, green: 0.07, blue: 0.05)]
+            [Color(red: 0.30, green: 0.18, blue: 0.14), Color(red: 0.42, green: 0.28, blue: 0.22), Color(red: 0.36, green: 0.24, blue: 0.18)]
         case .jadeRealm:
-            [Color(red: 0.03, green: 0.09, blue: 0.07), Color(red: 0.05, green: 0.17, blue: 0.11), Color(red: 0.04, green: 0.13, blue: 0.09)]
+            [Color(red: 0.14, green: 0.28, blue: 0.22), Color(red: 0.22, green: 0.40, blue: 0.30), Color(red: 0.18, green: 0.34, blue: 0.26)]
         case .purpleDusk:
-            [Color(red: 0.09, green: 0.05, blue: 0.15), Color(red: 0.16, green: 0.08, blue: 0.26), Color(red: 0.12, green: 0.06, blue: 0.20)]
+            [Color(red: 0.26, green: 0.22, blue: 0.34), Color(red: 0.36, green: 0.30, blue: 0.44), Color(red: 0.32, green: 0.26, blue: 0.38)]
         case .candyFantasy:
-            [Color(red: 0.11, green: 0.07, blue: 0.16), Color(red: 0.19, green: 0.09, blue: 0.21), Color(red: 0.15, green: 0.08, blue: 0.18)]
+            [Color(red: 0.34, green: 0.24, blue: 0.30), Color(red: 0.36, green: 0.32, blue: 0.24), Color(red: 0.26, green: 0.28, blue: 0.36)]
         }
     }
 
