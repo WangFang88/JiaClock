@@ -65,9 +65,8 @@ workflows:
     instance_type: mac_mini_m2
 
     integrations:
-      # 在 Codemagic → Team integrations → App Store Connect 添加 API Key
-      # 集成名称须与下面一致；若你用了别的名字，改这里
-      app_store_connect: codemagic
+      # 集成名称须与 Codemagic Team integrations 里一致（当前为 reminderapp）
+      app_store_connect: reminderapp
 
     # 默认仅手动触发，避免签名未配好时 push 失败
     # 配置完成后可改为 push + main 分支自动构建：
