@@ -126,7 +126,5 @@ workflows:
     publishing:
       app_store_connect:
         auth: integration
-        submit_to_testflight: true
-        expire_build_submitted_for_review: false
-        beta_groups:
-          - Internal Testers
+        # 先只上传 ipa；TestFlight 分发在 App Store Connect 里手动开启更稳
+        submit_to_testflight: false
