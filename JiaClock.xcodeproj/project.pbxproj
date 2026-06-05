@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A20000000000000000000001 /* JiaClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000010 /* JiaClockApp.swift */; };
+		A20000000000000000000002 /* WidgetSharedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000011 /* WidgetSharedSettings.swift */; };
+		A20000000000000000000003 /* ClockMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000012 /* ClockMode.swift */; };
+		A20000000000000000000004 /* ClockTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000013 /* ClockTheme.swift */; };
+		A20000000000000000000005 /* ClockSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000014 /* ClockSettings.swift */; };
+		A20000000000000000000006 /* ProFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000015 /* ProFeature.swift */; };
+		A20000000000000000000007 /* LegalDocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000016 /* LegalDocumentType.swift */; };
+		A20000000000000000000008 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000017 /* L10n.swift */; };
+		A20000000000000000000009 /* LegalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000018 /* LegalContent.swift */; };
+		A20000000000000000000010 /* ClockSettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000019 /* ClockSettingsStore.swift */; };
+		A20000000000000000000011 /* FeatureRoadmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000020 /* FeatureRoadmap.swift */; };
+		A20000000000000000000012 /* CameraPermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000021 /* CameraPermissionService.swift */; };
+		A20000000000000000000013 /* CameraSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000022 /* CameraSessionController.swift */; };
+		A20000000000000000000014 /* JiaBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000023 /* JiaBackgroundView.swift */; };
+		A20000000000000000000015 /* JiaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000024 /* JiaCardView.swift */; };
+		A20000000000000000000016 /* JiaPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000025 /* JiaPrimaryButton.swift */; };
+		A20000000000000000000017 /* ProBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000026 /* ProBadgeView.swift */; };
+		A20000000000000000000018 /* HomeFeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000027 /* HomeFeatureCard.swift */; };
+		A20000000000000000000019 /* ClockTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000028 /* ClockTimeFormatter.swift */; };
+		A20000000000000000000020 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000029 /* HomeView.swift */; };
+		A20000000000000000000021 /* FullScreenClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000030 /* FullScreenClockView.swift */; };
+		A20000000000000000000022 /* FlipClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000031 /* FlipClockView.swift */; };
+		A20000000000000000000023 /* TransparentClockIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000032 /* TransparentClockIntroView.swift */; };
+		A20000000000000000000024 /* TransparentClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000033 /* TransparentClockView.swift */; };
+		A20000000000000000000025 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000034 /* CameraPreviewView.swift */; };
+		A20000000000000000000026 /* GlassMorphClockCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000035 /* GlassMorphClockCard.swift */; };
+		A20000000000000000000027 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000036 /* SettingsView.swift */; };
+		A20000000000000000000028 /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000037 /* ThemePickerView.swift */; };
+		A20000000000000000000029 /* LegalDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000038 /* LegalDocumentView.swift */; };
+		A20000000000000000000030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000039 /* Assets.xcassets */; };
+		A20000000000000000000031 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000040 /* Localizable.xcstrings */; };
+		A20000000000000000000032 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000043 /* InfoPlist.strings */; };
+		A20000000000000000000033 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10000000000000000000060 /* WidgetKit.framework */; };
+		A20000000000000000000034 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10000000000000000000061 /* SwiftUI.framework */; };
+		A20000000000000000000035 /* JiaClockWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E10000000000000000000002 /* JiaClockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A20000000000000000000036 /* JiaClockWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000050 /* JiaClockWidgetBundle.swift */; };
+		A20000000000000000000037 /* JiaClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000051 /* JiaClockWidget.swift */; };
+		A20000000000000000000038 /* JiaClockWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000052 /* JiaClockWidgetProvider.swift */; };
+		A20000000000000000000039 /* JiaClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000053 /* JiaClockWidgetView.swift */; };
+		A20000000000000000000040 /* WidgetThemeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000054 /* WidgetThemeRenderer.swift */; };
+		A20000000000000000000041 /* WidgetTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000055 /* WidgetTimeFormatter.swift */; };
+		A20000000000000000000042 /* WidgetSharedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000011 /* WidgetSharedSettings.swift */; };
+		A20000000000000000000043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000056 /* Assets.xcassets */; };
+		A20000000000000000000044 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000040 /* Localizable.xcstrings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		H10000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C10000000000000000000001;
+			remoteInfo = JiaClockWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D10000000000000000000004 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A20000000000000000000035 /* JiaClockWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E10000000000000000000001 /* JiaClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiaClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10000000000000000000002 /* JiaClockWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JiaClockWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10000000000000000000010 /* JiaClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaClockApp.swift; sourceTree = "<group>"; };
+		E10000000000000000000011 /* WidgetSharedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSharedSettings.swift; sourceTree = "<group>"; };
+		E10000000000000000000012 /* ClockMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockMode.swift; sourceTree = "<group>"; };
+		E10000000000000000000013 /* ClockTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTheme.swift; sourceTree = "<group>"; };
+		E10000000000000000000014 /* ClockSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSettings.swift; sourceTree = "<group>"; };
+		E10000000000000000000015 /* ProFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProFeature.swift; sourceTree = "<group>"; };
+		E10000000000000000000016 /* LegalDocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalDocumentType.swift; sourceTree = "<group>"; };
+		E10000000000000000000017 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		E10000000000000000000018 /* LegalContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalContent.swift; sourceTree = "<group>"; };
+		E10000000000000000000019 /* ClockSettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSettingsStore.swift; sourceTree = "<group>"; };
+		E10000000000000000000020 /* FeatureRoadmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRoadmap.swift; sourceTree = "<group>"; };
+		E10000000000000000000021 /* CameraPermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionService.swift; sourceTree = "<group>"; };
+		E10000000000000000000022 /* CameraSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionController.swift; sourceTree = "<group>"; };
+		E10000000000000000000023 /* JiaBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaBackgroundView.swift; sourceTree = "<group>"; };
+		E10000000000000000000024 /* JiaCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaCardView.swift; sourceTree = "<group>"; };
+		E10000000000000000000025 /* JiaPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaPrimaryButton.swift; sourceTree = "<group>"; };
+		E10000000000000000000026 /* ProBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBadgeView.swift; sourceTree = "<group>"; };
+		E10000000000000000000027 /* HomeFeatureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureCard.swift; sourceTree = "<group>"; };
+		E10000000000000000000028 /* ClockTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTimeFormatter.swift; sourceTree = "<group>"; };
+		E10000000000000000000029 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E10000000000000000000030 /* FullScreenClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenClockView.swift; sourceTree = "<group>"; };
+		E10000000000000000000031 /* FlipClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipClockView.swift; sourceTree = "<group>"; };
+		E10000000000000000000032 /* TransparentClockIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentClockIntroView.swift; sourceTree = "<group>"; };
+		E10000000000000000000033 /* TransparentClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentClockView.swift; sourceTree = "<group>"; };
+		E10000000000000000000034 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		E10000000000000000000035 /* GlassMorphClockCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassMorphClockCard.swift; sourceTree = "<group>"; };
+		E10000000000000000000036 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E10000000000000000000037 /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
+		E10000000000000000000038 /* LegalDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalDocumentView.swift; sourceTree = "<group>"; };
+		E10000000000000000000039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E10000000000000000000040 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		E10000000000000000000041 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E10000000000000000000042 /* JiaClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JiaClock.entitlements; sourceTree = "<group>"; };
+		E10000000000000000000044 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E10000000000000000000045 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		E10000000000000000000046 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		E10000000000000000000047 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E10000000000000000000048 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E10000000000000000000050 /* JiaClockWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaClockWidgetBundle.swift; sourceTree = "<group>"; };
+		E10000000000000000000051 /* JiaClockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaClockWidget.swift; sourceTree = "<group>"; };
+		E10000000000000000000052 /* JiaClockWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaClockWidgetProvider.swift; sourceTree = "<group>"; };
+		E10000000000000000000053 /* JiaClockWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaClockWidgetView.swift; sourceTree = "<group>"; };
+		E10000000000000000000054 /* WidgetThemeRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetThemeRenderer.swift; sourceTree = "<group>"; };
+		E10000000000000000000055 /* WidgetTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimeFormatter.swift; sourceTree = "<group>"; };
+		E10000000000000000000056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E10000000000000000000057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E10000000000000000000058 /* JiaClockWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JiaClockWidget.entitlements; sourceTree = "<group>"; };
+		E10000000000000000000060 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		E10000000000000000000061 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D10000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D10000000000000000000006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000033 /* WidgetKit.framework in Frameworks */,
+				A20000000000000000000034 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F10000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000002 /* JiaClock */,
+				F10000000000000000000003 /* JiaClockWidget */,
+				F10000000000000000000017 /* Frameworks */,
+				E10000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E10000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000001 /* JiaClock.app */,
+				E10000000000000000000002 /* JiaClockWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000002 /* JiaClock */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000004 /* App */,
+				F10000000000000000000005 /* Shared */,
+				F10000000000000000000006 /* Models */,
+				F10000000000000000000007 /* Services */,
+				F10000000000000000000008 /* Components */,
+				F10000000000000000000009 /* Utilities */,
+				F10000000000000000000010 /* Views */,
+				F10000000000000000000015 /* Resources */,
+				E10000000000000000000041 /* Info.plist */,
+				E10000000000000000000042 /* JiaClock.entitlements */,
+				E10000000000000000000043 /* InfoPlist.strings */,
+			);
+			path = JiaClock;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000003 /* JiaClockWidget */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000050 /* JiaClockWidgetBundle.swift */,
+				E10000000000000000000051 /* JiaClockWidget.swift */,
+				E10000000000000000000052 /* JiaClockWidgetProvider.swift */,
+				E10000000000000000000053 /* JiaClockWidgetView.swift */,
+				E10000000000000000000054 /* WidgetThemeRenderer.swift */,
+				E10000000000000000000055 /* WidgetTimeFormatter.swift */,
+				E10000000000000000000056 /* Assets.xcassets */,
+				E10000000000000000000057 /* Info.plist */,
+				E10000000000000000000058 /* JiaClockWidget.entitlements */,
+			);
+			path = JiaClockWidget;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000010 /* JiaClockApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000005 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000011 /* WidgetSharedSettings.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000006 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000012 /* ClockMode.swift */,
+				E10000000000000000000013 /* ClockTheme.swift */,
+				E10000000000000000000014 /* ClockSettings.swift */,
+				E10000000000000000000015 /* ProFeature.swift */,
+				E10000000000000000000016 /* LegalDocumentType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000007 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000017 /* L10n.swift */,
+				E10000000000000000000018 /* LegalContent.swift */,
+				E10000000000000000000019 /* ClockSettingsStore.swift */,
+				E10000000000000000000020 /* FeatureRoadmap.swift */,
+				E10000000000000000000021 /* CameraPermissionService.swift */,
+				E10000000000000000000022 /* CameraSessionController.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000008 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000023 /* JiaBackgroundView.swift */,
+				E10000000000000000000024 /* JiaCardView.swift */,
+				E10000000000000000000025 /* JiaPrimaryButton.swift */,
+				E10000000000000000000026 /* ProBadgeView.swift */,
+				E10000000000000000000027 /* HomeFeatureCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000009 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000028 /* ClockTimeFormatter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000010 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000011 /* Home */,
+				F10000000000000000000012 /* Clock */,
+				F10000000000000000000013 /* Transparent */,
+				F10000000000000000000014 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000011 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000029 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000012 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000030 /* FullScreenClockView.swift */,
+				E10000000000000000000031 /* FlipClockView.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000013 /* Transparent */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000032 /* TransparentClockIntroView.swift */,
+				E10000000000000000000033 /* TransparentClockView.swift */,
+				E10000000000000000000034 /* CameraPreviewView.swift */,
+				E10000000000000000000035 /* GlassMorphClockCard.swift */,
+			);
+			path = Transparent;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000014 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000036 /* SettingsView.swift */,
+				E10000000000000000000037 /* ThemePickerView.swift */,
+				E10000000000000000000038 /* LegalDocumentView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000015 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000039 /* Assets.xcassets */,
+				E10000000000000000000040 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000043 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E10000000000000000000044 /* en */,
+				E10000000000000000000045 /* zh-Hans */,
+				E10000000000000000000046 /* zh-Hant */,
+				E10000000000000000000047 /* ja */,
+				E10000000000000000000048 /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000017 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000060 /* WidgetKit.framework */,
+				E10000000000000000000061 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B10000000000000000000001 /* JiaClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = G10000000000000000000002 /* Build configuration list for PBXNativeTarget "JiaClock" */;
+			buildPhases = (
+				D10000000000000000000001 /* Sources */,
+				D10000000000000000000002 /* Frameworks */,
+				D10000000000000000000003 /* Resources */,
+				D10000000000000000000004 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				H10000000000000000000002 /* PBXTargetDependency */,
+			);
+			name = JiaClock;
+			productName = JiaClock;
+			productReference = E10000000000000000000001 /* JiaClock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C10000000000000000000001 /* JiaClockWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = G10000000000000000000003 /* Build configuration list for PBXNativeTarget "JiaClockWidgetExtension" */;
+			buildPhases = (
+				D10000000000000000000005 /* Sources */,
+				D10000000000000000000006 /* Frameworks */,
+				D10000000000000000000007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JiaClockWidgetExtension;
+			productName = JiaClockWidgetExtension;
+			productReference = E10000000000000000000002 /* JiaClockWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					B10000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					C10000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = G10000000000000000000001 /* Build configuration list for PBXProject "JiaClock" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+				"zh-Hant",
+				ja,
+				ko,
+			);
+			mainGroup = F10000000000000000000001;
+			productRefGroup = E10000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B10000000000000000000001 /* JiaClock */,
+				C10000000000000000000001 /* JiaClockWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D10000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000030 /* Assets.xcassets in Resources */,
+				A20000000000000000000031 /* Localizable.xcstrings in Resources */,
+				A20000000000000000000032 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D10000000000000000000007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000043 /* Assets.xcassets in Resources */,
+				A20000000000000000000044 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D10000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000001 /* JiaClockApp.swift in Sources */,
+				A20000000000000000000002 /* WidgetSharedSettings.swift in Sources */,
+				A20000000000000000000003 /* ClockMode.swift in Sources */,
+				A20000000000000000000004 /* ClockTheme.swift in Sources */,
+				A20000000000000000000005 /* ClockSettings.swift in Sources */,
+				A20000000000000000000006 /* ProFeature.swift in Sources */,
+				A20000000000000000000007 /* LegalDocumentType.swift in Sources */,
+				A20000000000000000000008 /* L10n.swift in Sources */,
+				A20000000000000000000009 /* LegalContent.swift in Sources */,
+				A20000000000000000000010 /* ClockSettingsStore.swift in Sources */,
+				A20000000000000000000011 /* FeatureRoadmap.swift in Sources */,
+				A20000000000000000000012 /* CameraPermissionService.swift in Sources */,
+				A20000000000000000000013 /* CameraSessionController.swift in Sources */,
+				A20000000000000000000014 /* JiaBackgroundView.swift in Sources */,
+				A20000000000000000000015 /* JiaCardView.swift in Sources */,
+				A20000000000000000000016 /* JiaPrimaryButton.swift in Sources */,
+				A20000000000000000000017 /* ProBadgeView.swift in Sources */,
+				A20000000000000000000018 /* HomeFeatureCard.swift in Sources */,
+				A20000000000000000000019 /* ClockTimeFormatter.swift in Sources */,
+				A20000000000000000000020 /* HomeView.swift in Sources */,
+				A20000000000000000000021 /* FullScreenClockView.swift in Sources */,
+				A20000000000000000000022 /* FlipClockView.swift in Sources */,
+				A20000000000000000000023 /* TransparentClockIntroView.swift in Sources */,
+				A20000000000000000000024 /* TransparentClockView.swift in Sources */,
+				A20000000000000000000025 /* CameraPreviewView.swift in Sources */,
+				A20000000000000000000026 /* GlassMorphClockCard.swift in Sources */,
+				A20000000000000000000027 /* SettingsView.swift in Sources */,
+				A20000000000000000000028 /* ThemePickerView.swift in Sources */,
+				A20000000000000000000029 /* LegalDocumentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D10000000000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000036 /* JiaClockWidgetBundle.swift in Sources */,
+				A20000000000000000000037 /* JiaClockWidget.swift in Sources */,
+				A20000000000000000000038 /* JiaClockWidgetProvider.swift in Sources */,
+				A20000000000000000000039 /* JiaClockWidgetView.swift in Sources */,
+				A20000000000000000000040 /* WidgetThemeRenderer.swift in Sources */,
+				A20000000000000000000041 /* WidgetTimeFormatter.swift in Sources */,
+				A20000000000000000000042 /* WidgetSharedSettings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		H10000000000000000000002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C10000000000000000000001 /* JiaClockWidgetExtension */;
+			targetProxy = H10000000000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		G10000000000000000000011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		G10000000000000000000012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		G10000000000000000000021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JiaClock/JiaClock.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JiaClock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaclock.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		G10000000000000000000022 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JiaClock/JiaClock.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JiaClock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaclock.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		G10000000000000000000031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = JiaClockWidget/JiaClockWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JiaClockWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaclock.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		G10000000000000000000032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = JiaClockWidget/JiaClockWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JiaClockWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaclock.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		G10000000000000000000001 /* Build configuration list for PBXProject "JiaClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G10000000000000000000011 /* Debug */,
+				G10000000000000000000012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		G10000000000000000000002 /* Build configuration list for PBXNativeTarget "JiaClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G10000000000000000000021 /* Debug */,
+				G10000000000000000000022 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		G10000000000000000000003 /* Build configuration list for PBXNativeTarget "JiaClockWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G10000000000000000000031 /* Debug */,
+				G10000000000000000000032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10000000000000000000001 /* Project object */;
+}
