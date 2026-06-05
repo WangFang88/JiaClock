@@ -56,10 +56,16 @@ struct SettingsView: View {
     }
 
     private func boolBinding(_ keyPath: WritableKeyPath<ClockSettings, Bool>) -> Binding<Bool> {
-        Binding(get: { settingsStore.settings[keyPath: keyPath] }, set: { settingsStore.update { $0[keyPath: keyPath] = $1 } })
+        Binding(
+            get: { settingsStore.settings[keyPath: keyPath] },
+            set: { newValue in settingsStore.update { $0[keyPath: keyPath] = newValue } }
+        )
     }
 
     private func stringBinding(_ keyPath: WritableKeyPath<ClockSettings, String>) -> Binding<String> {
-        Binding(get: { settingsStore.settings[keyPath: keyPath] }, set: { settingsStore.update { $0[keyPath: keyPath] = $1 } })
+        Binding(
+            get: { settingsStore.settings[keyPath: keyPath] },
+            set: { newValue in settingsStore.update { $0[keyPath: keyPath] = newValue } }
+        )
     }
 }
