@@ -1,17 +1,18 @@
 # Codemagic CI for 小嘉时钟 (JiaClock)
 # Docs: https://docs.codemagic.io/yaml-quick-start/building-a-native-ios-app/
 #
-# Setup (Codemagic UI, one-time):
-# 1. Connect GitHub repo https://github.com/WangFang88/JiaClock
-# 2. Integrations → App Store Connect → add API key (for TestFlight workflow)
-# 3. Apple Developer Portal:
-#    - App ID: com.jiaclock.app (App Groups: group.com.jiaclock.app)
-#    - App ID: com.jiaclock.app.widget (App Groups: group.com.jiaclock.app)
-# 4. Rename integration below if yours is not named "codemagic"
+# ── Codemagic 控制台一次性配置 ─────────────────────────────────────────────
+# 1. https://codemagic.io → Add application → GitHub → WangFang88/JiaClock
+# 2. 勾选 "Use codemagic.yaml"（不要用 UI 向导覆盖 yaml）
+# 3. 先跑 jiaclock-ios-simulator（无需签名，验证工程能否编译）
+# 4. TestFlight 见 README「Codemagic 配置」章节
+#
+# 环境变量组（Settings → Environment variables → Add group: jiaclock_secrets）:
+#   APP_STORE_APPLE_ID = App Store Connect 里应用的数字 Apple ID（非 Bundle ID）
 
 workflows:
   # ---------------------------------------------------------------------------
-  # Workflow A: Compile on simulator — no signing, good for first CI smoke test
+  # Workflow A: 模拟器编译 — 无需 Apple 签名，push 后自动跑
   # ---------------------------------------------------------------------------
   jiaclock-ios-simulator:
     name: JiaClock iOS Simulator Build
@@ -24,6 +25,7 @@ workflows:
       branch_patterns:
         - pattern: "*"
           include: true
+      cancel_previous_builds: true
 
     environment:
       xcode: latest
@@ -32,24 +34,30 @@ workflows:
         XCODE_PROJECT: JiaClock.xcodeproj
 
     scripts:
+      - name: List available simulators
+        script: xcrun simctl list devices available | head -30
+
       - name: Simulator build (main app + widget extension)
         script: |
-          set -e
+          set -euo pipefail
           xcodebuild build \
             -project "$CM_BUILD_DIR/$XCODE_PROJECT" \
             -scheme "$XCODE_SCHEME" \
             -sdk iphonesimulator \
-            -destination "platform=iOS Simulator,name=iPhone 16,OS=latest" \
+            -destination "generic/platform=iOS Simulator" \
             CODE_SIGNING_ALLOWED=NO \
-            | xcpretty --color --simple || true
+            | tee /tmp/xcodebuild.log \
+            | xcpretty --color --simple
 
     publishing:
       scripts:
         - name: Build summary
-          script: echo "Simulator build finished. Use jiaclock-testflight for device/TestFlight."
+          script: |
+            echo "✅ Simulator build succeeded."
+            echo "Next: configure signing and run jiaclock-testflight manually."
 
   # ---------------------------------------------------------------------------
-  # Workflow B: Signed .ipa → TestFlight (真机测试推荐)
+  # Workflow B: 签名 .ipa → TestFlight（默认手动触发，配置完签名后再开自动）
   # ---------------------------------------------------------------------------
   jiaclock-testflight:
     name: JiaClock TestFlight
@@ -57,17 +65,16 @@ workflows:
     instance_type: mac_mini_m2
 
     integrations:
+      # 在 Codemagic → Team integrations → App Store Connect 添加 API Key
+      # 集成名称须与下面一致；若你用了别的名字，改这里
       app_store_connect: codemagic
 
+    # 默认仅手动触发，避免签名未配好时 push 失败
+    # 配置完成后可改为 push + main 分支自动构建：
+    #   events: [push]
+    #   branch_patterns: [{ pattern: main, include: true }]
     triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: main
-          include: true
-        - pattern: master
-          include: true
-      cancel_previous_builds: true
+      events: []
 
     environment:
       ios_signing:
@@ -75,25 +82,37 @@ workflows:
         bundle_identifier:
           - com.jiaclock.app
           - com.jiaclock.app.widget
+      groups:
+        - jiaclock_secrets
       vars:
         XCODE_SCHEME: JiaClock
         XCODE_PROJECT: JiaClock.xcodeproj
-        APP_STORE_APPLE_ID: 0000000000 # TODO: replace with App Store Connect Apple ID (numeric)
+        # 在 jiaclock_secrets 组里设置 APP_STORE_APPLE_ID（纯数字）
+        APP_STORE_APPLE_ID: $APP_STORE_APPLE_ID
       xcode: latest
 
     scripts:
+      - name: Verify signing prerequisites
+        script: |
+          set -euo pipefail
+          if [ -z "${APP_STORE_APPLE_ID:-}" ] || [ "$APP_STORE_APPLE_ID" = "0000000000" ]; then
+            echo "ERROR: Set APP_STORE_APPLE_ID in Codemagic group 'jiaclock_secrets'."
+            echo "Find it in App Store Connect → App → App Information → Apple ID."
+            exit 1
+          fi
+
       - name: Apply provisioning profiles to Xcode project
         script: xcode-project use-profiles
 
       - name: Increment build number
         script: |
-          set -e
+          set -euo pipefail
           cd "$CM_BUILD_DIR"
           agvtool new-version -all "$BUILD_NUMBER"
 
       - name: Build signed ipa (app + JiaClockWidgetExtension)
         script: |
-          set -e
+          set -euo pipefail
           xcode-project build-ipa \
             --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME"
@@ -103,6 +122,12 @@ workflows:
       - /tmp/xcodebuild_logs/*.log
 
     publishing:
+      email:
+        recipients:
+          - $CM_EMAIL
+        notify:
+          success: true
+          failure: true
       app_store_connect:
         auth: integration
         submit_to_testflight: true
