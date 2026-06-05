@@ -15,9 +15,9 @@ Xcode 16+ → 打开 `JiaClock.xcodeproj` → 选择模拟器或真机 → `Cmd 
 
 ## Bundle ID
 
-- App: `com.jiaclock.app`
-- Widget: `com.jiaclock.app.widget`
-- App Group: `group.com.jiaclock.app`
+- App: `jdarray.JiaClock`
+- Widget: `jdarray.JiaClock.JiaClockWidget`
+- App Group: `group.jdarray.JiaClock`
 
 ## Windows 开发者
 
@@ -53,13 +53,13 @@ Xcode 16+ → 打开 `JiaClock.xcodeproj` → 选择模拟器或真机 → `Cmd 
 
 在 [Apple Developer](https://developer.apple.com/account) 完成：
 
-1. **Identifiers → App Groups** → 新建 `group.com.jiaclock.app`
+1. **Identifiers → App Groups** → 新建 `group.jdarray.JiaClock`
 2. **Identifiers → App IDs** → 新建两个 App ID，均勾选 **App Groups** 并关联上述 Group：
-   - `com.jiaclock.app`（主 App，需 Camera 能力若上架审核）
-   - `com.jiaclock.app.widget`（Widget Extension）
+   - `jdarray.JiaClock`（主 App，需 Camera 能力若上架审核）
+   - `jdarray.JiaClock.JiaClockWidget`（Widget Extension）
 3. [App Store Connect](https://appstoreconnect.apple.com) → **My Apps** → **+** → 新建 App：
    - 名称：小嘉时钟
-   - Bundle ID：`com.jiaclock.app`
+   - Bundle ID：`jdarray.JiaClock`
    - 记下 **Apple ID**（纯数字，例如 `6740123456`）—— 不是 Bundle ID
 
 ### 第四步：Codemagic 集成与签名
@@ -74,7 +74,7 @@ Xcode 16+ → 打开 `JiaClock.xcodeproj` → 选择模拟器或真机 → `Cmd 
 
 1. Codemagic → **Team settings** → **Integrations** → **Developer Portal**
 2. 连接 Apple Developer 账号（推荐 App Store Connect API Key 同一套凭证）
-3. Codemagic 会为 `com.jiaclock.app` 与 `com.jiaclock.app.widget` 自动生成 App Store 描述文件（含 App Group）
+3. Codemagic 会为 `jdarray.JiaClock` 与 `jdarray.JiaClock.JiaClockWidget` 自动生成 App Store 描述文件（含 App Group）
 
 #### 4.3 环境变量
 

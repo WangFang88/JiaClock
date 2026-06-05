@@ -1,7 +1,7 @@
 import Foundation
 
 enum JiaAppGroup {
-    static let identifier = "group.com.jiaclock.app"
+    static let identifier = "group.jdarray.JiaClock"
     static let settingsJSONKey = "jia.clock.settings.v1"
 
     enum Keys {
