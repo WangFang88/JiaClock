@@ -51,6 +51,8 @@
 		A20000000000000000000042 /* WidgetSharedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000011 /* WidgetSharedSettings.swift */; };
 		A20000000000000000000043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000056 /* Assets.xcassets */; };
 		A20000000000000000000044 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000040 /* Localizable.xcstrings */; };
+		A20000000000000000000045 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000062 /* PrivacyInfo.xcprivacy */; };
+		A20000000000000000000046 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000063 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		E10000000000000000000056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E10000000000000000000057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E10000000000000000000058 /* JiaClockWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JiaClockWidget.entitlements; sourceTree = "<group>"; };
+		E10000000000000000000062 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E10000000000000000000063 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		E10000000000000000000060 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E10000000000000000000061 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -200,6 +204,7 @@
 				E10000000000000000000056 /* Assets.xcassets */,
 				E10000000000000000000057 /* Info.plist */,
 				E10000000000000000000058 /* JiaClockWidget.entitlements */,
+				E10000000000000000000063 /* PrivacyInfo.xcprivacy */,
 			);
 			path = JiaClockWidget;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 			children = (
 				E10000000000000000000039 /* Assets.xcassets */,
 				E10000000000000000000040 /* Localizable.xcstrings */,
+				E10000000000000000000062 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				A20000000000000000000030 /* Assets.xcassets in Resources */,
 				A20000000000000000000031 /* Localizable.xcstrings in Resources */,
 				A20000000000000000000032 /* InfoPlist.strings in Resources */,
+				A20000000000000000000045 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +448,7 @@
 			files = (
 				A20000000000000000000043 /* Assets.xcassets in Resources */,
 				A20000000000000000000044 /* Localizable.xcstrings in Resources */,
+				A20000000000000000000046 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

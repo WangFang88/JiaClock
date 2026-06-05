@@ -136,13 +136,17 @@ workflows:
           set -euo pipefail
           IPA=$(ls "$CM_BUILD_DIR"/build/ios/ipa/*.ipa | head -1)
           echo "Uploading: $IPA"
+          # 跳过本地 validate，直接上传（validate 常因 ASC 未建 App 而失败）
           app-store-connect publish \
             --path "$IPA" \
-            --enable-package-validation \
             --altool-verbose-logging \
             --altool-retries 10 \
             --altool-retry-wait 30 \
-            2>&1 | tee /tmp/app-store-publish.log
+            2>&1 | tee /tmp/app-store-publish.log || {
+              echo "==== Upload failed — last 100 log lines ===="
+              tail -100 /tmp/app-store-publish.log
+              exit 1
+            }
 
     artifacts:
       - build/ios/ipa/*.ipa
