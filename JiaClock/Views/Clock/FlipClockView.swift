@@ -41,35 +41,35 @@ struct FlipClockView: View {
                     }
 
                     Spacer(minLength: 0)
-                    HStack(spacing: isLandscape ? 24 : 18) {
-                        FlipDigitCard(value: components.hour, label: L10n.Flip.hourLabel, digitSize: digitSize, cardWidth: cardWidth, cardHeight: cardHeight)
-                        Text(":")
-                            .font(.system(size: digitSize * 0.72, weight: .light, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.72))
-                            .offset(y: -cardHeight * 0.08)
-                        FlipDigitCard(value: components.minute, label: L10n.Flip.minuteLabel, digitSize: digitSize, cardWidth: cardWidth, cardHeight: cardHeight)
+                    VStack(spacing: 10) {
+                        HStack(spacing: isLandscape ? 24 : 18) {
+                            FlipDigitCard(value: components.hour, label: L10n.Flip.hourLabel, digitSize: digitSize, cardWidth: cardWidth, cardHeight: cardHeight)
+                            Text(":")
+                                .font(.system(size: digitSize * 0.72, weight: .light, design: .rounded))
+                                .foregroundStyle(.white.opacity(0.72))
+                                .offset(y: -cardHeight * 0.08)
+                            FlipDigitCard(value: components.minute, label: L10n.Flip.minuteLabel, digitSize: digitSize, cardWidth: cardWidth, cardHeight: cardHeight)
+                        }
                         if let period = components.period {
                             Text(period)
-                                .font(.system(size: digitSize * 0.22, weight: .semibold, design: .rounded))
-                                .foregroundStyle(.white.opacity(0.84))
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.7)
-                                .frame(maxWidth: cardWidth * 0.72)
-                                .offset(y: cardHeight * 0.08)
+                                .font(.title2.weight(.bold))
+                                .foregroundStyle(.white.opacity(0.88))
                         }
                     }
-                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
 
                     VStack(spacing: 8) {
                         if settingsStore.settings.showWeekday {
                             Text(ClockTimeFormatter.weekdayString(from: now))
                                 .font(isPad ? .title2.weight(.medium) : .title3.weight(.medium))
                                 .foregroundStyle(.white.opacity(0.84))
+                                .multilineTextAlignment(.center)
                         }
                         if settingsStore.settings.showDate {
                             Text(ClockTimeFormatter.dateString(from: now))
                                 .font(isPad ? .title2 : .title3)
                                 .foregroundStyle(.white.opacity(0.84))
+                                .multilineTextAlignment(.center)
                         }
                         Text(settingsStore.effectiveTagline)
                             .font(isPad ? .title3.weight(.medium) : .headline.weight(.medium))
@@ -77,11 +77,14 @@ struct FlipClockView: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 28)
                     }
+                    .frame(maxWidth: .infinity)
                     Spacer(minLength: 0)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .contentShape(Rectangle())
                 .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
             }
+            .frame(width: geo.size.width, height: geo.size.height)
         }
     }
 }
@@ -141,6 +144,5 @@ private struct FlipDigitCard: View {
                 .foregroundStyle(.white.opacity(0.72))
                 .tracking(1.2)
         }
-        .frame(maxWidth: .infinity)
     }
 }

@@ -7,8 +7,7 @@ enum ClockTimeFormatter {
         if settings.use24HourFormat {
             formatter.dateFormat = settings.showSeconds ? "HH:mm:ss" : "HH:mm"
         } else {
-            let template = settings.showSeconds ? "jmss" : "jms"
-            formatter.setLocalizedDateFormatFromTemplate(template)
+            formatter.dateFormat = settings.showSeconds ? "a h:mm:ss" : "a h:mm"
         }
         return formatter.string(from: date)
     }

@@ -92,6 +92,7 @@ struct HomeView: View {
                 Text(settingsStore.effectiveTagline).font(.footnote).foregroundStyle(theme.accentColor.opacity(0.95))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .id("\(settingsStore.settings.use24HourFormat)-\(settingsStore.settings.showSeconds)")
         }
     }
 

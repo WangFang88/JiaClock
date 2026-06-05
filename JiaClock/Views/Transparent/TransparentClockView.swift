@@ -49,6 +49,7 @@ struct TransparentClockView: View {
         .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
         .onChange(of: scenePhase) { _, phase in handleScenePhaseChange(phase) }
         .onReceive(timer) { now = $0 }
+        .id("\(settingsStore.settings.use24HourFormat)-\(settingsStore.settings.showSeconds)")
         .statusBarHidden(true)
     }
 
