@@ -37,7 +37,7 @@ final class StoreKitService: ObservableObject {
             await self?.listenForTransactionUpdates()
         }
         Task { await loadProducts() }
-        Task { await entitlementManager?.refreshEntitlements(syncWithAppStore: true) }
+        Task { await entitlementManager?.refreshEntitlements() }
     }
 
     deinit {
@@ -91,7 +91,7 @@ final class StoreKitService: ObservableObject {
             let result = try await product.purchase()
             switch result {
             case .success(let verification):
-                await handleVerifiedTransaction(verification, finish: true, syncEntitlements: true)
+                await handleVerifiedTransaction(verification, finish: true)
                 purchaseState = .succeeded
             case .userCancelled:
                 purchaseState = .cancelled

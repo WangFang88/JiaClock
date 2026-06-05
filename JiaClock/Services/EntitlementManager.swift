@@ -32,7 +32,7 @@ final class EntitlementManager: ObservableObject {
         guard isActiveProTransaction(transaction) else { return }
         purchaseConfirmedProductIDs.insert(transaction.productID)
 
-        var latestSubscriptionExpiration = subscriptionExpirationDate
+        var latestSubscriptionExpiration: Date?
         var latestSubscriptionProductID: String?
 
         if ProProductID.subscriptionIDs.contains(transaction.productID),
@@ -106,7 +106,11 @@ final class EntitlementManager: ObservableObject {
         hasLifetimeEntitlement = !entitledIDs.intersection(ProProductID.lifetimeIDs).isEmpty
         hasActiveSubscription = !entitledIDs.intersection(ProProductID.subscriptionIDs).isEmpty
         isPro = !entitledIDs.isEmpty
-        subscriptionExpirationDate = latestSubscriptionExpiration
+        if let latestSubscriptionExpiration {
+            subscriptionExpirationDate = latestSubscriptionExpiration
+        } else if !hasActiveSubscription {
+            subscriptionExpirationDate = nil
+        }
 
         if hasLifetimeEntitlement {
             activePlanTitle = planTitle(for: ProProductID.lifetime)
