@@ -126,9 +126,16 @@ workflows:
           echo "Expected bundle ID: jdarray.JiaClock"
           echo "APP_STORE_APPLE_ID: ${APP_STORE_APPLE_ID:-<not set>}"
           echo "--- Registered bundle IDs (grep JiaClock) ---"
-          app-store-connect bundle-ids list 2>&1 | grep -i "JiaClock" || echo "NOT FOUND: create App ID jdarray.JiaClock in Developer Portal"
-          echo "--- App Store Connect apps ---"
-          app-store-connect apps list 2>&1 | tee /tmp/asc-apps.log || true
+          app-store-connect bundle-ids list 2>&1 | grep -i "JiaClock" || echo "NOT FOUND in Developer Portal"
+          echo "--- App Store Connect apps (must contain jdarray.JiaClock) ---"
+          app-store-connect apps list 2>&1 | tee /tmp/asc-apps.log
+          if ! grep -qi "JiaClock" /tmp/asc-apps.log; then
+            echo ""
+            echo "ERROR: No App Store Connect app for jdarray.JiaClock."
+            echo "Fix: App Store Connect → My Apps → + → New App → Bundle ID: jdarray.JiaClock"
+            echo "Then re-run this build."
+            exit 1
+          fi
           ls -la "$CM_BUILD_DIR/build/ios/ipa/"
 
       - name: Upload ipa to App Store Connect (verbose)
