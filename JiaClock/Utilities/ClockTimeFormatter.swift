@@ -2,14 +2,35 @@ import Foundation
 
 enum ClockTimeFormatter {
     static func timeString(from date: Date, settings: ClockSettings) -> String {
+        if settings.use24HourFormat {
+            let formatter = DateFormatter()
+            formatter.locale = Locale.current
+            formatter.dateFormat = settings.showSeconds ? "HH:mm:ss" : "HH:mm"
+            return formatter.string(from: date)
+        }
+
+        let parts = hourMinuteComponents(from: date, settings: settings)
         let formatter = DateFormatter()
         formatter.locale = Locale.current
-        if settings.use24HourFormat {
-            formatter.dateFormat = settings.showSeconds ? "HH:mm:ss" : "HH:mm"
+        formatter.dateFormat = "ss"
+        let clock = if settings.showSeconds {
+            "\(parts.hour):\(parts.minute):\(formatter.string(from: date))"
         } else {
-            formatter.dateFormat = settings.showSeconds ? "a h:mm:ss" : "a h:mm"
+            "\(parts.hour):\(parts.minute)"
         }
-        return formatter.string(from: date)
+        guard let period = parts.period else { return clock }
+        return twelveHourTimeString(period: period, clock: clock)
+    }
+
+    /// 按 locale 决定上午/下午与时间的前后顺序（与翻页时钟分量一致，避免模板仍走 24 小时）。
+    private static func twelveHourTimeString(period: String, clock: String) -> String {
+        let format = DateFormatter.dateFormat(fromTemplate: "ahmm", options: 0, locale: Locale.current) ?? "a h:mm"
+        if let aIndex = format.firstIndex(of: "a"),
+           let hIndex = format.firstIndex(of: "h"),
+           aIndex < hIndex {
+            return "\(period) \(clock)"
+        }
+        return "\(clock) \(period)"
     }
 
     static func hourMinuteComponents(from date: Date, settings: ClockSettings) -> (hour: String, minute: String, period: String?) {

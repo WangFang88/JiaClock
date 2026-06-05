@@ -35,9 +35,10 @@ struct TransparentClockView: View {
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        ZStack {
+        let settings = settingsStore.settings
+        return ZStack {
             interactiveBackground
-            clockOverlay
+            clockOverlay(settings: settings)
         }
         .ignoresSafeArea()
         .safeAreaInset(edge: .top, spacing: 0) {
@@ -49,7 +50,7 @@ struct TransparentClockView: View {
         .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
         .onChange(of: scenePhase) { _, phase in handleScenePhaseChange(phase) }
         .onReceive(timer) { now = $0 }
-        .id("\(settingsStore.settings.use24HourFormat)-\(settingsStore.settings.showSeconds)")
+        .id("\(settings.use24HourFormat)-\(settings.showSeconds)")
         .statusBarHidden(true)
     }
 
@@ -79,34 +80,34 @@ struct TransparentClockView: View {
     }
 
     @ViewBuilder
-    private var clockOverlay: some View {
+    private func clockOverlay(settings: ClockSettings) -> some View {
         VStack {
             Spacer(minLength: 0)
             switch displayMode {
             case .glassCard:
                 GlassMorphClockCard(
-                    time: ClockTimeFormatter.timeString(from: now, settings: settingsStore.settings),
-                    weekday: settingsStore.settings.showWeekday ? ClockTimeFormatter.weekdayString(from: now) : nil,
-                    date: settingsStore.settings.showDate ? ClockTimeFormatter.dateString(from: now) : nil,
+                    time: ClockTimeFormatter.timeString(from: now, settings: settings),
+                    weekday: settings.showWeekday ? ClockTimeFormatter.weekdayString(from: now) : nil,
+                    date: settings.showDate ? ClockTimeFormatter.dateString(from: now) : nil,
                     tagline: settingsStore.effectiveTagline,
                     useLightText: useLightText
                 ).padding(.horizontal, 24)
             case .minimalFloating:
                 VStack(spacing: 10) {
-                    Text(ClockTimeFormatter.timeString(from: now, settings: settingsStore.settings))
+                    Text(ClockTimeFormatter.timeString(from: now, settings: settings))
                         .font(.system(size: 56, weight: .thin, design: .rounded))
                         .monospacedDigit()
                         .minimumScaleFactor(0.6)
                         .lineLimit(1)
                         .foregroundStyle(useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16))
-                    if settingsStore.settings.showWeekday || settingsStore.settings.showDate {
+                    if settings.showWeekday || settings.showDate {
                         VStack(spacing: 4) {
-                            if settingsStore.settings.showWeekday {
+                            if settings.showWeekday {
                                 Text(ClockTimeFormatter.weekdayString(from: now))
                                     .font(.subheadline.weight(.medium))
                                     .foregroundStyle(useLightText ? .white.opacity(0.82) : .primary.opacity(0.72))
                             }
-                            if settingsStore.settings.showDate {
+                            if settings.showDate {
                                 Text(ClockTimeFormatter.dateString(from: now))
                                     .font(.subheadline)
                                     .foregroundStyle(useLightText ? .white.opacity(0.72) : .primary.opacity(0.62))

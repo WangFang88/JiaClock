@@ -73,18 +73,19 @@ struct HomeView: View {
     }
 
     private var timePreviewSection: some View {
-        JiaCardView(padding: 22) {
+        let settings = settingsStore.settings
+        return JiaCardView(padding: 22) {
             VStack(spacing: 10) {
                 Text(L10n.Home.currentTime).font(.caption.weight(.semibold)).foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(ClockTimeFormatter.timeString(from: now, settings: settingsStore.settings))
+                Text(ClockTimeFormatter.timeString(from: now, settings: settings))
                     .font(.system(size: 44, weight: .light, design: .rounded))
                     .monospacedDigit().lineLimit(1).minimumScaleFactor(0.6)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                if settingsStore.settings.showDate || settingsStore.settings.showWeekday {
+                if settings.showDate || settings.showWeekday {
                     HStack(spacing: 8) {
-                        if settingsStore.settings.showWeekday { Text(ClockTimeFormatter.weekdayString(from: now)) }
-                        if settingsStore.settings.showDate { Text(ClockTimeFormatter.dateString(from: now)) }
+                        if settings.showWeekday { Text(ClockTimeFormatter.weekdayString(from: now)) }
+                        if settings.showDate { Text(ClockTimeFormatter.dateString(from: now)) }
                     }
                     .font(.subheadline).foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -92,7 +93,7 @@ struct HomeView: View {
                 Text(settingsStore.effectiveTagline).font(.footnote).foregroundStyle(theme.accentColor.opacity(0.95))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .id("\(settingsStore.settings.use24HourFormat)-\(settingsStore.settings.showSeconds)")
+            .id("\(settings.use24HourFormat)-\(settings.showSeconds)")
         }
     }
 

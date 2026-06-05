@@ -8,14 +8,15 @@ struct FullScreenClockView: View {
     private var theme: ClockTheme { settingsStore.theme }
 
     var body: some View {
+        let settings = settingsStore.settings
         TimelineView(.periodic(from: .now, by: 1)) { context in
-            clockContent(now: context.date)
+            clockContent(now: context.date, settings: settings)
         }
-        .id("\(settingsStore.settings.use24HourFormat)-\(settingsStore.settings.showSeconds)")
+        .id("\(settings.use24HourFormat)-\(settings.showSeconds)")
     }
 
     @ViewBuilder
-    private func clockContent(now: Date) -> some View {
+    private func clockContent(now: Date, settings: ClockSettings) -> some View {
         GeometryReader { geo in
             let isLandscape = geo.size.width > geo.size.height
             let isPad = horizontalSizeClass == .regular
@@ -25,20 +26,20 @@ struct FullScreenClockView: View {
                 JiaBackgroundView(theme: theme)
                 VStack(spacing: isLandscape ? 12 : 18) {
                     Spacer(minLength: 0)
-                    Text(ClockTimeFormatter.timeString(from: now, settings: settingsStore.settings))
+                    Text(ClockTimeFormatter.timeString(from: now, settings: settings))
                         .font(.system(size: timeSize, weight: .ultraLight, design: .rounded))
                         .monospacedDigit()
                         .minimumScaleFactor(0.45)
                         .lineLimit(1)
                         .padding(.horizontal, 24)
-                    if settingsStore.settings.showDate || settingsStore.settings.showWeekday {
+                    if settings.showDate || settings.showWeekday {
                         VStack(spacing: 6) {
-                            if settingsStore.settings.showWeekday {
+                            if settings.showWeekday {
                                 Text(ClockTimeFormatter.weekdayString(from: now))
                                     .font(isPad ? .title2.weight(.medium) : .title3.weight(.medium))
                                     .foregroundStyle(.white.opacity(0.84))
                             }
-                            if settingsStore.settings.showDate {
+                            if settings.showDate {
                                 Text(ClockTimeFormatter.dateString(from: now))
                                     .font(isPad ? .title2 : .title3)
                                     .foregroundStyle(.white.opacity(0.84))
