@@ -13,7 +13,7 @@ struct GlassMorphClockCard: View {
 
     var body: some View {
         VStack(spacing: compact ? 10 : 16) {
-            Text(time).font(.system(size: compact ? 52 : 68, weight: .ultraLight, design: .rounded)).monospacedDigit().lineLimit(1).foregroundStyle(primaryColor)
+            Text(time).font(.system(size: compact ? 52 : 68, weight: .ultraLight, design: .rounded)).monospacedDigit().lineLimit(1).minimumScaleFactor(0.55).foregroundStyle(primaryColor)
             if weekday != nil || date != nil {
                 VStack(spacing: 6) {
                     if let weekday { Text(weekday).font(compact ? .subheadline.weight(.medium) : .title3.weight(.medium)).foregroundStyle(secondaryColor) }

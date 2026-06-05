@@ -84,7 +84,10 @@ struct TransparentClockIntroView: View {
         defer { isRequestingPermission = false }
         if permissionService.isSimulatorOrNoCamera { showUnavailableAlert = true; return }
         switch await permissionService.requestAccessIfNeeded() {
-        case .authorized: showTransparentClock = true
+        case .authorized:
+            // 权限弹窗关闭后 scene 可能尚未 active，延迟一帧再打开以确保相机可启动
+            try? await Task.sleep(nanoseconds: 200_000_000)
+            showTransparentClock = true
         case .denied: showDeniedAlert = true
         case .restricted: showRestrictedAlert = true
         case .unavailable: showUnavailableAlert = true

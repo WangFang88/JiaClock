@@ -26,7 +26,7 @@ struct JiaClockWidgetView: View {
         VStack(alignment: .leading, spacing: 8) {
             brandMark
             Spacer(minLength: 0)
-            Text(timeText).font(.system(size: 34, weight: .light, design: .rounded)).monospacedDigit().lineLimit(1).foregroundStyle(theme.primaryText)
+            Text(timeText).font(.system(size: 34, weight: .light, design: .rounded)).monospacedDigit().lineLimit(1).minimumScaleFactor(0.7).foregroundStyle(theme.primaryText)
             if entry.settings.showDate || entry.settings.showWeekday {
                 Text(subtitleLine).font(.caption.weight(.medium)).foregroundStyle(theme.secondaryText).lineLimit(1)
             }
@@ -38,7 +38,7 @@ struct JiaClockWidgetView: View {
         HStack(spacing: 14) {
             VStack(alignment: .leading, spacing: 10) {
                 brandMark
-                Text(timeText).font(.system(size: 44, weight: .ultraLight, design: .rounded)).monospacedDigit().lineLimit(1).foregroundStyle(theme.primaryText)
+                Text(timeText).font(.system(size: 44, weight: .ultraLight, design: .rounded)).monospacedDigit().lineLimit(1).minimumScaleFactor(0.65).foregroundStyle(theme.primaryText)
                 metaLines
             }
             Spacer(minLength: 0)
@@ -50,7 +50,7 @@ struct JiaClockWidgetView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack { brandMark; Spacer(); Image(systemName: "clock.fill").foregroundStyle(theme.accent.opacity(0.85)) }
             Spacer(minLength: 0)
-            Text(timeText).font(.system(size: 64, weight: .ultraLight, design: .rounded)).monospacedDigit().lineLimit(1).foregroundStyle(theme.primaryText)
+            Text(timeText).font(.system(size: 64, weight: .ultraLight, design: .rounded)).monospacedDigit().lineLimit(1).minimumScaleFactor(0.6).foregroundStyle(theme.primaryText)
             metaLines
             Text(entry.settings.effectiveSlogan).font(.headline.weight(.medium)).foregroundStyle(theme.accent.opacity(0.92)).lineLimit(2)
             Spacer(minLength: 0)

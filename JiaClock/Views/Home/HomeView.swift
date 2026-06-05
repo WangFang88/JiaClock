@@ -2,6 +2,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var settingsStore: ClockSettingsStore
+    @EnvironmentObject private var entitlementManager: EntitlementManager
+    @EnvironmentObject private var storeKitService: StoreKitService
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     @State private var now = Date.now
@@ -36,7 +38,12 @@ struct HomeView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.hidden, for: .navigationBar)
-            .sheet(isPresented: $showSettings) { SettingsView().environmentObject(settingsStore) }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+                    .environmentObject(settingsStore)
+                    .environmentObject(storeKitService)
+                    .environmentObject(entitlementManager)
+            }
             .sheet(isPresented: $showThemePicker) { ThemePickerView().environmentObject(settingsStore) }
             .fullScreenCover(isPresented: $showFullScreenClock) { FullScreenClockView().environmentObject(settingsStore) }
             .fullScreenCover(isPresented: $showFlipClock) { FlipClockView().environmentObject(settingsStore) }
@@ -101,7 +108,7 @@ struct HomeView: View {
         JiaCardView(padding: 14) {
             HStack(spacing: 12) {
                 bottomActionButton(title: L10n.Home.theme, systemImage: "paintpalette.fill") { showThemePicker = true }
-                bottomActionButton(title: settingsStore.effectiveTagline, systemImage: "text.quote") { showSettings = true }
+                bottomActionButton(title: L10n.Settings.customTagline, systemImage: "text.quote") { showSettings = true }
                 bottomActionButton(title: L10n.Home.settings, systemImage: "gearshape.fill") { showSettings = true }
             }
         }

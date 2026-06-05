@@ -2,9 +2,11 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var settingsStore: ClockSettingsStore
+    @EnvironmentObject private var storeKit: StoreKitService
+    @EnvironmentObject private var entitlements: EntitlementManager
     @Environment(\.dismiss) private var dismiss
     @State private var showThemePicker = false
-    @State private var showProPlaceholder = false
+    @State private var showPaywall = false
     @State private var selectedLegal: LegalDocumentType?
     private var theme: ClockTheme { settingsStore.theme }
 
@@ -26,7 +28,7 @@ struct SettingsView: View {
                         }
                     }
                     Section(L10n.Settings.proSection) {
-                        Button { showProPlaceholder = true } label: {
+                        Button { showPaywall = true } label: {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(L10n.Settings.upgradePro).font(.body.weight(.semibold))
@@ -36,6 +38,16 @@ struct SettingsView: View {
                                 ProBadgeView()
                             }
                         }
+                        Button {
+                            Task { await storeKit.restorePurchases() }
+                        } label: {
+                            HStack {
+                                Text(L10n.Pro.restorePurchases)
+                                Spacer()
+                                if storeKit.isRestoring { ProgressView().controlSize(.small) }
+                            }
+                        }
+                        .disabled(storeKit.isRestoring)
                     }
                     Section(L10n.Settings.legalSection) {
                         ForEach(LegalDocumentType.allCases) { doc in
@@ -47,12 +59,30 @@ struct SettingsView: View {
             }
             .navigationTitle(L10n.Settings.title)
             .toolbar { ToolbarItem(placement: .topBarTrailing) { Button(L10n.Common.done) { dismiss() } } }
-            .sheet(isPresented: $showThemePicker) { ThemePickerView().environmentObject(settingsStore) }
-            .alert(L10n.Pro.placeholderTitle, isPresented: $showProPlaceholder) {
+            .sheet(isPresented: $showThemePicker) {
+                ThemePickerView()
+                    .environmentObject(settingsStore)
+                    .environmentObject(entitlements)
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
+                    .environmentObject(storeKit)
+                    .environmentObject(entitlements)
+            }
+            .alert(L10n.Pro.alertTitle, isPresented: alertBinding) {
                 Button(L10n.Common.done, role: .cancel) {}
-            } message: { Text(L10n.Pro.placeholderBody) }
+            } message: {
+                Text(storeKit.alertMessage ?? "")
+            }
             .sheet(item: $selectedLegal) { LegalDocumentView(type: $0) }
         }
+    }
+
+    private var alertBinding: Binding<Bool> {
+        Binding(
+            get: { storeKit.alertMessage != nil && !showPaywall },
+            set: { if !$0 { storeKit.alertMessage = nil } }
+        )
     }
 
     private func boolBinding(_ keyPath: WritableKeyPath<ClockSettings, Bool>) -> Binding<Bool> {

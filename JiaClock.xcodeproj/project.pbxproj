@@ -53,6 +53,12 @@
 		A20000000000000000000044 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000040 /* Localizable.xcstrings */; };
 		A20000000000000000000045 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000062 /* PrivacyInfo.xcprivacy */; };
 		A20000000000000000000046 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000063 /* PrivacyInfo.xcprivacy */; };
+		A20000000000000000000047 /* ProProductID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000064 /* ProProductID.swift */; };
+		A20000000000000000000048 /* EntitlementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000065 /* EntitlementManager.swift */; };
+		A20000000000000000000049 /* StoreKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000066 /* StoreKitService.swift */; };
+		A2000000000000000000004A /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000067 /* PaywallView.swift */; };
+		A2000000000000000000004B /* ProGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000068 /* ProGateView.swift */; };
+		A2000000000000000000004C /* JiaControlChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006A /* JiaControlChip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +137,13 @@
 		E10000000000000000000058 /* JiaClockWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JiaClockWidget.entitlements; sourceTree = "<group>"; };
 		E10000000000000000000062 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		E10000000000000000000063 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E10000000000000000000064 /* ProProductID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProProductID.swift; sourceTree = "<group>"; };
+		E10000000000000000000065 /* EntitlementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitlementManager.swift; sourceTree = "<group>"; };
+		E10000000000000000000066 /* StoreKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitService.swift; sourceTree = "<group>"; };
+		E10000000000000000000067 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		E10000000000000000000068 /* ProGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGateView.swift; sourceTree = "<group>"; };
+		E10000000000000000000069 /* JiaClockPro.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = JiaClockPro.storekit; sourceTree = "<group>"; };
+		E1000000000000000000006A /* JiaControlChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaControlChip.swift; sourceTree = "<group>"; };
 		E10000000000000000000060 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E10000000000000000000061 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -185,6 +198,7 @@
 				F10000000000000000000009 /* Utilities */,
 				F10000000000000000000010 /* Views */,
 				F10000000000000000000015 /* Resources */,
+				F10000000000000000000019 /* Configuration */,
 				E10000000000000000000041 /* Info.plist */,
 				E10000000000000000000042 /* JiaClock.entitlements */,
 				E10000000000000000000043 /* InfoPlist.strings */,
@@ -232,6 +246,7 @@
 				E10000000000000000000013 /* ClockTheme.swift */,
 				E10000000000000000000014 /* ClockSettings.swift */,
 				E10000000000000000000015 /* ProFeature.swift */,
+				E10000000000000000000064 /* ProProductID.swift */,
 				E10000000000000000000016 /* LegalDocumentType.swift */,
 			);
 			path = Models;
@@ -246,6 +261,8 @@
 				E10000000000000000000020 /* FeatureRoadmap.swift */,
 				E10000000000000000000021 /* CameraPermissionService.swift */,
 				E10000000000000000000022 /* CameraSessionController.swift */,
+				E10000000000000000000065 /* EntitlementManager.swift */,
+				E10000000000000000000066 /* StoreKitService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -257,6 +274,7 @@
 				E10000000000000000000024 /* JiaCardView.swift */,
 				E10000000000000000000025 /* JiaPrimaryButton.swift */,
 				E10000000000000000000026 /* ProBadgeView.swift */,
+				E1000000000000000000006A /* JiaControlChip.swift */,
 				E10000000000000000000027 /* HomeFeatureCard.swift */,
 			);
 			path = Components;
@@ -277,6 +295,7 @@
 				F10000000000000000000012 /* Clock */,
 				F10000000000000000000013 /* Transparent */,
 				F10000000000000000000014 /* Settings */,
+				F10000000000000000000018 /* Pro */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +336,31 @@
 				E10000000000000000000038 /* LegalDocumentView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000018 /* Pro */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000067 /* PaywallView.swift */,
+				E10000000000000000000068 /* ProGateView.swift */,
+			);
+			path = Pro;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000019 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000020 /* StoreKit */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		F10000000000000000000020 /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000069 /* JiaClockPro.storekit */,
+			);
+			path = StoreKit;
 			sourceTree = "<group>";
 		};
 		F10000000000000000000015 /* Resources */ = {
@@ -488,6 +532,12 @@
 				A20000000000000000000027 /* SettingsView.swift in Sources */,
 				A20000000000000000000028 /* ThemePickerView.swift in Sources */,
 				A20000000000000000000029 /* LegalDocumentView.swift in Sources */,
+				A20000000000000000000047 /* ProProductID.swift in Sources */,
+				A20000000000000000000048 /* EntitlementManager.swift in Sources */,
+				A20000000000000000000049 /* StoreKitService.swift in Sources */,
+				A2000000000000000000004A /* PaywallView.swift in Sources */,
+				A2000000000000000000004B /* ProGateView.swift in Sources */,
+				A2000000000000000000004C /* JiaControlChip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +703,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCameraUsageDescription = "小嘉时钟需要使用摄像头来显示透明时钟背景。相机画面仅用于本机实时预览，不会录制、保存或上传。";
+				INFOPLIST_KEY_NSCameraUsageDescription = "小嘉时钟仅在你主动开启透明时钟时请求摄像头权限。摄像头画面仅用于本机实时预览，不会录制、保存、上传或分析。离开透明时钟或 App 进入后台后，摄像头会停止。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -687,7 +737,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCameraUsageDescription = "小嘉时钟需要使用摄像头来显示透明时钟背景。相机画面仅用于本机实时预览，不会录制、保存或上传。";
+				INFOPLIST_KEY_NSCameraUsageDescription = "小嘉时钟仅在你主动开启透明时钟时请求摄像头权限。摄像头画面仅用于本机实时预览，不会录制、保存、上传或分析。离开透明时钟或 App 进入后台后，摄像头会停止。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

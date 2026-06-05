@@ -43,7 +43,7 @@ struct TransparentClockView: View {
             }
             if darkOverlayEnabled { Color.black.opacity(0.22).ignoresSafeArea().allowsHitTesting(false) }
             clockOverlay
-            if showControls { controlsOverlay.transition(.opacity) }
+            if showControls { controlsOverlay.transition(.opacity).zIndex(1) }
         }
         .ignoresSafeArea()
         .contentShape(Rectangle())
@@ -52,7 +52,7 @@ struct TransparentClockView: View {
         .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
         .onChange(of: scenePhase) { _, phase in handleScenePhaseChange(phase) }
         .onReceive(timer) { now = $0 }
-        .statusBarHidden(!showControls)
+        .statusBarHidden(true)
     }
 
     private var unavailableBackground: some View {
@@ -82,12 +82,34 @@ struct TransparentClockView: View {
             case .minimalFloating:
                 VStack(spacing: 10) {
                     Text(ClockTimeFormatter.timeString(from: now, settings: settingsStore.settings))
-                        .font(.system(size: 56, weight: .thin, design: .rounded)).monospacedDigit()
+                        .font(.system(size: 56, weight: .thin, design: .rounded))
+                        .monospacedDigit()
+                        .minimumScaleFactor(0.6)
+                        .lineLimit(1)
                         .foregroundStyle(useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16))
-                    if settingsStore.settings.showWeekday {
-                        Text(ClockTimeFormatter.weekdayString(from: now)).font(.subheadline.weight(.medium)).foregroundStyle(useLightText ? .white.opacity(0.82) : .primary.opacity(0.72))
+                    if settingsStore.settings.showWeekday || settingsStore.settings.showDate {
+                        VStack(spacing: 4) {
+                            if settingsStore.settings.showWeekday {
+                                Text(ClockTimeFormatter.weekdayString(from: now))
+                                    .font(.subheadline.weight(.medium))
+                                    .foregroundStyle(useLightText ? .white.opacity(0.82) : .primary.opacity(0.72))
+                            }
+                            if settingsStore.settings.showDate {
+                                Text(ClockTimeFormatter.dateString(from: now))
+                                    .font(.subheadline)
+                                    .foregroundStyle(useLightText ? .white.opacity(0.72) : .primary.opacity(0.62))
+                            }
+                        }
                     }
-                }.padding(.horizontal, 32)
+                    if !settingsStore.effectiveTagline.isEmpty {
+                        Text(settingsStore.effectiveTagline)
+                            .font(.footnote.weight(.medium))
+                            .foregroundStyle(useLightText ? .white.opacity(0.88) : Color(red: 0.12, green: 0.12, blue: 0.16).opacity(0.88))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 8)
+                    }
+                }
+                .padding(.horizontal, 32)
             }
             Spacer(minLength: 0)
         }.allowsHitTesting(false)
@@ -96,9 +118,9 @@ struct TransparentClockView: View {
     private var controlsOverlay: some View {
         VStack {
             HStack(spacing: 10) {
-                controlChip("xmark", L10n.Common.close) { dismiss() }
+                JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
                 Spacer()
-                controlChip(darkOverlayEnabled ? "moon.fill" : "moon", L10n.Transparent.darkOverlay) { darkOverlayEnabled.toggle() }
+                JiaControlChip(icon: darkOverlayEnabled ? "moon.fill" : "moon", title: L10n.Transparent.darkOverlay) { darkOverlayEnabled.toggle() }
                 Menu {
                     Picker(L10n.Transparent.displayMode, selection: $displayMode) {
                         ForEach(TransparentDisplayMode.allCases) { Label($0.title, systemImage: $0.systemImage).tag($0) }
@@ -106,26 +128,21 @@ struct TransparentClockView: View {
                     Button { useLightText.toggle() } label: {
                         Label(useLightText ? L10n.Transparent.useDarkText : L10n.Transparent.useLightText, systemImage: "textformat")
                     }
-                } label: { controlChipLabel("slider.horizontal.3", L10n.Transparent.adjust) }
-            }.padding(.horizontal, 20).padding(.top, 12)
+                } label: {
+                    JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 12)
             Spacer()
         }
-    }
-
-    private func controlChip(_ icon: String, _ title: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) { controlChipLabel(icon, title) }.buttonStyle(.plain)
-    }
-
-    private func controlChipLabel(_ icon: String, _ title: String) -> some View {
-        HStack(spacing: 6) { Image(systemName: icon); Text(title) }
-            .font(.subheadline.weight(.semibold)).padding(.horizontal, 14).padding(.vertical, 10)
-            .background(.ultraThinMaterial, in: Capsule())
-            .overlay { Capsule().strokeBorder(Color.white.opacity(0.22), lineWidth: 1) }
+        .safeAreaPadding(.top, 8)
     }
 
     private func handleScenePhaseChange(_ phase: ScenePhase) {
         switch phase {
-        case .active: if isViewVisible, shouldResumeCamera { resumeCameraIfNeeded() }
+        case .active:
+            if isViewVisible { resumeCameraIfNeeded() }
         case .inactive, .background:
             shouldResumeCamera = isViewVisible && cameraController.isCameraAvailable
             cameraController.stop()

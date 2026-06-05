@@ -51,6 +51,12 @@ final class ClockSettingsStore: ObservableObject {
         settings = copy
     }
 
+    /// 订阅过期或未购买 Pro 时，回退到免费主题。
+    func enforceAccessibleTheme(isPro: Bool) {
+        guard !isPro, theme.requiresPro else { return }
+        theme = .dawn
+    }
+
     private func persist() {
         guard let data = try? JSONEncoder().encode(settings) else { return }
         sharedDefaults.set(data, forKey: storageKey)

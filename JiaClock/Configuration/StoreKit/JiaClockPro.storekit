@@ -1,0 +1,143 @@
+{
+  "identifier" : "JiaClockPro",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "58",
+      "familyShareable" : false,
+      "internalID" : "6741000001",
+      "localizations" : [
+        {
+          "description" : "Unlock all Pro features forever.",
+          "displayName" : "Lifetime Pro",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "永久解锁全部 Pro 功能。",
+          "displayName" : "永久 Pro",
+          "locale" : "zh_Hans"
+        }
+      ],
+      "productID" : "jia.clock.pro.lifetime",
+      "referenceName" : "Lifetime Pro",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21500001",
+      "localizations" : [
+
+      ],
+      "name" : "JiaClock Pro",
+      "subscriptions" : [
+        {
+          "advisoryLocale" : "en_US",
+          "displayPrice" : "6",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6741000002",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Monthly Pro subscription.",
+              "displayName" : "Monthly Pro",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "小嘉时钟 Pro 月度订阅。",
+              "displayName" : "月度 Pro",
+              "locale" : "zh_Hans"
+            }
+          ],
+          "productID" : "jia.clock.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Pro",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "advisoryLocale" : "en_US",
+          "displayPrice" : "38",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6741000003",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Best value yearly Pro subscription.",
+              "displayName" : "Yearly Pro",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "小嘉时钟 Pro 年度订阅，更划算。",
+              "displayName" : "年度 Pro",
+              "locale" : "zh_Hans"
+            }
+          ],
+          "productID" : "jia.clock.pro.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Pro",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

@@ -15,19 +15,20 @@ final class CameraSessionController: ObservableObject {
         #endif
     }
 
-    func prepareIfNeeded() {
+    func start() {
+        guard isCameraAvailable else { return }
         sessionQueue.async { [weak self] in
-            self?.configureSessionIfNeeded()
+            guard let self else { return }
+            self.configureSessionIfNeeded()
+            guard !self.session.isRunning else { return }
+            self.session.startRunning()
+            DispatchQueue.main.async { self.isRunning = true }
         }
     }
 
-    func start() {
-        guard isCameraAvailable else { return }
-        prepareIfNeeded()
+    func prepareIfNeeded() {
         sessionQueue.async { [weak self] in
-            guard let self, !self.session.isRunning else { return }
-            self.session.startRunning()
-            DispatchQueue.main.async { self.isRunning = true }
+            self?.configureSessionIfNeeded()
         }
     }
 
@@ -36,6 +37,12 @@ final class CameraSessionController: ObservableObject {
             guard let self, self.session.isRunning else { return }
             self.session.stopRunning()
             DispatchQueue.main.async { self.isRunning = false }
+        }
+    }
+
+    deinit {
+        if session.isRunning {
+            session.stopRunning()
         }
     }
 

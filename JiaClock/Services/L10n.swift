@@ -101,23 +101,110 @@ enum L10n {
         static var premiumThemesSubtitle: String { tr("pro.premium_themes_subtitle") }
         static var advancedWidgets: String { tr("pro.advanced_widgets") }
         static var advancedWidgetsSubtitle: String { tr("pro.advanced_widgets_subtitle") }
-        static var transparentClockPro: String { tr("pro.transparent_clock_pro") }
-        static var transparentClockProSubtitle: String { tr("pro.transparent_clock_pro_subtitle") }
-        static var focusStatistics: String { tr("pro.focus_statistics") }
-        static var focusStatisticsSubtitle: String { tr("pro.focus_statistics_subtitle") }
-        static var standByCustomization: String { tr("pro.standby_customization") }
-        static var standByCustomizationSubtitle: String { tr("pro.standby_customization_subtitle") }
-        static var placeholderTitle: String { tr("pro.placeholder_title") }
-        static var placeholderBody: String { tr("pro.placeholder_body") }
+        static var transparentClockAdvanced: String { tr("pro.transparent_clock_advanced") }
+        static var transparentClockAdvancedSubtitle: String { tr("pro.transparent_clock_advanced_subtitle") }
+        static var transparentFlipMode: String { tr("pro.transparent_flip_mode") }
+        static var transparentFlipModeSubtitle: String { tr("pro.transparent_flip_mode_subtitle") }
+        static var neonTransparentMode: String { tr("pro.neon_transparent_mode") }
+        static var neonTransparentModeSubtitle: String { tr("pro.neon_transparent_mode_subtitle") }
+        static var glassMorphAdvanced: String { tr("pro.glass_morph_advanced") }
+        static var glassMorphAdvancedSubtitle: String { tr("pro.glass_morph_advanced_subtitle") }
+        static var customFonts: String { tr("pro.custom_fonts") }
+        static var customFontsSubtitle: String { tr("pro.custom_fonts_subtitle") }
+        static var customColors: String { tr("pro.custom_colors") }
+        static var customColorsSubtitle: String { tr("pro.custom_colors_subtitle") }
+        static var customBackgroundPhotos: String { tr("pro.custom_background_photos") }
+        static var customBackgroundPhotosSubtitle: String { tr("pro.custom_background_photos_subtitle") }
+        static var multipleCustomTaglines: String { tr("pro.multiple_custom_taglines") }
+        static var multipleCustomTaglinesSubtitle: String { tr("pro.multiple_custom_taglines_subtitle") }
+        static var shootModeHideUI: String { tr("pro.shoot_mode_hide_ui") }
+        static var shootModeHideUISubtitle: String { tr("pro.shoot_mode_hide_ui_subtitle") }
+        static var burnInProtection: String { tr("pro.burn_in_protection") }
+        static var burnInProtectionSubtitle: String { tr("pro.burn_in_protection_subtitle") }
+        static var nightAdvancedMode: String { tr("pro.night_advanced_mode") }
+        static var nightAdvancedModeSubtitle: String { tr("pro.night_advanced_mode_subtitle") }
+        static var adFree: String { tr("pro.ad_free") }
+        static var adFreeSubtitle: String { tr("pro.ad_free_subtitle") }
+        static var paywallTitle: String { tr("pro.paywall_title") }
+        static var paywallSubtitle: String { tr("pro.paywall_subtitle") }
+        static var paywallValueHeadline: String { tr("pro.paywall_value_headline") }
+        static var paywallValueBody: String { tr("pro.paywall_value_body") }
+        static var paywallFeaturesTitle: String { tr("pro.paywall_features_title") }
+        static var paywallPlansTitle: String { tr("pro.paywall_plans_title") }
+        static var planMonthly: String { tr("pro.plan_monthly") }
+        static var planYearly: String { tr("pro.plan_yearly") }
+        static var planLifetime: String { tr("pro.plan_lifetime") }
+        static var recommendedBadge: String { tr("pro.recommended_badge") }
+        static var lifetimeBadge: String { tr("pro.lifetime_badge") }
+        static var lifetimeHint: String { tr("pro.lifetime_hint") }
+        static var restorePurchases: String { tr("pro.restore_purchases") }
+        static var subscriptionDisclosure: String { tr("pro.subscription_disclosure") }
+        static var loadingProducts: String { tr("pro.loading_products") }
+        static var productsUnavailable: String { tr("pro.products_unavailable") }
+        static var unlockButton: String { tr("pro.unlock_button") }
+        static var gateMessage: String { tr("pro.gate_message") }
+        static var alreadyUnlocked: String { tr("pro.already_unlocked") }
+        static var alertTitle: String { tr("pro.alert_title") }
+        static var restoreSucceeded: String { tr("pro.restore_succeeded") }
+        static var restoreNothingFound: String { tr("pro.restore_nothing_found") }
+        static var purchasePending: String { tr("pro.purchase_pending") }
+        static var purchaseUnknownError: String { tr("pro.purchase_unknown_error") }
+        static var periodMonthly: String { tr("pro.period_monthly") }
+        static var periodYearly: String { tr("pro.period_yearly") }
+        static func productsLoadFailed(_ detail: String) -> String { tr("pro.products_load_failed", detail) }
+        static func purchaseFailed(_ detail: String) -> String { tr("pro.purchase_failed", detail) }
+        static func restoreFailed(_ detail: String) -> String { tr("pro.restore_failed", detail) }
+        static func transactionUnverified(_ detail: String) -> String { tr("pro.transaction_unverified", detail) }
     }
 
     enum Legal {
         static var termsOfService: String { tr("legal.terms_of_service") }
         static var privacyPolicy: String { tr("legal.privacy_policy") }
-        static var placeholderBody: String { tr("legal.placeholder_body") }
+
+        static var privacyEffectiveDate: String { tr("legal.privacy.effective_date") }
+        static var privacyIntro: String { tr("legal.privacy.intro") }
+        static var privacyCameraTitle: String { tr("legal.privacy.section.camera.title") }
+        static var privacyCameraBody: String { tr("legal.privacy.section.camera.body") }
+        static var privacyWidgetTitle: String { tr("legal.privacy.section.widget.title") }
+        static var privacyWidgetBody: String { tr("legal.privacy.section.widget.body") }
+        static var privacyPurchasesTitle: String { tr("legal.privacy.section.purchases.title") }
+        static var privacyPurchasesBody: String { tr("legal.privacy.section.purchases.body") }
+        static var privacyStorageTitle: String { tr("legal.privacy.section.storage.title") }
+        static var privacyStorageBody: String { tr("legal.privacy.section.storage.body") }
+        static var privacyChangesTitle: String { tr("legal.privacy.section.changes.title") }
+        static var privacyChangesBody: String { tr("legal.privacy.section.changes.body") }
+        static var privacyContactTitle: String { tr("legal.privacy.section.contact.title") }
+        static var privacyContactBody: String { tr("legal.privacy.section.contact.body") }
+
+        static var termsEffectiveDate: String { tr("legal.terms.effective_date") }
+        static var termsIntro: String { tr("legal.terms.intro") }
+        static var termsServiceTitle: String { tr("legal.terms.section.service.title") }
+        static var termsServiceBody: String { tr("legal.terms.section.service.body") }
+        static var termsRulesTitle: String { tr("legal.terms.section.rules.title") }
+        static var termsRulesBody: String { tr("legal.terms.section.rules.body") }
+        static var termsProTitle: String { tr("legal.terms.section.pro.title") }
+        static var termsProBody: String { tr("legal.terms.section.pro.body") }
+        static var termsSubscriptionsTitle: String { tr("legal.terms.section.subscriptions.title") }
+        static var termsSubscriptionsBody: String { tr("legal.terms.section.subscriptions.body") }
+        static var termsRefundsTitle: String { tr("legal.terms.section.refunds.title") }
+        static var termsRefundsBody: String { tr("legal.terms.section.refunds.body") }
+        static var termsLimitationsTitle: String { tr("legal.terms.section.limitations.title") }
+        static var termsLimitationsBody: String { tr("legal.terms.section.limitations.body") }
+        static var termsCameraTitle: String { tr("legal.terms.section.camera.title") }
+        static var termsCameraBody: String { tr("legal.terms.section.camera.body") }
+        static var termsDisclaimerTitle: String { tr("legal.terms.section.disclaimer.title") }
+        static var termsDisclaimerBody: String { tr("legal.terms.section.disclaimer.body") }
+        static var termsUpdatesTitle: String { tr("legal.terms.section.updates.title") }
+        static var termsUpdatesBody: String { tr("legal.terms.section.updates.body") }
+        static var termsContactTitle: String { tr("legal.terms.section.contact.title") }
+        static var termsContactBody: String { tr("legal.terms.section.contact.body") }
     }
 
     private static func tr(_ key: String) -> String {
         String(localized: String.LocalizationValue(key))
+    }
+
+    private static func tr(_ key: String, _ arg: String) -> String {
+        String(format: String(localized: String.LocalizationValue(key)), locale: Locale.current, arg)
     }
 }

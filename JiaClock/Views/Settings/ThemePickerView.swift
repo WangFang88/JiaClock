@@ -2,7 +2,9 @@ import SwiftUI
 
 struct ThemePickerView: View {
     @EnvironmentObject private var settingsStore: ClockSettingsStore
+    @EnvironmentObject private var entitlements: EntitlementManager
     @Environment(\.dismiss) private var dismiss
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationStack {
@@ -11,14 +13,25 @@ struct ThemePickerView: View {
                 ScrollView {
                     VStack(spacing: 14) {
                         ForEach(ClockTheme.allCases) { item in
-                            Button { settingsStore.theme = item } label: { themeRow(item) }.buttonStyle(.plain)
+                            Button { selectTheme(item) } label: { themeRow(item) }.buttonStyle(.plain)
                         }
                     }.padding(20)
                 }
             }
             .navigationTitle(L10n.Theme.pickerTitle)
             .toolbar { ToolbarItem(placement: .topBarTrailing) { Button(L10n.Common.done) { dismiss() } } }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView(highlightFeature: .premiumThemes)
+            }
         }
+    }
+
+    private func selectTheme(_ item: ClockTheme) {
+        if item.requiresPro, !entitlements.hasAccess(to: .premiumThemes) {
+            showPaywall = true
+            return
+        }
+        settingsStore.theme = item
     }
 
     private func themeRow(_ item: ClockTheme) -> some View {
@@ -34,6 +47,8 @@ struct ThemePickerView: View {
                 Spacer()
                 if settingsStore.theme == item {
                     Image(systemName: "checkmark.circle.fill").foregroundStyle(item.accentColor)
+                } else if item.requiresPro, !entitlements.hasAccess(to: .premiumThemes) {
+                    Image(systemName: "lock.fill").font(.subheadline).foregroundStyle(.secondary)
                 }
             }
         }

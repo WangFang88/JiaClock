@@ -63,6 +63,10 @@
             ReferencedContainer = "container:JiaClock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "JiaClockPro"
+         path = "JiaClock/Configuration/StoreKit/JiaClockPro.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

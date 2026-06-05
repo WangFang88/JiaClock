@@ -1,818 +1,5786 @@
-﻿{
-  "sourceLanguage" : "zh-Hans",
-  "strings" : {
-    "common.close" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Close" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "閉じる" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "닫기" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关闭" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "關閉" } }
-      }
-    },
-    "common.done" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "完了" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "완료" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "完成" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "完成" } }
-      }
-    },
-    "common.coming_soon" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Coming Soon" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "近日公開" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "곧 출시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "即将推出" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "即將推出" } }
-      }
-    },
-    "common.pro" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } }
-      }
-    },
-    "home.app_name" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Jia Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "小嘉クロック" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "샤오지아 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "小嘉时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "小嘉時鐘" } }
-      }
-    },
-    "home.tagline" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Make time a landscape on your desk" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "時間をデスク上の風景に" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "시간을 책상 위 풍경으로" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "让时间成为桌面上的风景" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "讓時間成為桌面上的風景" } }
-      }
-    },
-    "home.current_time" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Current Time" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "現在時刻" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "현재 시간" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "当前时间" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "目前時間" } }
-      }
-    },
-    "home.full_screen_clock" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Full Screen Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "全画面時計" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "전체 화면 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "全屏时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "全螢幕時鐘" } }
-      }
-    },
-    "home.full_screen_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Immersive digits for focus and bedside" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "集中とベッドサイドに最適な没入型表示" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "집중과 침대 옆을 위한 몰입형 숫자 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "沉浸数字显示，适合专注与床头" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "沉浸數字顯示，適合專注與床頭" } }
-      }
-    },
-    "home.transparent_clock" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Transparent Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "透明時計" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "투명 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "透明时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "透明時鐘" } }
-      }
-    },
-    "home.transparent_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Clock layered over your real scene" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "リアルな景色の上に時計を重ねる" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "실제 장면 위에 시계를 겹쳐 표시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在真实实景上叠加时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "在真實實景上疊加時鐘" } }
-      }
-    },
-    "home.flip_clock" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Flip Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "フリップ時計" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "플립 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "翻页时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "翻頁時鐘" } }
-      }
-    },
-    "home.flip_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Classic flip cards with modern polish" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "クラシックなフリップカードを現代的に" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "클래식 플립 카드를 현대적으로" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "经典翻页卡片，现代质感呈现" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "經典翻頁卡片，現代質感呈現" } }
-      }
-    },
-    "home.widget" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Home Screen Widget" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ホーム画面ウィジェット" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "홈 화면 위젯" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "桌面组件" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "桌面組件" } }
-      }
-    },
-    "home.widget_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Personalize your iPhone home screen" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "iPhone ホーム画面を自分らしく" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "iPhone 홈 화면을 개성 있게" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "个性化你的 iPhone 桌面" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "個性化你的 iPhone 桌面" } }
-      }
-    },
-    "home.theme" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Theme" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "テーマ" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "테마" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主题" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "主題" } }
-      }
-    },
-    "home.settings" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "設定" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "설정" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "设置" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "設定" } }
-      }
-    },
-    "home.widget_guide_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Widget to Home Screen" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ホーム画面にウィジェットを追加" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "홈 화면에 위젯 추가" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "添加桌面组件" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "加入桌面組件" } }
-      }
-    },
-    "home.widget_guide_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Long-press the home screen, tap +, search for Jia Clock, and choose small, medium, or large. Widget time updates by the minute." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ホーム画面を長押しし、＋から「小嘉クロック」を選んで小・中・大サイズを追加できます。時刻は分単位で更新されます。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "홈 화면을 길게 누르고 +에서 '샤오지아 시계'를 검색해 소·중·대 크기를 추가하세요. 시간은 분 단위로 갱신됩니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "长按主屏幕 → 点击左上角 + → 搜索「小嘉时钟」→ 选择小、中、大组件。时间按分钟刷新，非秒级实时。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "長按主畫面 → 點擊左上角 + → 搜尋「小嘉時鐘」→ 選擇小、中、大組件。時間按分鐘刷新，非秒級即時。" } }
-      }
-    },
-    "clock.default_tagline" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Stay present. One moment at a time." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "今この瞬間に、静かに集中を。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "지금 이 순간, 조용히 집중하세요." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "此刻，安静专注" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "此刻，安靜專注" } }
-      }
-    },
-    "fullscreen.title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Full Screen Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "全画面時計" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "전체 화면 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "全屏时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "全螢幕時鐘" } }
-      }
-    },
-    "flip.title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Flip Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "フリップ時計" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "플립 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "翻页时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "翻頁時鐘" } }
-      }
-    },
-    "flip.hour_label" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "HOUR" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "時" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "时" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "時" } }
-      }
-    },
-    "flip.minute_label" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "MIN" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "分" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "분" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "分" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "分" } }
-      }
-    },
-    "transparent.title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Transparent Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "透明時計" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "투명 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "透明时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "透明時鐘" } }
-      }
-    },
-    "transparent.headline" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "See time blend into your real world" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "時計を現実の風景に溶け込ませる" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "시간을 현실 풍경에 자연스럽게 녹여보세요" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "让时钟融入你的真实世界" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "讓時鐘融入你的真實世界" } }
-      }
-    },
-    "transparent.value1_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Aesthetic desktop companion" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "美しいデスクコンパニオン" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "아름다운 데스크탑 동반자" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "美学桌面伴侣" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "美學桌面伴侶" } }
-      }
-    },
-    "transparent.value1_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Layer elegant clock typography over your desk, window, or workspace for a living screensaver feel." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "机、窓、ワークスペースの上に上品な時計を重ね、生きているスクリーンセーバーのような体験を。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "책상, 창가, 작업 공간 위에 우아한 시계를 겹쳐 살아 있는 화면 보호기 같은 경험을 제공합니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在桌面、窗边或工作区上叠加优雅时钟，呈现有生命力的屏保体验。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "在桌面、窗邊或工作區上疊加優雅時鐘，呈現有生命力的螢幕保護程式體驗。" } }
-      }
-    },
-    "transparent.value2_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Perfect for StandBy & focus" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "StandBy と集中に最適" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "StandBy 와 집중에 적합" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "适合 StandBy 与专注场景" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "適合 StandBy 與專注場景" } }
-      }
-    },
-    "transparent.value2_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Use as a bedside display or focus companion without blocking your environment." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "環境を遮らず、ベッドサイド表示や集中用コンパニオンとして使えます。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "주변 환경을 가리지 않고 침대 옆 디스플레이나 집중 동반자로 사용할 수 있습니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "可作为床头屏或专注伴侣，不遮挡你的真实环境。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "可作為床頭屏或專注伴侶，不遮擋你的真實環境。" } }
-      }
-    },
-    "transparent.permission_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Camera permission required" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カメラ権限が必要です" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카메라 권한이 필요합니다" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "需要摄像头权限" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "需要相機權限" } }
-      }
-    },
-    "transparent.permission_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Transparent clock uses the rear camera preview as a live background. Permission is only used for on-device preview." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "透明時計は背面カメラのプレビューをライブ背景として使用します。権限は端末内プレビューのみに使用されます。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "투명 시계는 후면 카메라 미리보기를 라이브 배경으로 사용합니다. 권한은 기기 내 미리보기에만 사용됩니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "透明时钟使用后置摄像头预览作为实时背景，权限仅用于设备内预览。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "透明時鐘使用後置相機預覽作為即時背景，權限僅用於裝置內預覽。" } }
-      }
-    },
-    "transparent.privacy_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your privacy is protected" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "プライバシーは保護されます" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "개인정보는 보호됩니다" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "你的隐私受到保护" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "你的隱私受到保護" } }
-      }
-    },
-    "transparent.privacy_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The camera is used only as a live background. We do not record, save, or upload any camera content." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カメラはリアルタイム背景のみに使用します。録画、保存、アップロードは一切行いません。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카메라는 실시간 배경으로만 사용됩니다. 녹화, 저장, 업로드는 하지 않습니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "摄像头仅用于实时背景，不会录制、保存或上传任何画面内容。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "相機僅用於即時背景，不會錄製、保存或上傳任何畫面內容。" } }
-      }
-    },
-    "transparent.background_stop_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Stops when you leave" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "離れると自動停止" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "나가면 자동 중지" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "切后台自动停止" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "切後台自動停止" } }
-      }
-    },
-    "transparent.background_stop_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The camera stops when you leave this screen, switch apps, or lock your device. It never runs in the background." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "画面を離れる、アプリを切り替える、端末をロックするとカメラは停止します。バックグラウンドでは動作しません。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "화면을 나가거나 앱을 전환하거나 기기를 잠그면 카메라가 중지됩니다. 백그라운드에서는 실행되지 않습니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "离开页面、切换 App 或锁屏时，相机会自动停止，绝不在后台继续采集。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "離開頁面、切換 App 或鎖屏時，相機會自動停止，絕不在背景繼續採集。" } }
-      }
-    },
-    "transparent.enable_button" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enable Transparent Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "透明時計を有効にする" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "투명 시계 켜기" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "开启透明时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "開啟透明時鐘" } }
-      }
-    },
-    "transparent.next_round_hint" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Camera preview will be available in the next update." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カメラプレビューは次回のアップデートで提供予定です。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카메라 미리보기는 다음 업데이트에서 제공됩니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "摄像头预览将在下一轮更新中接入。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "相機預覽將在下一輪更新中接入。" } }
-      }
-    },
-    "transparent.permission_denied_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Camera Access Denied" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カメラへのアクセスが拒否されました" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카메라 접근이 거부되었습니다" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "摄像头权限被拒绝" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "相機權限被拒絕" } }
-      }
-    },
-    "transparent.permission_denied_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Please enable camera access in Settings to use transparent clock." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "透明時計を使うには、設定でカメラへのアクセスを許可してください。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "투명 시계를 사용하려면 설정에서 카메라 접근을 허용해 주세요." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "请在系统设置中开启摄像头权限，以使用透明时钟。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "請在系統設定中開啟相機權限，以使用透明時鐘。" } }
-      }
-    },
-    "transparent.permission_restricted_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Camera Access Restricted" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カメラへのアクセスが制限されています" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카메라 접근이 제한되었습니다" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "摄像头权限受限" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "相機權限受限" } }
-      }
-    },
-    "transparent.permission_restricted_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Camera access is restricted on this device. Transparent clock cannot be enabled." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "この端末ではカメラへのアクセスが制限されています。透明時計を有効にできません。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "이 기기에서는 카메라 접근이 제한되어 투명 시계를 사용할 수 없습니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "此设备的摄像头权限受到限制，无法开启透明时钟。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "此裝置的相機權限受到限制，無法開啟透明時鐘。" } }
-      }
-    },
-    "transparent.open_settings" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open Settings" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "設定を開く" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "설정 열기" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "前往设置" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "前往設定" } }
-      }
-    },
-    "transparent.camera_unavailable_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Camera Unavailable" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カメラを使用できません" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카메라를 사용할 수 없습니다" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "摄像头不可用" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "相機不可用" } }
-      }
-    },
-    "transparent.camera_unavailable_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The Simulator has no rear camera. Please test transparent clock on a real iPhone or iPad." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "シミュレーターには背面カメラがありません。実機の iPhone または iPad でお試しください。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "시뮬레이터에는 후면 카메라가 없습니다. 실제 iPhone 또는 iPad에서 테스트해 주세요." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "模拟器没有后置摄像头，请在真机 iPhone 或 iPad 上体验透明时钟。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "模擬器沒有後置相機，請在真機 iPhone 或 iPad 上體驗透明時鐘。" } }
-      }
-    },
-    "transparent.preview_without_camera" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Preview UI Only" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "UI のみプレビュー" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "UI만 미리보기" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "仅预览界面" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "僅預覽介面" } }
-      }
-    },
-    "transparent.dark_overlay" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dim" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "暗く" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "어둡게" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "暗化" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "暗化" } }
-      }
-    },
-    "transparent.display_mode" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Display Mode" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "表示モード" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "표시 모드" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "显示模式" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "顯示模式" } }
-      }
-    },
-    "transparent.display_mode_glass" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Glass Card" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ガラスカード" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "글래스 카드" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "玻璃卡片" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "玻璃卡片" } }
-      }
-    },
-    "transparent.display_mode_minimal" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Minimal Float" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ミニマル浮遊" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "미니멀 플로트" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "极简悬浮" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "極簡懸浮" } }
-      }
-    },
-    "transparent.use_light_text" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Light Text" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "明るい文字" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "밝은 텍스트" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "浅色文字" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "淺色文字" } }
-      }
-    },
-    "transparent.use_dark_text" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dark Text" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "暗い文字" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "어두운 텍스트" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "深色文字" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "深色文字" } }
-      }
-    },
-    "transparent.adjust" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Adjust" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "調整" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "조정" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "调整" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "調整" } }
-      }
-    },
-    "settings.title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "設定" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "설정" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "设置" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "設定" } }
-      }
-    },
-    "settings.time_section" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Time Format" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "時刻形式" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "시간 형식" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "时间格式" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "時間格式" } }
-      }
-    },
-    "settings.use_24_hour" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "24-Hour Format" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "24時間表示" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "24시간 형식" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "24 小时制" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "24 小時制" } }
-      }
-    },
-    "settings.show_seconds" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Show Seconds" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "秒を表示" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "초 표시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "显示秒数" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "顯示秒數" } }
-      }
-    },
-    "settings.show_date" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Show Date" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "日付を表示" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "날짜 표시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "显示日期" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "顯示日期" } }
-      }
-    },
-    "settings.show_weekday" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Show Weekday" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "曜日を表示" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "요일 표시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "显示星期" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "顯示星期" } }
-      }
-    },
-    "settings.display_section" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Display" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "表示" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "표시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "显示" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "顯示" } }
-      }
-    },
-    "settings.custom_tagline" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Custom Tagline" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カスタム标语" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "사용자 슬로건" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "自定义标语" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "自訂標語" } }
-      }
-    },
-    "settings.tagline_placeholder" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter your tagline" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "标语を入力" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "슬로건 입력" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "输入你的标语" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "輸入你的標語" } }
-      }
-    },
-    "settings.theme" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Theme" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "テーマ" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "테마" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主题" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "主題" } }
-      }
-    },
-    "settings.pro_section" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Pro" } }
-      }
-    },
-    "settings.upgrade_pro" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Upgrade to Pro" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Pro にアップグレード" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Pro 로 업그레이드" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "升级 Pro" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "升級 Pro" } }
-      }
-    },
-    "settings.upgrade_pro_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock themes, widgets, and more" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "テーマ、ウィジェットなどを解放" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "테마, 위젯 등 잠금 해제" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁主题、组件等高级功能" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "解鎖主題、組件等進階功能" } }
-      }
-    },
-    "settings.legal_section" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Legal" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "法的情報" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "법적 정보" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "法律信息" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "法律資訊" } }
-      }
-    },
-    "theme.dawn" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dawn" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "夜明け" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "새벽" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "晨曦" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "晨曦" } }
-      }
-    },
-    "theme.midnight" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Midnight" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "真夜中" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "한밤" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "午夜" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "午夜" } }
-      }
-    },
-    "theme.forest" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Forest" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "森" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "숲" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "森林" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "森林" } }
-      }
-    },
-    "theme.ocean" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Ocean" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "海" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "바다" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "海洋" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "海洋" } }
-      }
-    },
-    "theme.picker_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose Theme" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "テーマを選択" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "테마 선택" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择主题" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "選擇主題" } }
-      }
-    },
-    "pro.premium_themes" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Premium Themes" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "プレミアムテーマ" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "프리미엄 테마" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "高级主题" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "進階主題" } }
-      }
-    },
-    "pro.premium_themes_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exclusive visual styles" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "限定ビジュアルスタイル" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "독점 비주얼 스타일" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "独家视觉风格" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "獨家視覺風格" } }
-      }
-    },
-    "pro.advanced_widgets" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Advanced Widgets" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "高度なウィジェット" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "고급 위젯" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "高级组件" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "進階組件" } }
-      }
-    },
-    "pro.advanced_widgets_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "More sizes and layouts" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "より多くのサイズとレイアウト" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "더 많은 크기와 레이아웃" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "更多尺寸与布局" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "更多尺寸與佈局" } }
-      }
-    },
-    "pro.transparent_clock_pro" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Transparent Clock Pro" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "透明時計 Pro" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "투명 시계 Pro" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "透明时钟 Pro" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "透明時鐘 Pro" } }
-      }
-    },
-    "pro.transparent_clock_pro_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Advanced overlay effects" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "高度なオーバーレイ効果" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "고급 오버레이 효과" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "高级叠加效果" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "進階疊加效果" } }
-      }
-    },
-    "pro.focus_statistics" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Focus Statistics" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "集中統計" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "집중 통계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "专注统计" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "專注統計" } }
-      }
-    },
-    "pro.focus_statistics_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Track your focus sessions" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "集中セッションを記録" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "집중 세션 기록" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "记录专注时长" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "記錄專注時長" } }
-      }
-    },
-    "pro.standby_customization" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "StandBy Customization" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "StandBy カスタマイズ" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "StandBy 사용자화" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "StandBy 个性化" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "StandBy 個性化" } }
-      }
-    },
-    "pro.standby_customization_subtitle" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Bedside display options" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ベッドサイド表示オプション" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "침대 옆 디스플레이 옵션" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "床头屏显示选项" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "床頭屏顯示選項" } }
-      }
-    },
-    "pro.placeholder_title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pro Coming Soon" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Pro は近日公開" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Pro 곧 출시" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Pro 即将推出" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Pro 即將推出" } }
-      }
-    },
-    "pro.placeholder_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "StoreKit subscription will be added in a future update." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "StoreKit サブスクリプションは今後のアップデートで追加予定です。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "StoreKit 구독은 향후 업데이트에서 추가됩니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "StoreKit 订阅将在后续更新中接入。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "StoreKit 訂閱將在後續更新中接入。" } }
-      }
-    },
-    "legal.terms_of_service" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Terms of Service" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "利用規約" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "이용약관" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "用户协议" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "使用者協議" } }
-      }
-    },
-    "legal.privacy_policy" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Privacy Policy" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "プライバシーポリシー" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "개인정보 처리방침" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "隐私政策" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "隱私政策" } }
-      }
-    },
-    "legal.placeholder_body" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Legal content placeholder. Full document will be provided before release." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "法的文書のプレースホルダーです。正式版はリリース前に提供されます。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "법적 문서 플레이스홀더입니다. 정식 문서는 출시 전에 제공됩니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "法律文档占位内容，正式版将在发布前提供。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "法律文件占位內容，正式版將在發布前提供。" } }
-      }
-    },
-    "widget.display_name" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Jia Clock" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "小嘉クロック" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "샤오지아 시계" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "小嘉时钟" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "小嘉時鐘" } }
-      }
-    },
-    "widget.description" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Elegant clock for your home screen. Updates every minute." } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ホーム画面用の美しい時計。分単位で更新。" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "홈 화면을 위한 우아한 시계. 분 단위로 갱신됩니다." } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "美学桌面时钟，按分钟刷新显示。" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "美學桌面時鐘，按分鐘刷新顯示。" } }
-      }
-    },
-    "widget.brand_footer" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Time as desktop scenery" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "時間をデスク上の風景に" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "시간을 책상 위 풍경으로" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "让时间成为桌面上的风景" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "讓時間成為桌面上的風景" } }
+{
+  "sourceLanguage": "zh-Hans",
+  "strings": {
+    "common.close": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "閉じる"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "닫기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關閉"
+          }
+        }
+      }
+    },
+    "common.done": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "완료"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        }
+      }
+    },
+    "common.coming_soon": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coming Soon"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "近日公開"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "곧 출시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "即将推出"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "即將推出"
+          }
+        }
+      }
+    },
+    "common.pro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        }
+      }
+    },
+    "home.app_name": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉クロック"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "샤오지아 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉時鐘"
+          }
+        }
+      }
+    },
+    "home.tagline": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Make time a landscape on your desk"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時間をデスク上の風景に"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시간을 책상 위 풍경으로"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让时间成为桌面上的风景"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "讓時間成為桌面上的風景"
+          }
+        }
+      }
+    },
+    "home.current_time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Current Time"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在時刻"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "현재 시간"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前时间"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前時間"
+          }
+        }
+      }
+    },
+    "home.full_screen_clock": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Full Screen Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全画面時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "전체 화면 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全屏时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全螢幕時鐘"
+          }
+        }
+      }
+    },
+    "home.full_screen_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Immersive digits for focus and bedside"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "集中とベッドサイドに最適な没入型表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "집중과 침대 옆을 위한 몰입형 숫자 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沉浸数字显示，适合专注与床头"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沉浸數字顯示，適合專注與床頭"
+          }
+        }
+      }
+    },
+    "home.transparent_clock": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時鐘"
+          }
+        }
+      }
+    },
+    "home.transparent_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clock layered over your real scene"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "リアルな景色の上に時計を重ねる"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "실제 장면 위에 시계를 겹쳐 표시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在真实实景上叠加时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在真實實景上疊加時鐘"
+          }
+        }
+      }
+    },
+    "home.flip_clock": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flip Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フリップ時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "플립 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻页时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻頁時鐘"
+          }
+        }
+      }
+    },
+    "home.flip_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Classic flip cards with modern polish"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "クラシックなフリップカードを現代的に"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "클래식 플립 카드를 현대적으로"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "经典翻页卡片，现代质感呈现"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "經典翻頁卡片，現代質感呈現"
+          }
+        }
+      }
+    },
+    "home.widget": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Home Screen Widget"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホーム画面ウィジェット"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "홈 화면 위젯"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "桌面组件"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "桌面組件"
+          }
+        }
+      }
+    },
+    "home.widget_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalize your iPhone home screen"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone ホーム画面を自分らしく"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone 홈 화면을 개성 있게"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "个性化你的 iPhone 桌面"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "個性化你的 iPhone 桌面"
+          }
+        }
+      }
+    },
+    "home.theme": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theme"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テーマ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "테마"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主题"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主題"
+          }
+        }
+      }
+    },
+    "home.settings": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설정"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定"
+          }
+        }
+      }
+    },
+    "home.widget_guide_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Widget to Home Screen"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホーム画面にウィジェットを追加"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "홈 화면에 위젯 추가"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加桌面组件"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "加入桌面組件"
+          }
+        }
+      }
+    },
+    "home.widget_guide_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Long-press the home screen, tap +, search for Jia Clock, and choose small, medium, or large. Widget time updates by the minute, not every second."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホーム画面を長押しし、＋から「小嘉クロック」を選んで小・中・大サイズを追加できます。時刻は分単位で更新されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "홈 화면을 길게 누르고 +에서 '샤오지아 시계'를 검색해 소·중·대 크기를 추가하세요. 시간은 분 단위로 갱신됩니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "长按主屏幕 → 点击左上角 + → 搜索「小嘉时钟」→ 选择小、中、大组件。时间按分钟刷新，非秒级实时。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "長按主畫面 → 點擊左上角 + → 搜尋「小嘉時鐘」→ 選擇小、中、大組件。時間按分鐘刷新，非秒級即時。"
+          }
+        }
+      }
+    },
+    "clock.default_tagline": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stay present. One moment at a time."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今この瞬間に、静かに集中を。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "지금 이 순간, 조용히 집중하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此刻，安静专注"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此刻，安靜專注"
+          }
+        }
+      }
+    },
+    "fullscreen.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Full Screen Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全画面時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "전체 화면 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全屏时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全螢幕時鐘"
+          }
+        }
+      }
+    },
+    "flip.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flip Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フリップ時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "플립 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻页时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "翻頁時鐘"
+          }
+        }
+      }
+    },
+    "flip.hour_label": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HOUR"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時"
+          }
+        }
+      }
+    },
+    "flip.minute_label": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIN"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "분"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分"
+          }
+        }
+      }
+    },
+    "transparent.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時鐘"
+          }
+        }
+      }
+    },
+    "transparent.headline": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See time blend into your real world"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時計を現実の風景に溶け込ませる"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시간을 현실 풍경에 자연스럽게 녹여보세요"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让时钟融入你的真实世界"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "讓時鐘融入你的真實世界"
+          }
+        }
+      }
+    },
+    "transparent.value1_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aesthetic desktop companion"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "美しいデスクコンパニオン"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "아름다운 데스크탑 동반자"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "美学桌面伴侣"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "美學桌面伴侶"
+          }
+        }
+      }
+    },
+    "transparent.value1_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Layer elegant clock typography over your desk, window, or workspace for a living screensaver feel."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机、窓、ワークスペースの上に上品な時計を重ね、生きているスクリーンセーバーのような体験を。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "책상, 창가, 작업 공간 위에 우아한 시계를 겹쳐 살아 있는 화면 보호기 같은 경험을 제공합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在桌面、窗边或工作区上叠加优雅时钟，呈现有生命力的屏保体验。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在桌面、窗邊或工作區上疊加優雅時鐘，呈現有生命力的螢幕保護程式體驗。"
+          }
+        }
+      }
+    },
+    "transparent.value2_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perfect for StandBy & focus"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "StandBy と集中に最適"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "StandBy 와 집중에 적합"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "适合 StandBy 与专注场景"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "適合 StandBy 與專注場景"
+          }
+        }
+      }
+    },
+    "transparent.value2_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use as a bedside display or focus companion without blocking your environment."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "環境を遮らず、ベッドサイド表示や集中用コンパニオンとして使えます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "주변 환경을 가리지 않고 침대 옆 디스플레이나 집중 동반자로 사용할 수 있습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可作为床头屏或专注伴侣，不遮挡你的真实环境。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可作為床頭屏或專注伴侶，不遮擋你的真實環境。"
+          }
+        }
+      }
+    },
+    "transparent.permission_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera permission required"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラ権限が必要です"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라 권한이 필요합니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要摄像头权限"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要相機權限"
+          }
+        }
+      }
+    },
+    "transparent.permission_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent clock uses the rear camera preview as a live background. Permission is only used for on-device preview."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計は背面カメラのプレビューをライブ背景として使用します。権限は端末内プレビューのみに使用されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계는 후면 카메라 미리보기를 라이브 배경으로 사용합니다. 권한은 기기 내 미리보기에만 사용됩니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明时钟使用后置摄像头预览作为实时背景，权限仅用于设备内预览。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時鐘使用後置相機預覽作為即時背景，權限僅用於裝置內預覽。"
+          }
+        }
+      }
+    },
+    "transparent.privacy_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How the camera is used"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摄像头如何使用"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相機如何使用"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラの利用方法"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라 사용 방식"
+          }
+        }
+      }
+    },
+    "transparent.privacy_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera access is requested only when you enable Transparent Clock. The feed is used for on-device live preview only — not recorded, saved, uploaded, or analyzed. Widgets do not use the camera."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅在你开启透明时钟时请求摄像头权限。画面仅用于本机实时预览，不会录制、保存、上传或分析。小组件不使用摄像头。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "僅在你開啟透明時鐘時請求相機權限。畫面僅用於本機即時預覽，不會錄製、保存、上傳或分析。小組件不使用相機。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計を有効にした場合のみカメラ権限を求めます。映像は端末内プレビューのみに使用し、録画・保存・アップロード・分析は行いません。ウィジェットはカメラを使用しません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계를 켤 때만 카메라 권한을 요청합니다. 화면은 기기 내 실시간 미리보기에만 사용되며 녹화·저장·업로드·분석하지 않습니다. 위젯은 카메라를 사용하지 않습니다."
+          }
+        }
+      }
+    },
+    "transparent.background_stop_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stops when you leave"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "離れると自動停止"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "나가면 자동 중지"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "切后台自动停止"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "切後台自動停止"
+          }
+        }
+      }
+    },
+    "transparent.background_stop_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera stops when you leave this screen, switch apps, or lock your device. It never runs in the background."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "画面を離れる、アプリを切り替える、端末をロックするとカメラは停止します。バックグラウンドでは動作しません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "화면을 나가거나 앱을 전환하거나 기기를 잠그면 카메라가 중지됩니다. 백그라운드에서는 실행되지 않습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "离开页面、切换 App 或锁屏时，相机会自动停止，绝不在后台继续采集。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "離開頁面、切換 App 或鎖屏時，相機會自動停止，絕不在背景繼續採集。"
+          }
+        }
+      }
+    },
+    "transparent.enable_button": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable Transparent Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計を有効にする"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계 켜기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开启透明时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟透明時鐘"
+          }
+        }
+      }
+    },
+    "transparent.permission_denied_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera Access Denied"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラへのアクセスが拒否されました"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라 접근이 거부되었습니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摄像头权限被拒绝"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相機權限被拒絕"
+          }
+        }
+      }
+    },
+    "transparent.permission_denied_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please enable camera access in Settings to use transparent clock."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計を使うには、設定でカメラへのアクセスを許可してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계를 사용하려면 설정에서 카메라 접근을 허용해 주세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在系统设置中开启摄像头权限，以使用透明时钟。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請在系統設定中開啟相機權限，以使用透明時鐘。"
+          }
+        }
+      }
+    },
+    "transparent.permission_restricted_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera Access Restricted"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラへのアクセスが制限されています"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라 접근이 제한되었습니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摄像头权限受限"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相機權限受限"
+          }
+        }
+      }
+    },
+    "transparent.permission_restricted_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera access is restricted on this device. Transparent clock cannot be enabled."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この端末ではカメラへのアクセスが制限されています。透明時計を有効にできません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 기기에서는 카메라 접근이 제한되어 투명 시계를 사용할 수 없습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此设备的摄像头权限受到限制，无法开启透明时钟。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此裝置的相機權限受到限制，無法開啟透明時鐘。"
+          }
+        }
+      }
+    },
+    "transparent.open_settings": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Settings"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定を開く"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설정 열기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前往设置"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前往設定"
+          }
+        }
+      }
+    },
+    "transparent.camera_unavailable_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera Unavailable"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラを使用できません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라를 사용할 수 없습니다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摄像头不可用"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相機不可用"
+          }
+        }
+      }
+    },
+    "transparent.camera_unavailable_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Simulator has no rear camera. Please test transparent clock on a real iPhone or iPad."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "シミュレーターには背面カメラがありません。実機の iPhone または iPad でお試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시뮬레이터에는 후면 카메라가 없습니다. 실제 iPhone 또는 iPad에서 테스트해 주세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模拟器没有后置摄像头，请在真机 iPhone 或 iPad 上体验透明时钟。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模擬器沒有後置相機，請在真機 iPhone 或 iPad 上體驗透明時鐘。"
+          }
+        }
+      }
+    },
+    "transparent.preview_without_camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preview UI Only"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UI のみプレビュー"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UI만 미리보기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅预览界面"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "僅預覽介面"
+          }
+        }
+      }
+    },
+    "transparent.dark_overlay": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dim"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暗く"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "어둡게"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暗化"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暗化"
+          }
+        }
+      }
+    },
+    "transparent.display_mode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Display Mode"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示モード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "표시 모드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示模式"
+          }
+        }
+      }
+    },
+    "transparent.display_mode_glass": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glass Card"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ガラスカード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "글래스 카드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "玻璃卡片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "玻璃卡片"
+          }
+        }
+      }
+    },
+    "transparent.display_mode_minimal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimal Float"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ミニマル浮遊"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "미니멀 플로트"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "极简悬浮"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "極簡懸浮"
+          }
+        }
+      }
+    },
+    "transparent.use_light_text": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light Text"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "明るい文字"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "밝은 텍스트"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "浅色文字"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "淺色文字"
+          }
+        }
+      }
+    },
+    "transparent.use_dark_text": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dark Text"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暗い文字"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "어두운 텍스트"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深色文字"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深色文字"
+          }
+        }
+      }
+    },
+    "transparent.adjust": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adjust"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "調整"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "조정"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "调整"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "調整"
+          }
+        }
+      }
+    },
+    "settings.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설정"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定"
+          }
+        }
+      }
+    },
+    "settings.time_section": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time Format"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時刻形式"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시간 형식"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时间格式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時間格式"
+          }
+        }
+      }
+    },
+    "settings.use_24_hour": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24-Hour Format"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24時間表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24시간 형식"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24 小时制"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24 小時制"
+          }
+        }
+      }
+    },
+    "settings.show_seconds": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Seconds"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "秒を表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "초 표시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示秒数"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示秒數"
+          }
+        }
+      }
+    },
+    "settings.show_date": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Date"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日付を表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "날짜 표시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示日期"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示日期"
+          }
+        }
+      }
+    },
+    "settings.show_weekday": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show Weekday"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "曜日を表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "요일 표시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示星期"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示星期"
+          }
+        }
+      }
+    },
+    "settings.display_section": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Display"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "표시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示"
+          }
+        }
+      }
+    },
+    "settings.custom_tagline": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom Tagline"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カスタム标语"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용자 슬로건"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义标语"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自訂標語"
+          }
+        }
+      }
+    },
+    "settings.tagline_placeholder": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter your tagline"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标语を入力"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "슬로건 입력"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入你的标语"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輸入你的標語"
+          }
+        }
+      }
+    },
+    "settings.theme": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theme"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テーマ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "테마"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主题"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主題"
+          }
+        }
+      }
+    },
+    "settings.pro_section": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        }
+      }
+    },
+    "settings.upgrade_pro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upgrade to Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro にアップグレード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 로 업그레이드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "升级 Pro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "升級 Pro"
+          }
+        }
+      }
+    },
+    "settings.upgrade_pro_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock themes, widgets, and more"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テーマ、ウィジェットなどを解放"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "테마, 위젯 등 잠금 해제"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解锁主题、组件等高级功能"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解鎖主題、組件等進階功能"
+          }
+        }
+      }
+    },
+    "settings.legal_section": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Legal"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "法的情報"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "법적 정보"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "法律信息"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "法律資訊"
+          }
+        }
+      }
+    },
+    "theme.dawn": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dawn"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "夜明け"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "새벽"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "晨曦"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "晨曦"
+          }
+        }
+      }
+    },
+    "theme.midnight": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Midnight"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "真夜中"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "한밤"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "午夜"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "午夜"
+          }
+        }
+      }
+    },
+    "theme.forest": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forest"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "森"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "숲"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "森林"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "森林"
+          }
+        }
+      }
+    },
+    "theme.ocean": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ocean"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "바다"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海洋"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海洋"
+          }
+        }
+      }
+    },
+    "theme.picker_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose Theme"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テーマを選択"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "테마 선택"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择主题"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選擇主題"
+          }
+        }
+      }
+    },
+    "pro.premium_themes": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium Themes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プレミアムテーマ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "프리미엄 테마"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高级主题"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "進階主題"
+          }
+        }
+      }
+    },
+    "pro.premium_themes_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exclusive visual styles"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "限定ビジュアルスタイル"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "독점 비주얼 스타일"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "独家视觉风格"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "獨家視覺風格"
+          }
+        }
+      }
+    },
+    "pro.advanced_widgets": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advanced Widgets"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高度なウィジェット"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "고급 위젯"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高级组件"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "進階組件"
+          }
+        }
+      }
+    },
+    "pro.advanced_widgets_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "More sizes and layouts"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "より多くのサイズとレイアウト"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "더 많은 크기와 레이아웃"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更多尺寸与布局"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更多尺寸與佈局"
+          }
+        }
+      }
+    },
+    "pro.transparent_clock_advanced": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent Clock Advanced"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計 高度モード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계 고급 모드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明时钟高级模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時鐘進階模式"
+          }
+        }
+      }
+    },
+    "pro.transparent_clock_advanced_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advanced overlay and shooting modes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高度なオーバーレイと撮影体験"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "고급 오버레이 및 촬영 경험"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高级叠加与拍摄体验"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "進階疊加與拍攝體驗"
+          }
+        }
+      }
+    },
+    "pro.transparent_flip_mode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent Flip Mode"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明フリップモード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 플립 모드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明翻页模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明翻頁模式"
+          }
+        }
+      }
+    },
+    "pro.transparent_flip_mode_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flip-style transparent clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明背景のフリップ時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 배경 플립 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明背景下的翻页时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明背景下的翻頁時鐘"
+          }
+        }
+      }
+    },
+    "pro.neon_transparent_mode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neon Transparent Mode"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ネオン透明モード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "네온 투명 모드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "霓虹透明模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "霓虹透明模式"
+          }
+        }
+      }
+    },
+    "pro.neon_transparent_mode_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neon glow on transparent clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計のネオン演出"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계 네온 효과"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明时钟霓虹光效"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時鐘霓虹光效"
+          }
+        }
+      }
+    },
+    "pro.glass_morph_advanced": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glass Morph Advanced"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "グラスモーフィズム高度"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "글래스모피즘 고급"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "玻璃拟态高级样式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "玻璃擬態進階樣式"
+          }
+        }
+      }
+    },
+    "pro.glass_morph_advanced_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium glass clock styling"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "より洗練されたグラス時計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "더 정교한 글래스 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更精致的玻璃拟态时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更精緻的玻璃擬態時鐘"
+          }
+        }
+      }
+    },
+    "pro.custom_fonts": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom Fonts"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カスタムフォント"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용자 지정 글꼴"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义字体"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自訂字體"
+          }
+        }
+      }
+    },
+    "pro.custom_fonts_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose your clock typography"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時計フォントを自由に"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시계 글꼴 자유 선택"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自由搭配时钟字体"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自由搭配時鐘字體"
+          }
+        }
+      }
+    },
+    "pro.custom_colors": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom Colors"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カスタムカラー"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용자 지정 색상"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义颜色"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自訂顏色"
+          }
+        }
+      }
+    },
+    "pro.custom_colors_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fine-tune accent and text colors"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アクセントと文字色を調整"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "강조색과 글자색 미세 조정"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "微调强调色与文字色"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "微調強調色與文字色"
+          }
+        }
+      }
+    },
+    "pro.custom_background_photos": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom Background Photos"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カスタム背景写真"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용자 지정 배경 사진"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义背景照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自訂背景照片"
+          }
+        }
+      }
+    },
+    "pro.custom_background_photos_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use your own photos as backdrop"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "写真で自分だけの雰囲気に"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사진으로 나만의 분위기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用照片打造专属氛围"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用照片打造專屬氛圍"
+          }
+        }
+      }
+    },
+    "pro.multiple_custom_taglines": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Multiple Custom Taglines"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "複数カスタム标语"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "여러 사용자 지정 슬로건"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "多个自定义标语"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "多個自訂標語"
+          }
+        }
+      }
+    },
+    "pro.multiple_custom_taglines_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save and switch tagline presets"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "複数の标语を保存・切替"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "여러 슬로건 저장 및 전환"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存并切换多条标语"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存並切換多條標語"
+          }
+        }
+      }
+    },
+    "pro.shoot_mode_hide_ui": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shoot Mode Hide UI"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撮影モード UI 非表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "촬영 모드 UI 숨김"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拍摄模式隐藏 UI"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拍攝模式隱藏 UI"
+          }
+        }
+      }
+    },
+    "pro.shoot_mode_hide_ui_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clean overlay for content creation"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "創作用に UI を非表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "콘텐츠 제작용 깔끔한 화면"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "创作时隐藏控件界面"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "創作時隱藏控制介面"
+          }
+        }
+      }
+    },
+    "pro.burn_in_protection": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Burn-in Protection"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "焼き付き防止"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "번인 방지 모드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "防烧屏模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "防燒屏模式"
+          }
+        }
+      }
+    },
+    "pro.burn_in_protection_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gentle pixel shifting for OLED"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OLED 向け焼き付き防止"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OLED 번인 방지"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OLED 屏幕防烧屏保护"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OLED 螢幕防燒屏保護"
+          }
+        }
+      }
+    },
+    "pro.night_advanced_mode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Night Advanced Mode"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ナイト高度モード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "야간 고급 모드"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "夜间高级模式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "夜間進階模式"
+          }
+        }
+      }
+    },
+    "pro.night_advanced_mode_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deeper night-friendly customization"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "より目に優しい夜間表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "더 눈 편한 야간 표시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更护眼的夜间显示选项"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更護眼的夜間顯示選項"
+          }
+        }
+      }
+    },
+    "pro.ad_free": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad Free"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "広告なし"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "광고 없음"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无广告"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無廣告"
+          }
+        }
+      }
+    },
+    "pro.ad_free_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enjoy Jia Clock without ads"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "広告のない快適な体験"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "광고 없는 깔끔한 경험"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "纯净无打扰的使用体验"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "純淨無打擾的使用體驗"
+          }
+        }
+      }
+    },
+    "pro.paywall_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock Jia Clock Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉時計 Pro を解放"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock Pro 잠금 해제"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解锁小嘉时钟 Pro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解鎖小嘉時鐘 Pro"
+          }
+        }
+      }
+    },
+    "pro.paywall_subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Make your desk clock truly yours — premium themes, transparent modes, widgets, and more."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "デスク時計を本当に自分だけのものに——プレミアムテーマ、透明モード、ウィジェットなど。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "데스크 시계를 진짜 나만의 것으로——프리미엄 테마, 투명 모드, 위젯 등."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让桌面时钟真正属于你——高级主题、透明模式、组件样式与更多专属能力。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "讓桌面時鐘真正屬於你——進階主題、透明模式、組件樣式與更多專屬能力。"
+          }
+        }
+      }
+    },
+    "pro.paywall_value_headline": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designed for calm, beautiful time"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "静かで美しい時間のために"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "조용하고 아름다운 시간을 위해"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为安静、好看的桌面时间而设计"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "為安靜、好看的桌面時間而設計"
+          }
+        }
+      }
+    },
+    "pro.paywall_value_body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro unlocks the full aesthetic toolkit — from premium themes to advanced transparent and widget styles — so your clock matches your mood, desk, and workflow."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro で美学ツールキットを解放。プレミアムテーマ、透明時計、ウィジェット、カスタムなど、あなたのデスクに合わせます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro로 프리미엄 테마, 투명 시계, 위젯, 사용자 지정 등 전체 미학 도구를 잠금 해제합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 解锁完整美学工具箱：高级主题、透明时钟高级模式、组件样式、自定义字体与颜色等，让时钟融入你的桌面与创作场景。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 解鎖完整美學工具箱：進階主題、透明時鐘進階模式、組件樣式、自訂字體與顏色等，讓時鐘融入你的桌面與創作場景。"
+          }
+        }
+      }
+    },
+    "pro.paywall_features_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you get"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "含まれる内容"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "포함 내용"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你将获得"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你將獲得"
+          }
+        }
+      }
+    },
+    "pro.paywall_plans_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose your plan"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プランを選択"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "플랜 선택"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择方案"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選擇方案"
+          }
+        }
+      }
+    },
+    "pro.plan_monthly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月額"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "월간"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月度订阅"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月度訂閱"
+          }
+        }
+      }
+    },
+    "pro.plan_yearly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "年額"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "연간"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "年度订阅"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "年度訂閱"
+          }
+        }
+      }
+    },
+    "pro.plan_lifetime": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lifetime"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "買い切り"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "평생"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永久买断"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永久買斷"
+          }
+        }
+      }
+    },
+    "pro.recommended_badge": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Best Value"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "おすすめ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "추천"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "推荐"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "推薦"
+          }
+        }
+      }
+    },
+    "pro.lifetime_badge": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forever"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永久"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "평생"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次买断"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次買斷"
+          }
+        }
+      }
+    },
+    "pro.lifetime_hint": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pay once, keep Pro forever on this Apple ID."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一度の購入で、この Apple ID で永久に Pro。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "한 번 구매로 이 Apple ID에서 영구 Pro."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次购买，在此 Apple ID 下永久享有 Pro。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次購買，在此 Apple ID 下永久享有 Pro。"
+          }
+        }
+      }
+    },
+    "pro.restore_purchases": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Purchases"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入を復元"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매 복원"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复购买"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢復購買"
+          }
+        }
+      }
+    },
+    "pro.subscription_disclosure": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment is charged to your Apple ID account. Monthly and yearly subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period. Lifetime purchase is a one-time charge. Prices are shown as returned by the App Store. You can manage or cancel subscriptions in App Store settings. Restore Purchases is available in Settings."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "付款将从你的 Apple ID 账户扣款。月度与年度订阅会在当前周期结束前至少 24 小时未取消时自动续期。永久买断为一次性扣款。价格以 App Store 返回显示为准。可在 App Store 设置中管理或取消订阅。可在设置中恢复购买。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "付款將從你的 Apple ID 帳戶扣款。月度與年度訂閱會在當前週期結束前至少 24 小時未取消時自動續期。永久買斷為一次性扣款。價格以 App Store 返回顯示為準。可在 App Store 設定中管理或取消訂閱。可在設定中恢復購買。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お支払いは Apple ID に請求されます。月額・年額は期間終了24時間前までにキャンセルしない限り自動更新されます。買い切りは一度きりの課金です。価格は App Store の表示に従います。App Store 設定で管理でき、設定から購入復元が可能です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "결제는 Apple ID 계정으로 청구됩니다. 월간·연간 구독은 현재 기간 종료 24시간 전까지 취소하지 않으면 자동 갱신됩니다. 평생 구매는 일회성 결제입니다. 가격은 App Store 표시를 따릅니다. App Store 설정에서 관리할 수 있으며 설정에서 구매 복원이 가능합니다."
+          }
+        }
+      }
+    },
+    "pro.loading_products": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading plans…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プランを読み込み中…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "플랜 불러오는 중…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在加载方案…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在載入方案…"
+          }
+        }
+      }
+    },
+    "pro.products_unavailable": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plans are temporarily unavailable. Please try again later."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プランを読み込めません。後でもう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "플랜을 불러올 수 없습니다. 나중에 다시 시도하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂时无法加载购买方案，请稍后重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暫時無法載入購買方案，請稍後重試。"
+          }
+        }
+      }
+    },
+    "pro.unlock_button": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro を解放"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 잠금 해제"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解锁 Pro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解鎖 Pro"
+          }
+        }
+      }
+    },
+    "pro.gate_message": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This feature is part of Jia Clock Pro."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この機能は小嘉時計 Pro の一部です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 기능은 Jia Clock Pro에 포함됩니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此功能属于小嘉时钟 Pro。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此功能屬於小嘉時鐘 Pro。"
+          }
+        }
+      }
+    },
+    "pro.already_unlocked": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro unlocked"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 解放済み"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 잠금 해제됨"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已解锁 Pro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已解鎖 Pro"
+          }
+        }
+      }
+    },
+    "pro.alert_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購買"
+          }
+        }
+      }
+    },
+    "pro.restore_succeeded": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your Pro access has been restored."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro アクセスを復元しました。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 권한이 복원되었습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 权限已恢复。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 權限已恢復。"
+          }
+        }
+      }
+    },
+    "pro.restore_nothing_found": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No previous Pro purchase was found for this Apple ID."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この Apple ID の Pro 購入が見つかりませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 Apple ID의 Pro 구매 기록을 찾을 수 없습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未找到此 Apple ID 的历史 Pro 购买记录。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未找到此 Apple ID 的歷史 Pro 購買記錄。"
+          }
+        }
+      }
+    },
+    "pro.purchase_pending": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your purchase is pending approval."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入は承認待ちです。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매 승인 대기 중입니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买正在等待批准。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購買正在等待批准。"
+          }
+        }
+      }
+    },
+    "pro.purchase_unknown_error": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase could not be completed."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入を完了できませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매를 완료할 수 없습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法完成购买。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法完成購買。"
+          }
+        }
+      }
+    },
+    "pro.period_monthly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ month"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 月"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 월"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 月"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 月"
+          }
+        }
+      }
+    },
+    "pro.period_yearly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ year"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 年"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 년"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 年"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 年"
+          }
+        }
+      }
+    },
+    "pro.products_load_failed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not load plans: %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プランを読み込めません：%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "플랜을 불러올 수 없습니다: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法加载方案：%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法載入方案：%@"
+          }
+        }
+      }
+    },
+    "pro.purchase_failed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase failed: %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入に失敗しました：%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매 실패: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买失败：%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購買失敗：%@"
+          }
+        }
+      }
+    },
+    "pro.restore_failed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore failed: %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復元に失敗しました：%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "복원 실패: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复失败：%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢復失敗：%@"
+          }
+        }
+      }
+    },
+    "pro.transaction_unverified": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transaction could not be verified: %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取引を検証できませんでした：%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "거래를 확인할 수 없습니다: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "交易验证失败：%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "交易驗證失敗：%@"
+          }
+        }
+      }
+    },
+    "legal.terms_of_service": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Service"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用規約"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이용약관"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用户协议"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用者協議"
+          }
+        }
+      }
+    },
+    "legal.privacy_policy": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy Policy"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プライバシーポリシー"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "개인정보 처리방침"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐私政策"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱私政策"
+          }
+        }
+      }
+    },
+    "widget.display_name": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉クロック"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "샤오지아 시계"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉时钟"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉時鐘"
+          }
+        }
+      }
+    },
+    "widget.description": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegant clock for your home screen. Updates every minute."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホーム画面用の美しい時計。分単位で更新。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "홈 화면을 위한 우아한 시계. 분 단위로 갱신됩니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "美学桌面时钟，按分钟刷新显示。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "美學桌面時鐘，按分鐘刷新顯示。"
+          }
+        }
+      }
+    },
+    "widget.brand_footer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time as desktop scenery"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時間をデスク上の風景に"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시간을 책상 위 풍경으로"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让时间成为桌面上的风景"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "讓時間成為桌面上的風景"
+          }
+        }
+      }
+    },
+    "legal.privacy.effective_date": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last updated: June 2025"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最后更新：2025 年 6 月"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最後更新：2025 年 6 月"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最終更新：2025年6月"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "최종 업데이트: 2025년 6월"
+          }
+        }
+      }
+    },
+    "legal.privacy.intro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock (「小嘉时钟」) is an aesthetic desk clock app. This Privacy Policy explains what the app accesses and how that information is used. We describe our practices clearly and accurately, without overstating protections."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉时钟是一款美学桌面时钟 App。本隐私政策说明 App 会访问哪些信息、以及如何使用这些信息。我们力求清楚、真实地描述相关做法，不夸大保护范围。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉時鐘是一款美學桌面時鐘 App。本隱私政策說明 App 會存取哪些資訊、以及如何使用這些資訊。我們力求清楚、真實地描述相關做法，不誇大保護範圍。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉クロックは美学デスク時計アプリです。本プライバシーポリシーは、アプリがアクセスする情報とその利用方法を説明します。過大な表現を避け、事実に基づいて記載します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock(小嘉时钟)은 미학 데스크 시계 앱입니다. 본 개인정보 처리방침은 앱이 접근하는 정보와 사용 방식을 설명합니다. 과장 없이 사실에 근거해 기술합니다."
+          }
+        }
+      }
+    },
+    "legal.privacy.section.camera.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera (Transparent Clock only)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摄像头（仅透明时钟）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相機（僅透明時鐘）"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラ（透明時計のみ）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라(투명 시계 전용)"
+          }
+        }
+      }
+    },
+    "legal.privacy.section.camera.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• Jia Clock requests camera access only when you actively choose to enable Transparent Clock.\n• The camera feed is used solely for live on-device preview as the clock background.\n• The app does not record camera footage.\n• The app does not save camera footage.\n• The app does not upload camera footage.\n• The app does not use camera footage for face recognition, identity detection, or content analysis.\n• The camera stops when you close Transparent Clock, leave that screen, send the app to the background, or lock your device. The camera does not run in the background."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• 小嘉时钟仅在你主动开启透明时钟时，才会请求摄像头权限。\n• 摄像头画面仅用于本机实时预览，作为时钟背景显示。\n• App 不会录制摄像头画面。\n• App 不会保存摄像头画面。\n• App 不会上传摄像头画面。\n• App 不会使用摄像头画面进行人脸识别、身份识别或内容分析。\n• 当你关闭透明时钟、离开该页面、App 进入后台或设备锁屏时，摄像头会停止工作，不会在后台继续运行。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• 小嘉時鐘僅在你主動開啟透明時鐘時，才會請求相機權限。\n• 相機畫面僅用於本機即時預覽，作為時鐘背景顯示。\n• App 不會錄製相機畫面。\n• App 不會保存相機畫面。\n• App 不會上傳相機畫面。\n• App 不會使用相機畫面進行人臉識別、身份識別或內容分析。\n• 當你關閉透明時鐘、離開該頁面、App 進入背景或裝置鎖屏時，相機會停止工作，不會在背景繼續運行。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• 透明時計を有効にするときのみ、カメラ権限をリクエストします。\n• カメラ映像は端末内のリアルタイムプレビュー（時計背景）のみに使用します。\n• 録画・保存・アップロードは行いません。\n• 顔認識、本人確認、コンテンツ分析には使用しません。\n• 透明時計を閉じる、画面を離れる、バックグラウンド移行、端末ロック時にカメラは停止し、バックグラウンドでは動作しません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• 투명 시계를 직접 켤 때만 카메라 권한을 요청합니다.\n• 카메라 화면은 기기 내 실시간 미리보기(시계 배경)에만 사용됩니다.\n• 녹화·저장·업로드하지 않습니다.\n• 얼굴 인식, 신원 확인, 콘텐츠 분석에 사용하지 않습니다.\n• 투명 시계 종료, 화면 이탈, 백그라운드 전환, 기기 잠금 시 카메라가 중지되며 백그라운드에서 실행되지 않습니다."
+          }
+        }
+      }
+    },
+    "legal.privacy.section.widget.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Widget"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小组件"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小組件"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ウィジェット"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "위젯"
+          }
+        }
+      }
+    },
+    "legal.privacy.section.widget.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Home screen widgets display time and your chosen clock settings only. Widgets do not access or use the camera."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主屏幕小组件仅显示时间与你在 App 中选择的时钟设置，不会访问或使用摄像头。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主畫面小組件僅顯示時間與你在 App 中選擇的時鐘設定，不會存取或使用相機。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホーム画面ウィジェットは時刻と設定した時計表示のみを行い、カメラにはアクセスしません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "홈 화면 위젯은 시간과 선택한 시계 설정만 표시하며 카메라에 접근하지 않습니다."
+          }
+        }
+      }
+    },
+    "legal.privacy.section.purchases.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchases and Subscriptions"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买与订阅"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購買與訂閱"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入とサブスクリプション"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매 및 구독"
+          }
+        }
+      }
+    },
+    "legal.privacy.section.purchases.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In-app purchases and subscriptions are processed by Apple through StoreKit. We do not receive or store your payment card details. Apple's terms and privacy practices apply to payment processing."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 内购买与订阅由 Apple 通过 StoreKit 处理。我们不会接收或保存你的支付卡信息。支付处理适用 Apple 的相关条款与隐私政策。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 內購買與訂閱由 Apple 透過 StoreKit 處理。我們不會接收或保存你的支付卡資訊。支付處理適用 Apple 的相關條款與隱私政策。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリ内課金とサブスクリプションは Apple の StoreKit により処理されます。当方はカード情報を受け取らず保存もしません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 내 구매와 구독은 Apple StoreKit으로 처리됩니다. 당사는 결제 카드 정보를 받거나 저장하지 않습니다."
+          }
+        }
+      }
+    },
+    "legal.privacy.section.storage.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Information Stored on Your Device"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存在你设备上的信息"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存在你裝置上的資訊"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "端末に保存される情報"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기기에 저장되는 정보"
+          }
+        }
+      }
+    },
+    "legal.privacy.section.storage.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock may save your preferences locally on your device, such as theme, custom tagline, and time display options.\n\nIf App Group storage is used, it is only to share these clock settings between the main app and the widget extension. Camera data is never shared through App Group."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉时钟可能在本机保存你的偏好设置，例如主题、自定义标语、时间显示格式等。\n\n如使用 App Group，其用途仅限于在主 App 与 Widget 扩展之间共享上述时钟设置，不会通过 App Group 共享任何摄像头数据。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉時鐘可能在本機保存你的偏好設定，例如主題、自訂標語、時間顯示格式等。\n\n如使用 App Group，其用途僅限於在主 App 與 Widget 擴展之間共享上述時鐘設定，不會透過 App Group 共享任何相機資料。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テーマ、标语、時刻表示形式などの設定を端末内に保存することがあります。\n\nApp Group を使用する場合も、メインアプリとウィジェット間でこれらの設定を共有する目的に限り、カメラデータは共有しません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "테마, 사용자 슬로건, 시간 표시 형식 등 설정을 기기에 저장할 수 있습니다.\n\nApp Group은 앱과 위젯 간 시계 설정 공유에만 사용되며 카메라 데이터는 공유하지 않습니다."
+          }
+        }
+      }
+    },
+    "legal.privacy.section.changes.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Changes to This Policy"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "政策变更"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "政策變更"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本ポリシーの変更"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "정책 변경"
+          }
+        }
+      }
+    },
+    "legal.privacy.section.changes.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We may update this Privacy Policy from time to time. Continued use of the app after changes take effect constitutes acceptance of the updated policy."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我们可能不时更新本隐私政策。更新生效后你继续使用 App，即视为接受更新后的政策。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我們可能不時更新本隱私政策。更新生效後你繼續使用 App，即視為接受更新後的政策。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本ポリシーは随時更新される場合があります。更新後も利用を続ける場合、更新内容に同意したものとみなします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "본 방침은 수시로 업데이트될 수 있습니다. 변경 후에도 앱을 계속 사용하면 업데이트된 방침에 동의한 것으로 봅니다."
+          }
+        }
+      }
+    },
+    "legal.privacy.section.contact.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contact"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "联系我们"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聯絡我們"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お問い合わせ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "문의"
+          }
+        }
+      }
+    },
+    "legal.privacy.section.contact.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you have questions about this Privacy Policy, please contact us at: support@example.com\n(Placeholder — replace with your official support email before App Store release.)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如对本隐私政策有疑问，请联系：support@example.com\n（占位邮箱，上架 App Store 前请替换为正式客服邮箱。）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如對本隱私政策有疑問，請聯絡：support@example.com\n（占位郵箱，上架 App Store 前請替換為正式客服郵箱。）"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本ポリシーに関するお問い合わせ：support@example.com\n（プレースホルダー。公開前に正式なサポートメールに差し替えてください。）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "본 방침 관련 문의: support@example.com\n(플레이스홀더. App Store 출시 전 공식 지원 이메일로 교체하세요.)"
+          }
+        }
+      }
+    },
+    "legal.terms.effective_date": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last updated: June 2025"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最后更新：2025 年 6 月"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最後更新：2025 年 6 月"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最終更新：2025年6月"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "최종 업데이트: 2025년 6월"
+          }
+        }
+      }
+    },
+    "legal.terms.intro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "These Terms of Service (「Terms」) govern your use of Jia Clock (「小嘉时钟」, the 「App」). By using the App, you agree to these Terms."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本用户协议（「协议」）适用于你对小嘉时钟（「App」）的使用。使用 App 即表示你同意本协议。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本使用者協議（「協議」）適用於你對小嘉時鐘（「App」）的使用。使用 App 即表示你同意本協議。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本利用規約（「規約」）は、小嘉クロック（「本アプリ」）の利用条件を定めます。利用により規約に同意したものとみなします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "본 이용약관(「약관」)은 Jia Clock(小嘉时钟) 앱 이용에 적용됩니다. 앱을 사용하면 본 약관에 동의한 것으로 봅니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.service.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Service Description"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "服务说明"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "服務說明"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サービス内容"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "서비스 설명"
+          }
+        }
+      }
+    },
+    "legal.terms.section.service.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock provides aesthetic clock displays, including full-screen clock, flip clock, transparent clock (camera preview background), and home screen widgets. Features may vary by device, system version, and subscription status."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉时钟提供美学时钟显示功能，包括全屏时钟、翻页时钟、透明时钟（摄像头预览背景）及主屏幕小组件。具体功能可能因设备、系统版本及订阅状态而有所不同。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉時鐘提供美學時鐘顯示功能，包括全屏時鐘、翻頁時鐘、透明時鐘（相機預覽背景）及主畫面小組件。具體功能可能因裝置、系統版本及訂閱狀態而有所不同。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小嘉クロックは、全画面時計、フリップ時計、透明時計（カメラプレビュー背景）、ホーム画面ウィジェットなどを提供します。機能は端末、OS、サブスクリプション状態により異なる場合があります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jia Clock은 전체 화면 시계, 플립 시계, 투명 시계(카메라 미리보기 배경), 홈 화면 위젯 등을 제공합니다. 기능은 기기, OS, 구독 상태에 따라 달라질 수 있습니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.rules.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "User Conduct"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用户使用规则"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用者規則"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用上の注意"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이용 규칙"
+          }
+        }
+      }
+    },
+    "legal.terms.section.rules.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You agree to use the App lawfully and not to misuse, reverse engineer, interfere with, or attempt unauthorized access to the App or related services. You are responsible for your device, network, and Apple ID security."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你应合法使用 App，不得滥用、逆向工程、干扰或试图未经授权访问 App 或相关服务。你需自行负责设备、网络及 Apple ID 的安全。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你應合法使用 App，不得濫用、逆向工程、干擾或試圖未經授權存取 App 或相關服務。你需自行負責裝置、網路及 Apple ID 的安全。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "法令に従って利用し、不正利用、リバースエンジニアリング、妨害、不正アクセスを行わないことに同意します。端末、ネットワーク、Apple ID の管理は利用者の責任です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱을 합법적으로 사용해야 하며, 남용·리버스 엔지니어링·방해·무단 접근을 해서는 안 됩니다. 기기, 네트워크, Apple ID 보안은 사용자 책임입니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.pro.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro Features"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 功能说明"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 功能說明"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 機能"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 기능"
+          }
+        }
+      }
+    },
+    "legal.terms.section.pro.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Certain features are available through Jia Clock Pro, such as premium themes and other advanced options marked in the app. Pro access requires an active subscription or lifetime purchase. Free features remain available without Pro."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "部分功能属于小嘉时钟 Pro，例如高级主题及 App 内标注的其他高级选项。Pro 需有效订阅或永久买断后方可使用。未解锁 Pro 时，免费功能仍可正常使用。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "部分功能屬於小嘉時鐘 Pro，例如進階主題及 App 內標註的其他進階選項。Pro 需有效訂閱或永久買斷後方可使用。未解鎖 Pro 時，免費功能仍可正常使用。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プレミアムテーマなど、一部機能は Pro で提供されます。Pro 利用には有効なサブスクリプションまたは買い切りが必要です。無料機能は Pro なしでも利用できます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "프리미엄 테마 등 일부 기능은 Pro에서 제공됩니다. Pro는 유효한 구독 또는 평생 구매가 필요합니다. 무료 기능은 Pro 없이도 이용할 수 있습니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.subscriptions.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions and Lifetime Purchase"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "订阅与永久买断"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "訂閱與永久買斷"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サブスクリプションと買い切り"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구독 및 평생 구매"
+          }
+        }
+      }
+    },
+    "legal.terms.section.subscriptions.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro may be offered as monthly subscription, yearly subscription, or one-time lifetime purchase. Prices are shown in the app as returned by the App Store and may vary by region. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. You can manage or cancel subscriptions in your App Store account settings. Restore Purchases is available in the app."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 可能以月度订阅、年度订阅或一次性永久买断形式提供。价格以 App Store 在 App 内返回的显示为准，可能因地区而异。订阅会在当前计费周期结束前至少 24 小时未取消的情况下自动续期。你可在 App Store 账户设置中管理或取消订阅。App 内提供「恢复购买」功能。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 可能以月度訂閱、年度訂閱或一次性永久買斷形式提供。價格以 App Store 在 App 內返回的顯示為準，可能因地區而異。訂閱會在當前計費週期結束前至少 24 小時未取消的情況下自動續期。你可在 App Store 帳戶設定中管理或取消訂閱。App 內提供「恢復購買」功能。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro は月額・年額サブスクリプションまたは買い切りで提供される場合があります。価格は App Store の表示に従います。サブスクリプションは期間終了24時間前までにキャンセルしない限り自動更新されます。App Store 設定で管理でき、アプリ内で購入復元が可能です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro는 월간·연간 구독 또는 평생 일회성 구매로 제공될 수 있습니다. 가격은 App Store 표시를 따르며 지역별로 다를 수 있습니다. 구독은 현재 기간 종료 24시간 전까지 취소하지 않으면 자동 갱신됩니다. App Store 설정에서 관리할 수 있으며 앱에서 구매 복원이 가능합니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.refunds.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refunds"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "退款说明"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "退款說明"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "返金"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "환불"
+          }
+        }
+      }
+    },
+    "legal.terms.section.refunds.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All purchases are processed by Apple. Refund requests must be submitted to Apple in accordance with Apple's policies. We cannot issue refunds directly."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有购买均由 Apple 处理。退款申请须按 Apple 政策向 Apple 提交，我们无法直接为你办理退款。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有購買均由 Apple 處理。退款申請須按 Apple 政策向 Apple 提交，我們無法直接為你辦理退款。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入は Apple が処理します。返金は Apple のポリシーに従い Apple に申請してください。当方から直接返金することはできません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모든 구매는 Apple이 처리합니다. 환불은 Apple 정책에 따라 Apple에 요청해야 하며, 당사가 직접 환불할 수 없습니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.limitations.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feature Availability and Limitations"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "功能限制说明"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "功能限制說明"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "機能の制限"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기능 제한"
+          }
+        }
+      }
+    },
+    "legal.terms.section.limitations.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The App is provided on an 「as is」 and 「as available」 basis. We do not guarantee uninterrupted operation on all devices. Transparent Clock requires a compatible camera and user permission. Simulator or restricted devices may have limited functionality."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 按「现状」及「可用性」提供，我们不保证在所有设备上持续无中断运行。透明时钟需要兼容的摄像头及用户授权；模拟器或受限制设备可能功能受限。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 按「現狀」及「可用性」提供，我們不保證在所有裝置上持續無中斷運行。透明時鐘需要相容的相機及使用者授權；模擬器或受限制裝置可能功能受限。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本アプリは「現状有姿」で提供されます。全端末での無停止動作を保証しません。透明時計には対応カメラと許可が必要で、シミュレータ等では制限がある場合があります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱은 「있는 그대로」 제공됩니다. 모든 기기에서 중단 없는 동작을 보장하지 않습니다. 투명 시계는 호환 카메라와 사용자 권한이 필요하며, 시뮬레이터 등에서는 기능이 제한될 수 있습니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.camera.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent Clock and Camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明时钟与摄像头"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時鐘與相機"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計とカメラ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계와 카메라"
+          }
+        }
+      }
+    },
+    "legal.terms.section.camera.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent Clock uses the device camera for live on-device preview only when you enable the feature. By enabling it, you confirm you have the right to use the camera in your environment. See the Privacy Policy for detailed camera practices."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明时钟仅在你主动开启时使用设备摄像头进行本机实时预览。开启即表示你确认在当前环境中有权使用摄像头。摄像头相关细节请参阅隐私政策。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時鐘僅在你主動開啟時使用裝置相機進行本機即時預覽。開啟即表示你確認在當前環境中有權使用相機。相機相關細節請參閱隱私政策。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "透明時計は、有効化した場合に端末カメラを端末内プレビューのみに使用します。有効化により、利用環境でカメラ使用が適切であることを確認したものとみなします。詳細はプライバシーポリシーを参照してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "투명 시계는 사용자가 켠 경우에만 기기 카메라를 기기 내 실시간 미리보기에 사용합니다. 활성화하면 해당 환경에서 카메라 사용 권리가 있음을 확인한 것으로 봅니다. 자세한 내용은 개인정보 처리방침을 참고하세요."
+          }
+        }
+      }
+    },
+    "legal.terms.section.disclaimer.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disclaimer"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免责声明"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免責聲明"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免責事項"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "면책 조항"
+          }
+        }
+      }
+    },
+    "legal.terms.section.disclaimer.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To the maximum extent permitted by law, we are not liable for indirect, incidental, or consequential damages arising from your use of the App. The App is a display tool and does not provide professional, medical, or emergency services."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在法律允许的最大范围内，我们不对因使用 App 产生的间接、附带或后果性损害承担责任。App 为显示工具，不提供专业、医疗或紧急服务。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在法律允許的最大範圍內，我們不對因使用 App 產生的間接、附帶或後果性損害承擔責任。App 為顯示工具，不提供專業、醫療或緊急服務。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "法令で許される最大限の範囲で、間接的・付随的・結果的損害について責任を負いません。本アプリは表示ツールであり、専門・医療・緊急サービスを提供しません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "법이 허용하는 최대 범위 내에서 간접·부수·결과적 손해에 대해 책임지지 않습니다. 앱은 표시 도구이며 전문·의료·긴급 서비스를 제공하지 않습니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.updates.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Changes to These Terms"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "协议更新"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "協議更新"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "規約の変更"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "약관 변경"
+          }
+        }
+      }
+    },
+    "legal.terms.section.updates.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We may update these Terms from time to time. Material changes will be reflected in the app or App Store listing. Continued use after updates constitutes acceptance."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我们可能不时更新本协议。重要变更会在 App 或 App Store 页面中体现。更新后继续使用即视为接受。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我們可能不時更新本協議。重要變更會在 App 或 App Store 頁面中體現。更新後繼續使用即視為接受。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本規約は随時更新される場合があります。重要な変更はアプリまたは App Store 掲載情報に反映されます。更新後の利用は同意とみなします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "본 약관은 수시로 업데이트될 수 있습니다. 중요 변경은 앱 또는 App Store 페이지에 반영됩니다. 변경 후 계속 사용하면 동의한 것으로 봅니다."
+          }
+        }
+      }
+    },
+    "legal.terms.section.contact.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contact"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "联系方式"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聯絡方式"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お問い合わせ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "문의"
+          }
+        }
+      }
+    },
+    "legal.terms.section.contact.body": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For questions about these Terms, contact: support@example.com\n(Placeholder — replace with your official support email before App Store release.)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如对本协议有疑问，请联系：support@example.com\n（占位邮箱，上架 App Store 前请替换为正式客服邮箱。）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如對本協議有疑問，請聯絡：support@example.com\n（占位郵箱，上架 App Store 前請替換為正式客服郵箱。）"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本規約に関するお問い合わせ：support@example.com\n（プレースホルダー。公開前に正式なサポートメールに差し替えてください。）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "약관 관련 문의: support@example.com\n(플레이스홀더. App Store 출시 전 공식 지원 이메일로 교체하세요.)"
+          }
+        }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }
-
-

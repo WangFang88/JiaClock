@@ -1,1 +1,1 @@
-"NSCameraUsageDescription" = "Jia Clock needs camera access to show the transparent clock background. The camera feed is used for on-device live preview only and is never recorded, saved, or uploaded.";
+"NSCameraUsageDescription" = "Jia Clock requests camera access only when you enable Transparent Clock. The camera feed is used for on-device live preview only. The app does not record, save, upload, or analyze camera footage. The camera stops when you leave Transparent Clock or the app goes to the background.";
