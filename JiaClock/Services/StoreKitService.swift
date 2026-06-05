@@ -167,6 +167,8 @@ final class StoreKitService: ObservableObject {
     private func handleVerifiedTransaction(_ verification: VerificationResult<Transaction>, finish: Bool) async {
         switch verification {
         case .verified(let transaction):
+            try? await AppStore.sync()
+            await entitlementManager?.refreshEntitlements()
             if finish { await transaction.finish() }
             await entitlementManager?.refreshEntitlements()
         case .unverified(_, let error):

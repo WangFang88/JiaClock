@@ -44,7 +44,12 @@ struct HomeView: View {
                     .environmentObject(storeKitService)
                     .environmentObject(entitlementManager)
             }
-            .sheet(isPresented: $showThemePicker) { ThemePickerView().environmentObject(settingsStore) }
+            .sheet(isPresented: $showThemePicker) {
+                ThemePickerView()
+                    .environmentObject(settingsStore)
+                    .environmentObject(entitlementManager)
+                    .environmentObject(storeKitService)
+            }
             .fullScreenCover(isPresented: $showFullScreenClock) { FullScreenClockView().environmentObject(settingsStore) }
             .fullScreenCover(isPresented: $showFlipClock) { FlipClockView().environmentObject(settingsStore) }
             .sheet(isPresented: $showTransparentIntro) { TransparentClockIntroView().environmentObject(settingsStore) }

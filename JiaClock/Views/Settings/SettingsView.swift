@@ -28,14 +28,35 @@ struct SettingsView: View {
                         }
                     }
                     Section(L10n.Settings.proSection) {
-                        Button { showPaywall = true } label: {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(L10n.Settings.upgradePro).font(.body.weight(.semibold))
-                                    Text(L10n.Settings.upgradeProSubtitle).font(.caption).foregroundStyle(.secondary)
+                        if entitlements.isPro {
+                            VStack(alignment: .leading, spacing: 6) {
+                                HStack {
+                                    Text(L10n.Settings.proStatusActive).font(.body.weight(.semibold))
+                                    Spacer()
+                                    ProBadgeView()
                                 }
-                                Spacer()
-                                ProBadgeView()
+                                if let plan = entitlements.activePlanTitle {
+                                    Text(plan).font(.caption).foregroundStyle(.secondary)
+                                }
+                                if let expiration = entitlements.subscriptionExpirationDate {
+                                    Text(L10n.Settings.proExpiresAt(proExpirationText(expiration)))
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                } else if entitlements.hasLifetimeEntitlement {
+                                    Text(L10n.Pro.lifetimeHint).font(.caption).foregroundStyle(.secondary)
+                                }
+                            }
+                            .padding(.vertical, 2)
+                        } else {
+                            Button { showPaywall = true } label: {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(L10n.Settings.upgradePro).font(.body.weight(.semibold))
+                                        Text(L10n.Settings.upgradeProSubtitle).font(.caption).foregroundStyle(.secondary)
+                                    }
+                                    Spacer()
+                                    ProBadgeView()
+                                }
                             }
                         }
                         Button {
@@ -63,6 +84,7 @@ struct SettingsView: View {
                 ThemePickerView()
                     .environmentObject(settingsStore)
                     .environmentObject(entitlements)
+                    .environmentObject(storeKit)
             }
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
@@ -75,7 +97,12 @@ struct SettingsView: View {
                 Text(storeKit.alertMessage ?? "")
             }
             .sheet(item: $selectedLegal) { LegalDocumentView(type: $0) }
+            .task { await entitlements.refreshEntitlements() }
         }
+    }
+
+    private func proExpirationText(_ date: Date) -> String {
+        date.formatted(date: .abbreviated, time: .shortened)
     }
 
     private var alertBinding: Binding<Bool> {

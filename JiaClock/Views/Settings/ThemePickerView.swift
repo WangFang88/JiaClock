@@ -3,6 +3,7 @@ import SwiftUI
 struct ThemePickerView: View {
     @EnvironmentObject private var settingsStore: ClockSettingsStore
     @EnvironmentObject private var entitlements: EntitlementManager
+    @EnvironmentObject private var storeKit: StoreKitService
     @Environment(\.dismiss) private var dismiss
     @State private var showPaywall = false
 
@@ -22,6 +23,13 @@ struct ThemePickerView: View {
             .toolbar { ToolbarItem(placement: .topBarTrailing) { Button(L10n.Common.done) { dismiss() } } }
             .sheet(isPresented: $showPaywall) {
                 PaywallView(highlightFeature: .premiumThemes)
+                    .environmentObject(storeKit)
+                    .environmentObject(entitlements)
+            }
+            .onChange(of: showPaywall) { _, isShowing in
+                if !isShowing {
+                    Task { await entitlements.refreshEntitlements() }
+                }
             }
         }
     }

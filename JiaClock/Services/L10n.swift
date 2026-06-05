@@ -85,6 +85,8 @@ enum L10n {
         static var proSection: String { tr("settings.pro_section") }
         static var upgradePro: String { tr("settings.upgrade_pro") }
         static var upgradeProSubtitle: String { tr("settings.upgrade_pro_subtitle") }
+        static var proStatusActive: String { tr("settings.pro_status_active") }
+        static func proExpiresAt(_ date: String) -> String { tr("settings.pro_expires_at", date) }
         static var legalSection: String { tr("settings.legal_section") }
     }
 

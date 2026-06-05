@@ -47,8 +47,11 @@ struct PaywallView: View {
             .sheet(item: $selectedLegal) { LegalDocumentView(type: $0) }
             .onChange(of: storeKit.purchaseState) { _, newValue in
                 if case .succeeded = newValue {
-                    dismiss()
-                    storeKit.resetPurchaseState()
+                    Task {
+                        await entitlements.refreshEntitlements()
+                        dismiss()
+                        storeKit.resetPurchaseState()
+                    }
                 }
             }
         }
