@@ -91,6 +91,9 @@ final class StoreKitService: ObservableObject {
             let result = try await product.purchase()
             switch result {
             case .success(let verification):
+                if case .verified(let transaction) = verification, transaction.productID == product.id {
+                    entitlementManager?.applyVerifiedTransaction(transaction)
+                }
                 await handleVerifiedTransaction(verification, finish: true)
                 purchaseState = .succeeded
             case .userCancelled:
@@ -171,7 +174,6 @@ final class StoreKitService: ObservableObject {
     ) async {
         switch verification {
         case .verified(let transaction):
-            entitlementManager?.applyVerifiedTransaction(transaction)
             if finish, !finishedTransactionIDs.contains(transaction.id) {
                 finishedTransactionIDs.insert(transaction.id)
                 await transaction.finish()
