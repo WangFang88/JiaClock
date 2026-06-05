@@ -640,10 +640,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JiaClock/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "小嘉时钟需要使用摄像头来显示透明时钟背景。相机画面仅用于本机实时预览，不会录制、保存或上传。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -659,6 +660,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -671,10 +673,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JiaClock/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "小嘉时钟需要使用摄像头来显示透明时钟背景。相机画面仅用于本机实时预览，不会录制、保存或上传。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -690,6 +693,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -700,7 +704,7 @@
 				CODE_SIGN_ENTITLEMENTS = JiaClockWidget/JiaClockWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JiaClockWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -716,6 +720,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -726,7 +731,7 @@
 				CODE_SIGN_ENTITLEMENTS = JiaClockWidget/JiaClockWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JiaClockWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "小嘉时钟";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -742,6 +747,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

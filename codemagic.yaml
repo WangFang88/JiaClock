@@ -116,7 +116,8 @@ workflows:
           set -euo pipefail
           xcode-project build-ipa \
             --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
-            --scheme "$XCODE_SCHEME"
+            --scheme "$XCODE_SCHEME" \
+            2>&1 | tee /tmp/xcodebuild-ipa.log
 
     artifacts:
       - build/ios/ipa/*.ipa
