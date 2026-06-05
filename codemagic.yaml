@@ -79,9 +79,8 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier:
-          - com.jiaclock.app
-          - com.jiaclock.app.widget
+        # 主 App Bundle ID；Codemagic 会自动匹配 com.jiaclock.app.*（含 Widget）
+        bundle_identifier: com.jiaclock.app
       groups:
         - jiaclock_secrets
       vars:
