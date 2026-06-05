@@ -191,17 +191,34 @@ workflows:
           set -euo pipefail
           echo "=== Ad Hoc: direct install to registered iPhone ==="
           echo ""
-          echo "One-time setup (before first Ad Hoc build):"
-          echo "  1. Get iPhone UDID (Finder → iPhone → 点序列号切换为 UDID, or 爱思助手)"
-          echo "  2. developer.apple.com → Devices → + → register UDID"
-          echo "  3. Codemagic → Code signing identities → Fetch profiles (Ad Hoc)"
-          echo "     Profiles must cover jdarray.JiaClock + jdarray.JiaClock.JiaClockWidget"
+          echo "Required before first build:"
+          echo "  1. Register iPhone UDID at developer.apple.com → Devices"
+          echo "  2. Codemagic must have Apple Distribution certificate (same as TestFlight)"
           echo ""
-          echo "--- Registered devices (Developer Portal via API) ---"
+          echo "--- Registered devices ---"
           app-store-connect devices list 2>&1 | tee /tmp/adhoc-devices.log || true
-          if ! grep -qi "udid" /tmp/adhoc-devices.log 2>/dev/null; then
-            echo "WARN: No devices listed. Register UDID in Developer Portal, then Fetch profiles."
+          if ! grep -Eiq "udid|[0-9a-f]{8}-[0-9a-f]{4}-" /tmp/adhoc-devices.log 2>/dev/null; then
+            echo ""
+            echo "ERROR: No devices found in Developer Portal."
+            echo "Ad Hoc profiles require at least one registered iPhone UDID."
+            echo "Register device, then re-run this workflow."
+            exit 1
           fi
+
+      - name: Fetch Ad Hoc signing files (main app + widget)
+        script: |
+          set -euo pipefail
+          # --create generates Ad Hoc profiles in Developer Portal (uses existing Distribution cert)
+          for BUNDLE_ID in jdarray.JiaClock jdarray.JiaClock.JiaClockWidget; do
+            echo "Fetching Ad Hoc profile for $BUNDLE_ID ..."
+            app-store-connect fetch-signing-files "$BUNDLE_ID" \
+              --platform IOS \
+              --type IOS_APP_ADHOC \
+              --strict-match-identifier \
+              --create \
+              --delete-stale-profiles
+          done
+          echo "Ad Hoc signing files fetched."
 
       - name: Apply provisioning profiles to Xcode project
         script: xcode-project use-profiles
