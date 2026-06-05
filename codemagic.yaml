@@ -163,6 +163,16 @@ workflows:
 
   # ---------------------------------------------------------------------------
   # Workflow C: Ad Hoc 签名 .ipa → 直接装真机（绕过 TestFlight）
+  #
+  # 一次性配置（在 Codemagic 构建前完成）:
+  #   A) developer.apple.com → Devices → 注册 iPhone UDID
+  #   B) developer.apple.com → Profiles → + → Ad Hoc → 分别创建:
+  #        • jdarray.JiaClock
+  #        • jdarray.JiaClock.JiaClockWidget
+  #      选 Apple Distribution 证书 + 已注册设备
+  #   C) Codemagic → Code signing identities → iOS provisioning profiles
+  #      → Fetch profiles → 勾选 Ad Hoc 下上述两个 profile → Download selected
+  #   D) 确认 Distribution 证书在 Code signing identities 里（TestFlight 已配则跳过）
   # ---------------------------------------------------------------------------
   jiaclock-adhoc:
     name: JiaClock Ad Hoc (Direct Install)
@@ -175,64 +185,41 @@ workflows:
     triggering:
       events: []
 
-    # 不要用 ios_signing.distribution_type — 那只读 Codemagic UI 里已上传的 Ad Hoc profile。
-    # 本 workflow 在构建时用 API 拉取 profile 到本机，再 use-profiles 签名。
     environment:
+      ios_signing:
+        distribution_type: ad_hoc
+        bundle_identifier: jdarray.JiaClock
       vars:
         XCODE_SCHEME: JiaClock
         XCODE_PROJECT: JiaClock.xcodeproj
-        BUNDLE_ID_MAIN: jdarray.JiaClock
-        BUNDLE_ID_WIDGET: jdarray.JiaClock.JiaClockWidget
       xcode: latest
 
     scripts:
-      - name: Set up keychain
-        script: keychain initialize
-
       - name: Verify Ad Hoc prerequisites
         script: |
           set -euo pipefail
-          echo "=== Ad Hoc: direct install to registered iPhone ==="
+          echo "=== Ad Hoc prerequisites ==="
           echo ""
-          echo "Required: register iPhone UDID at developer.apple.com → Devices"
+          echo "If build fails with 'No matching profiles found for ad_hoc':"
+          echo "  1. developer.apple.com → Profiles → create Ad Hoc for jdarray.JiaClock (+ Widget)"
+          echo "  2. Codemagic → Code signing identities → Fetch profiles → Ad Hoc → Download"
           echo ""
           echo "--- Registered devices ---"
           app-store-connect devices list 2>&1 | tee /tmp/adhoc-devices.log || true
           if ! grep -Eiq "udid|[0-9a-f]{8}-[0-9a-f]{4}-" /tmp/adhoc-devices.log 2>/dev/null; then
-            echo ""
-            echo "ERROR: No devices in Developer Portal."
-            echo "Ad Hoc requires at least one registered iPhone UDID."
+            echo "ERROR: Register iPhone UDID in Developer Portal → Devices first."
             exit 1
           fi
-
-      - name: Fetch Ad Hoc signing files (main app + widget)
-        script: |
-          set -euo pipefail
-          PROFILES_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
-          CERTS_DIR="$HOME/Library/MobileDevice/Certificates"
-          mkdir -p "$PROFILES_DIR" "$CERTS_DIR"
-          for BUNDLE_ID in "$BUNDLE_ID_MAIN" "$BUNDLE_ID_WIDGET"; do
-            echo "Fetching Ad Hoc signing files for $BUNDLE_ID ..."
-            app-store-connect fetch-signing-files "$BUNDLE_ID" \
-              --platform IOS \
-              --type IOS_APP_ADHOC \
-              --strict-match-identifier \
-              --profiles-dir "$PROFILES_DIR" \
-              --certificates-dir "$CERTS_DIR" \
-              --create \
-              --delete-stale-profiles
-          done
-          echo "--- Profiles on disk ---"
-          ls -la "$PROFILES_DIR" || true
-          echo "--- Certificates on disk ---"
-          ls -la "$CERTS_DIR" || true
-          if [ -z "$(ls -A "$PROFILES_DIR" 2>/dev/null)" ]; then
-            echo "ERROR: No Ad Hoc profiles downloaded. Register UDID and ensure Distribution cert exists."
-            exit 1
+          echo ""
+          echo "--- Ad Hoc profiles in Developer Portal (optional check) ---"
+          if app-store-connect profiles list --profile-type IOS_APP_ADHOC 2>&1 | tee /tmp/adhoc-profiles.log; then
+            if ! grep -q "JiaClock" /tmp/adhoc-profiles.log; then
+              echo "WARN: No Ad Hoc profile for JiaClock in Portal yet."
+              echo "Create in developer.apple.com → Profiles, then Fetch in Codemagic UI."
+            fi
+          else
+            echo "WARN: Could not list profiles via API. Continue if profiles exist in Codemagic UI."
           fi
-
-      - name: Add certificates to keychain
-        script: keychain add-certificates
 
       - name: Apply provisioning profiles to Xcode project
         script: xcode-project use-profiles
@@ -270,3 +257,4 @@ workflows:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild-adhoc.log
       - /tmp/adhoc-devices.log
+      - /tmp/adhoc-profiles.log
