@@ -38,28 +38,14 @@ final class CameraPreviewUIView: UIView {
 
     func updateVideoOrientation() {
         guard let connection = previewLayer.connection else { return }
-        if #available(iOS 17.0, *) {
-            let angle: CGFloat
-            switch window?.windowScene?.interfaceOrientation {
-            case .portrait: angle = 90
-            case .portraitUpsideDown: angle = 270
-            case .landscapeLeft: angle = 0
-            case .landscapeRight: angle = 180
-            default: angle = 90
-            }
-            if connection.isVideoRotationAngleSupported(angle) {
-                connection.videoRotationAngle = angle
-            }
-        } else if connection.isVideoOrientationSupported {
-            let orientation: AVCaptureVideoOrientation
-            switch window?.windowScene?.interfaceOrientation {
-            case .portrait: orientation = .portrait
-            case .portraitUpsideDown: orientation = .portraitUpsideDown
-            case .landscapeLeft: orientation = .landscapeLeft
-            case .landscapeRight: orientation = .landscapeRight
-            default: orientation = .portrait
-            }
-            connection.videoOrientation = orientation
+        let angle: CGFloat
+        switch window?.windowScene?.interfaceOrientation {
+        case .portrait: angle = 90
+        case .portraitUpsideDown: angle = 270
+        case .landscapeLeft: angle = 0
+        case .landscapeRight: angle = 180
+        default: angle = 90
         }
+        if connection.isVideoRotationAngleSupported(angle) { connection.videoRotationAngle = angle }
     }
 }

@@ -9,30 +9,16 @@ struct JiaClockWidgetView: View {
     private var timeText: String { WidgetTimeFormatter.timeString(from: entry.date, use24Hour: entry.settings.use24HourTime) }
 
     var body: some View {
-        widgetRoot {
-            Group {
-                switch family {
-                case .systemSmall: smallLayout
-                case .systemMedium: mediumLayout
-                case .systemLarge: largeLayout
-                default: mediumLayout
-                }
+        Group {
+            switch family {
+            case .systemSmall: smallLayout
+            case .systemMedium: mediumLayout
+            case .systemLarge: largeLayout
+            default: mediumLayout
             }
         }
-    }
-
-    @ViewBuilder
-    private func widgetRoot<Content: View>(@ViewBuilder content: () -> Content) -> some View {
-        if #available(iOS 17.0, *) {
-            content()
-                .containerBackground(for: .widget) {
-                    theme.background(showThemeBackground: family == .systemLarge)
-                }
-        } else {
-            ZStack {
-                theme.background(showThemeBackground: family == .systemLarge)
-                content()
-            }
+        .containerBackground(for: .widget) {
+            theme.background(showThemeBackground: family == .systemLarge)
         }
     }
 

@@ -50,7 +50,7 @@ struct TransparentClockView: View {
         .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
         .onAppear { isViewVisible = true; resumeCameraIfNeeded() }
         .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
-        .onChange(of: scenePhase) { phase in handleScenePhaseChange(phase) }
+        .onChange(of: scenePhase) { _, phase in handleScenePhaseChange(phase) }
         .onReceive(timer) { now = $0 }
         .statusBarHidden(!showControls)
     }
