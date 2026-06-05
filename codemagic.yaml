@@ -175,50 +175,64 @@ workflows:
     triggering:
       events: []
 
+    # 不要用 ios_signing.distribution_type — 那只读 Codemagic UI 里已上传的 Ad Hoc profile。
+    # 本 workflow 在构建时用 API 拉取 profile 到本机，再 use-profiles 签名。
     environment:
-      ios_signing:
-        distribution_type: ad_hoc
-        # 主 App；Codemagic 会自动匹配 jdarray.JiaClock.*（含 Widget）
-        bundle_identifier: jdarray.JiaClock
       vars:
         XCODE_SCHEME: JiaClock
         XCODE_PROJECT: JiaClock.xcodeproj
+        BUNDLE_ID_MAIN: jdarray.JiaClock
+        BUNDLE_ID_WIDGET: jdarray.JiaClock.JiaClockWidget
       xcode: latest
 
     scripts:
+      - name: Set up keychain
+        script: keychain initialize
+
       - name: Verify Ad Hoc prerequisites
         script: |
           set -euo pipefail
           echo "=== Ad Hoc: direct install to registered iPhone ==="
           echo ""
-          echo "Required before first build:"
-          echo "  1. Register iPhone UDID at developer.apple.com → Devices"
-          echo "  2. Codemagic must have Apple Distribution certificate (same as TestFlight)"
+          echo "Required: register iPhone UDID at developer.apple.com → Devices"
           echo ""
           echo "--- Registered devices ---"
           app-store-connect devices list 2>&1 | tee /tmp/adhoc-devices.log || true
           if ! grep -Eiq "udid|[0-9a-f]{8}-[0-9a-f]{4}-" /tmp/adhoc-devices.log 2>/dev/null; then
             echo ""
-            echo "ERROR: No devices found in Developer Portal."
-            echo "Ad Hoc profiles require at least one registered iPhone UDID."
-            echo "Register device, then re-run this workflow."
+            echo "ERROR: No devices in Developer Portal."
+            echo "Ad Hoc requires at least one registered iPhone UDID."
             exit 1
           fi
 
       - name: Fetch Ad Hoc signing files (main app + widget)
         script: |
           set -euo pipefail
-          # --create generates Ad Hoc profiles in Developer Portal (uses existing Distribution cert)
-          for BUNDLE_ID in jdarray.JiaClock jdarray.JiaClock.JiaClockWidget; do
-            echo "Fetching Ad Hoc profile for $BUNDLE_ID ..."
+          PROFILES_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
+          CERTS_DIR="$HOME/Library/MobileDevice/Certificates"
+          mkdir -p "$PROFILES_DIR" "$CERTS_DIR"
+          for BUNDLE_ID in "$BUNDLE_ID_MAIN" "$BUNDLE_ID_WIDGET"; do
+            echo "Fetching Ad Hoc signing files for $BUNDLE_ID ..."
             app-store-connect fetch-signing-files "$BUNDLE_ID" \
               --platform IOS \
               --type IOS_APP_ADHOC \
               --strict-match-identifier \
+              --profiles-dir "$PROFILES_DIR" \
+              --certificates-dir "$CERTS_DIR" \
               --create \
               --delete-stale-profiles
           done
-          echo "Ad Hoc signing files fetched."
+          echo "--- Profiles on disk ---"
+          ls -la "$PROFILES_DIR" || true
+          echo "--- Certificates on disk ---"
+          ls -la "$CERTS_DIR" || true
+          if [ -z "$(ls -A "$PROFILES_DIR" 2>/dev/null)" ]; then
+            echo "ERROR: No Ad Hoc profiles downloaded. Register UDID and ensure Distribution cert exists."
+            exit 1
+          fi
+
+      - name: Add certificates to keychain
+        script: keychain add-certificates
 
       - name: Apply provisioning profiles to Xcode project
         script: xcode-project use-profiles
