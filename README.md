@@ -18,6 +18,7 @@ Xcode 16+ → 打开 `JiaClock.xcodeproj` → 选择模拟器或真机 → `Cmd 
 - App: `jdarray.JiaClock`
 - Widget: `jdarray.JiaClock.JiaClockWidget`
 - App Group: `group.jdarray.JiaClock`
+- Team ID: `CR7GXH4RAJ`
 
 ## Windows 开发者
 
