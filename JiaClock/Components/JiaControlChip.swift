@@ -19,6 +19,8 @@ struct JiaControlChip: View {
         HStack(spacing: 6) {
             Image(systemName: icon)
             Text(title)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
         .font(.subheadline.weight(.semibold))
         .padding(.horizontal, 14)

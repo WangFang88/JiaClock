@@ -62,7 +62,7 @@ struct TransparentClockView: View {
             settingsStore.enforceAccessibleClockStyle(isPro: isPro)
         }
         .onReceive(timer) { now = $0 }
-        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(flipTheme.id)-\(stackedTheme.id)-\(backgroundStyle.rawValue)")
+        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(flipTheme.id)-\(stackedTheme.id)-\(backgroundStyle.rawValue)-\(useLightText)")
         .statusBarHidden(true)
         .sheet(isPresented: $showThemePicker) {
             TransparentFlipThemePickerSheet()
@@ -132,7 +132,8 @@ struct TransparentClockView: View {
                     date: now,
                     settings: settings,
                     tagline: settingsStore.effectiveTagline,
-                    flipTheme: flipTheme
+                    flipTheme: flipTheme,
+                    useLightText: useLightText
                 )
                 .padding(.horizontal, 16)
             case .stackedFlip:
@@ -140,7 +141,8 @@ struct TransparentClockView: View {
                     date: now,
                     settings: settings,
                     tagline: settingsStore.effectiveTagline,
-                    theme: stackedTheme
+                    theme: stackedTheme,
+                    useLightText: useLightText
                 )
                 .padding(.horizontal, 16)
             case .minimalFloating:
