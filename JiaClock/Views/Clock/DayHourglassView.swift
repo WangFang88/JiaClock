@@ -45,10 +45,10 @@ struct DayHourglassScreenView: View {
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .contentShape(Rectangle())
+                        .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .contentShape(Rectangle())
-                    .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
                 }
             }
         }
@@ -180,6 +180,7 @@ struct DayHourglassScreenView: View {
             JiaControlChip(icon: "paintpalette.fill", title: L10n.Hourglass.themeButton) {
                 showThemePicker = true
             }
+            .fixedSize(horizontal: true, vertical: false)
             JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
                 showStyleCenter = true
             }

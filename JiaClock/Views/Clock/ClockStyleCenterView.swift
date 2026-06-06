@@ -43,11 +43,13 @@ struct ClockStyleCenterView: View {
                             subtitle: L10n.ClockStyleCenter.fullscreenSectionSubtitle,
                             styles: ClockDisplayStyle.fullscreenCenterStyles
                         )
-                        styleSection(
-                            title: L10n.ClockStyleCenter.transparentSectionTitle,
-                            subtitle: L10n.ClockStyleCenter.transparentSectionSubtitle,
-                            styles: ClockDisplayStyle.transparentCenterStyles
-                        )
+                        if selectedStyle.isTransparentCategory {
+                            styleSection(
+                                title: L10n.ClockStyleCenter.transparentSectionTitle,
+                                subtitle: L10n.ClockStyleCenter.transparentSectionSubtitle,
+                                styles: ClockDisplayStyle.transparentCenterStyles
+                            )
+                        }
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 12)

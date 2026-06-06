@@ -23,7 +23,6 @@ struct TransparentFlipThemePickerSheet: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    displayModeSection
                     if displayStyle == .transparentFlip {
                         flipThemeSection
                         backgroundSection
