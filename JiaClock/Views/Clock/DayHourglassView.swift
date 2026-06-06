@@ -30,11 +30,12 @@ struct DayHourglassScreenView: View {
                 ZStack {
                     backgroundLayer
                     VStack(spacing: 0) {
-                        Spacer(minLength: geo.safeAreaInsets.top + 8)
                         if showControls {
                             controlsBar
+                                .padding(.top, geo.safeAreaInsets.top + 12)
                         } else {
                             Color.clear.frame(height: 52)
+                                .padding(.top, geo.safeAreaInsets.top + 12)
                         }
                         Group {
                             if isLandscape {
