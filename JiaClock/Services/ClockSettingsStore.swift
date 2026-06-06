@@ -57,6 +57,51 @@ final class ClockSettingsStore: ObservableObject {
         theme = .dawn
     }
 
+    /// 透明翻页 / 叠层翻页主题 / 背景：非 Pro 时回退到免费项。
+    func enforceAccessibleTransparentFlipTheme(isPro: Bool) {
+        let theme = TransparentFlipThemeLibrary.theme(id: settings.transparentFlipThemeID)
+        if !isPro, theme.isPro {
+            update { $0.transparentFlipThemeID = TransparentFlipThemeLibrary.defaultThemeID }
+        }
+        if !isPro, settings.transparentClockBackgroundStyle.isPro {
+            update { $0.transparentClockBackgroundStyle = .softDark }
+        }
+        let stacked = StackedFlipThemeLibrary.theme(id: settings.stackedFlipThemeID)
+        if !isPro, stacked.isPro {
+            update { $0.stackedFlipThemeID = StackedFlipThemeLibrary.defaultThemeID }
+        }
+    }
+
+    /// 统一样式 Pro / 主题 Pro：非 Pro 时回退。
+    func enforceAccessibleClockStyle(isPro: Bool) {
+        enforceAccessibleTransparentFlipTheme(isPro: isPro)
+        enforceAccessibleRetroCalendarTheme(isPro: isPro)
+        enforceAccessibleDayHourglassTheme(isPro: isPro)
+
+        if !isPro, settings.clockDisplayStyle.isProStyle {
+            update {
+                $0.clockDisplayStyle = .digital
+                $0.transparentClockDisplayStyle = .transparentFlip
+            }
+        }
+    }
+
+    /// 一日沙漏主题：非 Pro 时回退到免费项。
+    func enforceAccessibleDayHourglassTheme(isPro: Bool) {
+        let hourglass = DayHourglassThemeLibrary.theme(id: settings.dayHourglassThemeID)
+        if !isPro, hourglass.isPro {
+            update { $0.dayHourglassThemeID = DayHourglassThemeLibrary.defaultThemeID }
+        }
+    }
+
+    /// 复古日历钟主题：非 Pro 时回退到免费项。
+    func enforceAccessibleRetroCalendarTheme(isPro: Bool) {
+        let retro = RetroCalendarClockThemeLibrary.theme(id: settings.retroCalendarClockThemeID)
+        if !isPro, retro.isPro {
+            update { $0.retroCalendarClockThemeID = RetroCalendarClockThemeLibrary.defaultThemeID }
+        }
+    }
+
     private func persist() {
         guard let data = try? JSONEncoder().encode(settings) else { return }
         sharedDefaults.set(data, forKey: storageKey)

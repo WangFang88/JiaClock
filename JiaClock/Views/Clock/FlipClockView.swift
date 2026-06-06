@@ -2,9 +2,13 @@ import SwiftUI
 
 struct FlipClockView: View {
     @EnvironmentObject private var settingsStore: ClockSettingsStore
+    @EnvironmentObject private var entitlements: EntitlementManager
+    @EnvironmentObject private var storeKit: StoreKitService
     @Environment(\.dismiss) private var dismiss
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var showControls = true
+    @State private var showStyleCenter = false
+    @Environment(\.clockStyleLaunch) private var clockStyleLaunch
     private var theme: ClockTheme { settingsStore.theme }
 
     var body: some View {
@@ -12,6 +16,15 @@ struct FlipClockView: View {
             clockContent(now: context.date)
         }
         .id(settingsStore.settings.use24HourFormat)
+        .sheet(isPresented: $showStyleCenter) {
+            ClockStyleCenterView(mode: .sheet, onLaunch: { destination in
+                showStyleCenter = false
+                if destination != .fullscreenContainer {
+                    dismiss()
+                    clockStyleLaunch?.onLaunch(destination)
+                }
+            })
+        }
     }
 
     @ViewBuilder
@@ -29,9 +42,12 @@ struct FlipClockView: View {
                 JiaBackgroundView(theme: theme)
                 VStack(spacing: isLandscape ? 20 : 28) {
                     if showControls {
-                        HStack {
+                        HStack(spacing: 10) {
                             JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
-                            Spacer()
+                            Spacer(minLength: 8)
+                            JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
+                                showStyleCenter = true
+                            }
                         }
                         .padding(.horizontal, 20)
                         .padding(.top, 12)

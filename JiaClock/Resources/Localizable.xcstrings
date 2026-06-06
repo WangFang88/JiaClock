@@ -443,6 +443,24 @@
         }
       }
     },
+    "home.day_hourglass": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Day Hourglass" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "一日砂時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "하루 모래시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "一日沙漏" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "一日沙漏" } }
+      }
+    },
+    "home.day_hourglass_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Watch today flow in a 24-hour sand timer" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "24時間の砂が今日の流れを映す" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "24시간 모래로 하루의 흐름을 시각화" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "24 小时沙量，看见今天正在流动" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "24 小時沙量，看見今天正在流動" } }
+      }
+    },
     "home.widget": {
       "localizations": {
         "en": {
@@ -647,6 +665,366 @@
         }
       }
     },
+    "home.start_clock": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Start Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "時計を開始" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "시계 시작" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "开始时钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "開始時鐘" } }
+      }
+    },
+    "home.start_clock_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Open your selected clock style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "選択中の時計スタイルで表示" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "선택한 시계 스타일로 시작" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "以当前选择的样式全屏显示" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "以目前選擇的樣式全螢幕顯示" } }
+      }
+    },
+    "home.style_center": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Clock Styles" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "時計スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "시계 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "时钟样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "時鐘樣式" } }
+      }
+    },
+    "home.style_center_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Browse and choose how time looks" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "表示スタイルを選んで切り替え" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "시간 표시 방식을 선택하세요" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "浏览并选择你喜欢的显示方式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "瀏覽並選擇你喜歡的顯示方式" } }
+      }
+    },
+    "clock_style_center.title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Choose Clock Style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "時計スタイルを選択" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "시계 스타일 선택" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "选择时钟样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "選擇時鐘樣式" } }
+      }
+    },
+    "clock_style_center.subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Make time look the way you like" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "時間を好きなかたちで表示する" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "시간을 원하는 모습으로 표시하세요" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "把时间变成你喜欢的样子" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "把時間變成你喜歡的樣子" } }
+      }
+    },
+    "clock_style_center.sheet_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Clock Style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "時計スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "시계 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "时钟样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "時鐘樣式" } }
+      }
+    },
+    "clock_style_center.entry_button": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Styles" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "樣式" } }
+      }
+    },
+    "clock_style_center.camera_badge": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Transparent mode" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "透明モード" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "투명 모드" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明模式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明模式" } }
+      }
+    },
+    "clock_style_center.digital_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Digital Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "デジタル時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "디지털 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "数字时钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "數字時鐘" } }
+      }
+    },
+    "clock_style_center.digital_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A clean large-number time display" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "見やすくシンプルな大きな時間表示" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "크고 선명한 숫자 시간 화면" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "清晰简洁的大数字时间屏" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "清晰簡潔的大數字時間屏" } }
+      }
+    },
+    "clock_style_center.flip_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Flip Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "フリップ時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "플립 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "翻页时钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "翻頁時鐘" } }
+      }
+    },
+    "clock_style_center.flip_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A classic flip-style clock for your desk" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "デスクに置きたくなるクラシックなフリップ表示" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "책상 위에 어울리는 클래식 플립 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "经典翻页效果，适合桌面展示" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "經典翻頁效果，適合桌面展示" } }
+      }
+    },
+    "clock_style_center.transparent_flip_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Transparent Flip" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "透明フリップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "투명 플립" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明翻页" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明翻頁" } }
+      }
+    },
+    "clock_style_center.transparent_flip_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Let flip time float over the real world" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "現実の景色に時間が浮かぶ透明時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "현실 화면 위에 떠 있는 플립 시간" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "让翻页时间悬浮在现实画面上" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "讓翻頁時間懸浮在現實畫面上" } }
+      }
+    },
+    "clock_style_center.stacked_flip_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Stacked Flip" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "レイヤーフリップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "레이어 플립" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "叠层翻页" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "疊層翻頁" } }
+      }
+    },
+    "clock_style_center.stacked_flip_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A retro layered flip module with strong contrast" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "濃淡のレイヤーで見せるレトロなフリップ表示" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "진한 영역과 밝은 영역이 겹친 레트로 플립 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "上深下浅的复古翻页组件" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "上深下淺的復古翻頁元件" } }
+      }
+    },
+    "clock_style_center.retro_calendar_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Retro Calendar Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "レトロカレンダー時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "레트로 캘린더 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "复古日历钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "復古日曆鐘" } }
+      }
+    },
+    "clock_style_center.retro_calendar_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A desk-style calendar clock with DAY, DATE and a mini dial" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "DAY、DATE、小さな時計を組み合わせた卓上風デザイン" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "DAY, DATE, 작은 시계가 함께 있는 탁상형 디자인" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "DAY、DATE 与小表盘组成的桌面日历钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "DAY、DATE 與小錶盤組成的桌面日曆鐘" } }
+      }
+    },
+    "clock_style_center.day_hourglass_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Day Hourglass" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "一日砂時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "하루 모래시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "一日沙漏" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "一日沙漏" } }
+      }
+    },
+    "clock_style_center.day_hourglass_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Turn 24 hours into a slowly flowing hourglass" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "一日24時間をゆっくり流れる砂時計で表現" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "24시간을 천천히 흐르는 모래시계로 표현" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "把一天 24 小时变成缓缓流动的沙漏" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "把一天 24 小時變成緩緩流動的沙漏" } }
+      }
+    },
+    "clock_style_center.minimal_floating_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Minimal Floating" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ミニマルフローティング" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "미니멀 플로팅" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "极简悬浮" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "極簡懸浮" } }
+      }
+    },
+    "clock_style_center.minimal_floating_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A pure floating time display with nothing extra" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "余計なものをなくした浮遊感のある時間表示" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "가장 순수한 떠 있는 시간 표시" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "只保留最纯粹的悬浮时间" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "只保留最純粹的懸浮時間" } }
+      }
+    },
+    "clock_style_center.fullscreen_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Desk Clock Styles" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "卓上時計スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "데스크 시계 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "桌面时钟样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "桌面時鐘樣式" } }
+      }
+    },
+    "clock_style_center.fullscreen_section_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Full-screen clocks for desk, bedside, and focus" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "デスク、ベッドサイド、集中時間向けの全画面時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "책상, 침대 옆, 집중 시간을 위한 전체 화면 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "适合桌面、床头与专注场景的全屏时钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "適合桌面、床頭與專注場景的全螢幕時鐘" } }
+      }
+    },
+    "clock_style_center.transparent_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Transparent Styles" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "透明スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "투명 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明实景样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明實景樣式" } }
+      }
+    },
+    "clock_style_center.transparent_section_subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Float time over your real-world view" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "現実の景色の上に時間を浮かべる" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "현실 화면 위에 시간을 띄워 표시" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "让时间悬浮在现实画面上" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "讓時間懸浮在現實畫面上" } }
+      }
+    },
+    "widget_guide.title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Home Screen Widget" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ホーム画面ウィジェット" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "홈 화면 위젯" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "桌面小组件" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "桌面小組件" } }
+      }
+    },
+    "widget_guide.headline": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Keep time on your home screen" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ホーム画面に時間を置く" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "홈 화면에 시간을 두세요" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "把安静的时间留在主屏幕" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "把安靜的時間留在主畫面" } }
+      }
+    },
+    "widget_guide.subtitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A beautiful clock that stays with you, even when the app is closed" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "アプリを閉じても、美しい時計がそばに残ります" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "앱을 닫아도 아름다운 시계가 함께합니다" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "即使关闭 App，也能在桌面看到温暖的时间" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "即使關閉 App，也能在桌面看到溫暖的時間" } }
+      }
+    },
+    "widget_guide.step1_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Long-press the home screen" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ホーム画面を長押し" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "홈 화면 길게 누르기" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "长按主屏幕空白处" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "長按主畫面空白處" } }
+      }
+    },
+    "widget_guide.step1_body": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Enter edit mode until icons start jiggling" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "アイコンが揺れる編集モードに入ります" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "아이콘이 흔들리는 편집 모드로 들어갑니다" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "进入编辑模式，直到图标开始抖动" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "進入編輯模式，直到圖示開始抖動" } }
+      }
+    },
+    "widget_guide.step2_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Tap the + button" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "＋ボタンをタップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "+ 버튼 탭하기" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "点击左上角 +" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "點擊左上角 +" } }
+      }
+    },
+    "widget_guide.step2_body": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Open the widget gallery from the top-left corner" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "左上からウィジェットギャラリーを開きます" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "왼쪽 상단에서 위젯 갤러리를 엽니다" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "从左上角打开小组件库" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "從左上角打開小組件庫" } }
+      }
+    },
+    "widget_guide.step3_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Search for Jia Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "小嘉クロックを検索" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "샤오지아 시계 검색" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "搜索「小嘉时钟」" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "搜尋「小嘉時鐘」" } }
+      }
+    },
+    "widget_guide.step3_body": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Find the app and preview small, medium, and large sizes" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "アプリを見つけ、小・中・大サイズを確認します" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "앱을 찾고 소·중·대 크기를 확인하세요" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "找到 App 并预览小、中、大三种尺寸" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "找到 App 並預覽小、中、大三種尺寸" } }
+      }
+    },
+    "widget_guide.step4_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Add to home screen" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ホーム画面に追加" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "홈 화면에 추가" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "添加到主屏幕" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "加入主畫面" } }
+      }
+    },
+    "widget_guide.step4_body": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Place it where you want a calm clock always visible" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "いつでも見たい場所に置いてください" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "언제든 볼 수 있는 곳에 배치하세요" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "放在你想随时看到时间的位置" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "放在你想隨時看到時間的位置" } }
+      }
+    },
+    "widget_guide.refresh_note": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Widget time updates by the minute to save battery. Theme, slogan, and format sync from the app via App Group." } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ウィジェットの時刻は省電力のため分単位で更新されます。テーマ・標語・表示形式は App から同期されます。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "위젯 시간은 배터리 절약을 위해 분 단위로 갱신됩니다. 테마, 슬로건, 형식은 앱에서 동기화됩니다." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "小组件按分钟刷新以节省电量，主题、标语与格式会从 App 同步。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "小組件按分鐘刷新以節省電量，主題、標語與格式會從 App 同步。" } }
+      }
+    },
+    "widget_guide.mock_date": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Fri · Jun 5" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "金 · 6月5日" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "금 · 6월 5일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "周五 · 6月5日" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "週五 · 6月5日" } }
+      }
+    },
     "clock.default_tagline": {
       "localizations": {
         "en": {
@@ -815,6 +1193,231 @@
             "value": "分"
           }
         }
+      }
+    },
+    "clock_style.picker_button": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "樣式" } }
+      }
+    },
+    "clock_style.sheet_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Clock Style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "時計スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "시계 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "时钟样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "時鐘樣式" } }
+      }
+    },
+    "clock_style.section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Display Style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "表示スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "표시 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "显示样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "顯示樣式" } }
+      }
+    },
+    "clock_style.digital": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Digital" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "デジタル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "디지털" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "数字时钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "數字時鐘" } }
+      }
+    },
+    "clock_style.flip": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Flip Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "フリップ時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "플립 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "翻页时钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "翻頁時鐘" } }
+      }
+    },
+    "clock_style.day_hourglass": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Day Hourglass" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "一日砂時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "하루 모래시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "一日沙漏" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "一日沙漏" } }
+      }
+    },
+    "clock_style.retro_calendar": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Retro Calendar Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "レトロカレンダー時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "레트로 캘린더 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "复古日历钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "復古日曆鐘" } }
+      }
+    },
+    "retro_calendar.color_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Shell Color" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ボディカラー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "본체 색상" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "机身颜色" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "機身顏色" } }
+      }
+    },
+    "retro_calendar.theme.classic_yellow": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Classic Yellow" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クラシックイエロー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "클래식 옐로우" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "经典黄" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "經典黃" } }
+      }
+    },
+    "retro_calendar.theme.cream_white": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Cream White" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クリームホワイト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "크림 화이트" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "奶油白" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "奶油白" } }
+      }
+    },
+    "retro_calendar.theme.sunset_orange": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sunset Orange" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "サンセットオレンジ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "선셋 오렌지" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "日落橘" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "日落橘" } }
+      }
+    },
+    "retro_calendar.theme.mint_green": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Mint Green" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ミントグリーン" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "민트 그린" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "薄荷绿" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "薄荷綠" } }
+      }
+    },
+    "retro_calendar.theme.sky_blue": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sky Blue" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "スカイブルー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "스카이 블루" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "晴空蓝" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "晴空藍" } }
+      }
+    },
+    "retro_calendar.theme.retro_red": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Retro Red" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "レトロレッド" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "레트로 레드" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "复古红" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "復古紅" } }
+      }
+    },
+    "hourglass.title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Day Hourglass" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "一日砂時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "하루 모래시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "一日沙漏" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "一日沙漏" } }
+      }
+    },
+    "hourglass.theme_button": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Theme" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "テーマ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "테마" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "主题" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "主題" } }
+      }
+    },
+    "hourglass.theme_sheet_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Hourglass Theme" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "砂時計テーマ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "모래시계 테마" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "沙漏主题" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "沙漏主題" } }
+      }
+    },
+    "hourglass.show_percent": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Show today progress" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "今日の経過を表示" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "오늘 진행률 표시" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "显示今日进度" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "顯示今日進度" } }
+      }
+    },
+    "hourglass.show_remaining": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Show remaining time" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "残り時間を表示" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "남은 시간 표시" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "显示剩余时间" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "顯示剩餘時間" } }
+      }
+    },
+    "hourglass.pure_mode": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Pure mode" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ピュアモード" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "순수 모드" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "纯净模式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "純淨模式" } }
+      }
+    },
+    "hourglass.today_passed": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Today passed %@%%" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "今日の経過 %@%%" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "오늘 경과 %@%%" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "今天已过 %@%%" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "今天已過 %@%%" } }
+      }
+    },
+    "hourglass.until_day_ends": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Until the day ends %@" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "今日が終わるまで %@" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "오늘이 끝날 때까지 %@" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "距离今天结束还有 %@" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "距離今天結束還有 %@" } }
+      }
+    },
+    "hourglass.theme.golden_night": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Golden Night" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ゴールデンナイト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "골든 나이트" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "金色夜晚" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "金色夜晚" } }
+      }
+    },
+    "hourglass.theme.soft_dawn": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Soft Dawn" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ソフトドーン" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "부드러운 새벽" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "柔和清晨" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "柔和清晨" } }
+      }
+    },
+    "hourglass.theme.calm_forest": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Calm Forest" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "カームフォレスト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "고요한 숲" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "静谧森林" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "靜謐森林" } }
       }
     },
     "transparent.title": {
@@ -1633,6 +2236,130 @@
         }
       }
     },
+    "transparent.display_mode_flip": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Transparent Flip" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "透明フリップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "투명 플립" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明翻页" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明翻頁" } }
+      }
+    },
+    "transparent.display_mode_stacked_flip": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Stacked Flip" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "レイヤーフリップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "레이어 플립" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "叠层翻页" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "疊層翻頁" } }
+      }
+    },
+    "transparent.display_mode_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Display Style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "表示スタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "표시 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "显示样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "顯示樣式" } }
+      }
+    },
+    "transparent.stacked_theme_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Stacked Flip Colors" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "レイヤーフリップカラー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "레이어 플립 색상" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "叠层翻页配色" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "疊層翻頁配色" } }
+      }
+    },
+    "transparent.stacked_theme.orange_classic": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Orange Classic" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クラシックオレンジ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "클래식 오렌지" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "经典橘" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "經典橘" } }
+      }
+    },
+    "transparent.stacked_theme.blue_calm": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Blue Calm" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "カームブルー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "차분한 블루" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "静谧蓝" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "靜謐藍" } }
+      }
+    },
+    "transparent.stacked_theme.red_energy": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Red Energy" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "エナジーレッド" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "에너지 레드" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "活力红" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "活力紅" } }
+      }
+    },
+    "transparent.stacked_theme.green_forest": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Green Forest" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "フォレストグリーン" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "포레스트 그린" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "森林绿" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "森林綠" } }
+      }
+    },
+    "transparent.stacked_theme.purple_neon": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Purple Neon" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ナイトパープル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "네온 퍼플" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "幻夜紫" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "幻夜紫" } }
+      }
+    },
+    "transparent.stacked_theme.beige_soft": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Beige Soft" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クリームベージュ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "크림 베이지" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "奶油米" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "奶油米" } }
+      }
+    },
+    "transparent.hide_controls": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hide UI"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UIを隠す"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UI 숨기기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐藏界面"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱藏介面"
+          }
+        }
+      }
+    },
     "transparent.display_mode_minimal": {
       "localizations": {
         "en": {
@@ -1767,6 +2494,168 @@
             "value": "調整"
           }
         }
+      }
+    },
+    "transparent.flip_theme_button": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Theme" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "テーマ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "테마" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "主题" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "主題" } }
+      }
+    },
+    "transparent.flip_theme_sheet_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Transparent Flip Style" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "透明フリップスタイル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "투명 플립 스타일" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明翻页样式" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明翻頁樣式" } }
+      }
+    },
+    "transparent.flip_theme_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Flip Card Themes" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "フリップカードテーマ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "플립 카드 테마" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "翻页卡片主题" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "翻頁卡片主題" } }
+      }
+    },
+    "transparent.flip_background_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Atmosphere Background" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "背景ムード" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "배경 분위기" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "背景氛围" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "背景氛圍" } }
+      }
+    },
+    "transparent.flip_theme.glass_white": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Glass White" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "透明ホワイト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "글래스 화이트" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明白" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明白" } }
+      }
+    },
+    "transparent.flip_theme.midnight_black": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Midnight Black" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ミッドナイトブラック" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "미드나이트 블랙" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "午夜黑" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "午夜黑" } }
+      }
+    },
+    "transparent.flip_theme.sunset_orange": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sunset Orange" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "サンセットオレンジ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "선셋 오렌지" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "日落橘" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "日落橘" } }
+      }
+    },
+    "transparent.flip_theme.sakura_pink": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sakura Pink" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "さくらピンク" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "사쿠라 핑크" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "樱花粉" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "櫻花粉" } }
+      }
+    },
+    "transparent.flip_theme.cream_beige": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Cream Beige" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クリームベージュ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "크림 베이지" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "奶油米" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "奶油米" } }
+      }
+    },
+    "transparent.flip_theme.sky_blue": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sky Blue" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "スカイブルー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "스카이 블루" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "晴空蓝" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "晴空藍" } }
+      }
+    },
+    "transparent.flip_theme.forest_green": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Forest Green" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "フォレストグリーン" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "포레스트 그린" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "森林绿" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "森林綠" } }
+      }
+    },
+    "transparent.flip_theme.neon_purple": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Neon Purple" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ネオンパープル" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "네온 퍼플" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "霓虹紫" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "霓虹紫" } }
+      }
+    },
+    "transparent.bg.camera_only": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Camera Only" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "カメラのみ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "카메라만" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "仅摄像头" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "僅鏡頭" } }
+      }
+    },
+    "transparent.bg.soft_dark": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Soft Dark" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ソフトダーク" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "소프트 다크" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "柔和暗化" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "柔和暗化" } }
+      }
+    },
+    "transparent.bg.warm_sunset": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Warm Sunset" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ウォームサンセット" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "따뜻한 석양" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "暖色日落" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "暖色日落" } }
+      }
+    },
+    "transparent.bg.deep_night": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Deep Night" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ディープナイト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "깊은 밤" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "深夜" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "深夜" } }
+      }
+    },
+    "transparent.bg.aurora": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Aurora" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "オーロラ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "오로라" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "极光" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "極光" } }
+      }
+    },
+    "transparent.bg.clean_light": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Clean Light" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クリーンライト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "클린 라이트" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "清亮浅调" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "清亮淺調" } }
       }
     },
     "settings.title": {

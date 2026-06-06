@@ -77,6 +77,8 @@ struct SettingsView: View {
                     }
                 }
                 .scrollContentBackground(.hidden)
+                .frame(maxWidth: 640)
+                .frame(maxWidth: .infinity)
             }
             .navigationTitle(L10n.Settings.title)
             .toolbar { ToolbarItem(placement: .topBarTrailing) { Button(L10n.Common.done) { dismiss() } } }

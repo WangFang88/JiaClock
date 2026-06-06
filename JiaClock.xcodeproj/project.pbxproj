@@ -59,6 +59,21 @@
 		A2000000000000000000004A /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000067 /* PaywallView.swift */; };
 		A2000000000000000000004B /* ProGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000068 /* ProGateView.swift */; };
 		A2000000000000000000004C /* JiaControlChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006A /* JiaControlChip.swift */; };
+		A2000000000000000000004D /* TransparentFlipClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006B /* TransparentFlipClockView.swift */; };
+		A2000000000000000000004E /* TransparentFlipTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006C /* TransparentFlipTheme.swift */; };
+		A2000000000000000000004F /* TransparentFlipThemePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006D /* TransparentFlipThemePickerSheet.swift */; };
+		A20000000000000000000050 /* StackedFlipTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006E /* StackedFlipTheme.swift */; };
+		A20000000000000000000051 /* StackedFlipClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006F /* StackedFlipClockView.swift */; };
+		A20000000000000000000052 /* DayProgressCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000070 /* DayProgressCalculator.swift */; };
+		A20000000000000000000053 /* DayHourglassTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000071 /* DayHourglassTheme.swift */; };
+		A20000000000000000000054 /* DayHourglassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000072 /* DayHourglassView.swift */; };
+		A20000000000000000000055 /* ClockDisplayStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000073 /* ClockDisplayStyle.swift */; };
+		A20000000000000000000056 /* RetroCalendarClockTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000074 /* RetroCalendarClockTheme.swift */; };
+		A20000000000000000000057 /* RetroCalendarClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000075 /* RetroCalendarClockView.swift */; };
+		A20000000000000000000058 /* ClockStylePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000076 /* ClockStylePickerSheet.swift */; };
+		A20000000000000000000059 /* ClockStyleCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000077 /* ClockStyleCenterView.swift */; };
+		A2000000000000000000005A /* ClockStylePreviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000078 /* ClockStylePreviewCard.swift */; };
+		A2000000000000000000005B /* WidgetGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000079 /* WidgetGuideView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +158,21 @@
 		E10000000000000000000067 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		E10000000000000000000068 /* ProGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGateView.swift; sourceTree = "<group>"; };
 		E10000000000000000000069 /* JiaClockPro.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = JiaClockPro.storekit; sourceTree = "<group>"; };
+		E1000000000000000000006B /* TransparentFlipClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipClockView.swift; sourceTree = "<group>"; };
+		E1000000000000000000006C /* TransparentFlipTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipTheme.swift; sourceTree = "<group>"; };
+		E1000000000000000000006D /* TransparentFlipThemePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipThemePickerSheet.swift; sourceTree = "<group>"; };
+		E1000000000000000000006E /* StackedFlipTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedFlipTheme.swift; sourceTree = "<group>"; };
+		E1000000000000000000006F /* StackedFlipClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedFlipClockView.swift; sourceTree = "<group>"; };
+		E10000000000000000000070 /* DayProgressCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayProgressCalculator.swift; sourceTree = "<group>"; };
+		E10000000000000000000071 /* DayHourglassTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHourglassTheme.swift; sourceTree = "<group>"; };
+		E10000000000000000000072 /* DayHourglassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHourglassView.swift; sourceTree = "<group>"; };
+		E10000000000000000000073 /* ClockDisplayStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDisplayStyle.swift; sourceTree = "<group>"; };
+		E10000000000000000000074 /* RetroCalendarClockTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroCalendarClockTheme.swift; sourceTree = "<group>"; };
+		E10000000000000000000075 /* RetroCalendarClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroCalendarClockView.swift; sourceTree = "<group>"; };
+		E10000000000000000000076 /* ClockStylePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockStylePickerSheet.swift; sourceTree = "<group>"; };
+		E10000000000000000000077 /* ClockStyleCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockStyleCenterView.swift; sourceTree = "<group>"; };
+		E10000000000000000000078 /* ClockStylePreviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockStylePreviewCard.swift; sourceTree = "<group>"; };
+		E10000000000000000000079 /* WidgetGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetGuideView.swift; sourceTree = "<group>"; };
 		E1000000000000000000006A /* JiaControlChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaControlChip.swift; sourceTree = "<group>"; };
 		E10000000000000000000060 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E10000000000000000000061 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -243,7 +273,12 @@
 			isa = PBXGroup;
 			children = (
 				E10000000000000000000012 /* ClockMode.swift */,
+				E10000000000000000000073 /* ClockDisplayStyle.swift */,
 				E10000000000000000000013 /* ClockTheme.swift */,
+				E1000000000000000000006C /* TransparentFlipTheme.swift */,
+				E1000000000000000000006E /* StackedFlipTheme.swift */,
+				E10000000000000000000071 /* DayHourglassTheme.swift */,
+				E10000000000000000000074 /* RetroCalendarClockTheme.swift */,
 				E10000000000000000000014 /* ClockSettings.swift */,
 				E10000000000000000000015 /* ProFeature.swift */,
 				E10000000000000000000064 /* ProProductID.swift */,
@@ -284,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				E10000000000000000000028 /* ClockTimeFormatter.swift */,
+				E10000000000000000000070 /* DayProgressCalculator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -304,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				E10000000000000000000029 /* HomeView.swift */,
+				E10000000000000000000079 /* WidgetGuideView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -313,6 +350,11 @@
 			children = (
 				E10000000000000000000030 /* FullScreenClockView.swift */,
 				E10000000000000000000031 /* FlipClockView.swift */,
+				E10000000000000000000072 /* DayHourglassView.swift */,
+				E10000000000000000000075 /* RetroCalendarClockView.swift */,
+				E10000000000000000000076 /* ClockStylePickerSheet.swift */,
+				E10000000000000000000077 /* ClockStyleCenterView.swift */,
+				E10000000000000000000078 /* ClockStylePreviewCard.swift */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -322,6 +364,9 @@
 			children = (
 				E10000000000000000000032 /* TransparentClockIntroView.swift */,
 				E10000000000000000000033 /* TransparentClockView.swift */,
+				E1000000000000000000006B /* TransparentFlipClockView.swift */,
+				E1000000000000000000006D /* TransparentFlipThemePickerSheet.swift */,
+				E1000000000000000000006F /* StackedFlipClockView.swift */,
 				E10000000000000000000034 /* CameraPreviewView.swift */,
 				E10000000000000000000035 /* GlassMorphClockCard.swift */,
 			);
@@ -527,6 +572,21 @@
 				A20000000000000000000022 /* FlipClockView.swift in Sources */,
 				A20000000000000000000023 /* TransparentClockIntroView.swift in Sources */,
 				A20000000000000000000024 /* TransparentClockView.swift in Sources */,
+				A2000000000000000000004D /* TransparentFlipClockView.swift in Sources */,
+				A2000000000000000000004E /* TransparentFlipTheme.swift in Sources */,
+				A2000000000000000000004F /* TransparentFlipThemePickerSheet.swift in Sources */,
+				A20000000000000000000050 /* StackedFlipTheme.swift in Sources */,
+				A20000000000000000000051 /* StackedFlipClockView.swift in Sources */,
+				A20000000000000000000052 /* DayProgressCalculator.swift in Sources */,
+				A20000000000000000000053 /* DayHourglassTheme.swift in Sources */,
+				A20000000000000000000054 /* DayHourglassView.swift in Sources */,
+				A20000000000000000000055 /* ClockDisplayStyle.swift in Sources */,
+				A20000000000000000000056 /* RetroCalendarClockTheme.swift in Sources */,
+				A20000000000000000000057 /* RetroCalendarClockView.swift in Sources */,
+				A20000000000000000000058 /* ClockStylePickerSheet.swift in Sources */,
+				A20000000000000000000059 /* ClockStyleCenterView.swift in Sources */,
+				A2000000000000000000005A /* ClockStylePreviewCard.swift in Sources */,
+				A2000000000000000000005B /* WidgetGuideView.swift in Sources */,
 				A20000000000000000000025 /* CameraPreviewView.swift in Sources */,
 				A20000000000000000000026 /* GlassMorphClockCard.swift in Sources */,
 				A20000000000000000000027 /* SettingsView.swift in Sources */,

@@ -1,38 +1,40 @@
 import SwiftUI
 
-enum TransparentDisplayMode: String, CaseIterable, Identifiable {
-    case glassCard
-    case minimalFloating
-    var id: String { rawValue }
-    var title: String {
-        switch self {
-        case .glassCard: L10n.Transparent.displayModeGlass
-        case .minimalFloating: L10n.Transparent.displayModeMinimal
-        }
-    }
-    var systemImage: String {
-        switch self {
-        case .glassCard: "rectangle.inset.filled"
-        case .minimalFloating: "textformat.size.larger"
-        }
-    }
-}
-
 struct TransparentClockView: View {
     @EnvironmentObject private var settingsStore: ClockSettingsStore
+    @EnvironmentObject private var entitlements: EntitlementManager
+    @EnvironmentObject private var storeKit: StoreKitService
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var scenePhase
 
     @StateObject private var cameraController = CameraSessionController()
     @State private var now = Date.now
     @State private var showControls = true
-    @State private var darkOverlayEnabled = true
+    @State private var darkOverlayEnabled = false
     @State private var useLightText = true
-    @State private var displayMode: TransparentDisplayMode = .glassCard
+    @State private var showThemePicker = false
+    @State private var showStyleCenter = false
+    @State private var showPaywall = false
     @State private var isViewVisible = false
     @State private var shouldResumeCamera = false
 
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    private var displayStyle: TransparentClockDisplayStyle {
+        settingsStore.settings.transparentClockDisplayStyle
+    }
+
+    private var flipTheme: TransparentFlipTheme {
+        TransparentFlipThemeLibrary.theme(id: settingsStore.settings.transparentFlipThemeID)
+    }
+
+    private var stackedTheme: StackedFlipTheme {
+        StackedFlipThemeLibrary.theme(id: settingsStore.settings.stackedFlipThemeID)
+    }
+
+    private var backgroundStyle: TransparentClockBackgroundStyle {
+        settingsStore.settings.transparentClockBackgroundStyle
+    }
 
     var body: some View {
         let settings = settingsStore.settings
@@ -46,15 +48,53 @@ struct TransparentClockView: View {
                 controlsBar
             }
         }
-        .onAppear { isViewVisible = true; resumeCameraIfNeeded() }
+        .onAppear {
+            isViewVisible = true
+            settingsStore.enforceAccessibleClockStyle(isPro: entitlements.isPro)
+            if let transparent = settingsStore.settings.clockDisplayStyle.transparentClockDisplayStyle {
+                settingsStore.update { $0.transparentClockDisplayStyle = transparent }
+            }
+            resumeCameraIfNeeded()
+        }
         .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
         .onChange(of: scenePhase) { _, phase in handleScenePhaseChange(phase) }
+        .onChange(of: entitlements.isPro) { _, isPro in
+            settingsStore.enforceAccessibleClockStyle(isPro: isPro)
+        }
         .onReceive(timer) { now = $0 }
-        .id("\(settings.use24HourFormat)-\(settings.showSeconds)")
+        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(flipTheme.id)-\(stackedTheme.id)-\(backgroundStyle.rawValue)")
         .statusBarHidden(true)
+        .sheet(isPresented: $showThemePicker) {
+            TransparentFlipThemePickerSheet()
+                .environmentObject(settingsStore)
+                .environmentObject(entitlements)
+                .environmentObject(storeKit)
+        }
+        .sheet(isPresented: $showStyleCenter) {
+            ClockStyleCenterView(mode: .sheet, onLaunch: { destination in
+                showStyleCenter = false
+                handleTransparentStyleLaunch(destination)
+            })
+        }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView(highlightFeature: .transparentClockAdvanced)
+                .environmentObject(storeKit)
+                .environmentObject(entitlements)
+        }
     }
 
-    /// 仅背景层响应点击，用于显示/隐藏控制栏；不与顶部按钮争抢触摸。
+    @Environment(\.clockStyleLaunch) private var clockStyleLaunch
+
+    private func handleTransparentStyleLaunch(_ destination: ClockStyleLaunchDestination) {
+        switch destination {
+        case .fullscreenContainer:
+            dismiss()
+            clockStyleLaunch?.onLaunch(destination)
+        case .transparentIntro, .transparentClock:
+            break
+        }
+    }
+
     private var interactiveBackground: some View {
         ZStack {
             if cameraController.isCameraAvailable {
@@ -62,7 +102,10 @@ struct TransparentClockView: View {
             } else {
                 unavailableBackground
             }
-            if darkOverlayEnabled { Color.black.opacity(0.22).ignoresSafeArea().allowsHitTesting(false) }
+            TransparentClockAtmosphereOverlay(style: backgroundStyle, extraDimEnabled: darkOverlayEnabled)
+            if displayStyle == .stackedFlip {
+                StackedFlipAtmosphereOverlay(theme: stackedTheme)
+            }
         }
         .contentShape(Rectangle())
         .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
@@ -83,15 +126,23 @@ struct TransparentClockView: View {
     private func clockOverlay(settings: ClockSettings) -> some View {
         VStack {
             Spacer(minLength: 0)
-            switch displayMode {
-            case .glassCard:
-                GlassMorphClockCard(
-                    time: ClockTimeFormatter.timeString(from: now, settings: settings),
-                    weekday: settings.showWeekday ? ClockTimeFormatter.weekdayString(from: now) : nil,
-                    date: settings.showDate ? ClockTimeFormatter.dateString(from: now) : nil,
+            switch displayStyle {
+            case .transparentFlip:
+                TransparentFlipClockView(
+                    date: now,
+                    settings: settings,
                     tagline: settingsStore.effectiveTagline,
-                    useLightText: useLightText
-                ).padding(.horizontal, 24)
+                    flipTheme: flipTheme
+                )
+                .padding(.horizontal, 16)
+            case .stackedFlip:
+                StackedFlipClockView(
+                    date: now,
+                    settings: settings,
+                    tagline: settingsStore.effectiveTagline,
+                    theme: stackedTheme
+                )
+                .padding(.horizontal, 16)
             case .minimalFloating:
                 VStack(spacing: 10) {
                     Text(ClockTimeFormatter.timeString(from: now, settings: settings))
@@ -100,25 +151,29 @@ struct TransparentClockView: View {
                         .minimumScaleFactor(0.6)
                         .lineLimit(1)
                         .foregroundStyle(useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16))
+                        .shadow(color: .black.opacity(0.45), radius: 10, x: 0, y: 3)
                     if settings.showWeekday || settings.showDate {
                         VStack(spacing: 4) {
                             if settings.showWeekday {
                                 Text(ClockTimeFormatter.weekdayString(from: now))
                                     .font(.subheadline.weight(.medium))
-                                    .foregroundStyle(useLightText ? .white.opacity(0.82) : .primary.opacity(0.72))
+                                    .foregroundStyle(useLightText ? .white.opacity(0.88) : .primary.opacity(0.72))
+                                    .shadow(color: .black.opacity(0.35), radius: 6, x: 0, y: 2)
                             }
                             if settings.showDate {
                                 Text(ClockTimeFormatter.dateString(from: now))
                                     .font(.subheadline)
-                                    .foregroundStyle(useLightText ? .white.opacity(0.72) : .primary.opacity(0.62))
+                                    .foregroundStyle(useLightText ? .white.opacity(0.82) : .primary.opacity(0.62))
+                                    .shadow(color: .black.opacity(0.35), radius: 6, x: 0, y: 2)
                             }
                         }
                     }
                     if !settingsStore.effectiveTagline.isEmpty {
                         Text(settingsStore.effectiveTagline)
                             .font(.footnote.weight(.medium))
-                            .foregroundStyle(useLightText ? .white.opacity(0.88) : Color(red: 0.12, green: 0.12, blue: 0.16).opacity(0.88))
+                            .foregroundStyle(useLightText ? .white.opacity(0.82) : Color(red: 0.12, green: 0.12, blue: 0.16).opacity(0.88))
                             .multilineTextAlignment(.center)
+                            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 1)
                             .padding(.horizontal, 8)
                     }
                 }
@@ -132,11 +187,20 @@ struct TransparentClockView: View {
         HStack(spacing: 10) {
             JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
             Spacer(minLength: 8)
+            JiaControlChip(icon: "paintpalette.fill", title: L10n.Transparent.flipThemeButton) {
+                showThemePicker = true
+            }
+            JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
+                showStyleCenter = true
+            }
+            JiaControlChip(icon: showControls ? "eye.slash" : "eye", title: L10n.Transparent.hideControls) {
+                withAnimation(.easeInOut(duration: 0.2)) { showControls = false }
+            }
             JiaControlChip(icon: darkOverlayEnabled ? "moon.fill" : "moon", title: L10n.Transparent.darkOverlay) { darkOverlayEnabled.toggle() }
             Menu {
-                Picker(L10n.Transparent.displayMode, selection: $displayMode) {
-                    ForEach(TransparentDisplayMode.allCases) { Label($0.title, systemImage: $0.systemImage).tag($0) }
-                }
+                transparentStyleButton(.transparentFlip)
+                transparentStyleButton(.stackedFlip)
+                transparentStyleButton(.minimalFloating)
                 Button { useLightText.toggle() } label: {
                     Label(useLightText ? L10n.Transparent.useDarkText : L10n.Transparent.useLightText, systemImage: "textformat")
                 }
@@ -146,7 +210,18 @@ struct TransparentClockView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 10)
-        .background(.ultraThinMaterial.opacity(0.35))
+    }
+
+    private func transparentStyleButton(_ style: ClockDisplayStyle) {
+        Button {
+            if style.isProStyle, !entitlements.isPro {
+                showPaywall = true
+                return
+            }
+            ClockStyleRouter.applySelection(style, settingsStore: settingsStore)
+        } label: {
+            Label(style.title, systemImage: style.systemImage)
+        }
     }
 
     private func handleScenePhaseChange(_ phase: ScenePhase) {

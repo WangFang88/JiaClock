@@ -2,6 +2,8 @@ import SwiftUI
 
 struct TransparentClockIntroView: View {
     @EnvironmentObject private var settingsStore: ClockSettingsStore
+    @EnvironmentObject private var entitlements: EntitlementManager
+    @EnvironmentObject private var storeKit: StoreKitService
     @Environment(\.dismiss) private var dismiss
 
     @StateObject private var permissionService = CameraPermissionService()
@@ -39,7 +41,10 @@ struct TransparentClockIntroView: View {
                 ToolbarItem(placement: .topBarTrailing) { Button(L10n.Common.close) { dismiss() } }
             }
             .fullScreenCover(isPresented: $showTransparentClock) {
-                TransparentClockView().environmentObject(settingsStore)
+                TransparentClockView()
+                    .environmentObject(settingsStore)
+                    .environmentObject(entitlements)
+                    .environmentObject(storeKit)
             }
             .alert(L10n.Transparent.permissionDeniedTitle, isPresented: $showDeniedAlert) {
                 Button(L10n.Transparent.openSettings) { permissionService.openSettings() }

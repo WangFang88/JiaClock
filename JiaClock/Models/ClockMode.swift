@@ -4,6 +4,7 @@ enum ClockMode: String, CaseIterable, Identifiable, Codable {
     case fullScreen
     case transparent
     case flip
+    case dayHourglass
     case widget
 
     var id: String { rawValue }
@@ -13,6 +14,7 @@ enum ClockMode: String, CaseIterable, Identifiable, Codable {
         case .fullScreen: L10n.Home.fullScreenClock
         case .transparent: L10n.Home.transparentClock
         case .flip: L10n.Home.flipClock
+        case .dayHourglass: L10n.Home.dayHourglass
         case .widget: L10n.Home.widget
         }
     }
@@ -22,6 +24,7 @@ enum ClockMode: String, CaseIterable, Identifiable, Codable {
         case .fullScreen: L10n.Home.fullScreenSubtitle
         case .transparent: L10n.Home.transparentSubtitle
         case .flip: L10n.Home.flipSubtitle
+        case .dayHourglass: L10n.Home.dayHourglassSubtitle
         case .widget: L10n.Home.widgetSubtitle
         }
     }
@@ -31,6 +34,7 @@ enum ClockMode: String, CaseIterable, Identifiable, Codable {
         case .fullScreen: "clock.fill"
         case .transparent: "camera.viewfinder"
         case .flip: "rectangle.split.2x1.fill"
+        case .dayHourglass: "hourglass"
         case .widget: "square.grid.2x2.fill"
         }
     }

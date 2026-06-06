@@ -64,4 +64,12 @@ enum ClockTimeFormatter {
         formatter.dateFormat = "EEEE"
         return formatter.string(from: date)
     }
+
+    /// 复古日历钟用英文星期缩写（MON / TUE …）。
+    static func weekdayAbbreviation(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "EEE"
+        return formatter.string(from: date).uppercased()
+    }
 }

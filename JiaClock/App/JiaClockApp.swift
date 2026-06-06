@@ -18,6 +18,7 @@ struct JiaClockApp: App {
                     storeKitService.start()
                     await entitlementManager.refreshEntitlements()
                     settingsStore.enforceAccessibleTheme(isPro: entitlementManager.isPro)
+                    settingsStore.enforceAccessibleClockStyle(isPro: entitlementManager.isPro)
                 }
                 .onChange(of: scenePhase) { _, phase in
                     if phase == .active {
@@ -26,6 +27,7 @@ struct JiaClockApp: App {
                 }
                 .onChange(of: entitlementManager.isPro) { _, isPro in
                     settingsStore.enforceAccessibleTheme(isPro: isPro)
+                    settingsStore.enforceAccessibleClockStyle(isPro: isPro)
                 }
         }
     }

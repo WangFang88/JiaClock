@@ -18,16 +18,74 @@ enum L10n {
         static var transparentSubtitle: String { tr("home.transparent_subtitle") }
         static var flipClock: String { tr("home.flip_clock") }
         static var flipSubtitle: String { tr("home.flip_subtitle") }
+        static var dayHourglass: String { tr("home.day_hourglass") }
+        static var dayHourglassSubtitle: String { tr("home.day_hourglass_subtitle") }
         static var widget: String { tr("home.widget") }
         static var widgetSubtitle: String { tr("home.widget_subtitle") }
         static var theme: String { tr("home.theme") }
         static var settings: String { tr("home.settings") }
         static var widgetGuideTitle: String { tr("home.widget_guide_title") }
         static var widgetGuideBody: String { tr("home.widget_guide_body") }
+        static var startClock: String { tr("home.start_clock") }
+        static var startClockSubtitle: String { tr("home.start_clock_subtitle") }
+        static var styleCenter: String { tr("home.style_center") }
+        static var styleCenterSubtitle: String { tr("home.style_center_subtitle") }
+    }
+
+    enum WidgetGuide {
+        static var title: String { tr("widget_guide.title") }
+        static var headline: String { tr("widget_guide.headline") }
+        static var subtitle: String { tr("widget_guide.subtitle") }
+        static var step1Title: String { tr("widget_guide.step1_title") }
+        static var step1Body: String { tr("widget_guide.step1_body") }
+        static var step2Title: String { tr("widget_guide.step2_title") }
+        static var step2Body: String { tr("widget_guide.step2_body") }
+        static var step3Title: String { tr("widget_guide.step3_title") }
+        static var step3Body: String { tr("widget_guide.step3_body") }
+        static var step4Title: String { tr("widget_guide.step4_title") }
+        static var step4Body: String { tr("widget_guide.step4_body") }
+        static var refreshNote: String { tr("widget_guide.refresh_note") }
+        static var mockDate: String { tr("widget_guide.mock_date") }
     }
 
     enum Clock {
         static var defaultTagline: String { tr("clock.default_tagline") }
+    }
+
+    enum ClockStyleCenter {
+        static var title: String { tr("clock_style_center.title") }
+        static var subtitle: String { tr("clock_style_center.subtitle") }
+        static var sheetTitle: String { tr("clock_style_center.sheet_title") }
+        static var entryButton: String { tr("clock_style_center.entry_button") }
+        static var cameraBadge: String { tr("clock_style_center.camera_badge") }
+        static var digitalTitle: String { tr("clock_style_center.digital_title") }
+        static var digitalSubtitle: String { tr("clock_style_center.digital_subtitle") }
+        static var flipTitle: String { tr("clock_style_center.flip_title") }
+        static var flipSubtitle: String { tr("clock_style_center.flip_subtitle") }
+        static var transparentFlipTitle: String { tr("clock_style_center.transparent_flip_title") }
+        static var transparentFlipSubtitle: String { tr("clock_style_center.transparent_flip_subtitle") }
+        static var stackedFlipTitle: String { tr("clock_style_center.stacked_flip_title") }
+        static var stackedFlipSubtitle: String { tr("clock_style_center.stacked_flip_subtitle") }
+        static var retroCalendarTitle: String { tr("clock_style_center.retro_calendar_title") }
+        static var retroCalendarSubtitle: String { tr("clock_style_center.retro_calendar_subtitle") }
+        static var dayHourglassTitle: String { tr("clock_style_center.day_hourglass_title") }
+        static var dayHourglassSubtitle: String { tr("clock_style_center.day_hourglass_subtitle") }
+        static var minimalFloatingTitle: String { tr("clock_style_center.minimal_floating_title") }
+        static var minimalFloatingSubtitle: String { tr("clock_style_center.minimal_floating_subtitle") }
+        static var fullscreenSectionTitle: String { tr("clock_style_center.fullscreen_section_title") }
+        static var fullscreenSectionSubtitle: String { tr("clock_style_center.fullscreen_section_subtitle") }
+        static var transparentSectionTitle: String { tr("clock_style_center.transparent_section_title") }
+        static var transparentSectionSubtitle: String { tr("clock_style_center.transparent_section_subtitle") }
+    }
+
+    enum RetroCalendar {
+        static var colorSectionTitle: String { tr("retro_calendar.color_section_title") }
+        static var themeClassicYellow: String { tr("retro_calendar.theme.classic_yellow") }
+        static var themeCreamWhite: String { tr("retro_calendar.theme.cream_white") }
+        static var themeSunsetOrange: String { tr("retro_calendar.theme.sunset_orange") }
+        static var themeMintGreen: String { tr("retro_calendar.theme.mint_green") }
+        static var themeSkyBlue: String { tr("retro_calendar.theme.sky_blue") }
+        static var themeRetroRed: String { tr("retro_calendar.theme.retro_red") }
     }
 
     enum FullScreen {
@@ -38,6 +96,20 @@ enum L10n {
         static var title: String { tr("flip.title") }
         static var hourLabel: String { tr("flip.hour_label") }
         static var minuteLabel: String { tr("flip.minute_label") }
+    }
+
+    enum Hourglass {
+        static var title: String { tr("hourglass.title") }
+        static var themeButton: String { tr("hourglass.theme_button") }
+        static var themeSheetTitle: String { tr("hourglass.theme_sheet_title") }
+        static var showPercent: String { tr("hourglass.show_percent") }
+        static var showRemaining: String { tr("hourglass.show_remaining") }
+        static var pureMode: String { tr("hourglass.pure_mode") }
+        static var themeGoldenNight: String { tr("hourglass.theme.golden_night") }
+        static var themeSoftDawn: String { tr("hourglass.theme.soft_dawn") }
+        static var themeCalmForest: String { tr("hourglass.theme.calm_forest") }
+        static func todayPassed(_ percent: Int) -> String { tr("hourglass.today_passed", "\(percent)") }
+        static func untilDayEnds(_ time: String) -> String { tr("hourglass.until_day_ends", time) }
     }
 
     enum Transparent {
@@ -64,8 +136,36 @@ enum L10n {
         static var previewWithoutCamera: String { tr("transparent.preview_without_camera") }
         static var darkOverlay: String { tr("transparent.dark_overlay") }
         static var displayMode: String { tr("transparent.display_mode") }
-        static var displayModeGlass: String { tr("transparent.display_mode_glass") }
+        static var displayModeFlip: String { tr("transparent.display_mode_flip") }
+        static var displayModeStackedFlip: String { tr("transparent.display_mode_stacked_flip") }
         static var displayModeMinimal: String { tr("transparent.display_mode_minimal") }
+        static var displayModeSectionTitle: String { tr("transparent.display_mode_section_title") }
+        static var hideControls: String { tr("transparent.hide_controls") }
+        static var flipThemeButton: String { tr("transparent.flip_theme_button") }
+        static var flipThemeSheetTitle: String { tr("transparent.flip_theme_sheet_title") }
+        static var flipThemeSectionTitle: String { tr("transparent.flip_theme_section_title") }
+        static var flipBackgroundSectionTitle: String { tr("transparent.flip_background_section_title") }
+        static var flipThemeGlassWhite: String { tr("transparent.flip_theme.glass_white") }
+        static var flipThemeMidnightBlack: String { tr("transparent.flip_theme.midnight_black") }
+        static var flipThemeSunsetOrange: String { tr("transparent.flip_theme.sunset_orange") }
+        static var flipThemeSakuraPink: String { tr("transparent.flip_theme.sakura_pink") }
+        static var flipThemeCreamBeige: String { tr("transparent.flip_theme.cream_beige") }
+        static var flipThemeSkyBlue: String { tr("transparent.flip_theme.sky_blue") }
+        static var flipThemeForestGreen: String { tr("transparent.flip_theme.forest_green") }
+        static var flipThemeNeonPurple: String { tr("transparent.flip_theme.neon_purple") }
+        static var bgCameraOnly: String { tr("transparent.bg.camera_only") }
+        static var bgSoftDark: String { tr("transparent.bg.soft_dark") }
+        static var bgWarmSunset: String { tr("transparent.bg.warm_sunset") }
+        static var bgDeepNight: String { tr("transparent.bg.deep_night") }
+        static var bgAurora: String { tr("transparent.bg.aurora") }
+        static var bgCleanLight: String { tr("transparent.bg.clean_light") }
+        static var stackedThemeSectionTitle: String { tr("transparent.stacked_theme_section_title") }
+        static var stackedThemeOrangeClassic: String { tr("transparent.stacked_theme.orange_classic") }
+        static var stackedThemeBlueCalm: String { tr("transparent.stacked_theme.blue_calm") }
+        static var stackedThemeRedEnergy: String { tr("transparent.stacked_theme.red_energy") }
+        static var stackedThemeGreenForest: String { tr("transparent.stacked_theme.green_forest") }
+        static var stackedThemePurpleNeon: String { tr("transparent.stacked_theme.purple_neon") }
+        static var stackedThemeBeigeSoft: String { tr("transparent.stacked_theme.beige_soft") }
         static var useLightText: String { tr("transparent.use_light_text") }
         static var useDarkText: String { tr("transparent.use_dark_text") }
         static var adjust: String { tr("transparent.adjust") }

@@ -86,6 +86,12 @@ enum ProFeature: String, CaseIterable, Identifiable, Codable {
 
     /// Paywall 上展示的核心卖点（精简列表）。
     static var paywallHighlights: [ProFeature] {
-        [.premiumThemes, .transparentClockAdvanced, .widgetAdvancedStyles, .glassMorphAdvanced]
+        [
+            .premiumThemes,
+            .transparentClockAdvanced,
+            .transparentFlipMode,
+            .widgetAdvancedStyles,
+            .shootModeHideUI,
+        ]
     }
 }
