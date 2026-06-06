@@ -45,17 +45,16 @@ struct RetroCalendarClockScreenView: View {
                         Spacer(minLength: 20)
                     }
                     .padding(.horizontal, layout.horizontalPadding)
-                    .zIndex(0)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .contentShape(Rectangle())
+                    .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
                     if showControls {
                         controlsOverlay
-                            .zIndex(1)
                     }
                 }
             }
         }
         .ignoresSafeArea()
-        .contentShape(Rectangle())
-        .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
         .onAppear {
             settingsStore.enforceAccessibleRetroCalendarTheme(isPro: entitlements.isPro)
         }
@@ -94,6 +93,7 @@ struct RetroCalendarClockScreenView: View {
                     .multilineTextAlignment(.center)
             }
         }
+        .allowsHitTesting(false)
     }
 
     private var controlsOverlay: some View {

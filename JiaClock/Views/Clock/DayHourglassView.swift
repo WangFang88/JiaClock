@@ -36,17 +36,16 @@ struct DayHourglassScreenView: View {
                             portraitLayout(now: now, geo: geo, isPad: isPad)
                         }
                     }
-                    .zIndex(0)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .contentShape(Rectangle())
+                    .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
                     if showControls {
                         controlsOverlay
-                            .zIndex(1)
                     }
                 }
             }
         }
         .ignoresSafeArea()
-        .contentShape(Rectangle())
-        .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
         .onAppear {
             settingsStore.enforceAccessibleDayHourglassTheme(isPro: entitlements.isPro)
         }
@@ -156,6 +155,7 @@ struct DayHourglassScreenView: View {
                     .padding(.top, 4)
             }
         }
+        .allowsHitTesting(false)
     }
 
     private func pureTimeLabel(now: Date, isPad: Bool) -> some View {
@@ -164,6 +164,7 @@ struct DayHourglassScreenView: View {
             .monospacedDigit()
             .foregroundStyle(theme.textPrimary)
             .shadow(color: theme.glowColor.opacity(0.3), radius: 10, x: 0, y: 0)
+            .allowsHitTesting(false)
     }
 
     private var controlsOverlay: some View {
