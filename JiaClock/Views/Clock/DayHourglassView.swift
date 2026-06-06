@@ -29,19 +29,24 @@ struct DayHourglassScreenView: View {
 
                 ZStack {
                     backgroundLayer
-                    Group {
-                        if isLandscape {
-                            landscapeLayout(now: now, geo: geo, isPad: isPad)
+                    VStack(spacing: 0) {
+                        if showControls {
+                            controlsBar
                         } else {
-                            portraitLayout(now: now, geo: geo, isPad: isPad)
+                            Color.clear.frame(height: 52)
                         }
+                        Group {
+                            if isLandscape {
+                                landscapeLayout(now: now, geo: geo, isPad: isPad)
+                            } else {
+                                portraitLayout(now: now, geo: geo, isPad: isPad)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .contentShape(Rectangle())
                     .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
-                    if showControls {
-                        controlsOverlay
-                    }
                 }
             }
         }
@@ -84,7 +89,7 @@ struct DayHourglassScreenView: View {
         let hourglassWidth = hourglassHeight * 0.52
 
         return VStack(spacing: isPad ? 28 : 22) {
-            Spacer(minLength: geo.safeAreaInsets.top + 16)
+            Spacer(minLength: 16)
             DayHourglassView(
                 date: now,
                 theme: theme,
@@ -167,11 +172,10 @@ struct DayHourglassScreenView: View {
             .allowsHitTesting(false)
     }
 
-    private var controlsOverlay: some View {
-        VStack {
-            HStack(spacing: 10) {
-                JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
-                Spacer(minLength: 8)
+    private var controlsBar: some View {
+        HStack(spacing: 10) {
+            JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
+            Spacer(minLength: 8)
             JiaControlChip(icon: "paintpalette.fill", title: L10n.Hourglass.themeButton) {
                 showThemePicker = true
             }
@@ -179,17 +183,15 @@ struct DayHourglassScreenView: View {
                 showStyleCenter = true
             }
             Menu {
-                    Toggle(L10n.Hourglass.showPercent, isOn: binding(\.dayHourglassShowPercent))
-                    Toggle(L10n.Hourglass.showRemaining, isOn: binding(\.dayHourglassShowRemainingTime))
-                    Toggle(L10n.Hourglass.pureMode, isOn: binding(\.dayHourglassPureMode))
-                } label: {
-                    JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
-                }
+                Toggle(L10n.Hourglass.showPercent, isOn: binding(\.dayHourglassShowPercent))
+                Toggle(L10n.Hourglass.showRemaining, isOn: binding(\.dayHourglassShowRemainingTime))
+                Toggle(L10n.Hourglass.pureMode, isOn: binding(\.dayHourglassPureMode))
+            } label: {
+                JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 12)
-            Spacer()
         }
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
         .transition(.opacity)
     }
 

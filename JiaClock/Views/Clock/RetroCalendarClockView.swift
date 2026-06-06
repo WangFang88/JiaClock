@@ -34,7 +34,12 @@ struct RetroCalendarClockScreenView: View {
                 ZStack {
                     JiaBackgroundView(theme: clockTheme)
                     VStack(spacing: layout.footerSpacing) {
-                        Spacer(minLength: isLandscape ? 16 : geo.safeAreaInsets.top + 8)
+                        if showControls {
+                            controlsBar
+                        } else {
+                            Color.clear.frame(height: 52)
+                        }
+                        Spacer(minLength: 0)
                         RetroCalendarClockView(
                             date: now,
                             theme: retroTheme,
@@ -48,9 +53,6 @@ struct RetroCalendarClockScreenView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .contentShape(Rectangle())
                     .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
-                    if showControls {
-                        controlsOverlay
-                    }
                 }
             }
         }
@@ -96,22 +98,19 @@ struct RetroCalendarClockScreenView: View {
         .allowsHitTesting(false)
     }
 
-    private var controlsOverlay: some View {
-        VStack {
-            HStack(spacing: 10) {
-                JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
-                Spacer(minLength: 8)
-                JiaControlChip(icon: "paintpalette.fill", title: L10n.RetroCalendar.colorSectionTitle) {
-                    showThemePicker = true
-                }
-                JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
-                    showStyleCenter = true
-                }
+    private var controlsBar: some View {
+        HStack(spacing: 10) {
+            JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
+            Spacer(minLength: 8)
+            JiaControlChip(icon: "paintpalette.fill", title: L10n.RetroCalendar.colorSectionTitle) {
+                showThemePicker = true
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 12)
-            Spacer()
+            JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
+                showStyleCenter = true
+            }
         }
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
         .transition(.opacity)
     }
 }
