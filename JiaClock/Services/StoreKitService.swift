@@ -37,7 +37,7 @@ final class StoreKitService: ObservableObject {
             await self?.listenForTransactionUpdates()
         }
         Task { await loadProducts() }
-        Task { await entitlementManager?.refreshEntitlements() }
+        Task { await entitlementManager?.refreshEntitlements(syncWithAppStore: true) }
     }
 
     deinit {

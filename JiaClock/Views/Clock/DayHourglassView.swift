@@ -66,7 +66,7 @@ struct DayHourglassScreenView: View {
                 .environmentObject(storeKit)
         }
         .sheet(isPresented: $showStyleCenter) {
-            ClockStyleCenterView(mode: .sheet, onLaunch: { destination in
+            ClockStyleCenterView(mode: .sheet, scene: .deskClock, onLaunch: { destination in
                 showStyleCenter = false
                 if destination != .fullscreenContainer {
                     dismiss()
@@ -185,22 +185,27 @@ struct DayHourglassScreenView: View {
                 showStyleCenter = true
             }
             Menu {
-                Toggle(L10n.Hourglass.showPercent, isOn: binding(\.dayHourglassShowPercent))
-                Toggle(L10n.Hourglass.showRemaining, isOn: binding(\.dayHourglassShowRemainingTime))
-                Toggle(L10n.Hourglass.pureMode, isOn: binding(\.dayHourglassPureMode))
+                Button {
+                    settingsStore.update { $0.dayHourglassShowPercent.toggle() }
+                } label: {
+                    Label(L10n.Hourglass.showPercent, systemImage: settings.dayHourglassShowPercent ? "checkmark" : "")
+                }
+                Button {
+                    settingsStore.update { $0.dayHourglassShowRemainingTime.toggle() }
+                } label: {
+                    Label(L10n.Hourglass.showRemaining, systemImage: settings.dayHourglassShowRemainingTime ? "checkmark" : "")
+                }
+                Button {
+                    settingsStore.update { $0.dayHourglassPureMode.toggle() }
+                } label: {
+                    Label(L10n.Hourglass.pureMode, systemImage: settings.dayHourglassPureMode ? "checkmark" : "")
+                }
             } label: {
                 JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
             }
         }
         .padding(.horizontal, 16)
         .transition(.opacity)
-    }
-
-    private func binding(_ keyPath: WritableKeyPath<ClockSettings, Bool>) -> Binding<Bool> {
-        Binding(
-            get: { settingsStore.settings[keyPath: keyPath] },
-            set: { newValue in settingsStore.update { $0[keyPath: keyPath] = newValue } }
-        )
     }
 }
 

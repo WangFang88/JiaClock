@@ -46,7 +46,7 @@ struct DigitalFullScreenClockView: View {
         }
         .id("\(settings.use24HourFormat)-\(settings.showSeconds)")
         .sheet(isPresented: $showStyleCenter) {
-            ClockStyleCenterView(mode: .sheet, onLaunch: { destination in
+            ClockStyleCenterView(mode: .sheet, scene: .deskClock, onLaunch: { destination in
                 showStyleCenter = false
                 if destination != .fullscreenContainer {
                     dismiss()

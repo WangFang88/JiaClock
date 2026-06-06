@@ -20,7 +20,7 @@ final class EntitlementManager: ObservableObject {
     private var purchaseConfirmedProductIDs: Set<String> = []
 
     init() {
-        isPro = UserDefaults.standard.bool(forKey: CacheKey.isPro)
+        isPro = false
     }
 
     func hasAccess(to feature: ProFeature) -> Bool {

@@ -6,6 +6,12 @@ struct ClockStyleCenterView: View {
         case sheet
     }
 
+    enum StylePickerScene {
+        case all
+        case deskClock
+        case transparentClock
+    }
+
     @EnvironmentObject private var settingsStore: ClockSettingsStore
     @EnvironmentObject private var entitlements: EntitlementManager
     @EnvironmentObject private var storeKit: StoreKitService
@@ -13,6 +19,7 @@ struct ClockStyleCenterView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     let mode: PresentationMode
+    let scene: StylePickerScene
     var onLaunch: ((ClockStyleLaunchDestination) -> Void)?
 
     @StateObject private var cameraPermission = CameraPermissionService()
@@ -26,8 +33,13 @@ struct ClockStyleCenterView: View {
         return Array(repeating: GridItem(.flexible(), spacing: 16), count: count)
     }
 
-    init(mode: PresentationMode = .page, onLaunch: ((ClockStyleLaunchDestination) -> Void)? = nil) {
+    init(
+        mode: PresentationMode = .page,
+        scene: StylePickerScene = .all,
+        onLaunch: ((ClockStyleLaunchDestination) -> Void)? = nil
+    ) {
         self.mode = mode
+        self.scene = scene
         self.onLaunch = onLaunch
     }
 
@@ -38,12 +50,14 @@ struct ClockStyleCenterView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 28) {
                         headerSection
-                        styleSection(
-                            title: L10n.ClockStyleCenter.fullscreenSectionTitle,
-                            subtitle: L10n.ClockStyleCenter.fullscreenSectionSubtitle,
-                            styles: ClockDisplayStyle.fullscreenCenterStyles
-                        )
-                        if selectedStyle.isTransparentCategory {
+                        if scene == .all || scene == .deskClock {
+                            styleSection(
+                                title: L10n.ClockStyleCenter.fullscreenSectionTitle,
+                                subtitle: L10n.ClockStyleCenter.fullscreenSectionSubtitle,
+                                styles: ClockDisplayStyle.fullscreenCenterStyles
+                            )
+                        }
+                        if scene == .all || scene == .transparentClock {
                             styleSection(
                                 title: L10n.ClockStyleCenter.transparentSectionTitle,
                                 subtitle: L10n.ClockStyleCenter.transparentSectionSubtitle,
@@ -129,7 +143,7 @@ struct ClockStyleCenterView: View {
             style,
             settingsStore: settingsStore,
             isPro: entitlements.isPro,
-            scene: .deskClock
+            scene: applyScene(for: style)
         )
 
         guard let onLaunch else {
@@ -143,5 +157,16 @@ struct ClockStyleCenterView: View {
         )
         dismiss()
         onLaunch(destination)
+    }
+
+    private func applyScene(for style: ClockDisplayStyle) -> ClockStyleScene {
+        switch scene {
+        case .deskClock:
+            return .deskClock
+        case .transparentClock:
+            return .transparentClock
+        case .all:
+            return style.isTransparentCategory ? .transparentClock : .deskClock
+        }
     }
 }

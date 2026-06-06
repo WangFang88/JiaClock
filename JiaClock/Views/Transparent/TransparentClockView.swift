@@ -67,7 +67,7 @@ struct TransparentClockView: View {
                 .environmentObject(storeKit)
         }
         .sheet(isPresented: $showStyleCenter) {
-            TransparentClockStylePickerSheet()
+            ClockStyleCenterView(mode: .sheet, scene: .transparentClock)
                 .environmentObject(settingsStore)
                 .environmentObject(entitlements)
                 .environmentObject(storeKit)
@@ -212,66 +212,5 @@ struct TransparentClockView: View {
         guard isViewVisible, scenePhase == .active, cameraController.isCameraAvailable else { return }
         cameraController.start()
         shouldResumeCamera = false
-    }
-}
-
-private struct TransparentClockStylePickerSheet: View {
-    @EnvironmentObject private var settingsStore: ClockSettingsStore
-    @EnvironmentObject private var entitlements: EntitlementManager
-    @EnvironmentObject private var storeKit: StoreKitService
-    @Environment(\.dismiss) private var dismiss
-
-    @State private var showPaywall = false
-
-    private var selectedStyle: ClockDisplayStyle { settingsStore.settings.clockDisplayStyle }
-    private var theme: ClockTheme { settingsStore.theme }
-
-    var body: some View {
-        NavigationStack {
-            ZStack {
-                JiaBackgroundView(theme: theme)
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 16) {
-                        ForEach(ClockDisplayStyle.transparentCenterStyles) { style in
-                            ClockStylePreviewCard(
-                                style: style,
-                                isSelected: selectedStyle == style,
-                                isLocked: style.isProStyle && !entitlements.isPro,
-                                accent: theme.accentColor
-                            ) {
-                                selectStyle(style)
-                            }
-                        }
-                    }
-                    .padding(20)
-                }
-            }
-            .navigationTitle(L10n.ClockStyleCenter.transparentSectionTitle)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(L10n.Common.done) { dismiss() }
-                }
-            }
-            .sheet(isPresented: $showPaywall) {
-                PaywallView(highlightFeature: .transparentClockAdvanced)
-                    .environmentObject(storeKit)
-                    .environmentObject(entitlements)
-            }
-        }
-    }
-
-    private func selectStyle(_ style: ClockDisplayStyle) {
-        if style.isProStyle, !entitlements.isPro {
-            showPaywall = true
-            return
-        }
-        ClockStyleRouter.applySelection(
-            style,
-            settingsStore: settingsStore,
-            isPro: entitlements.isPro,
-            scene: .transparentClock
-        )
-        dismiss()
     }
 }

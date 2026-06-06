@@ -60,7 +60,7 @@ struct HomeView: View {
                     .environmentObject(storeKitService)
             }
             .sheet(isPresented: $showStyleCenter) {
-                ClockStyleCenterView(mode: .sheet, onLaunch: handleStyleLaunch)
+                ClockStyleCenterView(mode: .sheet, scene: .all, onLaunch: handleStyleLaunch)
                     .environmentObject(settingsStore)
                     .environmentObject(entitlementManager)
                     .environmentObject(storeKitService)

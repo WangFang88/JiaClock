@@ -72,7 +72,7 @@ struct RetroCalendarClockScreenView: View {
                 .environmentObject(storeKit)
         }
         .sheet(isPresented: $showStyleCenter) {
-            ClockStyleCenterView(mode: .sheet, onLaunch: { destination in
+            ClockStyleCenterView(mode: .sheet, scene: .deskClock, onLaunch: { destination in
                 showStyleCenter = false
                 if destination != .fullscreenContainer {
                     dismiss()
