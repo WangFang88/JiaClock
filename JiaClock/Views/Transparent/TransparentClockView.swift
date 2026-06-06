@@ -212,7 +212,8 @@ struct TransparentClockView: View {
         .padding(.vertical, 10)
     }
 
-    private func transparentStyleButton(_ style: ClockDisplayStyle) {
+    @ViewBuilder
+    private func transparentStyleButton(_ style: ClockDisplayStyle) -> some View {
         Button {
             if style.isProStyle, !entitlements.isPro {
                 showPaywall = true

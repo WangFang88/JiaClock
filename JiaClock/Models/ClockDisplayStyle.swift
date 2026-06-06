@@ -162,6 +162,7 @@ enum ClockStyleRouter {
         return cameraStatus == .authorized ? .transparentClock : .transparentIntro
     }
 
+    @MainActor
     static func applySelection(_ style: ClockDisplayStyle, settingsStore: ClockSettingsStore) {
         settingsStore.update { settings in
             style.apply(to: &settings)

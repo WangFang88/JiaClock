@@ -255,7 +255,9 @@ struct TransparentFlipThemePickerSheet: View {
         } label: {
             HStack(spacing: 10) {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(backgroundSwatch(for: style))
+                    .fill(Color.clear)
+                    .background { backgroundSwatch(for: style) }
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .frame(width: 36, height: 28)
                     .overlay {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
