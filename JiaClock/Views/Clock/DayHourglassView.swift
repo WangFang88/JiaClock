@@ -30,6 +30,7 @@ struct DayHourglassScreenView: View {
                 ZStack {
                     backgroundLayer
                     VStack(spacing: 0) {
+                        Spacer(minLength: geo.safeAreaInsets.top + 8)
                         if showControls {
                             controlsBar
                         } else {
@@ -191,7 +192,6 @@ struct DayHourglassScreenView: View {
             }
         }
         .padding(.horizontal, 16)
-        .padding(.top, 12)
         .transition(.opacity)
     }
 

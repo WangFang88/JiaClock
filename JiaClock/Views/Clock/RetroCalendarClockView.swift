@@ -34,6 +34,7 @@ struct RetroCalendarClockScreenView: View {
                 ZStack {
                     JiaBackgroundView(theme: clockTheme)
                     VStack(spacing: layout.footerSpacing) {
+                        Spacer(minLength: isLandscape ? 16 : geo.safeAreaInsets.top + 8)
                         if showControls {
                             controlsBar
                         } else {
@@ -110,7 +111,6 @@ struct RetroCalendarClockScreenView: View {
             }
         }
         .padding(.horizontal, 16)
-        .padding(.top, 12)
         .transition(.opacity)
     }
 }
