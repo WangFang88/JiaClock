@@ -16,13 +16,13 @@ struct JiaClockApp: App {
                 .task {
                     storeKitService.configure(entitlementManager: entitlementManager)
                     storeKitService.start()
-                    await entitlementManager.refreshEntitlements(syncWithAppStore: true)
+                    await entitlementManager.refreshEntitlements()
                     settingsStore.enforceAccessibleTheme(isPro: entitlementManager.isPro)
                     settingsStore.enforceAccessibleClockStyle(isPro: entitlementManager.isPro)
                 }
                 .onChange(of: scenePhase) { _, phase in
                     if phase == .active {
-                        Task { await entitlementManager.refreshEntitlements(syncWithAppStore: true) }
+                        Task { await entitlementManager.refreshEntitlements() }
                     }
                 }
                 .onChange(of: entitlementManager.isPro) { _, isPro in

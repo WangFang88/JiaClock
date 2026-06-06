@@ -37,7 +37,7 @@ final class StoreKitService: ObservableObject {
             await self?.listenForTransactionUpdates()
         }
         Task { await loadProducts() }
-        Task { await entitlementManager?.refreshEntitlements(syncWithAppStore: true) }
+        Task { await entitlementManager?.refreshEntitlements() }
     }
 
     deinit {
@@ -184,12 +184,17 @@ final class StoreKitService: ObservableObject {
     ) async {
         switch verification {
         case .verified(let transaction):
+            entitlementManager?.applyVerifiedTransaction(transaction)
             if finish, !finishedTransactionIDs.contains(transaction.id) {
                 finishedTransactionIDs.insert(transaction.id)
                 await transaction.finish()
             }
             await entitlementManager?.refreshEntitlements(syncWithAppStore: syncEntitlements)
-        case .unverified(_, let error):
+        case .unverified(let transaction, let error):
+            if finish, !finishedTransactionIDs.contains(transaction.id) {
+                finishedTransactionIDs.insert(transaction.id)
+                await transaction.finish()
+            }
             alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
         }
     }
