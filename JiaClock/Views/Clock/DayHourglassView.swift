@@ -26,14 +26,7 @@ struct DayHourglassScreenView: View {
     private var settings: ClockSettings { settingsStore.settings }
 
     var body: some View {
-        VStack(spacing: 0) {
-            if showControls {
-                controlsBar
-                    .padding(.top, 12)
-            } else {
-                Color.clear.frame(height: 52)
-                    .padding(.top, 12)
-            }
+        ZStack(alignment: .top) {
             TimelineView(.animation(minimumInterval: 1.0 / 20.0, paused: false)) { timeline in
                 let now = timeline.date
                 GeometryReader { geo in
@@ -49,6 +42,7 @@ struct DayHourglassScreenView: View {
                                 portraitLayout(now: now, geo: geo, isPad: isPad)
                             }
                         }
+                        .padding(.top, 64)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .contentShape(Rectangle())
                         .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
@@ -56,7 +50,15 @@ struct DayHourglassScreenView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
+
+            if showControls {
+                controlsBar
+                    .padding(.top, 12)
+            } else {
+                Color.clear.frame(height: 52)
+                    .padding(.top, 12)
+            }
         }
         .onAppear {
             settingsStore.enforceAccessibleDayHourglassTheme(isPro: entitlements.isPro)
