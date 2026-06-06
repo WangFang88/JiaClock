@@ -7,8 +7,13 @@ struct StackedFlipClockView: View {
     let settings: ClockSettings
     let tagline: String
     let theme: StackedFlipTheme
+    var useLightText: Bool = true
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
+    private var overlayTextColor: Color {
+        useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16)
+    }
 
     var body: some View {
         GeometryReader { geo in
@@ -75,7 +80,7 @@ struct StackedFlipClockView: View {
             if settings.showWeekday {
                 Text(ClockTimeFormatter.weekdayString(from: date))
                     .font(.system(size: layout.weekdayFontSize, weight: .medium, design: .rounded))
-                    .foregroundStyle(theme.secondaryTextColor)
+                    .foregroundStyle(useLightText ? theme.secondaryTextColor : overlayTextColor)
                     .shadow(color: theme.shadowColor, radius: 6, x: 0, y: 2)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 5)
@@ -84,7 +89,7 @@ struct StackedFlipClockView: View {
             if settings.showDate {
                 Text(ClockTimeFormatter.dateString(from: date))
                     .font(.system(size: layout.dateFontSize, weight: .regular, design: .rounded))
-                    .foregroundStyle(theme.secondaryTextColor.opacity(0.92))
+                    .foregroundStyle(useLightText ? theme.secondaryTextColor.opacity(0.92) : overlayTextColor.opacity(0.88))
                     .shadow(color: theme.shadowColor, radius: 5, x: 0, y: 2)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 5)
@@ -93,7 +98,7 @@ struct StackedFlipClockView: View {
             if !tagline.isEmpty {
                 Text(tagline)
                     .font(.system(size: layout.taglineFontSize, weight: .medium, design: .rounded))
-                    .foregroundStyle(theme.taglineTextColor)
+                    .foregroundStyle(useLightText ? theme.taglineTextColor : overlayTextColor.opacity(0.88))
                     .multilineTextAlignment(.center)
                     .shadow(color: theme.shadowColor.opacity(0.85), radius: 4, x: 0, y: 1)
                     .padding(.horizontal, 16)

@@ -29,13 +29,17 @@ struct DayHourglassScreenView: View {
 
                 ZStack {
                     backgroundLayer
-                    if isLandscape {
-                        landscapeLayout(now: now, geo: geo, isPad: isPad)
-                    } else {
-                        portraitLayout(now: now, geo: geo, isPad: isPad)
+                    Group {
+                        if isLandscape {
+                            landscapeLayout(now: now, geo: geo, isPad: isPad)
+                        } else {
+                            portraitLayout(now: now, geo: geo, isPad: isPad)
+                        }
                     }
+                    .zIndex(0)
                     if showControls {
                         controlsOverlay
+                            .zIndex(1)
                     }
                 }
             }

@@ -62,7 +62,7 @@ struct TransparentClockView: View {
             settingsStore.enforceAccessibleClockStyle(isPro: isPro)
         }
         .onReceive(timer) { now = $0 }
-        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(flipTheme.id)-\(stackedTheme.id)-\(backgroundStyle.rawValue)")
+        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(flipTheme.id)-\(stackedTheme.id)-\(backgroundStyle.rawValue)-\(useLightText)")
         .statusBarHidden(true)
         .sheet(isPresented: $showThemePicker) {
             TransparentFlipThemePickerSheet()
@@ -132,7 +132,8 @@ struct TransparentClockView: View {
                     date: now,
                     settings: settings,
                     tagline: settingsStore.effectiveTagline,
-                    flipTheme: flipTheme
+                    flipTheme: flipTheme,
+                    useLightText: useLightText
                 )
                 .padding(.horizontal, 16)
             case .stackedFlip:
@@ -140,7 +141,8 @@ struct TransparentClockView: View {
                     date: now,
                     settings: settings,
                     tagline: settingsStore.effectiveTagline,
-                    theme: stackedTheme
+                    theme: stackedTheme,
+                    useLightText: useLightText
                 )
                 .padding(.horizontal, 16)
             case .minimalFloating:
@@ -184,28 +186,30 @@ struct TransparentClockView: View {
     }
 
     private var controlsBar: some View {
-        HStack(spacing: 10) {
-            JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
-            Spacer(minLength: 8)
-            JiaControlChip(icon: "paintpalette.fill", title: L10n.Transparent.flipThemeButton) {
-                showThemePicker = true
-            }
-            JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
-                showStyleCenter = true
-            }
-            JiaControlChip(icon: showControls ? "eye.slash" : "eye", title: L10n.Transparent.hideControls) {
-                withAnimation(.easeInOut(duration: 0.2)) { showControls = false }
-            }
-            JiaControlChip(icon: darkOverlayEnabled ? "moon.fill" : "moon", title: L10n.Transparent.darkOverlay) { darkOverlayEnabled.toggle() }
-            Menu {
-                transparentStyleButton(.transparentFlip)
-                transparentStyleButton(.stackedFlip)
-                transparentStyleButton(.minimalFloating)
-                Button { useLightText.toggle() } label: {
-                    Label(useLightText ? L10n.Transparent.useDarkText : L10n.Transparent.useLightText, systemImage: "textformat")
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                JiaControlChip(icon: "xmark", title: L10n.Common.close) { dismiss() }
+                Spacer(minLength: 8)
+                JiaControlChip(icon: "paintpalette.fill", title: L10n.Transparent.flipThemeButton) {
+                    showThemePicker = true
                 }
-            } label: {
-                JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
+                JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
+                    showStyleCenter = true
+                }
+                JiaControlChip(icon: showControls ? "eye.slash" : "eye", title: L10n.Transparent.hideControls) {
+                    withAnimation(.easeInOut(duration: 0.2)) { showControls = false }
+                }
+                JiaControlChip(icon: darkOverlayEnabled ? "moon.fill" : "moon", title: L10n.Transparent.darkOverlay) { darkOverlayEnabled.toggle() }
+                Menu {
+                    transparentStyleButton(.transparentFlip)
+                    transparentStyleButton(.stackedFlip)
+                    transparentStyleButton(.minimalFloating)
+                    Button { useLightText.toggle() } label: {
+                        Label(useLightText ? L10n.Transparent.useDarkText : L10n.Transparent.useLightText, systemImage: "textformat")
+                    }
+                } label: {
+                    JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
+                }
             }
         }
         .padding(.horizontal, 16)

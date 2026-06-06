@@ -45,8 +45,10 @@ struct RetroCalendarClockScreenView: View {
                         Spacer(minLength: 20)
                     }
                     .padding(.horizontal, layout.horizontalPadding)
+                    .zIndex(0)
                     if showControls {
                         controlsOverlay
+                            .zIndex(1)
                     }
                 }
             }
