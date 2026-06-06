@@ -17,6 +17,11 @@ extension EnvironmentValues {
     }
 }
 
+enum ClockStyleScene {
+    case deskClock
+    case transparentClock
+}
+
 enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
     case digital
     case flip
@@ -59,6 +64,29 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
         Self.transparentCenterStyles.contains(self)
     }
 
+    static func freeStyles(for scene: ClockStyleScene) -> [ClockDisplayStyle] {
+        switch scene {
+        case .deskClock:
+            return [.digital, .flip]
+        case .transparentClock:
+            return [.transparentFlip]
+        }
+    }
+
+    static func requiresProAccess(_ style: ClockDisplayStyle) -> Bool {
+        switch style {
+        case .digital, .flip, .transparentFlip:
+            return false
+        case .retroCalendar, .dayHourglass, .stackedFlip, .minimalFloating:
+            return true
+        }
+    }
+
+    static func isAccessible(_ style: ClockDisplayStyle, for scene: ClockStyleScene, isPro: Bool) -> Bool {
+        if isPro { return true }
+        return freeStyles(for: scene).contains(style)
+    }
+
     var title: String {
         switch self {
         case .digital: L10n.ClockStyleCenter.digitalTitle
@@ -97,10 +125,7 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
 
     /// 样式本身是否为 Pro（与主题 Pro 分层独立）。
     var isProStyle: Bool {
-        switch self {
-        case .stackedFlip, .minimalFloating: true
-        default: false
-        }
+        Self.requiresProAccess(self)
     }
 
     var requiresCamera: Bool {
@@ -163,7 +188,13 @@ enum ClockStyleRouter {
     }
 
     @MainActor
-    static func applySelection(_ style: ClockDisplayStyle, settingsStore: ClockSettingsStore) {
+    static func applySelection(
+        _ style: ClockDisplayStyle,
+        settingsStore: ClockSettingsStore,
+        isPro: Bool,
+        scene: ClockStyleScene
+    ) {
+        guard ClockDisplayStyle.isAccessible(style, for: scene, isPro: isPro) else { return }
         settingsStore.update { settings in
             style.apply(to: &settings)
         }

@@ -125,7 +125,12 @@ struct ClockStyleCenterView: View {
             return
         }
 
-        ClockStyleRouter.applySelection(style, settingsStore: settingsStore)
+        ClockStyleRouter.applySelection(
+            style,
+            settingsStore: settingsStore,
+            isPro: entitlements.isPro,
+            scene: .deskClock
+        )
 
         guard let onLaunch else {
             if mode == .sheet { dismiss() }

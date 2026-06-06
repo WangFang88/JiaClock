@@ -27,6 +27,10 @@ final class EntitlementManager: ObservableObject {
         isPro || !feature.isGatedThisRound
     }
 
+    func canAccessStyle(_ style: ClockDisplayStyle, for scene: ClockStyleScene) -> Bool {
+        ClockDisplayStyle.isAccessible(style, for: scene, isPro: isPro)
+    }
+
     /// 将购买回调中的已验证交易立即并入 Pro 状态，避免刷新前 `isPro` 仍为 false。
     func applyVerifiedTransaction(_ transaction: Transaction) {
         guard isActiveProTransaction(transaction) else { return }

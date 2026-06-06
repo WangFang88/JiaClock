@@ -266,7 +266,12 @@ private struct TransparentClockStylePickerSheet: View {
             showPaywall = true
             return
         }
-        ClockStyleRouter.applySelection(style, settingsStore: settingsStore)
+        ClockStyleRouter.applySelection(
+            style,
+            settingsStore: settingsStore,
+            isPro: entitlements.isPro,
+            scene: .transparentClock
+        )
         dismiss()
     }
 }
