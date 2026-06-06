@@ -91,11 +91,21 @@ final class StoreKitService: ObservableObject {
             let result = try await product.purchase()
             switch result {
             case .success(let verification):
-                if case .verified(let transaction) = verification, transaction.productID == product.id {
-                    entitlementManager?.applyVerifiedTransaction(transaction)
+                switch verification {
+                case .verified(let transaction):
+                    if transaction.productID == product.id {
+                        entitlementManager?.applyVerifiedTransaction(transaction)
+                    }
+                    await handleVerifiedTransaction(verification, finish: true)
+                    purchaseState = .succeeded
+                case .unverified(let transaction, let error):
+                    if !finishedTransactionIDs.contains(transaction.id) {
+                        finishedTransactionIDs.insert(transaction.id)
+                        await transaction.finish()
+                    }
+                    purchaseState = .failed(error.localizedDescription)
+                    alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
                 }
-                await handleVerifiedTransaction(verification, finish: true)
-                purchaseState = .succeeded
             case .userCancelled:
                 purchaseState = .cancelled
             case .pending:
