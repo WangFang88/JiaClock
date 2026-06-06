@@ -323,7 +323,8 @@ struct HomeView: View {
     }
 
     private func launchCurrentStyle() {
-        let style = settingsStore.settings.clockDisplayStyle
+        let stored = settingsStore.settings.clockDisplayStyle
+        let style = stored.usesFullscreenContainer ? stored : .digital
         let destination = ClockStyleRouter.launchDestination(for: style, cameraStatus: cameraPermission.status)
         handleStyleLaunch(destination)
     }

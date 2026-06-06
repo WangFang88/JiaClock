@@ -25,7 +25,9 @@ final class CameraPreviewUIView: UIView {
     }
 
     func attach(session: AVCaptureSession) {
-        previewLayer.session = session
+        if previewLayer.session !== session {
+            previewLayer.session = session
+        }
         previewLayer.videoGravity = .resizeAspectFill
         updateVideoOrientation()
     }
