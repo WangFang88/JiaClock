@@ -12,7 +12,6 @@ struct TransparentClockView: View {
     @State private var showControls = true
     @State private var darkOverlayEnabled = false
     @State private var useLightText = true
-    @State private var showThemePicker = false
     @State private var showStyleCenter = false
     @State private var showPaywall = false
     @State private var isViewVisible = false
@@ -60,14 +59,8 @@ struct TransparentClockView: View {
         }
         .onReceive(timer) { now = $0 }
         .statusBarHidden(true)
-        .sheet(isPresented: $showThemePicker) {
-            TransparentFlipThemePickerSheet()
-                .environmentObject(settingsStore)
-                .environmentObject(entitlements)
-                .environmentObject(storeKit)
-        }
         .sheet(isPresented: $showStyleCenter) {
-            ClockStyleCenterView(mode: .sheet, scene: .transparentClock)
+            TransparentFlipThemePickerSheet()
                 .environmentObject(settingsStore)
                 .environmentObject(entitlements)
                 .environmentObject(storeKit)
@@ -176,9 +169,6 @@ struct TransparentClockView: View {
                 Spacer(minLength: 8)
                 JiaControlChip(icon: "square.grid.2x2", title: L10n.ClockStyleCenter.entryButton) {
                     showStyleCenter = true
-                }
-                JiaControlChip(icon: "paintpalette.fill", title: L10n.Transparent.flipThemeButton) {
-                    showThemePicker = true
                 }
                 JiaControlChip(icon: showControls ? "eye.slash" : "eye", title: L10n.Transparent.hideControls) {
                     withAnimation(.easeInOut(duration: 0.2)) { showControls = false }

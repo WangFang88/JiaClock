@@ -23,17 +23,20 @@ struct TransparentFlipThemePickerSheet: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
+                    displayModeSection
                     if displayStyle == .transparentFlip {
                         flipThemeSection
                         backgroundSection
                     } else if displayStyle == .stackedFlip {
                         stackedThemeSection
+                    } else if displayStyle == .minimalFloating {
+                        backgroundSection
                     }
                 }
                 .padding(20)
             }
             .background(Color(red: 0.08, green: 0.08, blue: 0.10))
-            .navigationTitle(L10n.Transparent.flipThemeSheetTitle)
+            .navigationTitle(L10n.ClockStyleCenter.sheetTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -76,8 +79,19 @@ struct TransparentFlipThemePickerSheet: View {
 
     private func displayModeChip(_ style: TransparentClockDisplayStyle) -> some View {
         let isSelected = displayStyle == style
+        let clockStyle = clockDisplayStyle(for: style)
+        let locked = clockStyle.isProStyle && !entitlements.isPro
         return Button {
-            settingsStore.update { $0.transparentClockDisplayStyle = style }
+            if locked {
+                showPaywall = true
+                return
+            }
+            ClockStyleRouter.applySelection(
+                clockStyle,
+                settingsStore: settingsStore,
+                isPro: entitlements.isPro,
+                scene: .transparentClock
+            )
         } label: {
             HStack(spacing: 10) {
                 Image(systemName: style.systemImage)
@@ -88,6 +102,12 @@ struct TransparentFlipThemePickerSheet: View {
                     .font(.subheadline.weight(.medium))
                     .foregroundStyle(.white.opacity(0.88))
                 Spacer(minLength: 0)
+                if clockStyle.isProStyle { ProBadgeView(compact: true) }
+                if locked {
+                    Image(systemName: "lock.fill")
+                        .font(.caption2)
+                        .foregroundStyle(.white.opacity(0.55))
+                }
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(Color(red: 0.98, green: 0.62, blue: 0.42))
@@ -105,6 +125,14 @@ struct TransparentFlipThemePickerSheet: View {
             }
         }
         .buttonStyle(.plain)
+    }
+
+    private func clockDisplayStyle(for style: TransparentClockDisplayStyle) -> ClockDisplayStyle {
+        switch style {
+        case .transparentFlip: .transparentFlip
+        case .stackedFlip: .stackedFlip
+        case .minimalFloating: .minimalFloating
+        }
     }
 
     // MARK: - Transparent Flip Themes
