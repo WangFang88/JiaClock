@@ -15,6 +15,8 @@ struct DayHourglassScreenView: View {
     @State private var showDayProgress = true
     @State private var showRemainingTime = true
     @State private var pureMode = false
+    @State private var dayProgressBeforePureMode = true
+    @State private var remainingTimeBeforePureMode = true
     @Environment(\.clockStyleLaunch) private var clockStyleLaunch
 
     private var theme: DayHourglassTheme {
@@ -24,22 +26,22 @@ struct DayHourglassScreenView: View {
     private var settings: ClockSettings { settingsStore.settings }
 
     var body: some View {
-        TimelineView(.animation(minimumInterval: 1.0 / 20.0, paused: false)) { timeline in
-            let now = timeline.date
-            GeometryReader { geo in
-                let isLandscape = geo.size.width > geo.size.height
-                let isPad = horizontalSizeClass == .regular
+        VStack(spacing: 0) {
+            if showControls {
+                controlsBar
+                    .padding(.top, 12)
+            } else {
+                Color.clear.frame(height: 52)
+                    .padding(.top, 12)
+            }
+            TimelineView(.animation(minimumInterval: 1.0 / 20.0, paused: false)) { timeline in
+                let now = timeline.date
+                GeometryReader { geo in
+                    let isLandscape = geo.size.width > geo.size.height
+                    let isPad = horizontalSizeClass == .regular
 
-                ZStack {
-                    backgroundLayer
-                    VStack(spacing: 0) {
-                        if showControls {
-                            controlsBar
-                                .padding(.top, 12)
-                        } else {
-                            Color.clear.frame(height: 52)
-                                .padding(.top, 12)
-                        }
+                    ZStack {
+                        backgroundLayer
                         Group {
                             if isLandscape {
                                 landscapeLayout(now: now, geo: geo, isPad: isPad)
@@ -54,12 +56,15 @@ struct DayHourglassScreenView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onAppear {
             settingsStore.enforceAccessibleDayHourglassTheme(isPro: entitlements.isPro)
             showDayProgress = settingsStore.settings.dayHourglassShowPercent
             showRemainingTime = settingsStore.settings.dayHourglassShowRemainingTime
             pureMode = settingsStore.settings.dayHourglassPureMode
+            dayProgressBeforePureMode = settingsStore.settings.dayHourglassShowPercent
+            remainingTimeBeforePureMode = settingsStore.settings.dayHourglassShowRemainingTime
         }
         .onChange(of: entitlements.isPro) { _, isPro in
             settingsStore.enforceAccessibleDayHourglassTheme(isPro: isPro)
@@ -192,17 +197,19 @@ struct DayHourglassScreenView: View {
             }
             Menu {
                 Button {
+                    guard !pureMode else { return }
                     showDayProgress.toggle()
                 } label: {
-                    Label(L10n.Hourglass.showPercent, systemImage: showDayProgress ? "checkmark" : "")
+                    Label(L10n.Hourglass.showPercent, systemImage: menuShowsDayProgress ? "checkmark" : "")
                 }
                 Button {
+                    guard !pureMode else { return }
                     showRemainingTime.toggle()
                 } label: {
-                    Label(L10n.Hourglass.showRemaining, systemImage: showRemainingTime ? "checkmark" : "")
+                    Label(L10n.Hourglass.showRemaining, systemImage: menuShowsRemainingTime ? "checkmark" : "")
                 }
                 Button {
-                    pureMode.toggle()
+                    togglePureMode()
                 } label: {
                     Label(L10n.Hourglass.pureMode, systemImage: pureMode ? "checkmark" : "")
                 }
@@ -212,6 +219,26 @@ struct DayHourglassScreenView: View {
         }
         .padding(.horizontal, 16)
         .transition(.opacity)
+    }
+
+    private var menuShowsDayProgress: Bool {
+        !pureMode && showDayProgress
+    }
+
+    private var menuShowsRemainingTime: Bool {
+        !pureMode && showRemainingTime
+    }
+
+    private func togglePureMode() {
+        if pureMode {
+            pureMode = false
+            showDayProgress = dayProgressBeforePureMode
+            showRemainingTime = remainingTimeBeforePureMode
+        } else {
+            dayProgressBeforePureMode = showDayProgress
+            remainingTimeBeforePureMode = showRemainingTime
+            pureMode = true
+        }
     }
 }
 
