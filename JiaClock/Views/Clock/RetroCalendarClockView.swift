@@ -36,10 +36,10 @@ struct RetroCalendarClockScreenView: View {
                     VStack(spacing: layout.footerSpacing) {
                         if showControls {
                             controlsBar
-                                .padding(.top, geo.safeAreaInsets.top + 12)
+                                .padding(.top, 12)
                         } else {
                             Color.clear.frame(height: 52)
-                                .padding(.top, geo.safeAreaInsets.top + 12)
+                                .padding(.top, 12)
                         }
                         Spacer(minLength: 0)
                         RetroCalendarClockView(
@@ -58,7 +58,6 @@ struct RetroCalendarClockScreenView: View {
                 }
             }
         }
-        .ignoresSafeArea()
         .onAppear {
             settingsStore.enforceAccessibleRetroCalendarTheme(isPro: entitlements.isPro)
         }

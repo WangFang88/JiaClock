@@ -32,10 +32,10 @@ struct DayHourglassScreenView: View {
                     VStack(spacing: 0) {
                         if showControls {
                             controlsBar
-                                .padding(.top, geo.safeAreaInsets.top + 12)
+                                .padding(.top, 12)
                         } else {
                             Color.clear.frame(height: 52)
-                                .padding(.top, geo.safeAreaInsets.top + 12)
+                                .padding(.top, 12)
                         }
                         Group {
                             if isLandscape {
@@ -52,7 +52,6 @@ struct DayHourglassScreenView: View {
                 }
             }
         }
-        .ignoresSafeArea()
         .onAppear {
             settingsStore.enforceAccessibleDayHourglassTheme(isPro: entitlements.isPro)
         }
