@@ -12,6 +12,9 @@ struct DayHourglassScreenView: View {
     @State private var showControls = true
     @State private var showStyleCenter = false
     @State private var showThemePicker = false
+    @State private var showDayProgress = true
+    @State private var showRemainingTime = true
+    @State private var pureMode = false
     @Environment(\.clockStyleLaunch) private var clockStyleLaunch
 
     private var theme: DayHourglassTheme {
@@ -54,6 +57,9 @@ struct DayHourglassScreenView: View {
         }
         .onAppear {
             settingsStore.enforceAccessibleDayHourglassTheme(isPro: entitlements.isPro)
+            showDayProgress = settingsStore.settings.dayHourglassShowPercent
+            showRemainingTime = settingsStore.settings.dayHourglassShowRemainingTime
+            pureMode = settingsStore.settings.dayHourglassPureMode
         }
         .onChange(of: entitlements.isPro) { _, isPro in
             settingsStore.enforceAccessibleDayHourglassTheme(isPro: isPro)
@@ -96,7 +102,7 @@ struct DayHourglassScreenView: View {
                 theme: theme,
                 size: CGSize(width: hourglassWidth, height: hourglassHeight)
             )
-            if !settings.dayHourglassPureMode {
+            if !pureMode {
                 infoPanel(now: now, isPad: isPad, alignment: .center)
             } else {
                 pureTimeLabel(now: now, isPad: isPad)
@@ -118,7 +124,7 @@ struct DayHourglassScreenView: View {
                 theme: theme,
                 size: CGSize(width: hourglassWidth, height: hourglassHeight)
             )
-            if settings.dayHourglassPureMode {
+            if pureMode {
                 pureTimeLabel(now: now, isPad: isPad)
                     .frame(maxWidth: isPad ? 320 : 220, alignment: .leading)
             } else {
@@ -140,13 +146,13 @@ struct DayHourglassScreenView: View {
                 .foregroundStyle(theme.textPrimary)
                 .shadow(color: theme.glowColor.opacity(0.35), radius: 12, x: 0, y: 0)
 
-            if settings.dayHourglassShowPercent {
+            if showDayProgress {
                 Text(L10n.Hourglass.todayPassed(DayProgressCalculator.percentPassed(for: now)))
                     .font(.system(size: isPad ? 20 : 17, weight: .medium, design: .rounded))
                     .foregroundStyle(theme.textSecondary)
             }
 
-            if settings.dayHourglassShowRemainingTime {
+            if showRemainingTime {
                 Text(L10n.Hourglass.untilDayEnds(DayProgressCalculator.formattedRemainingTime(for: now)))
                     .font(.system(size: isPad ? 18 : 15, weight: .regular, design: .rounded))
                     .foregroundStyle(theme.textSecondary.opacity(0.88))
@@ -186,19 +192,19 @@ struct DayHourglassScreenView: View {
             }
             Menu {
                 Button {
-                    settingsStore.update { $0.dayHourglassShowPercent.toggle() }
+                    showDayProgress.toggle()
                 } label: {
-                    Label(L10n.Hourglass.showPercent, systemImage: settings.dayHourglassShowPercent ? "checkmark" : "")
+                    Label(L10n.Hourglass.showPercent, systemImage: showDayProgress ? "checkmark" : "")
                 }
                 Button {
-                    settingsStore.update { $0.dayHourglassShowRemainingTime.toggle() }
+                    showRemainingTime.toggle()
                 } label: {
-                    Label(L10n.Hourglass.showRemaining, systemImage: settings.dayHourglassShowRemainingTime ? "checkmark" : "")
+                    Label(L10n.Hourglass.showRemaining, systemImage: showRemainingTime ? "checkmark" : "")
                 }
                 Button {
-                    settingsStore.update { $0.dayHourglassPureMode.toggle() }
+                    pureMode.toggle()
                 } label: {
-                    Label(L10n.Hourglass.pureMode, systemImage: settings.dayHourglassPureMode ? "checkmark" : "")
+                    Label(L10n.Hourglass.pureMode, systemImage: pureMode ? "checkmark" : "")
                 }
             } label: {
                 JiaControlChip(icon: "slider.horizontal.3", title: L10n.Transparent.adjust, action: nil)
