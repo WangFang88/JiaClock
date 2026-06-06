@@ -51,9 +51,6 @@ struct TransparentClockView: View {
         .onAppear {
             isViewVisible = true
             settingsStore.enforceAccessibleClockStyle(isPro: entitlements.isPro)
-            if let transparent = settingsStore.settings.clockDisplayStyle.transparentClockDisplayStyle {
-                settingsStore.update { $0.transparentClockDisplayStyle = transparent }
-            }
             resumeCameraIfNeeded()
         }
         .onDisappear { isViewVisible = false; shouldResumeCamera = false; cameraController.stop() }
@@ -62,7 +59,6 @@ struct TransparentClockView: View {
             settingsStore.enforceAccessibleClockStyle(isPro: isPro)
         }
         .onReceive(timer) { now = $0 }
-        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(flipTheme.id)-\(stackedTheme.id)-\(backgroundStyle.rawValue)-\(useLightText)")
         .statusBarHidden(true)
         .sheet(isPresented: $showThemePicker) {
             TransparentFlipThemePickerSheet()
@@ -71,27 +67,15 @@ struct TransparentClockView: View {
                 .environmentObject(storeKit)
         }
         .sheet(isPresented: $showStyleCenter) {
-            ClockStyleCenterView(mode: .sheet, onLaunch: { destination in
-                showStyleCenter = false
-                handleTransparentStyleLaunch(destination)
-            })
+            ClockStyleCenterView(mode: .sheet)
+                .environmentObject(settingsStore)
+                .environmentObject(entitlements)
+                .environmentObject(storeKit)
         }
         .sheet(isPresented: $showPaywall) {
             PaywallView(highlightFeature: .transparentClockAdvanced)
                 .environmentObject(storeKit)
                 .environmentObject(entitlements)
-        }
-    }
-
-    @Environment(\.clockStyleLaunch) private var clockStyleLaunch
-
-    private func handleTransparentStyleLaunch(_ destination: ClockStyleLaunchDestination) {
-        switch destination {
-        case .fullscreenContainer:
-            dismiss()
-            clockStyleLaunch?.onLaunch(destination)
-        case .transparentIntro, .transparentClock:
-            break
         }
     }
 
