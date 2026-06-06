@@ -6,13 +6,8 @@ struct TransparentFlipClockView: View {
     let settings: ClockSettings
     let tagline: String
     let flipTheme: TransparentFlipTheme
-    var useLightText: Bool = true
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-
-    private var overlayTextColor: Color {
-        useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16)
-    }
 
     var body: some View {
         GeometryReader { geo in
@@ -31,7 +26,7 @@ struct TransparentFlipClockView: View {
                 if let period = digits.period {
                     Text(period)
                         .font(.system(size: layout.periodFontSize, weight: .semibold, design: .rounded))
-                        .foregroundStyle(useLightText ? flipTheme.digitColor.opacity(0.92) : overlayTextColor)
+                        .foregroundStyle(flipTheme.digitColor.opacity(0.92))
                         .shadow(color: flipTheme.shadowColor, radius: 8, x: 0, y: 2)
                 }
                 metadataSection(layout: layout)
@@ -43,15 +38,15 @@ struct TransparentFlipClockView: View {
     @ViewBuilder
     private func flipRow(digits: FlipDigitGroups, layout: FlipLayoutMetrics) -> some View {
         HStack(spacing: layout.digitSpacing) {
-            TransparentFlipDigitCard(digit: digits.hourTens, theme: flipTheme, layout: layout, useLightText: useLightText)
-            TransparentFlipDigitCard(digit: digits.hourOnes, theme: flipTheme, layout: layout, useLightText: useLightText)
-            TransparentFlipColonView(theme: flipTheme, size: layout.colonSize, offsetY: -layout.cardHeight * 0.06, useLightText: useLightText)
-            TransparentFlipDigitCard(digit: digits.minuteTens, theme: flipTheme, layout: layout, useLightText: useLightText)
-            TransparentFlipDigitCard(digit: digits.minuteOnes, theme: flipTheme, layout: layout, useLightText: useLightText)
+            TransparentFlipDigitCard(digit: digits.hourTens, theme: flipTheme, layout: layout)
+            TransparentFlipDigitCard(digit: digits.hourOnes, theme: flipTheme, layout: layout)
+            TransparentFlipColonView(theme: flipTheme, size: layout.colonSize, offsetY: -layout.cardHeight * 0.06)
+            TransparentFlipDigitCard(digit: digits.minuteTens, theme: flipTheme, layout: layout)
+            TransparentFlipDigitCard(digit: digits.minuteOnes, theme: flipTheme, layout: layout)
             if let secondTens = digits.secondTens, let secondOnes = digits.secondOnes {
-                TransparentFlipColonView(theme: flipTheme, size: layout.colonSize * 0.92, offsetY: -layout.cardHeight * 0.06, useLightText: useLightText)
-                TransparentFlipDigitCard(digit: secondTens, theme: flipTheme, layout: layout, useLightText: useLightText)
-                TransparentFlipDigitCard(digit: secondOnes, theme: flipTheme, layout: layout, useLightText: useLightText)
+                TransparentFlipColonView(theme: flipTheme, size: layout.colonSize * 0.92, offsetY: -layout.cardHeight * 0.06)
+                TransparentFlipDigitCard(digit: secondTens, theme: flipTheme, layout: layout)
+                TransparentFlipDigitCard(digit: secondOnes, theme: flipTheme, layout: layout)
             }
         }
     }
@@ -62,7 +57,7 @@ struct TransparentFlipClockView: View {
             if settings.showWeekday {
                 Text(ClockTimeFormatter.weekdayString(from: date))
                     .font(.system(size: layout.weekdayFontSize, weight: .medium, design: .rounded))
-                    .foregroundStyle(useLightText ? flipTheme.secondaryTextColor : overlayTextColor)
+                    .foregroundStyle(flipTheme.secondaryTextColor)
                     .shadow(color: flipTheme.shadowColor, radius: 6, x: 0, y: 2)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 5)
@@ -71,7 +66,7 @@ struct TransparentFlipClockView: View {
             if settings.showDate {
                 Text(ClockTimeFormatter.dateString(from: date))
                     .font(.system(size: layout.dateFontSize, weight: .regular, design: .rounded))
-                    .foregroundStyle(useLightText ? flipTheme.secondaryTextColor.opacity(0.92) : overlayTextColor.opacity(0.88))
+                    .foregroundStyle(flipTheme.secondaryTextColor.opacity(0.92))
                     .shadow(color: flipTheme.shadowColor, radius: 5, x: 0, y: 2)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 5)
@@ -80,7 +75,7 @@ struct TransparentFlipClockView: View {
             if !tagline.isEmpty {
                 Text(tagline)
                     .font(.system(size: layout.taglineFontSize, weight: .medium, design: .rounded))
-                    .foregroundStyle(useLightText ? flipTheme.taglineTextColor : overlayTextColor.opacity(0.88))
+                    .foregroundStyle(flipTheme.taglineTextColor)
                     .multilineTextAlignment(.center)
                     .shadow(color: flipTheme.shadowColor.opacity(0.85), radius: 4, x: 0, y: 1)
                     .padding(.horizontal, 16)
@@ -187,7 +182,6 @@ struct TransparentFlipDigitCard: View {
     let digit: String
     let theme: TransparentFlipTheme
     let layout: FlipLayoutMetrics
-    var useLightText: Bool = true
 
     var body: some View {
         ZStack {
@@ -240,7 +234,7 @@ struct TransparentFlipDigitCard: View {
             Text(digit)
                 .font(.system(size: layout.digitFontSize, weight: .light, design: .rounded))
                 .monospacedDigit()
-                .foregroundStyle(useLightText ? theme.digitColor : Color(red: 0.12, green: 0.12, blue: 0.16))
+                .foregroundStyle(theme.digitColor)
                 .shadow(color: theme.shadowColor.opacity(0.85), radius: 6, x: 0, y: 2)
                 .minimumScaleFactor(0.6)
                 .lineLimit(1)
@@ -253,12 +247,11 @@ struct TransparentFlipColonView: View {
     let theme: TransparentFlipTheme
     let size: CGFloat
     let offsetY: CGFloat
-    var useLightText: Bool = true
 
     var body: some View {
         Text(":")
             .font(.system(size: size, weight: .medium, design: .rounded))
-            .foregroundStyle(useLightText ? theme.colonColor : Color(red: 0.12, green: 0.12, blue: 0.16))
+            .foregroundStyle(theme.colonColor)
             .shadow(color: theme.glowColor, radius: 5, x: 0, y: 0)
             .shadow(color: theme.shadowColor, radius: 6, x: 0, y: 2)
             .offset(y: offsetY)
