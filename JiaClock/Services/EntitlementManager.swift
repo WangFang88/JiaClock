@@ -18,9 +18,33 @@ final class EntitlementManager: ObservableObject {
 
     /// 购买刚完成时 `currentEntitlements` 可能尚未包含新订阅；暂存直至 StoreKit 同步确认。
     private var purchaseConfirmedProductIDs: Set<String> = []
+    private var purchaseConfirmedExpirations: [String: Date] = [:]
+    private var periodicRefreshTask: Task<Void, Never>?
+
+    private static let periodicRefreshIntervalNanoseconds: UInt64 = 3_600_000_000_000
 
     init() {
         isPro = false
+    }
+
+    deinit {
+        periodicRefreshTask?.cancel()
+    }
+
+    func startPeriodicRefresh() {
+        guard periodicRefreshTask == nil else { return }
+        periodicRefreshTask = Task { [weak self] in
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: Self.periodicRefreshIntervalNanoseconds)
+                guard !Task.isCancelled else { return }
+                await self?.refreshEntitlements()
+            }
+        }
+    }
+
+    func stopPeriodicRefresh() {
+        periodicRefreshTask?.cancel()
+        periodicRefreshTask = nil
     }
 
     func hasAccess(to feature: ProFeature) -> Bool {
@@ -34,7 +58,7 @@ final class EntitlementManager: ObservableObject {
     /// 将购买回调中的已验证交易立即并入 Pro 状态，避免刷新前 `isPro` 仍为 false。
     func applyVerifiedTransaction(_ transaction: Transaction) {
         guard isActiveProTransaction(transaction) else { return }
-        purchaseConfirmedProductIDs.insert(transaction.productID)
+        recordPurchaseConfirmation(for: transaction)
 
         var latestSubscriptionExpiration: Date?
         var latestSubscriptionProductID: String?
@@ -48,7 +72,7 @@ final class EntitlementManager: ObservableObject {
         }
 
         publishEntitlements(
-            entitledIDs: activeProductIDs.union(purchaseConfirmedProductIDs),
+            entitledIDs: activeProductIDs.union(activePendingPurchaseConfirmedIDs()),
             latestSubscriptionExpiration: latestSubscriptionExpiration,
             latestSubscriptionProductID: latestSubscriptionProductID
         )
@@ -83,7 +107,11 @@ final class EntitlementManager: ObservableObject {
         }
 
         purchaseConfirmedProductIDs.subtract(entitledIDs)
-        entitledIDs.formUnion(purchaseConfirmedProductIDs)
+        for id in entitledIDs {
+            purchaseConfirmedExpirations.removeValue(forKey: id)
+        }
+        pruneExpiredPurchaseConfirmations()
+        entitledIDs.formUnion(activePendingPurchaseConfirmedIDs())
 
         publishEntitlements(
             entitledIDs: entitledIDs,
@@ -99,6 +127,34 @@ final class EntitlementManager: ObservableObject {
         guard transaction.revocationDate == nil else { return false }
         if let expiration = transaction.expirationDate, expiration <= Date() { return false }
         return true
+    }
+
+    private func recordPurchaseConfirmation(for transaction: Transaction) {
+        purchaseConfirmedProductIDs.insert(transaction.productID)
+        if ProProductID.lifetimeIDs.contains(transaction.productID) {
+            purchaseConfirmedExpirations[transaction.productID] = .distantFuture
+        } else if let expiration = transaction.expirationDate {
+            purchaseConfirmedExpirations[transaction.productID] = expiration
+        } else {
+            purchaseConfirmedExpirations.removeValue(forKey: transaction.productID)
+        }
+    }
+
+    private func activePendingPurchaseConfirmedIDs(at date: Date = .now) -> Set<String> {
+        Set(
+            purchaseConfirmedProductIDs.filter { id in
+                guard let expiration = purchaseConfirmedExpirations[id] else { return false }
+                return expiration > date
+            }
+        )
+    }
+
+    private func pruneExpiredPurchaseConfirmations(at date: Date = .now) {
+        let activePending = activePendingPurchaseConfirmedIDs(at: date)
+        purchaseConfirmedProductIDs = activePending
+        purchaseConfirmedExpirations = purchaseConfirmedExpirations.filter { id, expiration in
+            activePending.contains(id) && expiration > date
+        }
     }
 
     private func publishEntitlements(

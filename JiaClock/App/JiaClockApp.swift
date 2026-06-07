@@ -17,12 +17,19 @@ struct JiaClockApp: App {
                     storeKitService.configure(entitlementManager: entitlementManager)
                     storeKitService.start()
                     await entitlementManager.refreshEntitlements()
+                    entitlementManager.startPeriodicRefresh()
                     settingsStore.enforceAccessibleTheme(isPro: entitlementManager.isPro)
                     settingsStore.enforceAccessibleClockStyle(isPro: entitlementManager.isPro)
                 }
                 .onChange(of: scenePhase) { _, phase in
-                    if phase == .active {
+                    switch phase {
+                    case .active:
+                        entitlementManager.startPeriodicRefresh()
                         Task { await entitlementManager.refreshEntitlements() }
+                    case .inactive, .background:
+                        entitlementManager.stopPeriodicRefresh()
+                    @unknown default:
+                        entitlementManager.stopPeriodicRefresh()
                     }
                 }
                 .onChange(of: entitlementManager.isPro) { _, isPro in
