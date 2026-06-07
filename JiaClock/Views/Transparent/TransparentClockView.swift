@@ -16,6 +16,7 @@ struct TransparentClockView: View {
     @State private var showPaywall = false
     @State private var isViewVisible = false
     @State private var shouldResumeCamera = false
+    @State private var previewOrientationToken = UIDevice.current.orientation
 
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -75,7 +76,11 @@ struct TransparentClockView: View {
     private var interactiveBackground: some View {
         ZStack {
             if cameraController.isCameraAvailable {
-                CameraPreviewView(session: cameraController.session).ignoresSafeArea()
+                CameraPreviewView(
+                    session: cameraController.session,
+                    orientationToken: previewOrientationToken
+                )
+                .ignoresSafeArea()
             } else {
                 unavailableBackground
             }
@@ -86,6 +91,9 @@ struct TransparentClockView: View {
         }
         .contentShape(Rectangle())
         .onTapGesture { withAnimation(.easeInOut(duration: 0.2)) { showControls.toggle() } }
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+            previewOrientationToken = UIDevice.current.orientation
+        }
     }
 
     private var unavailableBackground: some View {
