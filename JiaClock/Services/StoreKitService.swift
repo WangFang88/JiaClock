@@ -117,7 +117,7 @@ final class StoreKitService: ObservableObject {
         guard !isStoreOperationLocked else { return }
 
         switch purchaseState {
-        case .purchasing, .verifying:
+        case .purchasing, .verifying, .cancelled, .failed, .pending:
             logStep("recoverFromStalePurchaseStateIfNeeded — resetting stuck state", extra: "\(purchaseState)")
             purchaseState = .idle
             purchasingProductID = nil
@@ -223,20 +223,26 @@ final class StoreKitService: ObservableObject {
                     result = try await withTimeout(seconds: Self.purchaseDialogTimeout) {
                         try await product.purchase()
                     }
-                    if case .success(let retryVerification) = result {
+                    switch result {
+                    case .success(let retryVerification):
                         purchaseState = .verifying
                         didSucceed = await completePurchase(from: retryVerification, sessionID: sessionID)
+                    case .userCancelled:
+                        logStep("user cancelled purchase dialog on retry")
+                        purchaseState = .idle
+                        purchasingProductID = nil
+                    default:
+                        break
                     }
                 }
-                if !didSucceed, purchaseState == .verifying {
+                if !didSucceed {
                     purchaseState = .idle
                     purchasingProductID = nil
                 }
             case .userCancelled:
                 logStep("user cancelled purchase dialog")
-                purchaseState = .cancelled
+                purchaseState = .idle
                 purchasingProductID = nil
-                scheduleReturnToIdle()
             case .pending:
                 logStep("purchase pending approval")
                 purchaseState = .pending
@@ -286,8 +292,11 @@ final class StoreKitService: ObservableObject {
         defer {
             logStep("restorePurchases cleanup")
             cancelOperationWatchdog()
+            idleResetTask?.cancel()
             isRestoring = false
             releaseStoreOperationLock()
+            purchaseState = .idle
+            purchasingProductID = nil
         }
 
         if products.isEmpty {

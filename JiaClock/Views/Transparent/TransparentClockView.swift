@@ -8,7 +8,7 @@ struct TransparentClockView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     @StateObject private var cameraController = CameraSessionController()
-    @State private var showControls = true
+    @State private var showControls = false
     @State private var darkOverlayEnabled = false
     @State private var useLightText = true
     @State private var showStyleCenter = false
@@ -40,9 +40,10 @@ struct TransparentClockView: View {
         }
         .ignoresSafeArea()
         .safeAreaInset(edge: .top, spacing: 0) {
-            if showControls {
-                controlsBar
-            }
+            controlsBar
+                .opacity(showControls ? 1 : 0)
+                .allowsHitTesting(showControls)
+                .animation(.easeInOut(duration: 0.2), value: showControls)
         }
         .onAppear {
             isViewVisible = true
