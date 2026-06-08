@@ -41,7 +41,7 @@ struct TransparentClockView: View {
                 clockOverlay(settings: settings, now: context.date)
             }
         }
-        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)")
+        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(settings.transparentBigDigitStyle.rawValue)")
         .ignoresSafeArea()
         .safeAreaInset(edge: .top, spacing: 0) {
             if showControls {
@@ -108,31 +108,51 @@ struct TransparentClockView: View {
 
     @ViewBuilder
     private func clockOverlay(settings: ClockSettings, now: Date) -> some View {
-        VStack {
-            Spacer(minLength: 0)
+        Group {
             switch displayStyle {
+            case .fullScreenTransparentFlip:
+                FullScreenTransparentFlipClockView(
+                    date: now,
+                    showSeconds: settings.showSeconds,
+                    use24HourTime: settings.use24HourFormat,
+                    colorStyle: settings.transparentBigDigitStyle,
+                    showDate: settings.showDate,
+                    showWeekday: settings.showWeekday,
+                    slogan: settingsStore.effectiveTagline
+                )
             case .transparentFlip:
-                TransparentFlipClockView(
-                    date: now,
-                    settings: settings,
-                    tagline: settingsStore.effectiveTagline,
-                    flipTheme: flipTheme,
-                    useLightText: useLightText
-                )
-                .padding(.horizontal, 16)
+                VStack {
+                    Spacer(minLength: 0)
+                    TransparentFlipClockView(
+                        date: now,
+                        settings: settings,
+                        tagline: settingsStore.effectiveTagline,
+                        flipTheme: flipTheme,
+                        useLightText: useLightText
+                    )
+                    .padding(.horizontal, 16)
+                    Spacer(minLength: 0)
+                }
             case .stackedFlip:
-                StackedFlipClockView(
-                    date: now,
-                    settings: settings,
-                    tagline: settingsStore.effectiveTagline,
-                    theme: stackedTheme,
-                    useLightText: useLightText
-                )
-                .padding(.horizontal, 16)
+                VStack {
+                    Spacer(minLength: 0)
+                    StackedFlipClockView(
+                        date: now,
+                        settings: settings,
+                        tagline: settingsStore.effectiveTagline,
+                        theme: stackedTheme,
+                        useLightText: useLightText
+                    )
+                    .padding(.horizontal, 16)
+                    Spacer(minLength: 0)
+                }
             case .minimalFloating:
-                minimalFloatingClock(now: now, settings: settings)
+                VStack {
+                    Spacer(minLength: 0)
+                    minimalFloatingClock(now: now, settings: settings)
+                    Spacer(minLength: 0)
+                }
             }
-            Spacer(minLength: 0)
         }
         .allowsHitTesting(false)
     }

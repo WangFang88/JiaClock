@@ -2236,13 +2236,76 @@
         }
       }
     },
+    "transparent.display_mode_fullscreen_flip": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Full Screen Transparent Flip" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "全画面透明フリップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Full Screen Transparent Flip" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "全屏透明翻页" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "全屏透明翻頁" } }
+      }
+    },
+    "transparent.display_mode_card_flip": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Card Flip" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "カードフリップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Card Flip" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明小卡翻页" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明小卡翻頁" } }
+      }
+    },
     "transparent.display_mode_flip": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Transparent Flip" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "透明フリップ" } },
-        "ko": { "stringUnit": { "state": "translated", "value": "투명 플립" } },
-        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明翻页" } },
-        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明翻頁" } }
+        "en": { "stringUnit": { "state": "translated", "value": "Card Flip" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "カードフリップ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Card Flip" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明小卡翻页" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明小卡翻頁" } }
+      }
+    },
+    "transparent.big_digit_style_section_title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Digit Color" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "数字配色" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "數字配色" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "数字カラー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Digit Color" } }
+      }
+    },
+    "transparent.big_digit_soft_pink_white": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Soft Pink White" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "柔粉白" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "柔粉白" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ソフトピンクホワイト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Soft Pink White" } }
+      }
+    },
+    "transparent.big_digit_pure_white": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Pure White" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "纯净白" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "純淨白" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "ピュアホワイト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Pure White" } }
+      }
+    },
+    "transparent.big_digit_jia_orange": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Jia Orange" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "小嘉橘" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "小嘉橘" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "Jia Orange" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Jia Orange" } }
+      }
+    },
+    "transparent.big_digit_ice_blue": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Ice Blue" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "冰蓝白" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "冰藍白" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "アイスブルー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Ice Blue" } }
       }
     },
     "transparent.display_mode_stacked_flip": {

@@ -81,7 +81,7 @@ final class ClockSettingsStore: ObservableObject {
         if !isPro, settings.clockDisplayStyle.isProStyle {
             update {
                 $0.clockDisplayStyle = .digital
-                $0.transparentClockDisplayStyle = .transparentFlip
+                $0.transparentClockDisplayStyle = .fullScreenTransparentFlip
             }
         }
     }

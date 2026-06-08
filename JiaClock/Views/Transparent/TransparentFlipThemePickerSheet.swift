@@ -24,7 +24,10 @@ struct TransparentFlipThemePickerSheet: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     displayModeSection
-                    if displayStyle == .transparentFlip {
+                    if displayStyle == .fullScreenTransparentFlip {
+                        bigDigitStyleSection
+                        backgroundSection
+                    } else if displayStyle == .transparentFlip {
                         flipThemeSection
                         backgroundSection
                     } else if displayStyle == .stackedFlip {
@@ -86,12 +89,17 @@ struct TransparentFlipThemePickerSheet: View {
                 showPaywall = true
                 return
             }
-            ClockStyleRouter.applySelection(
-                clockStyle,
-                settingsStore: settingsStore,
-                isPro: entitlements.isPro,
-                scene: .transparentClock
-            )
+            settingsStore.update { settings in
+                switch style {
+                case .fullScreenTransparentFlip, .transparentFlip:
+                    settings.clockDisplayStyle = .transparentFlip
+                case .stackedFlip:
+                    settings.clockDisplayStyle = .stackedFlip
+                case .minimalFloating:
+                    settings.clockDisplayStyle = .minimalFloating
+                }
+                settings.transparentClockDisplayStyle = style
+            }
         } label: {
             HStack(spacing: 10) {
                 Image(systemName: style.systemImage)
@@ -129,10 +137,75 @@ struct TransparentFlipThemePickerSheet: View {
 
     private func clockDisplayStyle(for style: TransparentClockDisplayStyle) -> ClockDisplayStyle {
         switch style {
-        case .transparentFlip: .transparentFlip
+        case .fullScreenTransparentFlip, .transparentFlip: .transparentFlip
         case .stackedFlip: .stackedFlip
         case .minimalFloating: .minimalFloating
         }
+    }
+
+    // MARK: - Big Digit Style
+
+    private var bigDigitStyleSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(L10n.Transparent.bigDigitStyleSectionTitle)
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(.white.opacity(0.92))
+
+            if horizontalSizeClass == .regular {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                    ForEach(TransparentBigDigitStyle.allCases) { style in
+                        bigDigitStyleChip(style)
+                    }
+                }
+            } else {
+                VStack(spacing: 10) {
+                    ForEach(TransparentBigDigitStyle.allCases) { style in
+                        bigDigitStyleChip(style)
+                    }
+                }
+            }
+        }
+    }
+
+    private func bigDigitStyleChip(_ style: TransparentBigDigitStyle) -> some View {
+        let isSelected = settingsStore.settings.transparentBigDigitStyle == style
+        return Button {
+            settingsStore.update { $0.transparentBigDigitStyle = style }
+        } label: {
+            HStack(spacing: 10) {
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .fill(style.digitColor)
+                    .frame(width: 36, height: 28)
+                    .overlay(alignment: .center) {
+                        Rectangle()
+                            .fill(style.lineColor)
+                            .frame(height: 1)
+                    }
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .strokeBorder(Color.white.opacity(0.18), lineWidth: 0.5)
+                    }
+                Text(style.title)
+                    .font(.subheadline.weight(.medium))
+                    .foregroundStyle(.white.opacity(0.88))
+                Spacer(minLength: 0)
+                if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(Color(red: 0.98, green: 0.62, blue: 0.42))
+                }
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 12)
+            .background {
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(Color.white.opacity(isSelected ? 0.12 : 0.06))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .strokeBorder(isSelected ? Color.white.opacity(0.35) : Color.white.opacity(0.08), lineWidth: 1)
+                    }
+            }
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Transparent Flip Themes

@@ -3,6 +3,7 @@ import SwiftUI
 // MARK: - 透明时钟显示模式
 
 enum TransparentClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
+    case fullScreenTransparentFlip
     case transparentFlip
     case stackedFlip
     case minimalFloating
@@ -11,7 +12,8 @@ enum TransparentClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .transparentFlip: L10n.Transparent.displayModeFlip
+        case .fullScreenTransparentFlip: L10n.Transparent.displayModeFullScreenFlip
+        case .transparentFlip: L10n.Transparent.displayModeCardFlip
         case .stackedFlip: L10n.Transparent.displayModeStackedFlip
         case .minimalFloating: L10n.Transparent.displayModeMinimal
         }
@@ -19,6 +21,7 @@ enum TransparentClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
 
     var systemImage: String {
         switch self {
+        case .fullScreenTransparentFlip: "rectangle.inset.filled"
         case .transparentFlip: "book.pages.fill"
         case .stackedFlip: "rectangle.stack.fill"
         case .minimalFloating: "textformat.size.larger"

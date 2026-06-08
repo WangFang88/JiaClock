@@ -136,10 +136,16 @@ enum L10n {
         static var previewWithoutCamera: String { tr("transparent.preview_without_camera") }
         static var darkOverlay: String { tr("transparent.dark_overlay") }
         static var displayMode: String { tr("transparent.display_mode") }
-        static var displayModeFlip: String { tr("transparent.display_mode_flip") }
+        static var displayModeFullScreenFlip: String { tr("transparent.display_mode_fullscreen_flip") }
+        static var displayModeCardFlip: String { tr("transparent.display_mode_card_flip") }
         static var displayModeStackedFlip: String { tr("transparent.display_mode_stacked_flip") }
         static var displayModeMinimal: String { tr("transparent.display_mode_minimal") }
         static var displayModeSectionTitle: String { tr("transparent.display_mode_section_title") }
+        static var bigDigitStyleSectionTitle: String { tr("transparent.big_digit_style_section_title") }
+        static var bigDigitSoftPinkWhite: String { tr("transparent.big_digit_soft_pink_white") }
+        static var bigDigitPureWhite: String { tr("transparent.big_digit_pure_white") }
+        static var bigDigitJiaOrange: String { tr("transparent.big_digit_jia_orange") }
+        static var bigDigitIceBlue: String { tr("transparent.big_digit_ice_blue") }
         static var hideControls: String { tr("transparent.hide_controls") }
         static var flipThemeButton: String { tr("transparent.flip_theme_button") }
         static var flipThemeSheetTitle: String { tr("transparent.flip_theme_sheet_title") }

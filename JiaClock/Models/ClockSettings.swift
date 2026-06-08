@@ -10,8 +10,9 @@ struct ClockSettings: Codable, Equatable {
     var clockDisplayStyle: ClockDisplayStyle = .digital
     var retroCalendarClockThemeID: String = RetroCalendarClockThemeLibrary.defaultThemeID
     var transparentFlipThemeID: String = TransparentFlipThemeLibrary.defaultThemeID
+    var transparentBigDigitStyle: TransparentBigDigitStyle = .softPinkWhite
     var transparentClockBackgroundStyle: TransparentClockBackgroundStyle = .cameraOnly
-    var transparentClockDisplayStyle: TransparentClockDisplayStyle = .transparentFlip
+    var transparentClockDisplayStyle: TransparentClockDisplayStyle = .fullScreenTransparentFlip
     var stackedFlipThemeID: String = StackedFlipThemeLibrary.defaultThemeID
     var dayHourglassThemeID: String = DayHourglassThemeLibrary.defaultThemeID
     var dayHourglassShowPercent: Bool = true
