@@ -36,7 +36,7 @@ struct PaywallView: View {
                 }
             }
             .onAppear { storeKit.recoverFromStalePurchaseStateIfNeeded() }
-            .task { await storeKit.loadProducts() }
+            .task { await storeKit.ensureStoreReady() }
             .alert(L10n.Pro.alertTitle, isPresented: alertBinding) {
                 Button(L10n.Common.done, role: .cancel) {}
             } message: {
@@ -44,10 +44,11 @@ struct PaywallView: View {
             }
             .sheet(item: $selectedLegal) { LegalDocumentView(type: $0) }
             .onChange(of: storeKit.purchaseState) { _, newValue in
-                if case .succeeded = newValue {
+                guard case .succeeded = newValue else { return }
+                if entitlements.isPro {
                     dismiss()
-                    storeKit.resetPurchaseState()
                 }
+                storeKit.resetPurchaseState()
             }
         }
     }
@@ -135,7 +136,7 @@ struct PaywallView: View {
                 .font(.headline.weight(.semibold))
                 .foregroundStyle(.white)
 
-            if storeKit.isLoadingProducts {
+            if storeKit.isLoadingProducts || !storeKit.isStoreReady {
                 ProgressView(L10n.Pro.loadingProducts)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 24)
@@ -258,7 +259,7 @@ struct PaywallView: View {
             .foregroundStyle(Color(red: 0.12, green: 0.12, blue: 0.16))
         }
         .buttonStyle(.plain)
-        .disabled(entitlements.isPro)
+        .disabled(entitlements.isPro || !storeKit.isStoreReady)
         .opacity(entitlements.isPro ? 0.55 : 1)
     }
 
