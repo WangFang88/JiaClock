@@ -54,7 +54,7 @@ final class ClockSettingsStore: ObservableObject {
     /// 订阅过期或未购买 Pro 时，回退到免费主题。
     func enforceAccessibleTheme(isPro: Bool) {
         guard !isPro, theme.requiresPro else { return }
-        theme = .dawn
+        theme = .jiaWarmGlow
     }
 
     /// 透明翻页 / 叠层翻页主题 / 背景：非 Pro 时回退到免费项。

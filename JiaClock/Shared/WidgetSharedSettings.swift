@@ -25,7 +25,7 @@ struct WidgetSharedSettings: Equatable, Sendable {
     var showWeekday: Bool
 
     static let `default` = WidgetSharedSettings(
-        selectedThemeID: "dawn",
+        selectedThemeID: "jiaWarmGlow",
         customSlogan: "",
         use24HourTime: true,
         showDate: true,
@@ -35,7 +35,7 @@ struct WidgetSharedSettings: Equatable, Sendable {
     static func load(from defaults: UserDefaults = JiaAppGroup.userDefaults) -> WidgetSharedSettings {
         if defaults.object(forKey: JiaAppGroup.Keys.selectedThemeID) != nil {
             return WidgetSharedSettings(
-                selectedThemeID: defaults.string(forKey: JiaAppGroup.Keys.selectedThemeID) ?? "dawn",
+                selectedThemeID: defaults.string(forKey: JiaAppGroup.Keys.selectedThemeID) ?? "jiaWarmGlow",
                 customSlogan: defaults.string(forKey: JiaAppGroup.Keys.customSlogan) ?? "",
                 use24HourTime: defaults.object(forKey: JiaAppGroup.Keys.use24HourTime) as? Bool ?? true,
                 showDate: defaults.object(forKey: JiaAppGroup.Keys.showDate) as? Bool ?? true,
@@ -69,5 +69,5 @@ private struct SettingsJSON: Codable {
     var showDate: Bool = true
     var showWeekday: Bool = true
     var customTagline: String = ""
-    var selectedTheme: String = "dawn"
+    var selectedTheme: String = "jiaWarmGlow"
 }

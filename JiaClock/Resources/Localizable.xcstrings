@@ -3376,6 +3376,150 @@
         }
       }
     },
+    "theme.jia_warm_glow": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Jia Warm Glow" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "小嘉暖光" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "小嘉暖光" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "小嘉ウォームグロー" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Jia Warm Glow" } }
+      }
+    },
+    "theme.quiet_night": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Quiet Night" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "静夜微光" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "靜夜微光" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "静かな夜" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Quiet Night" } }
+      }
+    },
+    "theme.cream_dawn": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Cream Dawn" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "奶油晨光" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "奶油晨光" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クリームドーン" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Cream Dawn" } }
+      }
+    },
+    "theme.clear_glass": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Clear Glass" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "透明玻璃" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "透明玻璃" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クリアガラス" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Clear Glass" } }
+      }
+    },
+    "theme.forest_breath": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Forest Breath" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "森林呼吸" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "森林呼吸" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "森の呼吸" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Forest Breath" } }
+      }
+    },
+    "theme.ocean_calm": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Ocean Calm" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "海风蓝调" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "海風藍調" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "オーシャンカーム" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Ocean Calm" } }
+      }
+    },
+    "theme.sakura_dusk": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sakura Dusk" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "樱粉黄昏" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "櫻粉黃昏" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "桜の夕暮れ" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Sakura Dusk" } }
+      }
+    },
+    "theme.aurora_night": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Aurora Night" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "幻夜流光" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "幻夜流光" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "オーロラナイト" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Aurora Night" } }
+      }
+    },
+    "theme.jia_warm_glow_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Warm orange glow on deep purple — the JiaClock default." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "深紫黑上的暖橘光感，小嘉时钟默认主题。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "深紫黑上的暖橘光感，小嘉時鐘預設主題。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "深い紫に暖かいオレンジの光。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Warm orange glow on deep purple." } }
+      }
+    },
+    "theme.quiet_night_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Soft blue-violet night light for bedside and transparency." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "柔和蓝紫夜光，适合床头与透明时钟。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "柔和藍紫夜光，適合床頭與透明時鐘。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "柔らかな青紫の夜の光。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Soft blue-violet night light." } }
+      }
+    },
+    "theme.cream_dawn_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Cream white and light orange for daytime and widgets." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "奶油白与浅橘，适合白天与小组件。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "奶油白與淺橘，適合白天與小組件。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "クリームホワイトと淡いオレンジ。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Cream white and light orange." } }
+      }
+    },
+    "theme.clear_glass_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Minimal glass lines for transparent clock mode." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "极轻线框，专为透明时钟设计。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "極輕線框，專為透明時鐘設計。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "透明時計向けのミニマルな線框。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Minimal glass lines for transparent clock." } }
+      }
+    },
+    "theme.forest_breath_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Deep green with warm gold — calm and natural." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "深绿与暖金，治愈自然。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "深綠與暖金，治癒自然。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "深い緑と暖かいゴールド。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Deep green with warm gold." } }
+      }
+    },
+    "theme.ocean_calm_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Deep blue and teal with a clean glass feel." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "深蓝青蓝，清爽玻璃感。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "深藍青藍，清爽玻璃感。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "深い青とティールのガラス感。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Deep blue and teal." } }
+      }
+    },
+    "theme.sakura_dusk_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Soft pink-purple dusk with warm light." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "柔粉紫与暖光，治愈温柔。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "柔粉紫與暖光，治癒溫柔。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "柔らかな桜色の夕暮れ。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Soft pink-purple dusk." } }
+      }
+    },
+    "theme.aurora_night_desc": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Black-purple aurora with orange flow — premium showcase." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "黑紫极光与橘色流光，高级展示主题。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "黑紫極光與橘色流光，高級展示主題。" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "黒紫のオーロラとオレンジの流れ。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "Black-purple aurora with orange flow." } }
+      }
+    },
     "pro.premium_themes": {
       "localizations": {
         "en": {

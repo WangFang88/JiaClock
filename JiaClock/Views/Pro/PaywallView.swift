@@ -9,7 +9,7 @@ struct PaywallView: View {
     var highlightFeature: ProFeature? = nil
     @State private var selectedLegal: LegalDocumentType?
 
-    private let brandTheme = ClockTheme.dawn
+    private let brandTheme = ClockTheme.jiaWarmGlow
 
     var body: some View {
         NavigationStack {

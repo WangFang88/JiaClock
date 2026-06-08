@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct JiaCardView<Content: View>: View {
-    @Environment(\.colorScheme) private var colorScheme
+    var theme: ClockTheme?
     var cornerRadius: CGFloat = 20
     var padding: CGFloat = 16
     @ViewBuilder var content: () -> Content
@@ -11,12 +11,31 @@ struct JiaCardView<Content: View>: View {
             .padding(padding)
             .background {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(.ultraThinMaterial)
+                    .fill(cardFill)
                     .overlay {
                         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                            .strokeBorder(Color.white.opacity(colorScheme == .dark ? 0.12 : 0.22), lineWidth: 1)
+                            .strokeBorder(cardStroke, lineWidth: 0.8)
                     }
-                    .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.35 : 0.12), radius: 18, x: 0, y: 10)
+                    .shadow(color: shadowColor, radius: 14, x: 0, y: 8)
             }
+    }
+
+    private var cardFill: some ShapeStyle {
+        if let theme {
+            theme.cardBackground
+        } else {
+            Color.white.opacity(0.08)
+        }
+    }
+
+    private var cardStroke: Color {
+        theme?.cardBorder ?? Color.white.opacity(0.12)
+    }
+
+    private var shadowColor: Color {
+        if let theme, theme.isLightTheme {
+            return Color.black.opacity(0.08)
+        }
+        return Color.black.opacity(0.28)
     }
 }

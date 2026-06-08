@@ -6,7 +6,7 @@ struct ClockSettings: Codable, Equatable {
     var showDate: Bool = true
     var showWeekday: Bool = true
     var customTagline: String = ""
-    var selectedTheme: ClockTheme = .dawn
+    var selectedTheme: ClockTheme = .jiaWarmGlow
     var clockDisplayStyle: ClockDisplayStyle = .digital
     var retroCalendarClockThemeID: String = RetroCalendarClockThemeLibrary.defaultThemeID
     var transparentFlipThemeID: String = TransparentFlipThemeLibrary.defaultThemeID

@@ -35,7 +35,7 @@ struct TransparentClockAtmosphereOverlay: View {
         ZStack {
             atmosphereLayer(for: style)
             if extraDimEnabled {
-                Color.black.opacity(0.06).ignoresSafeArea()
+                Color.black.opacity(0.14).ignoresSafeArea()
             }
         }
         .allowsHitTesting(false)
@@ -154,40 +154,40 @@ enum TransparentFlipThemeLibrary {
         id: "glassWhite",
         isPro: false,
         suggestedBackground: .cameraOnly,
-        cardGradient: [Color.white.opacity(0.42), Color.white.opacity(0.22)],
-        cardMaterialOpacity: 0.45,
+        cardGradient: [Color.white.opacity(0.04), Color.white.opacity(0.02)],
+        cardMaterialOpacity: 0,
         digitColor: .white,
         secondaryTextColor: Color.white.opacity(0.92),
         taglineTextColor: Color.white.opacity(0.82),
         borderColor: Color.white.opacity(0.38),
-        dividerColor: Color.white.opacity(0.22),
-        shadowColor: Color.black.opacity(0.32),
-        glowColor: Color.white.opacity(0.40),
+        dividerColor: Color.white.opacity(0.28),
+        shadowColor: Color.black.opacity(0.42),
+        glowColor: Color.white.opacity(0.30),
         colonColor: Color.white.opacity(0.90),
-        highlightTop: Color.white.opacity(0.18),
-        highlightBottom: Color.black.opacity(0.08),
-        metadataCapsuleFill: Color.white.opacity(0.14),
-        previewGradient: [Color.white.opacity(0.55), Color(red: 0.88, green: 0.92, blue: 0.98).opacity(0.35)]
+        highlightTop: Color.white.opacity(0.08),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
+        previewGradient: [Color(red: 0.10, green: 0.12, blue: 0.18), Color(red: 0.14, green: 0.16, blue: 0.22)]
     )
 
     static let midnightBlack = TransparentFlipTheme(
         id: "midnightBlack",
         isPro: false,
         suggestedBackground: .deepNight,
-        cardGradient: [Color(red: 0.10, green: 0.10, blue: 0.14).opacity(0.72), Color(red: 0.04, green: 0.04, blue: 0.08).opacity(0.82)],
-        cardMaterialOpacity: 0.25,
+        cardGradient: [Color(red: 0.08, green: 0.12, blue: 0.22).opacity(0.06), Color.black.opacity(0.04)],
+        cardMaterialOpacity: 0,
         digitColor: .white,
         secondaryTextColor: Color.white.opacity(0.88),
         taglineTextColor: Color.white.opacity(0.76),
-        borderColor: Color.white.opacity(0.16),
-        dividerColor: Color.white.opacity(0.12),
+        borderColor: Color(red: 0.58, green: 0.68, blue: 0.98).opacity(0.32),
+        dividerColor: Color.white.opacity(0.18),
         shadowColor: Color.black.opacity(0.55),
-        glowColor: Color.white.opacity(0.12),
+        glowColor: Color(red: 0.58, green: 0.68, blue: 0.98).opacity(0.35),
         colonColor: Color.white.opacity(0.82),
-        highlightTop: Color.white.opacity(0.06),
-        highlightBottom: Color.black.opacity(0.22),
-        metadataCapsuleFill: Color.black.opacity(0.28),
-        previewGradient: [Color(red: 0.12, green: 0.12, blue: 0.18), Color(red: 0.04, green: 0.04, blue: 0.08)]
+        highlightTop: Color.white.opacity(0.04),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
+        previewGradient: [Color(red: 0.04, green: 0.06, blue: 0.14), Color(red: 0.08, green: 0.10, blue: 0.22)]
     )
 
     static let sunsetOrange = TransparentFlipTheme(
@@ -195,22 +195,22 @@ enum TransparentFlipThemeLibrary {
         isPro: false,
         suggestedBackground: .warmSunset,
         cardGradient: [
-            Color(red: 0.98, green: 0.62, blue: 0.38).opacity(0.78),
-            Color(red: 0.94, green: 0.48, blue: 0.32).opacity(0.68),
+            Color(red: 0.98, green: 0.62, blue: 0.38).opacity(0.06),
+            Color(red: 0.94, green: 0.48, blue: 0.32).opacity(0.04),
         ],
-        cardMaterialOpacity: 0.20,
-        digitColor: Color(red: 0.18, green: 0.08, blue: 0.04),
+        cardMaterialOpacity: 0,
+        digitColor: Color(red: 0.98, green: 0.72, blue: 0.42),
         secondaryTextColor: Color.white.opacity(0.94),
         taglineTextColor: Color.white.opacity(0.86),
-        borderColor: Color.white.opacity(0.32),
-        dividerColor: Color(red: 0.42, green: 0.18, blue: 0.08).opacity(0.35),
-        shadowColor: Color(red: 0.55, green: 0.22, blue: 0.08).opacity(0.45),
-        glowColor: Color(red: 1.0, green: 0.72, blue: 0.42).opacity(0.55),
-        colonColor: Color(red: 0.22, green: 0.10, blue: 0.06),
-        highlightTop: Color.white.opacity(0.22),
-        highlightBottom: Color(red: 0.45, green: 0.18, blue: 0.06).opacity(0.18),
-        metadataCapsuleFill: Color.black.opacity(0.16),
-        previewGradient: [Color(red: 0.98, green: 0.62, blue: 0.38), Color(red: 0.94, green: 0.42, blue: 0.48)]
+        borderColor: Color(red: 0.98, green: 0.62, blue: 0.38).opacity(0.42),
+        dividerColor: Color(red: 0.98, green: 0.62, blue: 0.38).opacity(0.30),
+        shadowColor: Color.black.opacity(0.45),
+        glowColor: Color(red: 1.0, green: 0.72, blue: 0.42).opacity(0.40),
+        colonColor: Color(red: 0.98, green: 0.68, blue: 0.38),
+        highlightTop: Color(red: 0.98, green: 0.62, blue: 0.38).opacity(0.10),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
+        previewGradient: [Color(red: 0.18, green: 0.10, blue: 0.14), Color(red: 0.28, green: 0.14, blue: 0.10)]
     )
 
     // MARK: Pro
@@ -220,10 +220,10 @@ enum TransparentFlipThemeLibrary {
         isPro: true,
         suggestedBackground: .warmSunset,
         cardGradient: [
-            Color(red: 0.96, green: 0.72, blue: 0.82).opacity(0.72),
-            Color(red: 0.92, green: 0.58, blue: 0.72).opacity(0.62),
+            Color(red: 0.96, green: 0.72, blue: 0.82).opacity(0.06),
+            Color(red: 0.92, green: 0.58, blue: 0.72).opacity(0.04),
         ],
-        cardMaterialOpacity: 0.28,
+        cardMaterialOpacity: 0,
         digitColor: Color(red: 0.42, green: 0.16, blue: 0.26),
         secondaryTextColor: Color.white.opacity(0.92),
         taglineTextColor: Color.white.opacity(0.84),
@@ -233,8 +233,8 @@ enum TransparentFlipThemeLibrary {
         glowColor: Color(red: 1.0, green: 0.82, blue: 0.90).opacity(0.45),
         colonColor: Color(red: 0.48, green: 0.18, blue: 0.28),
         highlightTop: Color.white.opacity(0.20),
-        highlightBottom: Color(red: 0.55, green: 0.22, blue: 0.32).opacity(0.12),
-        metadataCapsuleFill: Color.black.opacity(0.14),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
         previewGradient: [Color(red: 0.96, green: 0.72, blue: 0.82), Color(red: 0.92, green: 0.58, blue: 0.72)]
     )
 
@@ -243,10 +243,10 @@ enum TransparentFlipThemeLibrary {
         isPro: true,
         suggestedBackground: .cleanLight,
         cardGradient: [
-            Color(red: 0.96, green: 0.90, blue: 0.78).opacity(0.82),
-            Color(red: 0.90, green: 0.82, blue: 0.68).opacity(0.72),
+            Color(red: 0.96, green: 0.90, blue: 0.78).opacity(0.06),
+            Color(red: 0.90, green: 0.82, blue: 0.68).opacity(0.04),
         ],
-        cardMaterialOpacity: 0.22,
+        cardMaterialOpacity: 0,
         digitColor: Color(red: 0.32, green: 0.24, blue: 0.16),
         secondaryTextColor: Color(red: 0.28, green: 0.22, blue: 0.16).opacity(0.92),
         taglineTextColor: Color(red: 0.32, green: 0.24, blue: 0.18).opacity(0.82),
@@ -256,8 +256,8 @@ enum TransparentFlipThemeLibrary {
         glowColor: Color(red: 1.0, green: 0.94, blue: 0.82).opacity(0.35),
         colonColor: Color(red: 0.38, green: 0.28, blue: 0.18),
         highlightTop: Color.white.opacity(0.28),
-        highlightBottom: Color(red: 0.45, green: 0.32, blue: 0.18).opacity(0.10),
-        metadataCapsuleFill: Color.white.opacity(0.22),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
         previewGradient: [Color(red: 0.96, green: 0.90, blue: 0.78), Color(red: 0.88, green: 0.78, blue: 0.62)]
     )
 
@@ -266,10 +266,10 @@ enum TransparentFlipThemeLibrary {
         isPro: true,
         suggestedBackground: .cleanLight,
         cardGradient: [
-            Color(red: 0.62, green: 0.84, blue: 0.98).opacity(0.72),
-            Color(red: 0.48, green: 0.72, blue: 0.94).opacity(0.62),
+            Color(red: 0.62, green: 0.84, blue: 0.98).opacity(0.06),
+            Color(red: 0.48, green: 0.72, blue: 0.94).opacity(0.04),
         ],
-        cardMaterialOpacity: 0.30,
+        cardMaterialOpacity: 0,
         digitColor: Color(red: 0.08, green: 0.22, blue: 0.42),
         secondaryTextColor: Color.white.opacity(0.94),
         taglineTextColor: Color.white.opacity(0.86),
@@ -279,8 +279,8 @@ enum TransparentFlipThemeLibrary {
         glowColor: Color(red: 0.72, green: 0.92, blue: 1.0).opacity(0.48),
         colonColor: Color(red: 0.10, green: 0.28, blue: 0.48),
         highlightTop: Color.white.opacity(0.22),
-        highlightBottom: Color(red: 0.08, green: 0.22, blue: 0.42).opacity(0.12),
-        metadataCapsuleFill: Color.black.opacity(0.14),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
         previewGradient: [Color(red: 0.62, green: 0.84, blue: 0.98), Color(red: 0.48, green: 0.72, blue: 0.94)]
     )
 
@@ -289,10 +289,10 @@ enum TransparentFlipThemeLibrary {
         isPro: true,
         suggestedBackground: .softDark,
         cardGradient: [
-            Color(red: 0.18, green: 0.42, blue: 0.32).opacity(0.78),
-            Color(red: 0.10, green: 0.28, blue: 0.22).opacity(0.82),
+            Color(red: 0.18, green: 0.42, blue: 0.32).opacity(0.06),
+            Color(red: 0.10, green: 0.28, blue: 0.22).opacity(0.04),
         ],
-        cardMaterialOpacity: 0.22,
+        cardMaterialOpacity: 0,
         digitColor: Color(red: 0.92, green: 0.96, blue: 0.90),
         secondaryTextColor: Color(red: 0.92, green: 0.96, blue: 0.90).opacity(0.92),
         taglineTextColor: Color(red: 0.88, green: 0.94, blue: 0.86).opacity(0.82),
@@ -302,8 +302,8 @@ enum TransparentFlipThemeLibrary {
         glowColor: Color(red: 0.62, green: 0.92, blue: 0.72).opacity(0.32),
         colonColor: Color(red: 0.88, green: 0.96, blue: 0.90),
         highlightTop: Color.white.opacity(0.10),
-        highlightBottom: Color.black.opacity(0.18),
-        metadataCapsuleFill: Color.black.opacity(0.22),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
         previewGradient: [Color(red: 0.18, green: 0.42, blue: 0.32), Color(red: 0.10, green: 0.28, blue: 0.22)]
     )
 
@@ -312,10 +312,10 @@ enum TransparentFlipThemeLibrary {
         isPro: true,
         suggestedBackground: .aurora,
         cardGradient: [
-            Color(red: 0.52, green: 0.32, blue: 0.92).opacity(0.72),
-            Color(red: 0.32, green: 0.22, blue: 0.68).opacity(0.78),
+            Color(red: 0.52, green: 0.32, blue: 0.92).opacity(0.06),
+            Color(red: 0.32, green: 0.22, blue: 0.68).opacity(0.04),
         ],
-        cardMaterialOpacity: 0.24,
+        cardMaterialOpacity: 0,
         digitColor: .white,
         secondaryTextColor: Color.white.opacity(0.92),
         taglineTextColor: Color.white.opacity(0.82),
@@ -325,8 +325,8 @@ enum TransparentFlipThemeLibrary {
         glowColor: Color(red: 0.72, green: 0.48, blue: 1.0).opacity(0.58),
         colonColor: Color.white.opacity(0.90),
         highlightTop: Color.white.opacity(0.14),
-        highlightBottom: Color.black.opacity(0.20),
-        metadataCapsuleFill: Color.black.opacity(0.24),
+        highlightBottom: Color.clear,
+        metadataCapsuleFill: Color.clear,
         previewGradient: [Color(red: 0.52, green: 0.32, blue: 0.92), Color(red: 0.28, green: 0.48, blue: 0.92)]
     )
 }

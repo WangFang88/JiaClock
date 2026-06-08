@@ -22,7 +22,8 @@ struct StackedFlipClockView: View {
             let layout = StackedFlipLayoutMetrics(
                 containerSize: geo.size,
                 isLandscape: isLandscape,
-                isPad: isPad
+                isPad: isPad,
+                showSeconds: settings.showSeconds
             )
             let digits = timeDigits(from: date, settings: settings)
 
@@ -82,18 +83,12 @@ struct StackedFlipClockView: View {
                     .font(.system(size: layout.weekdayFontSize, weight: .medium, design: .rounded))
                     .foregroundStyle(useLightText ? theme.secondaryTextColor : overlayTextColor)
                     .shadow(color: theme.shadowColor, radius: 6, x: 0, y: 2)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 5)
-                    .background { Capsule().fill(theme.metadataCapsuleFill) }
             }
             if settings.showDate {
                 Text(ClockTimeFormatter.dateString(from: date))
                     .font(.system(size: layout.dateFontSize, weight: .regular, design: .rounded))
                     .foregroundStyle(useLightText ? theme.secondaryTextColor.opacity(0.92) : overlayTextColor.opacity(0.88))
                     .shadow(color: theme.shadowColor, radius: 5, x: 0, y: 2)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 5)
-                    .background { Capsule().fill(theme.metadataCapsuleFill.opacity(0.88)) }
             }
             if !tagline.isEmpty {
                 Text(tagline)
@@ -102,7 +97,6 @@ struct StackedFlipClockView: View {
                     .multilineTextAlignment(.center)
                     .shadow(color: theme.shadowColor.opacity(0.85), radius: 4, x: 0, y: 1)
                     .padding(.horizontal, 16)
-                    .padding(.vertical, 4)
             }
         }
         .padding(.horizontal, 24)
@@ -120,9 +114,7 @@ struct StackedFlipClockView: View {
 
         var seconds: String?
         if settings.showSeconds {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "ss"
-            seconds = formatter.string(from: date)
+            seconds = ClockTimeFormatter.secondString(from: date)
         }
 
         return StackedTimeDigits(
@@ -164,7 +156,7 @@ struct StackedFlipLayoutMetrics {
     let taglineFontSize: CGFloat
     let showSecondsBadge: Bool
 
-    init(containerSize: CGSize, isLandscape: Bool, isPad: Bool) {
+    init(containerSize: CGSize, isLandscape: Bool, isPad: Bool, showSeconds: Bool = true) {
         let widthRatio: CGFloat = isLandscape ? 0.55 : 0.78
         moduleWidth = containerSize.width * widthRatio
 
@@ -177,7 +169,7 @@ struct StackedFlipLayoutMetrics {
             weekdayFontSize = isPad ? 20 : 17
             dateFontSize = isPad ? 18 : 16
             taglineFontSize = isPad ? 16 : 14
-            showSecondsBadge = false
+            showSecondsBadge = showSeconds
         } else {
             rowHeight = isPad ? 82 : 72
             accentBarHeight = 30
@@ -187,7 +179,7 @@ struct StackedFlipLayoutMetrics {
             weekdayFontSize = isPad ? 18 : 15
             dateFontSize = isPad ? 17 : 15
             taglineFontSize = isPad ? 15 : 13
-            showSecondsBadge = true
+            showSecondsBadge = showSeconds
         }
 
         digitBlockHeight = rowHeight * 0.72
@@ -217,7 +209,7 @@ struct StackedFlipRowView: View {
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            rowBackground
+            Color.clear
             HStack(spacing: layout.hourMinuteGap) {
                 StackedFlipNumberPairView(
                     tens: hourTens,
@@ -258,6 +250,16 @@ struct StackedFlipRowView: View {
             }
         }
         .frame(height: layout.rowHeight)
+        .background {
+            rowBackground.opacity(isTopRow ? 0.05 : 0.04)
+        }
+        .overlay(alignment: .bottom) {
+            if !isTopRow {
+                Rectangle()
+                    .fill(theme.borderColor.opacity(0.25))
+                    .frame(height: 0.5)
+            }
+        }
     }
 }
 
@@ -289,11 +291,7 @@ struct StackedFlipDigitBlock: View {
     let isTopRow: Bool
 
     private var blockFill: Color {
-        if isTopRow {
-            Color.white.opacity(0.08)
-        } else {
-            Color.black.opacity(0.04)
-        }
+        Color.white.opacity(isTopRow ? 0.04 : 0.03)
     }
 
     var body: some View {

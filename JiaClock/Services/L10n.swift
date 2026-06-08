@@ -191,16 +191,22 @@ enum L10n {
     }
 
     enum Theme {
-        static var dawn: String { tr("theme.dawn") }
-        static var midnight: String { tr("theme.midnight") }
-        static var forest: String { tr("theme.forest") }
-        static var ocean: String { tr("theme.ocean") }
-        static var aurora: String { tr("theme.aurora") }
-        static var sakura: String { tr("theme.sakura") }
-        static var ember: String { tr("theme.ember") }
-        static var jadeRealm: String { tr("theme.jade_realm") }
-        static var purpleDusk: String { tr("theme.purple_dusk") }
-        static var candyFantasy: String { tr("theme.candy_fantasy") }
+        static var jiaWarmGlow: String { tr("theme.jia_warm_glow") }
+        static var quietNight: String { tr("theme.quiet_night") }
+        static var creamDawn: String { tr("theme.cream_dawn") }
+        static var clearGlass: String { tr("theme.clear_glass") }
+        static var forestBreath: String { tr("theme.forest_breath") }
+        static var oceanCalm: String { tr("theme.ocean_calm") }
+        static var sakuraDusk: String { tr("theme.sakura_dusk") }
+        static var auroraNight: String { tr("theme.aurora_night") }
+        static var jiaWarmGlowDesc: String { tr("theme.jia_warm_glow_desc") }
+        static var quietNightDesc: String { tr("theme.quiet_night_desc") }
+        static var creamDawnDesc: String { tr("theme.cream_dawn_desc") }
+        static var clearGlassDesc: String { tr("theme.clear_glass_desc") }
+        static var forestBreathDesc: String { tr("theme.forest_breath_desc") }
+        static var oceanCalmDesc: String { tr("theme.ocean_calm_desc") }
+        static var sakuraDuskDesc: String { tr("theme.sakura_dusk_desc") }
+        static var auroraNightDesc: String { tr("theme.aurora_night_desc") }
         static var pickerTitle: String { tr("theme.picker_title") }
     }
 

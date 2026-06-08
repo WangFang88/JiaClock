@@ -8,7 +8,6 @@ struct HomeView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     @StateObject private var cameraPermission = CameraPermissionService()
-    @State private var now = Date.now
     @State private var showSettings = false
     @State private var showThemePicker = false
     @State private var showFullScreenClock = false
@@ -18,7 +17,6 @@ struct HomeView: View {
     @State private var showWidgetGuide = false
     @State private var showPaywall = false
 
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private var theme: ClockTheme { settingsStore.theme }
     private var currentStyle: ClockDisplayStyle { settingsStore.settings.clockDisplayStyle }
 
@@ -29,21 +27,8 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                JiaBackgroundView(theme: theme)
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 28) {
-                        brandSection
-                        timePreviewSection
-                        featureGridSection
-                        bottomBarSection
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 12)
-                    .padding(.bottom, 32)
-                    .frame(maxWidth: horizontalSizeClass == .regular ? 860 : 760)
-                    .frame(maxWidth: .infinity)
-                }
+            TimelineView(.periodic(from: .now, by: 1)) { context in
+                homeContent(now: context.date)
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.hidden, for: .navigationBar)
@@ -94,8 +79,27 @@ struct HomeView: View {
                     .environmentObject(storeKitService)
                     .environment(\.clockStyleLaunch, ClockStyleLaunchHandler(onLaunch: handleStyleLaunchFromFullscreen))
             }
-            .onReceive(timer) { now = $0 }
             .onAppear { cameraPermission.refreshStatus() }
+        }
+    }
+
+    @ViewBuilder
+    private func homeContent(now: Date) -> some View {
+        ZStack {
+            JiaBackgroundView(theme: theme)
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 28) {
+                    brandSection
+                    timePreviewSection(now: now)
+                    featureGridSection
+                    bottomBarSection
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 12)
+                .padding(.bottom, 32)
+                .frame(maxWidth: horizontalSizeClass == .regular ? 860 : 760)
+                .frame(maxWidth: .infinity)
+            }
         }
     }
 
@@ -105,7 +109,7 @@ struct HomeView: View {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(
                         LinearGradient(
-                            colors: [theme.accentColor.opacity(0.28), theme.accentColor.opacity(0.12)],
+                            colors: [theme.accentColor.opacity(0.32), theme.accentColor.opacity(0.10)],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
@@ -113,7 +117,7 @@ struct HomeView: View {
                     .frame(width: 52, height: 52)
                     .overlay {
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .strokeBorder(theme.accentColor.opacity(0.35), lineWidth: 1)
+                            .strokeBorder(theme.accentColor.opacity(0.40), lineWidth: 0.8)
                     }
                 Image(systemName: "clock.fill")
                     .font(.title2.weight(.semibold))
@@ -122,9 +126,10 @@ struct HomeView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text(L10n.Home.appName)
                     .font(.title.weight(.bold))
+                    .foregroundStyle(theme.primaryTextColor)
                 Text(L10n.Home.tagline)
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(theme.secondaryTextColor)
                     .fixedSize(horizontal: false, vertical: true)
             }
             Spacer(minLength: 0)
@@ -138,14 +143,14 @@ struct HomeView: View {
         .padding(.top, 8)
     }
 
-    private var timePreviewSection: some View {
+    private func timePreviewSection(now: Date) -> some View {
         let settings = settingsStore.settings
-        return JiaCardView(padding: 24) {
+        return JiaCardView(theme: theme, padding: 24) {
             VStack(spacing: 14) {
                 HStack {
                     Text(L10n.Home.currentTime)
                         .font(.caption.weight(.semibold))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(theme.secondaryTextColor)
                     Spacer(minLength: 8)
                     currentStyleBadge
                 }
@@ -154,14 +159,19 @@ struct HomeView: View {
                     .monospacedDigit()
                     .lineLimit(1)
                     .minimumScaleFactor(0.55)
+                    .foregroundStyle(theme.primaryTextColor)
                     .frame(maxWidth: .infinity, alignment: .center)
                 if settings.showDate || settings.showWeekday {
                     HStack(spacing: 8) {
-                        if settings.showWeekday { Text(ClockTimeFormatter.weekdayString(from: now)) }
-                        if settings.showDate { Text(ClockTimeFormatter.dateString(from: now)) }
+                        if settings.showWeekday {
+                            Text(ClockTimeFormatter.weekdayString(from: now))
+                        }
+                        if settings.showDate {
+                            Text(ClockTimeFormatter.dateString(from: now))
+                        }
                     }
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(theme.secondaryTextColor)
                     .frame(maxWidth: .infinity, alignment: .center)
                 }
                 Text(settingsStore.effectiveTagline)
@@ -176,11 +186,11 @@ struct HomeView: View {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .strokeBorder(
                     LinearGradient(
-                        colors: [theme.accentColor.opacity(0.35), theme.accentColor.opacity(0.08)],
+                        colors: [theme.accentColor.opacity(0.42), theme.accentColor.opacity(0.10)],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ),
-                    lineWidth: 1
+                    lineWidth: 0.8
                 )
         }
     }
@@ -249,7 +259,7 @@ struct HomeView: View {
         action: @escaping () -> Void
     ) -> some View {
         Button(action: action) {
-            JiaCardView(padding: 18) {
+            JiaCardView(theme: theme, padding: 18) {
                 VStack(alignment: .leading, spacing: 14) {
                     HStack {
                         ZStack {
@@ -267,15 +277,15 @@ struct HomeView: View {
                         Spacer()
                         Image(systemName: "arrow.up.right")
                             .font(.caption.weight(.bold))
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(theme.secondaryTextColor)
                     }
                     VStack(alignment: .leading, spacing: 6) {
                         Text(title)
                             .font(.headline.weight(.semibold))
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(theme.primaryTextColor)
                         Text(subtitle)
                             .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(theme.secondaryTextColor)
                             .lineLimit(2)
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -285,7 +295,7 @@ struct HomeView: View {
             .overlay {
                 if featured {
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .strokeBorder(theme.accentColor.opacity(0.22), lineWidth: 1)
+                        .strokeBorder(theme.accentColor.opacity(0.24), lineWidth: 0.8)
                 }
             }
         }
@@ -293,7 +303,7 @@ struct HomeView: View {
     }
 
     private var bottomBarSection: some View {
-        JiaCardView(padding: 14) {
+        JiaCardView(theme: theme, padding: 14) {
             HStack(spacing: 12) {
                 bottomActionButton(title: L10n.Home.theme, systemImage: "paintpalette.fill") {
                     showThemePicker = true
@@ -314,10 +324,17 @@ struct HomeView: View {
     private func bottomActionButton(title: String, systemImage: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             VStack(spacing: 8) {
-                Image(systemName: systemImage).font(.body.weight(.semibold))
-                Text(title).font(.caption).lineLimit(1).minimumScaleFactor(0.8)
+                Image(systemName: systemImage)
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(theme.accentColor)
+                Text(title)
+                    .font(.caption)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+                    .foregroundStyle(theme.controlTextColor)
             }
-            .frame(maxWidth: .infinity).padding(.vertical, 8)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 8)
         }
         .buttonStyle(.plain)
     }

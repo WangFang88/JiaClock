@@ -15,7 +15,7 @@ struct FlipClockView: View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             clockContent(now: context.date)
         }
-        .id(settingsStore.settings.use24HourFormat)
+        .id("\(settingsStore.settings.use24HourFormat)-\(settingsStore.settings.showSeconds)")
         .sheet(isPresented: $showStyleCenter) {
             ClockStyleCenterView(mode: .sheet, scene: .deskClock, onLaunch: { destination in
                 showStyleCenter = false

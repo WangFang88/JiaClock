@@ -99,10 +99,11 @@ struct ClockStyleCenterView: View {
             if mode == .page {
                 Text(L10n.ClockStyleCenter.title)
                     .font(.title2.weight(.bold))
+                    .foregroundStyle(theme.primaryTextColor)
             }
             Text(L10n.ClockStyleCenter.subtitle)
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(theme.secondaryTextColor)
                 .fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -114,9 +115,10 @@ struct ClockStyleCenterView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.headline.weight(.semibold))
+                    .foregroundStyle(theme.primaryTextColor)
                 Text(subtitle)
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(theme.secondaryTextColor)
             }
             LazyVGrid(columns: gridColumns, spacing: 16) {
                 ForEach(styles) { style in

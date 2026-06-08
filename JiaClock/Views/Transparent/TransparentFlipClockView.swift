@@ -64,18 +64,12 @@ struct TransparentFlipClockView: View {
                     .font(.system(size: layout.weekdayFontSize, weight: .medium, design: .rounded))
                     .foregroundStyle(useLightText ? flipTheme.secondaryTextColor : overlayTextColor)
                     .shadow(color: flipTheme.shadowColor, radius: 6, x: 0, y: 2)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 5)
-                    .background { Capsule().fill(flipTheme.metadataCapsuleFill) }
             }
             if settings.showDate {
                 Text(ClockTimeFormatter.dateString(from: date))
                     .font(.system(size: layout.dateFontSize, weight: .regular, design: .rounded))
                     .foregroundStyle(useLightText ? flipTheme.secondaryTextColor.opacity(0.92) : overlayTextColor.opacity(0.88))
                     .shadow(color: flipTheme.shadowColor, radius: 5, x: 0, y: 2)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 5)
-                    .background { Capsule().fill(flipTheme.metadataCapsuleFill.opacity(0.88)) }
             }
             if !tagline.isEmpty {
                 Text(tagline)
@@ -84,7 +78,6 @@ struct TransparentFlipClockView: View {
                     .multilineTextAlignment(.center)
                     .shadow(color: flipTheme.shadowColor.opacity(0.85), radius: 4, x: 0, y: 1)
                     .padding(.horizontal, 16)
-                    .padding(.vertical, 4)
             }
         }
         .padding(.horizontal, 24)
@@ -98,9 +91,7 @@ struct TransparentFlipClockView: View {
         var secondTens: String?
         var secondOnes: String?
         if settings.showSeconds {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "ss"
-            let seconds = formatter.string(from: date)
+            let seconds = ClockTimeFormatter.secondString(from: date)
             secondTens = String(seconds.prefix(1))
             secondOnes = String(seconds.suffix(1))
         }
@@ -143,8 +134,8 @@ struct FlipLayoutMetrics {
     init(size: CGSize, isLandscape: Bool, isPad: Bool, showSeconds: Bool, compact: Bool = false) {
         let digitSlots = showSeconds ? 6 : 4
         let colonSlots = showSeconds ? 2 : 1
-        let horizontalPadding: CGFloat = compact ? 8 : (isLandscape ? 72 : 40)
-        let colonFactor: CGFloat = 0.52
+        let horizontalPadding: CGFloat = compact ? 8 : (isLandscape ? 48 : 20)
+        let colonFactor: CGFloat = 0.48
         let available = max(size.width - horizontalPadding, 120)
         let slotWidth = available / (CGFloat(digitSlots) + CGFloat(colonSlots) * colonFactor)
 
@@ -158,28 +149,28 @@ struct FlipLayoutMetrics {
             periodFontSize = 12
             cornerRadius = 8
         } else if isLandscape {
-            cardWidth = min(isPad ? 118 : 98, slotWidth)
+            cardWidth = min(isPad ? 132 : 112, slotWidth * 0.98)
             digitSpacing = isPad ? 10 : 8
             sectionSpacing = isPad ? 22 : 18
             weekdayFontSize = isPad ? 20 : 17
             dateFontSize = isPad ? 18 : 16
             taglineFontSize = isPad ? 16 : 14
             periodFontSize = isPad ? 28 : 24
-            cornerRadius = 18
+            cornerRadius = 14
         } else {
-            cardWidth = min(isPad ? 86 : 68, slotWidth)
+            cardWidth = min(isPad ? 98 : 86, slotWidth * 0.98)
             digitSpacing = isPad ? 8 : 6
             sectionSpacing = isPad ? 20 : 16
             weekdayFontSize = isPad ? 18 : 15
             dateFontSize = isPad ? 17 : 15
             taglineFontSize = isPad ? 15 : 13
             periodFontSize = isPad ? 24 : 20
-            cornerRadius = 16
+            cornerRadius = 12
         }
 
-        cardHeight = cardWidth * 1.14
-        digitFontSize = cardWidth * 0.78
-        colonSize = digitFontSize * 0.42
+        cardHeight = cardWidth * 1.16
+        digitFontSize = cardWidth * 0.86
+        colonSize = digitFontSize * 0.38
     }
 }
 
@@ -196,60 +187,24 @@ struct TransparentFlipDigitCard: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: layout.cornerRadius, style: .continuous)
-                .fill(
-                    LinearGradient(
-                        colors: theme.cardGradient,
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .background {
-                    RoundedRectangle(cornerRadius: layout.cornerRadius, style: .continuous)
-                        .fill(.ultraThinMaterial.opacity(theme.cardMaterialOpacity))
-                }
-                .overlay {
-                    RoundedRectangle(cornerRadius: layout.cornerRadius, style: .continuous)
-                        .strokeBorder(theme.borderColor, lineWidth: 0.8)
-                }
-                .overlay(alignment: .top) {
-                    LinearGradient(
-                        colors: [theme.highlightTop, .clear],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                    .frame(height: layout.cardHeight * 0.45)
-                    .clipShape(RoundedRectangle(cornerRadius: layout.cornerRadius, style: .continuous))
-                }
-                .overlay(alignment: .bottom) {
-                    LinearGradient(
-                        colors: [.clear, theme.highlightBottom],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                    .frame(height: layout.cardHeight * 0.35)
-                    .clipShape(RoundedRectangle(cornerRadius: layout.cornerRadius, style: .continuous))
-                }
-                .shadow(color: theme.shadowColor, radius: 16, x: 0, y: 10)
-                .shadow(color: theme.glowColor.opacity(0.35), radius: 8, x: 0, y: 0)
+                .strokeBorder(theme.borderColor.opacity(0.38), lineWidth: 1)
 
-            VStack(spacing: 0) {
-                Color.clear.frame(height: layout.cardHeight * 0.5)
-                Rectangle()
-                    .fill(theme.dividerColor)
-                    .frame(height: 1)
-                Color.clear.frame(height: layout.cardHeight * 0.5 - 1)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: layout.cornerRadius, style: .continuous))
+            Rectangle()
+                .fill(theme.dividerColor.opacity(0.50))
+                .frame(height: 1)
+                .padding(.horizontal, 4)
 
             Text(digit)
-                .font(.system(size: layout.digitFontSize, weight: .light, design: .rounded))
+                .font(.system(size: layout.digitFontSize, weight: .ultraLight, design: .rounded))
                 .monospacedDigit()
                 .foregroundStyle(digitTextColor)
-                .shadow(color: theme.shadowColor.opacity(0.85), radius: 6, x: 0, y: 2)
+                .shadow(color: Color.black.opacity(0.62), radius: 10, x: 0, y: 3)
+                .shadow(color: theme.glowColor.opacity(0.18), radius: 4, x: 0, y: 0)
                 .minimumScaleFactor(0.6)
                 .lineLimit(1)
         }
         .frame(width: layout.cardWidth, height: layout.cardHeight)
+        .id(digit)
     }
 }
 

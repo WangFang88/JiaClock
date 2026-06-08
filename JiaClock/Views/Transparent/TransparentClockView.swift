@@ -8,7 +8,6 @@ struct TransparentClockView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     @StateObject private var cameraController = CameraSessionController()
-    @State private var now = Date.now
     @State private var showControls = true
     @State private var darkOverlayEnabled = false
     @State private var useLightText = true
@@ -17,8 +16,6 @@ struct TransparentClockView: View {
     @State private var isViewVisible = false
     @State private var shouldResumeCamera = false
     @State private var previewOrientationToken = UIDevice.current.orientation
-
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     private var displayStyle: TransparentClockDisplayStyle {
         settingsStore.settings.transparentClockDisplayStyle
@@ -38,10 +35,13 @@ struct TransparentClockView: View {
 
     var body: some View {
         let settings = settingsStore.settings
-        return ZStack {
-            interactiveBackground
-            clockOverlay(settings: settings)
+        return TimelineView(.periodic(from: .now, by: 1)) { context in
+            ZStack {
+                interactiveBackground
+                clockOverlay(settings: settings, now: context.date)
+            }
         }
+        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)")
         .ignoresSafeArea()
         .safeAreaInset(edge: .top, spacing: 0) {
             if showControls {
@@ -58,7 +58,6 @@ struct TransparentClockView: View {
         .onChange(of: entitlements.isPro) { _, isPro in
             settingsStore.enforceAccessibleClockStyle(isPro: isPro)
         }
-        .onReceive(timer) { now = $0 }
         .statusBarHidden(true)
         .sheet(isPresented: $showStyleCenter) {
             TransparentFlipThemePickerSheet()
@@ -108,7 +107,7 @@ struct TransparentClockView: View {
     }
 
     @ViewBuilder
-    private func clockOverlay(settings: ClockSettings) -> some View {
+    private func clockOverlay(settings: ClockSettings, now: Date) -> some View {
         VStack {
             Spacer(minLength: 0)
             switch displayStyle {
@@ -131,43 +130,48 @@ struct TransparentClockView: View {
                 )
                 .padding(.horizontal, 16)
             case .minimalFloating:
-                VStack(spacing: 10) {
-                    Text(ClockTimeFormatter.timeString(from: now, settings: settings))
-                        .font(.system(size: 56, weight: .thin, design: .rounded))
-                        .monospacedDigit()
-                        .minimumScaleFactor(0.6)
-                        .lineLimit(1)
-                        .foregroundStyle(useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16))
-                        .shadow(color: .black.opacity(0.45), radius: 10, x: 0, y: 3)
-                    if settings.showWeekday || settings.showDate {
-                        VStack(spacing: 4) {
-                            if settings.showWeekday {
-                                Text(ClockTimeFormatter.weekdayString(from: now))
-                                    .font(.subheadline.weight(.medium))
-                                    .foregroundStyle(useLightText ? .white.opacity(0.88) : .primary.opacity(0.72))
-                                    .shadow(color: .black.opacity(0.35), radius: 6, x: 0, y: 2)
-                            }
-                            if settings.showDate {
-                                Text(ClockTimeFormatter.dateString(from: now))
-                                    .font(.subheadline)
-                                    .foregroundStyle(useLightText ? .white.opacity(0.82) : .primary.opacity(0.62))
-                                    .shadow(color: .black.opacity(0.35), radius: 6, x: 0, y: 2)
-                            }
-                        }
-                    }
-                    if !settingsStore.effectiveTagline.isEmpty {
-                        Text(settingsStore.effectiveTagline)
-                            .font(.footnote.weight(.medium))
-                            .foregroundStyle(useLightText ? .white.opacity(0.82) : Color(red: 0.12, green: 0.12, blue: 0.16).opacity(0.88))
-                            .multilineTextAlignment(.center)
-                            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 1)
-                            .padding(.horizontal, 8)
-                    }
-                }
-                .padding(.horizontal, 32)
+                minimalFloatingClock(now: now, settings: settings)
             }
             Spacer(minLength: 0)
-        }.allowsHitTesting(false)
+        }
+        .allowsHitTesting(false)
+    }
+
+    private func minimalFloatingClock(now: Date, settings: ClockSettings) -> some View {
+        VStack(spacing: 10) {
+            Text(ClockTimeFormatter.timeString(from: now, settings: settings))
+                .font(.system(size: 56, weight: .thin, design: .rounded))
+                .monospacedDigit()
+                .minimumScaleFactor(0.6)
+                .lineLimit(1)
+                .foregroundStyle(useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16))
+                .shadow(color: .black.opacity(0.45), radius: 10, x: 0, y: 3)
+            if settings.showWeekday || settings.showDate {
+                VStack(spacing: 4) {
+                    if settings.showWeekday {
+                        Text(ClockTimeFormatter.weekdayString(from: now))
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(useLightText ? .white.opacity(0.88) : Color(red: 0.12, green: 0.12, blue: 0.16).opacity(0.72))
+                            .shadow(color: .black.opacity(0.35), radius: 6, x: 0, y: 2)
+                    }
+                    if settings.showDate {
+                        Text(ClockTimeFormatter.dateString(from: now))
+                            .font(.subheadline)
+                            .foregroundStyle(useLightText ? .white.opacity(0.82) : Color(red: 0.12, green: 0.12, blue: 0.16).opacity(0.62))
+                            .shadow(color: .black.opacity(0.35), radius: 6, x: 0, y: 2)
+                    }
+                }
+            }
+            if !settingsStore.effectiveTagline.isEmpty {
+                Text(settingsStore.effectiveTagline)
+                    .font(.footnote.weight(.medium))
+                    .foregroundStyle(useLightText ? .white.opacity(0.82) : Color(red: 0.12, green: 0.12, blue: 0.16).opacity(0.88))
+                    .multilineTextAlignment(.center)
+                    .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 1)
+                    .padding(.horizontal, 8)
+            }
+        }
+        .padding(.horizontal, 32)
     }
 
     private var controlsBar: some View {
