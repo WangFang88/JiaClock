@@ -64,11 +64,11 @@
 		A2000000000000000000004F /* TransparentFlipThemePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006D /* TransparentFlipThemePickerSheet.swift */; };
 		A20000000000000000000050 /* StackedFlipTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006E /* StackedFlipTheme.swift */; };
 		A20000000000000000000051 /* StackedFlipClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000006F /* StackedFlipClockView.swift */; };
-		A2000000000000000000005C /* TransparentBigDigitStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007A /* TransparentBigDigitStyle.swift */; };
-		A2000000000000000000005D /* FullScreenTransparentFlipClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007B /* FullScreenTransparentFlipClockView.swift */; };
-		A2000000000000000000005E /* TransparentBigFlipDigit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007C /* TransparentBigFlipDigit.swift */; };
-		A2000000000000000000005F /* TransparentBigFlipGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007D /* TransparentBigFlipGroup.swift */; };
-		A20000000000000000000060 /* TransparentFlipTimeSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007E /* TransparentFlipTimeSeparator.swift */; };
+		A2000000000000000000005C /* TransparentFullScreenDigitStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007A /* TransparentFullScreenDigitStyle.swift */; };
+		A2000000000000000000005D /* TransparentFullScreenFlipClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007B /* TransparentFullScreenFlipClockView.swift */; };
+		A2000000000000000000005E /* TransparentFlipDigit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007C /* TransparentFlipDigit.swift */; };
+		A2000000000000000000005F /* TransparentFlipNumberGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007D /* TransparentFlipNumberGroup.swift */; };
+		A20000000000000000000060 /* TransparentFlipDigitLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1000000000000000000007E /* TransparentFlipDigitLayer.swift */; };
 		A20000000000000000000052 /* DayProgressCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000070 /* DayProgressCalculator.swift */; };
 		A20000000000000000000053 /* DayHourglassTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000071 /* DayHourglassTheme.swift */; };
 		A20000000000000000000054 /* DayHourglassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000072 /* DayHourglassView.swift */; };
@@ -168,11 +168,11 @@
 		E1000000000000000000006D /* TransparentFlipThemePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipThemePickerSheet.swift; sourceTree = "<group>"; };
 		E1000000000000000000006E /* StackedFlipTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedFlipTheme.swift; sourceTree = "<group>"; };
 		E1000000000000000000006F /* StackedFlipClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedFlipClockView.swift; sourceTree = "<group>"; };
-		E1000000000000000000007A /* TransparentBigDigitStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBigDigitStyle.swift; sourceTree = "<group>"; };
-		E1000000000000000000007B /* FullScreenTransparentFlipClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenTransparentFlipClockView.swift; sourceTree = "<group>"; };
-		E1000000000000000000007C /* TransparentBigFlipDigit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBigFlipDigit.swift; sourceTree = "<group>"; };
-		E1000000000000000000007D /* TransparentBigFlipGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBigFlipGroup.swift; sourceTree = "<group>"; };
-		E1000000000000000000007E /* TransparentFlipTimeSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipTimeSeparator.swift; sourceTree = "<group>"; };
+		E1000000000000000000007A /* TransparentFullScreenDigitStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFullScreenDigitStyle.swift; sourceTree = "<group>"; };
+		E1000000000000000000007B /* TransparentFullScreenFlipClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFullScreenFlipClockView.swift; sourceTree = "<group>"; };
+		E1000000000000000000007C /* TransparentFlipDigit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipDigit.swift; sourceTree = "<group>"; };
+		E1000000000000000000007D /* TransparentFlipNumberGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipNumberGroup.swift; sourceTree = "<group>"; };
+		E1000000000000000000007E /* TransparentFlipDigitLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentFlipDigitLayer.swift; sourceTree = "<group>"; };
 		E10000000000000000000070 /* DayProgressCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayProgressCalculator.swift; sourceTree = "<group>"; };
 		E10000000000000000000071 /* DayHourglassTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHourglassTheme.swift; sourceTree = "<group>"; };
 		E10000000000000000000072 /* DayHourglassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHourglassView.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 				E10000000000000000000073 /* ClockDisplayStyle.swift */,
 				E10000000000000000000013 /* ClockTheme.swift */,
 				E1000000000000000000006C /* TransparentFlipTheme.swift */,
-				E1000000000000000000007A /* TransparentBigDigitStyle.swift */,
+				E1000000000000000000007A /* TransparentFullScreenDigitStyle.swift */,
 				E1000000000000000000006E /* StackedFlipTheme.swift */,
 				E10000000000000000000071 /* DayHourglassTheme.swift */,
 				E10000000000000000000074 /* RetroCalendarClockTheme.swift */,
@@ -376,10 +376,10 @@
 				E10000000000000000000032 /* TransparentClockIntroView.swift */,
 				E10000000000000000000033 /* TransparentClockView.swift */,
 				E1000000000000000000006B /* TransparentFlipClockView.swift */,
-				E1000000000000000000007B /* FullScreenTransparentFlipClockView.swift */,
-				E1000000000000000000007C /* TransparentBigFlipDigit.swift */,
-				E1000000000000000000007D /* TransparentBigFlipGroup.swift */,
-				E1000000000000000000007E /* TransparentFlipTimeSeparator.swift */,
+				E1000000000000000000007B /* TransparentFullScreenFlipClockView.swift */,
+				E1000000000000000000007C /* TransparentFlipDigit.swift */,
+				E1000000000000000000007D /* TransparentFlipNumberGroup.swift */,
+				E1000000000000000000007E /* TransparentFlipDigitLayer.swift */,
 				E1000000000000000000006D /* TransparentFlipThemePickerSheet.swift */,
 				E1000000000000000000006F /* StackedFlipClockView.swift */,
 				E10000000000000000000034 /* CameraPreviewView.swift */,
@@ -588,14 +588,14 @@
 				A20000000000000000000023 /* TransparentClockIntroView.swift in Sources */,
 				A20000000000000000000024 /* TransparentClockView.swift in Sources */,
 				A2000000000000000000004D /* TransparentFlipClockView.swift in Sources */,
-				A2000000000000000000005D /* FullScreenTransparentFlipClockView.swift in Sources */,
-				A2000000000000000000005E /* TransparentBigFlipDigit.swift in Sources */,
-				A2000000000000000000005F /* TransparentBigFlipGroup.swift in Sources */,
-				A20000000000000000000060 /* TransparentFlipTimeSeparator.swift in Sources */,
+				A2000000000000000000005D /* TransparentFullScreenFlipClockView.swift in Sources */,
+				A2000000000000000000005E /* TransparentFlipDigit.swift in Sources */,
+				A2000000000000000000005F /* TransparentFlipNumberGroup.swift in Sources */,
+				A20000000000000000000060 /* TransparentFlipDigitLayer.swift in Sources */,
 				A2000000000000000000004E /* TransparentFlipTheme.swift in Sources */,
 				A2000000000000000000004F /* TransparentFlipThemePickerSheet.swift in Sources */,
 				A20000000000000000000050 /* StackedFlipTheme.swift in Sources */,
-				A2000000000000000000005C /* TransparentBigDigitStyle.swift in Sources */,
+				A2000000000000000000005C /* TransparentFullScreenDigitStyle.swift in Sources */,
 				A20000000000000000000051 /* StackedFlipClockView.swift in Sources */,
 				A20000000000000000000052 /* DayProgressCalculator.swift in Sources */,
 				A20000000000000000000053 /* DayHourglassTheme.swift in Sources */,

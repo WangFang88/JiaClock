@@ -1,6 +1,7 @@
 import SwiftUI
 
-enum TransparentBigDigitStyle: String, Codable, CaseIterable, Identifiable {
+/// 全屏透明翻页数字视觉样式（无数字背景色）。
+enum TransparentFullScreenDigitStyle: String, Codable, CaseIterable, Identifiable {
     case softPinkWhite
     case pureWhite
     case jiaOrange
@@ -20,11 +21,11 @@ enum TransparentBigDigitStyle: String, Codable, CaseIterable, Identifiable {
     var digitColor: Color {
         switch self {
         case .softPinkWhite:
-            Color(red: 1.0, green: 0.86, blue: 0.95).opacity(0.90)
+            Color(red: 1.0, green: 0.82, blue: 0.92).opacity(0.90)
         case .pureWhite:
             Color.white.opacity(0.92)
         case .jiaOrange:
-            Color(red: 1.0, green: 0.72, blue: 0.42).opacity(0.92)
+            Color(red: 1.0, green: 0.62, blue: 0.30).opacity(0.95)
         case .iceBlue:
             Color(red: 0.82, green: 0.94, blue: 1.0).opacity(0.90)
         }
@@ -33,35 +34,41 @@ enum TransparentBigDigitStyle: String, Codable, CaseIterable, Identifiable {
     var lineColor: Color {
         switch self {
         case .softPinkWhite, .pureWhite, .iceBlue:
-            Color.black.opacity(0.45)
+            Color.black.opacity(0.42)
         case .jiaOrange:
             Color.black.opacity(0.38)
         }
     }
 
     var shadowColor: Color {
-        Color.black.opacity(0.35)
+        Color.black.opacity(0.38)
     }
 
     var glowColor: Color {
         switch self {
         case .softPinkWhite:
-            Color.white.opacity(0.22)
+            Color.white.opacity(0.24)
         case .pureWhite:
-            Color.white.opacity(0.18)
+            Color.white.opacity(0.20)
         case .jiaOrange:
-            Color(red: 1.0, green: 0.62, blue: 0.32).opacity(0.35)
+            Color(red: 1.0, green: 0.62, blue: 0.32).opacity(0.38)
         case .iceBlue:
-            Color(red: 0.62, green: 0.84, blue: 1.0).opacity(0.28)
+            Color(red: 0.62, green: 0.84, blue: 1.0).opacity(0.30)
         }
     }
 
     var highlightColor: Color {
         switch self {
         case .softPinkWhite, .pureWhite, .iceBlue:
-            Color.white.opacity(0.28)
+            Color.white.opacity(0.30)
         case .jiaOrange:
-            Color(red: 1.0, green: 0.88, blue: 0.62).opacity(0.32)
+            Color(red: 1.0, green: 0.88, blue: 0.62).opacity(0.34)
         }
     }
+
+    var strokeColor: Color {
+        digitColor.opacity(0.35)
+    }
 }
+
+typealias TransparentBigDigitStyle = TransparentFullScreenDigitStyle

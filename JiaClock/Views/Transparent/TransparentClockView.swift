@@ -34,14 +34,10 @@ struct TransparentClockView: View {
     }
 
     var body: some View {
-        let settings = settingsStore.settings
-        return TimelineView(.periodic(from: .now, by: 1)) { context in
-            ZStack {
-                interactiveBackground
-                clockOverlay(settings: settings, now: context.date)
-            }
+        ZStack {
+            stableCameraBackground
+            clockTimelineOverlay
         }
-        .id("\(settings.use24HourFormat)-\(settings.showSeconds)-\(displayStyle.rawValue)-\(settings.transparentBigDigitStyle.rawValue)")
         .ignoresSafeArea()
         .safeAreaInset(edge: .top, spacing: 0) {
             if showControls {
@@ -72,7 +68,7 @@ struct TransparentClockView: View {
         }
     }
 
-    private var interactiveBackground: some View {
+    private var stableCameraBackground: some View {
         ZStack {
             if cameraController.isCameraAvailable {
                 CameraPreviewView(
@@ -95,6 +91,13 @@ struct TransparentClockView: View {
         }
     }
 
+    private var clockTimelineOverlay: some View {
+        TimelineView(.periodic(from: .now, by: 1)) { context in
+            clockOverlay(now: context.date)
+        }
+        .allowsHitTesting(false)
+    }
+
     private var unavailableBackground: some View {
         ZStack {
             LinearGradient(colors: [Color(red: 0.08, green: 0.10, blue: 0.14), Color(red: 0.14, green: 0.16, blue: 0.22)], startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -107,54 +110,55 @@ struct TransparentClockView: View {
     }
 
     @ViewBuilder
-    private func clockOverlay(settings: ClockSettings, now: Date) -> some View {
-        Group {
-            switch displayStyle {
-            case .fullScreenTransparentFlip:
-                FullScreenTransparentFlipClockView(
+    private func clockOverlay(now: Date) -> some View {
+        let settings = settingsStore.settings
+
+        switch displayStyle {
+        case .fullScreenTransparentFlip:
+            TransparentFullScreenFlipClockView(
+                date: now,
+                showSeconds: settings.showSeconds,
+                use24HourTime: settings.use24HourFormat,
+                digitStyle: settings.transparentBigDigitStyle,
+                showDateInfo: settings.showDate,
+                showWeekday: settings.showWeekday,
+                weekdayText: settings.showWeekday ? ClockTimeFormatter.weekdayString(from: now) : "",
+                dateText: settings.showDate ? ClockTimeFormatter.dateString(from: now) : "",
+                slogan: settingsStore.effectiveTagline
+            )
+        case .transparentFlip:
+            VStack {
+                Spacer(minLength: 0)
+                TransparentFlipClockView(
                     date: now,
-                    showSeconds: settings.showSeconds,
-                    use24HourTime: settings.use24HourFormat,
-                    colorStyle: settings.transparentBigDigitStyle,
-                    showDate: settings.showDate,
-                    showWeekday: settings.showWeekday,
-                    slogan: settingsStore.effectiveTagline
+                    settings: settings,
+                    tagline: settingsStore.effectiveTagline,
+                    flipTheme: flipTheme,
+                    useLightText: useLightText
                 )
-            case .transparentFlip:
-                VStack {
-                    Spacer(minLength: 0)
-                    TransparentFlipClockView(
-                        date: now,
-                        settings: settings,
-                        tagline: settingsStore.effectiveTagline,
-                        flipTheme: flipTheme,
-                        useLightText: useLightText
-                    )
-                    .padding(.horizontal, 16)
-                    Spacer(minLength: 0)
-                }
-            case .stackedFlip:
-                VStack {
-                    Spacer(minLength: 0)
-                    StackedFlipClockView(
-                        date: now,
-                        settings: settings,
-                        tagline: settingsStore.effectiveTagline,
-                        theme: stackedTheme,
-                        useLightText: useLightText
-                    )
-                    .padding(.horizontal, 16)
-                    Spacer(minLength: 0)
-                }
-            case .minimalFloating:
-                VStack {
-                    Spacer(minLength: 0)
-                    minimalFloatingClock(now: now, settings: settings)
-                    Spacer(minLength: 0)
-                }
+                .padding(.horizontal, 16)
+                Spacer(minLength: 0)
+            }
+        case .stackedFlip:
+            VStack {
+                Spacer(minLength: 0)
+                StackedFlipClockView(
+                    date: now,
+                    settings: settings,
+                    tagline: settingsStore.effectiveTagline,
+                    theme: stackedTheme,
+                    useLightText: useLightText
+                )
+                .padding(.horizontal, 16)
+                Spacer(minLength: 0)
+            }
+        case .minimalFloating:
+            VStack {
+                Spacer(minLength: 0)
+                minimalFloatingClock(now: now, settings: settings)
+                Spacer(minLength: 0)
             }
         }
-        .allowsHitTesting(false)
     }
 
     private func minimalFloatingClock(now: Date, settings: ClockSettings) -> some View {

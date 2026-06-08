@@ -153,13 +153,13 @@ struct TransparentFlipThemePickerSheet: View {
 
             if horizontalSizeClass == .regular {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
-                    ForEach(TransparentBigDigitStyle.allCases) { style in
+                    ForEach(TransparentFullScreenDigitStyle.allCases) { style in
                         bigDigitStyleChip(style)
                     }
                 }
             } else {
                 VStack(spacing: 10) {
-                    ForEach(TransparentBigDigitStyle.allCases) { style in
+                    ForEach(TransparentFullScreenDigitStyle.allCases) { style in
                         bigDigitStyleChip(style)
                     }
                 }
@@ -167,7 +167,7 @@ struct TransparentFlipThemePickerSheet: View {
         }
     }
 
-    private func bigDigitStyleChip(_ style: TransparentBigDigitStyle) -> some View {
+    private func bigDigitStyleChip(_ style: TransparentFullScreenDigitStyle) -> some View {
         let isSelected = settingsStore.settings.transparentBigDigitStyle == style
         return Button {
             settingsStore.update { $0.transparentBigDigitStyle = style }
