@@ -40,8 +40,6 @@ final class StoreKitService: ObservableObject {
 
     /// StoreKit 系统弹窗最长等待时间（秒）。
     private static let purchaseDialogTimeout: TimeInterval = 180
-    /// 验证阶段超时（秒）。
-    private static let verifyingTimeout: TimeInterval = 30
     /// 互斥锁兜底释放时间（秒）。
     private static let operationWatchdogTimeout: TimeInterval = 200
 
@@ -215,9 +213,7 @@ final class StoreKitService: ObservableObject {
             case .success(let verification):
                 purchaseState = .verifying
                 logStep("verifying transaction", productID: product.id)
-                try await withTimeout(seconds: Self.verifyingTimeout) { () -> Void in
-                    await completePurchase(from: verification, sessionID: sessionID)
-                }
+                await completePurchase(from: verification, sessionID: sessionID)
             case .userCancelled:
                 logStep("user cancelled purchase dialog")
                 purchaseState = .cancelled
@@ -345,7 +341,7 @@ final class StoreKitService: ObservableObject {
         operationWatchdogTask = Task { [weak self] in
             try? await Task.sleep(nanoseconds: UInt64(Self.operationWatchdogTimeout * 1_000_000_000))
             guard !Task.isCancelled else { return }
-            await self?.forceResetStoreOperation(reason: "watchdog timeout after \(Self.operationWatchdogTimeout)s")
+            self?.forceResetStoreOperation(reason: "watchdog timeout after \(Self.operationWatchdogTimeout)s")
         }
     }
 
