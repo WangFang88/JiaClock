@@ -234,10 +234,34 @@ struct StackedFlipRowView: View {
             if isTopRow {
                 HStack(spacing: 6) {
                     if let secondsLabel {
-                        Text(secondsLabel)
-                            .font(.system(size: layout.digitFontSize * 0.28, weight: .semibold, design: .rounded))
-                            .monospacedDigit()
-                            .foregroundStyle(digitColor.opacity(0.72))
+                        HStack(spacing: 0) {
+                            TransparentClockFlipAnimatingDigit(
+                                digit: secondsLabel[secondsLabel.startIndex],
+                                contentSize: CGSize(
+                                    width: layout.digitFontSize * 0.22,
+                                    height: layout.digitFontSize * 0.32
+                                )
+                            ) { char in
+                                Text(String(char))
+                                    .font(.system(size: layout.digitFontSize * 0.28, weight: .semibold, design: .rounded))
+                                    .monospacedDigit()
+                                    .foregroundStyle(digitColor.opacity(0.72))
+                            }
+                            if secondsLabel.count > 1 {
+                                TransparentClockFlipAnimatingDigit(
+                                    digit: secondsLabel[secondsLabel.index(after: secondsLabel.startIndex)],
+                                    contentSize: CGSize(
+                                        width: layout.digitFontSize * 0.22,
+                                        height: layout.digitFontSize * 0.32
+                                    )
+                                ) { char in
+                                    Text(String(char))
+                                        .font(.system(size: layout.digitFontSize * 0.28, weight: .semibold, design: .rounded))
+                                        .monospacedDigit()
+                                        .foregroundStyle(digitColor.opacity(0.72))
+                                }
+                            }
+                        }
                     }
                     if let period {
                         Text(period)
@@ -321,13 +345,18 @@ struct StackedFlipDigitBlock: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: layout.blockCornerRadius, style: .continuous))
 
-            Text(digit)
-                .font(.system(size: layout.digitFontSize, weight: .light, design: .rounded))
-                .monospacedDigit()
-                .foregroundStyle(digitColor)
-                .shadow(color: theme.shadowColor.opacity(0.6), radius: 4, x: 0, y: 2)
-                .minimumScaleFactor(0.6)
-                .lineLimit(1)
+            TransparentClockFlipAnimatingDigit(
+                digit: digit.first ?? "0",
+                contentSize: CGSize(width: layout.digitBlockWidth, height: layout.digitBlockHeight)
+            ) { char in
+                Text(String(char))
+                    .font(.system(size: layout.digitFontSize, weight: .light, design: .rounded))
+                    .monospacedDigit()
+                    .foregroundStyle(digitColor)
+                    .shadow(color: theme.shadowColor.opacity(0.6), radius: 4, x: 0, y: 2)
+                    .minimumScaleFactor(0.6)
+                    .lineLimit(1)
+            }
         }
         .frame(width: layout.digitBlockWidth, height: layout.digitBlockHeight)
     }

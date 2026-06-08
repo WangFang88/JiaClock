@@ -91,7 +91,9 @@ struct TransparentFlipThemePickerSheet: View {
             }
             settingsStore.update { settings in
                 switch style {
-                case .fullScreenTransparentFlip, .transparentFlip:
+                case .fullScreenTransparentFlip:
+                    settings.clockDisplayStyle = .fullScreenTransparentFlip
+                case .transparentFlip:
                     settings.clockDisplayStyle = .transparentFlip
                 case .stackedFlip:
                     settings.clockDisplayStyle = .stackedFlip
@@ -137,7 +139,8 @@ struct TransparentFlipThemePickerSheet: View {
 
     private func clockDisplayStyle(for style: TransparentClockDisplayStyle) -> ClockDisplayStyle {
         switch style {
-        case .fullScreenTransparentFlip, .transparentFlip: .transparentFlip
+        case .fullScreenTransparentFlip: .fullScreenTransparentFlip
+        case .transparentFlip: .transparentFlip
         case .stackedFlip: .stackedFlip
         case .minimalFloating: .minimalFloating
         }

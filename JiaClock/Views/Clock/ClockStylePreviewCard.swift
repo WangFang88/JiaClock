@@ -92,6 +92,8 @@ struct ClockStyleMiniPreview: View {
             digitalPreview
         case .flip:
             flipPreview
+        case .fullScreenTransparentFlip:
+            fullScreenTransparentFlipPreview
         case .transparentFlip:
             transparentFlipPreview
         case .stackedFlip:
@@ -128,6 +130,18 @@ struct ClockStyleMiniPreview: View {
                 Text(":").font(.title3.weight(.light)).foregroundStyle(.white.opacity(0.55))
                 miniFlipDigit("2")
                 miniFlipDigit("8")
+            }
+        }
+    }
+
+    private var fullScreenTransparentFlipPreview: some View {
+        ZStack {
+            LinearGradient(colors: [.gray.opacity(0.35), .gray.opacity(0.55)], startPoint: .top, endPoint: .bottom)
+            HStack(spacing: 6) {
+                miniFullScreenDigit("1")
+                miniFullScreenDigit("0")
+                miniFullScreenDigit("1")
+                miniFullScreenDigit("5")
             }
         }
     }
@@ -197,6 +211,20 @@ struct ClockStyleMiniPreview: View {
             .foregroundStyle(.white)
             .frame(width: 26, height: 32)
             .background(RoundedRectangle(cornerRadius: 5).fill(Color.white.opacity(0.12)))
+    }
+
+    private func miniFullScreenDigit(_ digit: String) -> some View {
+        Text(digit)
+            .font(.system(size: 24, weight: .black, design: .rounded))
+            .monospacedDigit()
+            .scaleEffect(x: 1.08, y: 1.0)
+            .foregroundStyle(Color(red: 1.0, green: 0.82, blue: 0.92).opacity(0.92))
+            .shadow(color: .black.opacity(0.35), radius: 4, x: 0, y: 2)
+            .overlay(alignment: .center) {
+                Rectangle()
+                    .fill(Color.black.opacity(0.42))
+                    .frame(height: 1)
+            }
     }
 
     private func miniGlassFlip(_ digit: String, opacity: Double) -> some View {

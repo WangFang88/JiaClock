@@ -26,7 +26,6 @@ struct ClockStyleCenterView: View {
     @State private var showPaywall = false
 
     private var theme: ClockTheme { settingsStore.theme }
-    private var selectedStyle: ClockDisplayStyle { settingsStore.settings.clockDisplayStyle }
 
     private var gridColumns: [GridItem] {
         let count = horizontalSizeClass == .regular ? 3 : 2
@@ -124,7 +123,7 @@ struct ClockStyleCenterView: View {
                 ForEach(styles) { style in
                     ClockStylePreviewCard(
                         style: style,
-                        isSelected: selectedStyle == style,
+                        isSelected: ClockDisplayStyle.isSelected(style, in: settingsStore.settings),
                         isLocked: style.isProStyle && !entitlements.isPro,
                         accent: theme.accentColor
                     ) {

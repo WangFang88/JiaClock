@@ -163,13 +163,10 @@ struct TransparentClockView: View {
 
     private func minimalFloatingClock(now: Date, settings: ClockSettings) -> some View {
         VStack(spacing: 10) {
-            Text(ClockTimeFormatter.timeString(from: now, settings: settings))
-                .font(.system(size: 56, weight: .thin, design: .rounded))
-                .monospacedDigit()
-                .minimumScaleFactor(0.6)
-                .lineLimit(1)
-                .foregroundStyle(useLightText ? .white : Color(red: 0.12, green: 0.12, blue: 0.16))
-                .shadow(color: .black.opacity(0.45), radius: 10, x: 0, y: 3)
+            MinimalFloatingFlipTimeRow(
+                timeString: ClockTimeFormatter.timeString(from: now, settings: settings),
+                useLightText: useLightText
+            )
             if settings.showWeekday || settings.showDate {
                 VStack(spacing: 4) {
                     if settings.showWeekday {

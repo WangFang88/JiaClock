@@ -64,6 +64,7 @@ enum L10n {
         static var flipSubtitle: String { tr("clock_style_center.flip_subtitle") }
         static var transparentFlipTitle: String { tr("clock_style_center.transparent_flip_title") }
         static var transparentFlipSubtitle: String { tr("clock_style_center.transparent_flip_subtitle") }
+        static var fullScreenTransparentFlipSubtitle: String { tr("clock_style_center.fullscreen_transparent_flip_subtitle") }
         static var stackedFlipTitle: String { tr("clock_style_center.stacked_flip_title") }
         static var stackedFlipSubtitle: String { tr("clock_style_center.stacked_flip_subtitle") }
         static var retroCalendarTitle: String { tr("clock_style_center.retro_calendar_title") }
@@ -260,6 +261,8 @@ enum L10n {
         static var restorePurchases: String { tr("pro.restore_purchases") }
         static var subscriptionDisclosure: String { tr("pro.subscription_disclosure") }
         static var loadingProducts: String { tr("pro.loading_products") }
+        static var processing: String { tr("pro.processing") }
+        static var operationInProgress: String { tr("pro.operation_in_progress") }
         static var productsUnavailable: String { tr("pro.products_unavailable") }
         static var unlockButton: String { tr("pro.unlock_button") }
         static var gateMessage: String { tr("pro.gate_message") }

@@ -25,6 +25,7 @@ enum ClockStyleScene {
 enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
     case digital
     case flip
+    case fullScreenTransparentFlip
     case transparentFlip
     case stackedFlip
     case retroCalendar
@@ -57,7 +58,7 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
 
     /// 透明实景样式（需摄像头权限流程）。
     static let transparentCenterStyles: [ClockDisplayStyle] = [
-        .transparentFlip, .stackedFlip, .minimalFloating,
+        .fullScreenTransparentFlip, .transparentFlip, .stackedFlip, .minimalFloating,
     ]
 
     var isTransparentCategory: Bool {
@@ -69,13 +70,13 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
         case .deskClock:
             return [.digital, .flip]
         case .transparentClock:
-            return [.transparentFlip]
+            return [.fullScreenTransparentFlip, .transparentFlip]
         }
     }
 
     static func requiresProAccess(_ style: ClockDisplayStyle) -> Bool {
         switch style {
-        case .digital, .flip, .transparentFlip:
+        case .digital, .flip, .fullScreenTransparentFlip, .transparentFlip:
             return false
         case .retroCalendar, .dayHourglass, .stackedFlip, .minimalFloating:
             return true
@@ -91,6 +92,7 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .digital: L10n.ClockStyleCenter.digitalTitle
         case .flip: L10n.ClockStyleCenter.flipTitle
+        case .fullScreenTransparentFlip: L10n.Transparent.displayModeFullScreenFlip
         case .transparentFlip: L10n.ClockStyleCenter.transparentFlipTitle
         case .stackedFlip: L10n.ClockStyleCenter.stackedFlipTitle
         case .retroCalendar: L10n.ClockStyleCenter.retroCalendarTitle
@@ -103,6 +105,7 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .digital: L10n.ClockStyleCenter.digitalSubtitle
         case .flip: L10n.ClockStyleCenter.flipSubtitle
+        case .fullScreenTransparentFlip: L10n.ClockStyleCenter.fullScreenTransparentFlipSubtitle
         case .transparentFlip: L10n.ClockStyleCenter.transparentFlipSubtitle
         case .stackedFlip: L10n.ClockStyleCenter.stackedFlipSubtitle
         case .retroCalendar: L10n.ClockStyleCenter.retroCalendarSubtitle
@@ -115,6 +118,7 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .digital: "textformat.123"
         case .flip: "rectangle.split.2x1.fill"
+        case .fullScreenTransparentFlip: "rectangle.inset.filled"
         case .transparentFlip: "book.pages.fill"
         case .stackedFlip: "rectangle.stack.fill"
         case .retroCalendar: "calendar.day.timeline.leading"
@@ -130,7 +134,7 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
 
     var requiresCamera: Bool {
         switch self {
-        case .transparentFlip, .stackedFlip, .minimalFloating: true
+        case .fullScreenTransparentFlip, .transparentFlip, .stackedFlip, .minimalFloating: true
         default: false
         }
     }
@@ -157,6 +161,7 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
 
     var transparentClockDisplayStyle: TransparentClockDisplayStyle? {
         switch self {
+        case .fullScreenTransparentFlip: .fullScreenTransparentFlip
         case .transparentFlip: .transparentFlip
         case .stackedFlip: .stackedFlip
         case .minimalFloating: .minimalFloating
@@ -165,7 +170,10 @@ enum ClockDisplayStyle: String, Codable, CaseIterable, Identifiable {
     }
 
     static func isSelected(_ style: ClockDisplayStyle, in settings: ClockSettings) -> Bool {
-        settings.clockDisplayStyle == style
+        if let transparent = style.transparentClockDisplayStyle {
+            return settings.transparentClockDisplayStyle == transparent
+        }
+        return settings.clockDisplayStyle == style
     }
 }
 

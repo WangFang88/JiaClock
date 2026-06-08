@@ -44,13 +44,8 @@ struct PaywallView: View {
             .sheet(item: $selectedLegal) { LegalDocumentView(type: $0) }
             .onChange(of: storeKit.purchaseState) { _, newValue in
                 if case .succeeded = newValue {
-                    Task {
-                        if !entitlements.isPro {
-                            await entitlements.refreshEntitlements(syncWithAppStore: true)
-                        }
-                        dismiss()
-                        storeKit.resetPurchaseState()
-                    }
+                    dismiss()
+                    storeKit.resetPurchaseState()
                 }
             }
         }
@@ -174,7 +169,7 @@ struct PaywallView: View {
             }
             .buttonStyle(.plain)
             .foregroundStyle(.white.opacity(0.88))
-            .disabled(storeKit.isRestoring || isPurchasing)
+            .disabled(storeKit.isRestoring || storeKit.isStoreBusy)
 
             Text(L10n.Pro.subscriptionDisclosure)
                 .font(.caption2)
@@ -193,9 +188,8 @@ struct PaywallView: View {
         .frame(maxWidth: .infinity)
     }
 
-    private var isPurchasing: Bool {
-        if case .purchasing = storeKit.purchaseState { return true }
-        return false
+    private func isProcessing(product: Product) -> Bool {
+        storeKit.purchasingProductID == product.id && storeKit.isPurchaseInProgress
     }
 
     private enum ProductCardStyle {
@@ -205,7 +199,7 @@ struct PaywallView: View {
     @ViewBuilder
     private func productCard(product: Product, style: ProductCardStyle) -> some View {
         Button {
-            guard !isPurchasing else { return }
+            guard !storeKit.isStoreBusy else { return }
             Task { await storeKit.purchase(product) }
         } label: {
             VStack(alignment: .leading, spacing: 8) {
@@ -213,15 +207,20 @@ struct PaywallView: View {
                     Text(planTitle(for: product, style: style))
                         .font(.headline.weight(.bold))
                     Spacer(minLength: 8)
-                    if style == .recommended {
+                    if isProcessing(product: product) {
+                        HStack(spacing: 6) {
+                            ProgressView().controlSize(.small)
+                            Text(L10n.Pro.processing)
+                                .font(.caption.weight(.semibold))
+                        }
+                    } else if style == .recommended {
                         Text(L10n.Pro.recommendedBadge)
                             .font(.caption2.weight(.bold))
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Capsule().fill(brandTheme.accentColor))
                             .foregroundStyle(Color(red: 0.18, green: 0.10, blue: 0.04))
-                    }
-                    if style == .lifetime {
+                    } else if style == .lifetime {
                         Text(L10n.Pro.lifetimeBadge)
                             .font(.caption2.weight(.bold))
                             .padding(.horizontal, 8)
@@ -259,7 +258,7 @@ struct PaywallView: View {
             .foregroundStyle(Color(red: 0.12, green: 0.12, blue: 0.16))
         }
         .buttonStyle(.plain)
-        .disabled(isPurchasing || entitlements.isPro)
+        .disabled(storeKit.isStoreBusy || entitlements.isPro)
         .opacity(entitlements.isPro ? 0.55 : 1)
     }
 

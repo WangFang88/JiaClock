@@ -194,17 +194,21 @@ struct TransparentFlipDigitCard: View {
                 .frame(height: 1)
                 .padding(.horizontal, 4)
 
-            Text(digit)
-                .font(.system(size: layout.digitFontSize, weight: .ultraLight, design: .rounded))
-                .monospacedDigit()
-                .foregroundStyle(digitTextColor)
-                .shadow(color: Color.black.opacity(0.62), radius: 10, x: 0, y: 3)
-                .shadow(color: theme.glowColor.opacity(0.18), radius: 4, x: 0, y: 0)
-                .minimumScaleFactor(0.6)
-                .lineLimit(1)
+            TransparentClockFlipAnimatingDigit(
+                digit: digit.first ?? "0",
+                contentSize: CGSize(width: layout.cardWidth, height: layout.cardHeight)
+            ) { char in
+                Text(String(char))
+                    .font(.system(size: layout.digitFontSize, weight: .ultraLight, design: .rounded))
+                    .monospacedDigit()
+                    .foregroundStyle(digitTextColor)
+                    .shadow(color: Color.black.opacity(0.62), radius: 10, x: 0, y: 3)
+                    .shadow(color: theme.glowColor.opacity(0.18), radius: 4, x: 0, y: 0)
+                    .minimumScaleFactor(0.6)
+                    .lineLimit(1)
+            }
         }
         .frame(width: layout.cardWidth, height: layout.cardHeight)
-        .id(digit)
     }
 }
 

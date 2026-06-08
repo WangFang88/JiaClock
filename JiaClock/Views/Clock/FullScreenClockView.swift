@@ -14,7 +14,7 @@ struct FullScreenClockContainerView: View {
             DayHourglassScreenView()
         case .retroCalendar:
             RetroCalendarClockScreenView()
-        case .transparentFlip, .stackedFlip, .minimalFloating:
+        case .fullScreenTransparentFlip, .transparentFlip, .stackedFlip, .minimalFloating:
             DigitalFullScreenClockView()
         }
     }

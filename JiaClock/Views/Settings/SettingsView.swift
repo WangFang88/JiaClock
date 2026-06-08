@@ -68,7 +68,7 @@ struct SettingsView: View {
                                 if storeKit.isRestoring { ProgressView().controlSize(.small) }
                             }
                         }
-                        .disabled(storeKit.isRestoring)
+                        .disabled(storeKit.isStoreBusy)
                     }
                     Section(L10n.Settings.legalSection) {
                         ForEach(LegalDocumentType.allCases) { doc in

@@ -7,6 +7,7 @@ final class StoreKitService: ObservableObject {
     enum PurchaseState: Equatable {
         case idle
         case purchasing
+        case verifying
         case pending
         case succeeded
         case cancelled
@@ -16,16 +17,32 @@ final class StoreKitService: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published private(set) var isLoadingProducts = false
     @Published private(set) var purchaseState: PurchaseState = .idle
+    @Published private(set) var purchasingProductID: String?
     @Published private(set) var isRestoring = false
     @Published var alertMessage: String?
 
     private var entitlementManager: EntitlementManager?
     private var updatesTask: Task<Void, Never>?
     private var finishedTransactionIDs = Set<UInt64>()
+    /// 购买 / 恢复互斥锁，防止重复触发 StoreKit 流程。
+    private var isStoreOperationLocked = false
 
     var monthlyProduct: Product? { product(for: ProProductID.monthly) }
     var yearlyProduct: Product? { product(for: ProProductID.yearly) }
     var lifetimeProduct: Product? { product(for: ProProductID.lifetime) }
+
+    var isPurchaseInProgress: Bool {
+        switch purchaseState {
+        case .purchasing, .verifying, .pending:
+            return true
+        default:
+            return false
+        }
+    }
+
+    var isStoreBusy: Bool {
+        isStoreOperationLocked || isPurchaseInProgress || isRestoring
+    }
 
     func configure(entitlementManager: EntitlementManager) {
         self.entitlementManager = entitlementManager
@@ -81,52 +98,65 @@ final class StoreKitService: ObservableObject {
     }
 
     func purchase(_ product: Product) async {
-        if case .purchasing = purchaseState { return }
+        guard acquireStoreOperationLock() else { return }
+
+        purchasingProductID = product.id
         purchaseState = .purchasing
+
         defer {
-            if case .purchasing = purchaseState { purchaseState = .idle }
+            releaseStoreOperationLock()
         }
 
         do {
             let result = try await product.purchase()
             switch result {
             case .success(let verification):
+                purchaseState = .verifying
                 switch verification {
                 case .verified(let transaction):
-                    if transaction.productID == product.id {
-                        entitlementManager?.applyVerifiedTransaction(transaction)
-                    }
-                    await handleVerifiedTransaction(verification, finish: true)
+                    await finalizeVerifiedPurchase(transaction, verification: verification)
                     purchaseState = .succeeded
+                    purchasingProductID = nil
                 case .unverified(let transaction, let error):
                     if !finishedTransactionIDs.contains(transaction.id) {
                         finishedTransactionIDs.insert(transaction.id)
                         await transaction.finish()
                     }
                     purchaseState = .failed(error.localizedDescription)
+                    purchasingProductID = nil
                     alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
                 }
             case .userCancelled:
                 purchaseState = .cancelled
+                purchasingProductID = nil
             case .pending:
                 purchaseState = .pending
+                purchasingProductID = nil
                 alertMessage = L10n.Pro.purchasePending
             @unknown default:
                 purchaseState = .failed(L10n.Pro.purchaseUnknownError)
+                purchasingProductID = nil
                 alertMessage = L10n.Pro.purchaseUnknownError
             }
         } catch {
             purchaseState = .failed(error.localizedDescription)
+            purchasingProductID = nil
             alertMessage = L10n.Pro.purchaseFailed(error.localizedDescription)
         }
     }
 
     func restorePurchases() async {
+        guard acquireStoreOperationLock() else { return }
+
         isRestoring = true
-        defer { isRestoring = false }
+        defer {
+            isRestoring = false
+            releaseStoreOperationLock()
+        }
+
         do {
             try await AppStore.sync()
-            await entitlementManager?.refreshEntitlements()
+            await entitlementManager?.refreshEntitlements(syncWithAppStore: true)
             if entitlementManager?.isPro == true {
                 alertMessage = L10n.Pro.restoreSucceeded
             } else {
@@ -147,6 +177,7 @@ final class StoreKitService: ObservableObject {
 
     func resetPurchaseState() {
         purchaseState = .idle
+        purchasingProductID = nil
     }
 
     func subscriptionPeriodDescription(for product: Product) -> String? {
@@ -155,6 +186,43 @@ final class StoreKitService: ObservableObject {
         case .month: return L10n.Pro.periodMonthly
         case .year: return L10n.Pro.periodYearly
         default: return nil
+        }
+    }
+
+    private func acquireStoreOperationLock() -> Bool {
+        guard !isStoreOperationLocked else {
+            alertMessage = L10n.Pro.operationInProgress
+            return false
+        }
+        isStoreOperationLocked = true
+        return true
+    }
+
+    private func releaseStoreOperationLock() {
+        isStoreOperationLocked = false
+    }
+
+    private func finalizeVerifiedPurchase(
+        _ transaction: Transaction,
+        verification: VerificationResult<Transaction>
+    ) async {
+        await handleVerifiedTransaction(verification, finish: true, syncEntitlements: true)
+        await waitForEntitlementConfirmation(productID: transaction.productID)
+    }
+
+    /// 等待 Entitlement 同步完成，避免密码验证后因网络延迟导致 UI 误判失败。
+    private func waitForEntitlementConfirmation(productID: String) async {
+        for attempt in 0..<8 {
+            if entitlementManager?.isPro == true {
+                if let ids = entitlementManager?.activeProductIDs, ids.contains(productID) {
+                    return
+                }
+                return
+            }
+            await entitlementManager?.refreshEntitlements(syncWithAppStore: attempt >= 2)
+            if attempt < 7 {
+                try? await Task.sleep(nanoseconds: 350_000_000)
+            }
         }
     }
 
@@ -173,7 +241,8 @@ final class StoreKitService: ObservableObject {
 
     private func listenForTransactionUpdates() async {
         for await update in Transaction.updates {
-            await handleVerifiedTransaction(update, finish: true)
+            let shouldSync = !isStoreOperationLocked
+            await handleVerifiedTransaction(update, finish: true, syncEntitlements: shouldSync)
         }
     }
 
@@ -195,7 +264,9 @@ final class StoreKitService: ObservableObject {
                 finishedTransactionIDs.insert(transaction.id)
                 await transaction.finish()
             }
-            alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
+            if !isStoreOperationLocked {
+                alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
+            }
         }
     }
 }
