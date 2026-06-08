@@ -24,6 +24,8 @@ final class StoreKitService: ObservableObject {
     private var entitlementManager: EntitlementManager?
     private var updatesTask: Task<Void, Never>?
     private var finishedTransactionIDs = Set<UInt64>()
+    /// 当前 `product.purchase()` 会话 ID，用于忽略并发的 Transaction.updates 重复处理。
+    private var activePurchaseSessionID: UUID?
     /// 购买 / 恢复互斥锁，防止重复触发 StoreKit 流程。
     private var isStoreOperationLocked = false
 
@@ -100,32 +102,26 @@ final class StoreKitService: ObservableObject {
     func purchase(_ product: Product) async {
         guard acquireStoreOperationLock() else { return }
 
+        let sessionID = UUID()
+        activePurchaseSessionID = sessionID
         purchasingProductID = product.id
         purchaseState = .purchasing
 
         defer {
+            if activePurchaseSessionID == sessionID {
+                activePurchaseSessionID = nil
+            }
             releaseStoreOperationLock()
         }
 
         do {
             let result = try await product.purchase()
+            guard activePurchaseSessionID == sessionID else { return }
+
             switch result {
             case .success(let verification):
                 purchaseState = .verifying
-                switch verification {
-                case .verified(let transaction):
-                    await finalizeVerifiedPurchase(transaction, verification: verification)
-                    purchaseState = .succeeded
-                    purchasingProductID = nil
-                case .unverified(let transaction, let error):
-                    if !finishedTransactionIDs.contains(transaction.id) {
-                        finishedTransactionIDs.insert(transaction.id)
-                        await transaction.finish()
-                    }
-                    purchaseState = .failed(error.localizedDescription)
-                    purchasingProductID = nil
-                    alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
-                }
+                await completePurchase(from: verification, sessionID: sessionID)
             case .userCancelled:
                 purchaseState = .cancelled
                 purchasingProductID = nil
@@ -156,7 +152,7 @@ final class StoreKitService: ObservableObject {
 
         do {
             try await AppStore.sync()
-            await entitlementManager?.refreshEntitlements(syncWithAppStore: true)
+            await entitlementManager?.refreshEntitlements(syncWithAppStore: false)
             if entitlementManager?.isPro == true {
                 alertMessage = L10n.Pro.restoreSucceeded
             } else {
@@ -202,28 +198,31 @@ final class StoreKitService: ObservableObject {
         isStoreOperationLocked = false
     }
 
-    private func finalizeVerifiedPurchase(
-        _ transaction: Transaction,
-        verification: VerificationResult<Transaction>
+    /// 单次购买完成：只处理 `product.purchase()` 返回的交易，不再调用 `AppStore.sync()`。
+    private func completePurchase(
+        from verification: VerificationResult<Transaction>,
+        sessionID: UUID
     ) async {
-        await handleVerifiedTransaction(verification, finish: true, syncEntitlements: true)
-        await waitForEntitlementConfirmation(productID: transaction.productID)
+        guard activePurchaseSessionID == sessionID else { return }
+
+        switch verification {
+        case .verified(let transaction):
+            entitlementManager?.applyVerifiedTransaction(transaction)
+            await finishTransactionIfNeeded(transaction)
+            purchaseState = .succeeded
+            purchasingProductID = nil
+        case .unverified(let transaction, let error):
+            await finishTransactionIfNeeded(transaction)
+            purchaseState = .failed(error.localizedDescription)
+            purchasingProductID = nil
+            alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
+        }
     }
 
-    /// 等待 Entitlement 同步完成，避免密码验证后因网络延迟导致 UI 误判失败。
-    private func waitForEntitlementConfirmation(productID: String) async {
-        for attempt in 0..<8 {
-            if entitlementManager?.isPro == true {
-                if let ids = entitlementManager?.activeProductIDs, ids.contains(productID) {
-                    return
-                }
-                return
-            }
-            await entitlementManager?.refreshEntitlements(syncWithAppStore: attempt >= 2)
-            if attempt < 7 {
-                try? await Task.sleep(nanoseconds: 350_000_000)
-            }
-        }
+    private func finishTransactionIfNeeded(_ transaction: Transaction) async {
+        guard !finishedTransactionIDs.contains(transaction.id) else { return }
+        finishedTransactionIDs.insert(transaction.id)
+        await transaction.finish()
     }
 
     private func product(for id: String) -> Product? {
@@ -241,32 +240,24 @@ final class StoreKitService: ObservableObject {
 
     private func listenForTransactionUpdates() async {
         for await update in Transaction.updates {
-            let shouldSync = !isStoreOperationLocked
-            await handleVerifiedTransaction(update, finish: true, syncEntitlements: shouldSync)
+            // 活跃购买会话中由 `product.purchase()` 结果统一收尾，避免重复 finish / 重复 sync 触发密码弹窗。
+            if activePurchaseSessionID != nil || isStoreOperationLocked {
+                continue
+            }
+            await handleBackgroundTransactionUpdate(update)
         }
     }
 
-    private func handleVerifiedTransaction(
-        _ verification: VerificationResult<Transaction>,
-        finish: Bool,
-        syncEntitlements: Bool = false
-    ) async {
+    /// 处理非当前购买会话的后台交易（如家庭批准、续订等）。
+    private func handleBackgroundTransactionUpdate(_ verification: VerificationResult<Transaction>) async {
         switch verification {
         case .verified(let transaction):
             entitlementManager?.applyVerifiedTransaction(transaction)
-            if finish, !finishedTransactionIDs.contains(transaction.id) {
-                finishedTransactionIDs.insert(transaction.id)
-                await transaction.finish()
-            }
-            await entitlementManager?.refreshEntitlements(syncWithAppStore: syncEntitlements)
+            await finishTransactionIfNeeded(transaction)
+            await entitlementManager?.refreshEntitlements(syncWithAppStore: false)
         case .unverified(let transaction, let error):
-            if finish, !finishedTransactionIDs.contains(transaction.id) {
-                finishedTransactionIDs.insert(transaction.id)
-                await transaction.finish()
-            }
-            if !isStoreOperationLocked {
-                alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
-            }
+            await finishTransactionIfNeeded(transaction)
+            alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
         }
     }
 }

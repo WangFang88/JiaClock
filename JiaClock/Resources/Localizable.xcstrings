@@ -667,11 +667,11 @@
     },
     "home.start_clock": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Start Clock" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "時計を開始" } },
-        "ko": { "stringUnit": { "state": "translated", "value": "시계 시작" } },
-        "zh-Hans": { "stringUnit": { "state": "translated", "value": "开始时钟" } },
-        "zh-Hant": { "stringUnit": { "state": "translated", "value": "開始時鐘" } }
+        "en": { "stringUnit": { "state": "translated", "value": "Desktop Clock" } },
+        "ja": { "stringUnit": { "state": "translated", "value": "デスクトップ時計" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "데스크톱 시계" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "桌面时钟" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "桌面時鐘" } }
       }
     },
     "home.start_clock_subtitle": {
