@@ -271,9 +271,6 @@ enum L10n {
         static var alertTitle: String { tr("pro.alert_title") }
         static var restoreSucceeded: String { tr("pro.restore_succeeded") }
         static var restoreNothingFound: String { tr("pro.restore_nothing_found") }
-        static func restoreFoundExpired(_ plan: String, _ expiration: String) -> String {
-            tr("pro.restore_found_expired", plan, expiration)
-        }
         static var purchasePending: String { tr("pro.purchase_pending") }
         static var purchaseUnknownError: String { tr("pro.purchase_unknown_error") }
         static var periodMonthly: String { tr("pro.period_monthly") }
@@ -333,9 +330,5 @@ enum L10n {
 
     private static func tr(_ key: String, _ arg: String) -> String {
         String(format: String(localized: String.LocalizationValue(key)), locale: Locale.current, arg)
-    }
-
-    private static func tr(_ key: String, _ arg1: String, _ arg2: String) -> String {
-        String(format: String(localized: String.LocalizationValue(key)), locale: Locale.current, arg1, arg2)
     }
 }

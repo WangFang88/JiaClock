@@ -5319,40 +5319,6 @@
         }
       }
     },
-    "pro.restore_found_expired": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Found your %1$@ subscription, which expired on %2$@. Subscribe again to continue using Pro."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ の購読記録が見つかりました（%2$@ に期限切れ）。Pro を続けるには再購読してください。"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ 구독 기록을 찾았습니다(%2$@ 만료). Pro를 계속 사용하려면 다시 구독해 주세요."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已找到您的 %1$@ 订阅记录，已于 %2$@ 到期。如需继续使用 Pro，请重新订阅。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已找到您的 %1$@ 訂閱記錄，已於 %2$@ 到期。如需繼續使用 Pro，請重新訂閱。"
-          }
-        }
-      }
-    },
     "pro.purchase_pending": {
       "localizations": {
         "en": {
