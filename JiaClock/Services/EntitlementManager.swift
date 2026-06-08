@@ -122,6 +122,81 @@ final class EntitlementManager: ObservableObject {
         UserDefaults.standard.set(isPro, forKey: CacheKey.isPro)
     }
 
+    enum RestoreResult: Equatable {
+        case active
+        case foundExpired(planTitle: String, expirationDate: Date)
+        case notFound
+    }
+
+    /// 恢复购买：先查 currentEntitlements，再通过 subscription.status 向 Apple 验证订阅状态。
+    func restorePurchases(using products: [Product]) async -> RestoreResult {
+        await refreshEntitlements(syncWithAppStore: false)
+        if isPro { return .active }
+
+        var latestExpired: (productID: String, expirationDate: Date)?
+
+        for product in products where ProProductID.subscriptionIDs.contains(product.id) {
+            guard let subscription = product.subscription,
+                  let statuses = try? await subscription.status else { continue }
+
+            for status in statuses {
+                guard case .verified(let transaction) = status.transaction else { continue }
+                guard ProProductID.all.contains(transaction.productID) else { continue }
+
+                switch status.state {
+                case .subscribed, .inGracePeriod, .inBillingRetryPeriod:
+                    applyRestoredTransaction(transaction)
+                    if isPro { return .active }
+                case .expired:
+                    if let expiration = transaction.expirationDate,
+                       latestExpired == nil || expiration > latestExpired!.expirationDate {
+                        latestExpired = (transaction.productID, expiration)
+                    }
+                default:
+                    continue
+                }
+            }
+        }
+
+        if isPro { return .active }
+
+        if let expired = latestExpired {
+            subscriptionExpirationDate = expired.expirationDate
+            activePlanTitle = planTitle(for: expired.productID)
+            return .foundExpired(
+                planTitle: planTitle(for: expired.productID),
+                expirationDate: expired.expirationDate
+            )
+        }
+
+        return .notFound
+    }
+
+    private func applyRestoredTransaction(_ transaction: Transaction) {
+        guard ProProductID.all.contains(transaction.productID) else { return }
+        guard transaction.revocationDate == nil else { return }
+        recordPurchaseConfirmation(for: transaction)
+
+        var latestSubscriptionExpiration: Date?
+        var latestSubscriptionProductID: String?
+
+        if ProProductID.subscriptionIDs.contains(transaction.productID),
+           let expiration = transaction.expirationDate {
+            latestSubscriptionExpiration = expiration
+            latestSubscriptionProductID = transaction.productID
+        }
+
+        var entitledIDs = activeProductIDs.union(activePendingPurchaseConfirmedIDs())
+        entitledIDs.insert(transaction.productID)
+
+        publishEntitlements(
+            entitledIDs: entitledIDs,
+            latestSubscriptionExpiration: latestSubscriptionExpiration,
+            latestSubscriptionProductID: latestSubscriptionProductID
+        )
+        UserDefaults.standard.set(isPro, forKey: CacheKey.isPro)
+    }
+
     private func isActiveProTransaction(_ transaction: Transaction) -> Bool {
         guard ProProductID.all.contains(transaction.productID) else { return false }
         guard transaction.revocationDate == nil else { return false }

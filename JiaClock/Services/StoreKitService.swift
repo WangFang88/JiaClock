@@ -70,6 +70,7 @@ final class StoreKitService: ObservableObject {
             await self?.listenForTransactionUpdates()
         }
         Task { await loadProducts() }
+        Task { await drainUnfinishedTransactions() }
         Task { await entitlementManager?.refreshEntitlements() }
     }
 
@@ -197,8 +198,10 @@ final class StoreKitService: ObservableObject {
         }
 
         do {
+            await drainUnfinishedTransactions()
+
             logStep("calling product.purchase()", productID: product.id, extra: "session=\(sessionID.uuidString.prefix(8))")
-            let result = try await withTimeout(seconds: Self.purchaseDialogTimeout) {
+            var result = try await withTimeout(seconds: Self.purchaseDialogTimeout) {
                 try await product.purchase()
             }
 
@@ -213,7 +216,22 @@ final class StoreKitService: ObservableObject {
             case .success(let verification):
                 purchaseState = .verifying
                 logStep("verifying transaction", productID: product.id)
-                await completePurchase(from: verification, sessionID: sessionID)
+                var didSucceed = await completePurchase(from: verification, sessionID: sessionID)
+                if !didSucceed {
+                    logStep("retrying product.purchase() after clearing stale transaction", productID: product.id)
+                    purchaseState = .purchasing
+                    result = try await withTimeout(seconds: Self.purchaseDialogTimeout) {
+                        try await product.purchase()
+                    }
+                    if case .success(let retryVerification) = result {
+                        purchaseState = .verifying
+                        didSucceed = await completePurchase(from: retryVerification, sessionID: sessionID)
+                    }
+                }
+                if !didSucceed, purchaseState == .verifying {
+                    purchaseState = .idle
+                    purchasingProductID = nil
+                }
             case .userCancelled:
                 logStep("user cancelled purchase dialog")
                 purchaseState = .cancelled
@@ -272,25 +290,35 @@ final class StoreKitService: ObservableObject {
             releaseStoreOperationLock()
         }
 
+        if products.isEmpty {
+            await loadProducts()
+        }
+
         do {
             logStep("calling AppStore.sync()")
             try await withTimeout(seconds: Self.purchaseDialogTimeout) {
                 try await AppStore.sync()
             }
-            await entitlementManager?.refreshEntitlements(syncWithAppStore: false)
-            if entitlementManager?.isPro == true {
-                logStep("restore succeeded — pro active")
-                alertMessage = L10n.Pro.restoreSucceeded
-            } else {
-                logStep("restore completed — no entitlements found")
-                alertMessage = L10n.Pro.restoreNothingFound
-            }
-        } catch is PurchaseFlowError {
-            logStep("restore timed out")
-            alertMessage = L10n.Pro.purchaseTimedOut
         } catch {
-            logStep("restore failed", extra: error.localizedDescription)
-            alertMessage = L10n.Pro.restoreFailed(error.localizedDescription)
+            logStep("AppStore.sync failed — continuing entitlement check", extra: error.localizedDescription)
+        }
+
+        guard let entitlementManager else {
+            alertMessage = L10n.Pro.restoreNothingFound
+            return
+        }
+
+        let result = await entitlementManager.restorePurchases(using: products)
+        switch result {
+        case .active:
+            logStep("restore succeeded — pro active")
+            alertMessage = L10n.Pro.restoreSucceeded
+        case .foundExpired(let planTitle, let expirationDate):
+            logStep("restore found expired subscription", extra: "plan=\(planTitle) expiration=\(expirationDate)")
+            alertMessage = L10n.Pro.restoreFoundExpired(planTitle, restoreExpirationText(expirationDate))
+        case .notFound:
+            logStep("restore completed — no entitlements found")
+            alertMessage = L10n.Pro.restoreNothingFound
         }
     }
 
@@ -379,23 +407,29 @@ final class StoreKitService: ObservableObject {
 
     // MARK: - Purchase completion
 
+    @discardableResult
     private func completePurchase(
         from verification: VerificationResult<Transaction>,
         sessionID: UUID
-    ) async {
+    ) async -> Bool {
         guard activePurchaseSessionID == sessionID else {
             logStep("completePurchase ignored — session superseded")
-            return
+            return false
         }
 
         switch verification {
         case .verified(let transaction):
             logStep("transaction verified", productID: transaction.productID, extra: "id=\(transaction.id)")
-            entitlementManager?.applyVerifiedTransaction(transaction)
             await finishTransactionIfNeeded(transaction)
+            guard isActiveProTransaction(transaction) else {
+                logStep("inactive stale transaction finished — not completing purchase", productID: transaction.productID)
+                return false
+            }
+            entitlementManager?.applyVerifiedTransaction(transaction)
             purchaseState = .succeeded
             purchasingProductID = nil
             logStep("purchase succeeded")
+            return true
         case .unverified(let transaction, let error):
             logStep("transaction unverified", productID: transaction.productID, extra: error.localizedDescription)
             await finishTransactionIfNeeded(transaction)
@@ -403,7 +437,32 @@ final class StoreKitService: ObservableObject {
             purchasingProductID = nil
             alertMessage = L10n.Pro.transactionUnverified(error.localizedDescription)
             scheduleReturnToIdle()
+            return false
         }
+    }
+
+    private func drainUnfinishedTransactions() async {
+        for await result in Transaction.unfinished {
+            switch result {
+            case .verified(let transaction):
+                logStep("draining unfinished transaction", productID: transaction.productID, extra: "id=\(transaction.id)")
+                await finishTransactionIfNeeded(transaction)
+            case .unverified(let transaction, let error):
+                logStep("draining unverified unfinished transaction", productID: transaction.productID, extra: error.localizedDescription)
+                await finishTransactionIfNeeded(transaction)
+            }
+        }
+    }
+
+    private func isActiveProTransaction(_ transaction: Transaction) -> Bool {
+        guard ProProductID.all.contains(transaction.productID) else { return false }
+        guard transaction.revocationDate == nil else { return false }
+        if let expiration = transaction.expirationDate, expiration <= Date() { return false }
+        return true
+    }
+
+    private func restoreExpirationText(_ date: Date) -> String {
+        date.formatted(date: .abbreviated, time: .shortened)
     }
 
     private func finishTransactionIfNeeded(_ transaction: Transaction) async {
