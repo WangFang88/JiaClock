@@ -35,6 +35,7 @@ struct PaywallView: View {
                     Button(L10n.Common.close) { dismiss() }
                 }
             }
+            .onAppear { storeKit.recoverFromStalePurchaseStateIfNeeded() }
             .task { await storeKit.loadProducts() }
             .alert(L10n.Pro.alertTitle, isPresented: alertBinding) {
                 Button(L10n.Common.done, role: .cancel) {}
@@ -157,7 +158,7 @@ struct PaywallView: View {
             }
 
             Button {
-                Task { await storeKit.restorePurchases() }
+                storeKit.requestRestorePurchases()
             } label: {
                 HStack(spacing: 8) {
                     if storeKit.isRestoring { ProgressView().controlSize(.small) }
@@ -169,7 +170,7 @@ struct PaywallView: View {
             }
             .buttonStyle(.plain)
             .foregroundStyle(.white.opacity(0.88))
-            .disabled(storeKit.isRestoring || storeKit.isStoreBusy)
+            .disabled(storeKit.isRestoring)
 
             Text(L10n.Pro.subscriptionDisclosure)
                 .font(.caption2)
@@ -199,8 +200,7 @@ struct PaywallView: View {
     @ViewBuilder
     private func productCard(product: Product, style: ProductCardStyle) -> some View {
         Button {
-            guard !storeKit.isStoreBusy else { return }
-            Task { await storeKit.purchase(product) }
+            storeKit.requestPurchase(product)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
@@ -258,7 +258,7 @@ struct PaywallView: View {
             .foregroundStyle(Color(red: 0.12, green: 0.12, blue: 0.16))
         }
         .buttonStyle(.plain)
-        .disabled(storeKit.isStoreBusy || entitlements.isPro)
+        .disabled(entitlements.isPro)
         .opacity(entitlements.isPro ? 0.55 : 1)
     }
 

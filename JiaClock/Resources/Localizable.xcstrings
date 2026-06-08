@@ -5072,6 +5072,15 @@
         "zh-Hant": { "stringUnit": { "state": "translated", "value": "正在處理訂閱，請稍候。" } }
       }
     },
+    "pro.purchase_timed_out": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "The purchase timed out. Please try again." } },
+        "ja": { "stringUnit": { "state": "translated", "value": "購入がタイムアウトしました。もう一度お試しください。" } },
+        "ko": { "stringUnit": { "state": "translated", "value": "구매 시간이 초과되었습니다. 다시 시도해 주세요." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "订阅操作超时，请重试。" } },
+        "zh-Hant": { "stringUnit": { "state": "translated", "value": "訂閱操作逾時，請重試。" } }
+      }
+    },
     "pro.products_unavailable": {
       "localizations": {
         "en": {

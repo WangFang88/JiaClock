@@ -263,6 +263,7 @@ enum L10n {
         static var loadingProducts: String { tr("pro.loading_products") }
         static var processing: String { tr("pro.processing") }
         static var operationInProgress: String { tr("pro.operation_in_progress") }
+        static var purchaseTimedOut: String { tr("pro.purchase_timed_out") }
         static var productsUnavailable: String { tr("pro.products_unavailable") }
         static var unlockButton: String { tr("pro.unlock_button") }
         static var gateMessage: String { tr("pro.gate_message") }

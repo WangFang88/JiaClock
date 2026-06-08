@@ -60,7 +60,7 @@ struct SettingsView: View {
                             }
                         }
                         Button {
-                            Task { await storeKit.restorePurchases() }
+                            storeKit.requestRestorePurchases()
                         } label: {
                             HStack {
                                 Text(L10n.Pro.restorePurchases)
